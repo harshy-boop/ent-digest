@@ -13,3 +13,8 @@ _env = Environment(
 def render_digest(digest: dict) -> str:
     template = _env.get_template("digest.html.j2")
     return template.render(**digest)
+
+
+def render_reading_list(data: dict) -> str:
+    template = _env.get_template("reading-list.html.j2")
+    return template.render(**data)

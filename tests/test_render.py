@@ -107,3 +107,23 @@ def test_render_omits_policy_section_when_empty():
     digest["policy_updates"] = []
     html = render_digest(digest)
     assert "No new policy updates this week" in html
+
+
+from scripts.render import render_reading_list
+
+
+def test_reading_list_renders_unread_and_read_sections():
+    data = {
+        "unread": [
+            {"pmid": "1", "title": "Paper A", "journal": "JAMA", "score": 5, "added": "2026-05-15"},
+        ],
+        "read": [
+            {"pmid": "2", "title": "Paper B", "journal": "NEJM", "score": 4, "added": "2026-05-10", "read": "2026-05-13"},
+        ],
+        "updated": "Friday, May 15, 2026",
+    }
+    html = render_reading_list(data)
+    assert "Paper A" in html
+    assert "Paper B" in html
+    assert "PMID 1" in html
+    assert "read 2026-05-13" in html
