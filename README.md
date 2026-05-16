@@ -26,3 +26,26 @@ source .venv/bin/activate
 pip install -r requirements.txt
 pytest
 ```
+
+## Operations
+
+### Daily flow
+- 06:00 ET: routine runs automatically.
+- Output appears at `https://claude.ai/code/routines/<routine-id>` and at
+  `https://harshy-boop.github.io/ent-digest/`.
+- Copy PMIDs into the **ENT Reading List** Claude project to bookmark.
+
+### On failure
+- You'll get a push notification ("ENT Digest Failed — open Claude Code").
+- Open `failures/<date>.md` in the repo for the troubleshooting prompt.
+- Paste that prompt into a fresh Claude Code session — it's self-contained.
+
+### To pause the routine
+- Open `https://claude.ai/code/routines/<routine-id>`, toggle Enabled off.
+
+### To change behavior
+- Bucket queries: `scripts/buckets.py` → commit + push (live next run).
+- Scoring rubric: `scripts/rubric.md` → also update the inlined copy in
+  `routine-prompt.md`, commit + push.
+- Visual design: `templates/digest.html.j2` → commit + push.
+- Schedule: re-invoke `/schedule` → "update" → adjust cron.
