@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+<eSearchResult><Count>4</Count><RetMax>3</RetMax><RetStart>0</RetStart><IdList>
+<Id>42138490</Id>
+<Id>42119133</Id>
+<Id>42117409</Id>
+</IdList><TranslationSet><Translation>     <From>cholesteatoma</From>     <To>"cholesteatoma"[MeSH Terms] OR "cholesteatoma"[All Fields] OR "cholesteatomas"[All Fields]</To>    </Translation></TranslationSet><QueryTranslation>("cholesteatoma"[MeSH Terms] OR "cholesteatoma"[All Fields] OR "cholesteatomas"[All Fields]) AND 2026/05/09:2026/05/16[Date - Entry]</QueryTranslation></eSearchResult>
