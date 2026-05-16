@@ -43,6 +43,7 @@ def _sample_digest():
             "summary": "summary text.",
         }],
         "digest_json": '{"sample": true}',
+        "policy_updates": [],
     }
 
 
@@ -72,3 +73,37 @@ def test_render_handles_empty_must_read():
     html = render_digest(digest)
     assert "Test RCT" not in html
     assert "Friday, May 15, 2026" in html  # rest of the page still renders
+
+
+def test_render_includes_policy_section_when_items_present():
+    digest = _sample_digest()
+    digest["policy_updates"] = [
+        {
+            "source": "CMS",
+            "tier": "CRITICAL",
+            "title": "CMS finalizes coverage update for hypoglossal nerve stimulation",
+            "summary": "Final NCD expands HGNS coverage to patients with AHI 15-65 (previously 15-50). Effective Q3 2026.",
+            "url": "https://www.cms.gov/newsroom/press-releases/example",
+            "date": "2026-05-14",
+        },
+        {
+            "source": "AAO-HNS",
+            "tier": "NOTABLE",
+            "title": "Updated clinical practice guideline on benign paroxysmal positional vertigo",
+            "summary": "Society releases revised BPPV guideline; key change: simplified Dix-Hallpike interpretation criteria.",
+            "url": "https://www.entnet.org/news/example",
+            "date": "2026-05-12",
+        },
+    ]
+    html = render_digest(digest)
+    assert "Policy &amp; Practice Updates" in html or "Policy &#38; Practice Updates" in html
+    assert "CMS finalizes coverage update" in html
+    assert "CRITICAL" in html
+    assert "NOTABLE" in html
+
+
+def test_render_omits_policy_section_when_empty():
+    digest = _sample_digest()
+    digest["policy_updates"] = []
+    html = render_digest(digest)
+    assert "No new policy updates this week" in html
