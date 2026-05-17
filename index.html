@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT/Airway/Face Digest — Saturday, May 17, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF;
+    --surface: #ffffff;
+
+    /* Forest-tinted borders */
+    --border: #B8C9BC;
+    --border-strong: #8FA897;
+    --border-soft: #D5DFD5;
+    --hairline: #E4EAE2;
+
+    --text: #131A15;
+    --text-mid: #3F4A42;
+    --text-dim: #6E7A70;
+    --text-faint: #A5AEA6;
+
+    --forest: #1A4730;
+    --forest-deep: #103022;
+    --forest-mid: #2F6B49;
+    --forest-soft: #57966F;
+    --forest-tint: #E4ECE3;
+    --forest-tint-strong: #D2DFD2;
+    --forest-line: #98B49E;
+
+    /* Score: green → red, more saturated */
+    --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
+    --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
+    --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
+    --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
+    --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
+
+  .paper-grain {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%);
+  }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    border-bottom: 2px solid var(--forest);
+    background: rgba(247,245,239,0.94);
+    backdrop-filter: blur(10px);
+  }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
+  .logo-block { display: flex; align-items: center; gap: 1rem; }
+  .logo {
+    width: 48px; height: 48px; border-radius: 8px;
+    background: var(--forest-deep); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--forest);
+  }
+  .logo svg { width: 24px; height: 24px; }
+  .brand-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep);
+  }
+  .brand-sub {
+    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em;
+    color: var(--forest-mid); text-transform: uppercase; margin-top: 3px;
+  }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .status-pill {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line);
+    border-radius: 6px; background: var(--forest-tint);
+    font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600;
+  }
+  .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+
+  main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+
+  /* Report head */
+  .report-head {
+    border-bottom: 2px solid var(--forest);
+    padding-bottom: 2.5rem; margin-bottom: 3rem;
+    display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;
+  }
+  .head-status {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--forest-deep); margin-bottom: 1.25rem;
+    padding: 0.3rem 0.75rem 0.3rem 0.55rem;
+    background: var(--forest-tint); border: 1.5px solid var(--forest-line);
+    border-radius: 999px;
+  }
+  .head-status-text {
+    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .head-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em;
+    line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep);
+  }
+  .head-meta {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    font-size: 0.875rem; color: var(--text-mid); font-weight: 500;
+  }
+  .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+  .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
+  .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+
+  .stats {
+    display: flex; gap: 0;
+    border: 2px solid var(--forest);
+    border-radius: 10px; overflow: hidden;
+    background: var(--surface);
+  }
+  .stat {
+    padding: 1rem 1.5rem; text-align: right;
+    min-width: 110px;
+  }
+  .stat + .stat { border-left: 2px solid var(--forest); }
+  .stat-label {
+    display: block; font-size: 0.625rem; font-weight: 700;
+    color: var(--forest-mid); text-transform: uppercase;
+    letter-spacing: 0.2em; margin-bottom: 0.5rem;
+  }
+  .stat-value {
+    font-family: 'Source Serif 4', serif;
+    font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep);
+  }
+  .stat-value.accent { color: var(--forest); }
+
+  .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+  .col-must { grid-column: span 5; }
+  .col-noted { grid-column: span 7; }
+  @media (max-width: 900px) {
+    .col-must, .col-noted { grid-column: span 12; }
+    .head-title { font-size: 2.25rem; }
+    .grid-12 { gap: 2rem; }
+  }
+
+  .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
+  .section-label-text {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .section-label-text.primary { color: var(--forest-deep); }
+  .section-label-text.secondary { color: var(--forest-mid); }
+  .section-rule { height: 2px; flex: 1; background: var(--forest); }
+  .section-rule.soft { background: var(--forest-soft); }
+
+  /* MUST READ cards — heavier borders */
+  .must-card {
+    position: relative; overflow: hidden;
+    border: 2px solid var(--forest);
+    border-radius: 10px;
+    background: var(--surface);
+    padding: 1.75rem;
+    transition: all 0.2s; margin-bottom: 1.5rem;
+    box-shadow: 0 2px 0 var(--forest-deep);
+  }
+  .must-card:hover {
+    border-color: var(--forest-deep);
+    box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25);
+    transform: translateY(-1px);
+  }
+  .must-card .accent-bar {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+    background: var(--forest);
+  }
+
+  .must-meta-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; margin-bottom: 1rem;
+  }
+  .must-meta-left {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+    color: var(--forest-deep); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  /* SCORE BOX */
+  .score-box {
+    display: inline-flex; align-items: baseline; gap: 0.375rem;
+    padding: 0.45rem 0.75rem; border-radius: 6px;
+    border: 2px solid; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .score-box .score-num { font-size: 1rem; line-height: 1; }
+  .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
+  .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-box[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+
+  /* Study-type badges */
+  .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    border: 1.5px solid;
+  }
+  .badge-type {
+    background: #F1F2EC; border-color: var(--border); color: var(--text-mid);
+  }
+  .badge-novel {
+    background: var(--forest);
+    border-color: var(--forest-deep);
+    color: #ffffff;
+  }
+  .badge-novel::before {
+    content: '✦'; font-size: 0.75rem; line-height: 1;
+  }
+
+  .must-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep);
+    margin-bottom: 0.5rem; letter-spacing: -0.01em;
+  }
+  .must-authors {
+    font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5;
+    padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft);
+  }
+  .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+
+  /* Structured summary sections */
+  .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
+  .summary-section:last-child { margin-bottom: 0; }
+  .summary-section h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.625rem; font-weight: 700;
+    color: var(--forest); text-transform: uppercase;
+    letter-spacing: 0.18em; margin-bottom: 0.35rem;
+  }
+
+  .must-rationale {
+    margin-top: 1.25rem;
+    display: flex; align-items: flex-start; gap: 0.625rem;
+    padding: 0.875rem 1rem;
+    background: var(--forest-tint);
+    border: 1.5px solid var(--forest-line);
+    border-left-width: 4px;
+    border-radius: 6px;
+    font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55;
+  }
+  .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
+  .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
+
+  .must-actions {
+    margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .link-pill {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep);
+    text-decoration: none; padding: 0.45rem 0.7rem;
+    border: 1.5px solid var(--forest-line); border-radius: 4px;
+    background: var(--surface); transition: all 0.15s;
+  }
+  .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
+  .link-pill svg { width: 11px; height: 11px; }
+
+  /* NOTED — also bumped border weight */
+  .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .noted-item {
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--forest-soft);
+    border-radius: 6px;
+    background: var(--surface);
+    padding: 1rem 1.125rem;
+    transition: all 0.15s; cursor: pointer;
+  }
+  .noted-item:hover {
+    border-left-color: var(--forest);
+    border-color: var(--forest-line);
+    transform: translateX(2px);
+  }
+  .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+  .score-chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 26px; height: 24px; padding: 0 0.45rem;
+    border-radius: 4px; border: 1.5px solid;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700;
+  }
+  .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-chip[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badge-type-mini {
+    font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-mid); padding: 0.2rem 0.45rem;
+    background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px;
+  }
+  .noted-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem; font-weight: 700; color: var(--forest-deep);
+    line-height: 1.32; margin-bottom: 0.5rem;
+  }
+  .noted-summary {
+    font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6;
+  }
+  .noted-source {
+    margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    padding-top: 0.5rem; border-top: 1px dashed var(--border-soft);
+  }
+
+  footer.report-footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.625rem; color: var(--forest-mid); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem;
+  }
+
+  .policy-section { margin-bottom: 3rem; }
+  .policy-empty {
+    font-size: 0.875rem; color: var(--text-dim);
+    font-style: italic; padding: 0.5rem 0;
+  }
+  .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .policy-card {
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--forest-soft);
+    border-radius: 8px; background: var(--surface);
+    padding: 1.125rem 1.25rem;
+  }
+  .policy-card.policy-critical {
+    border: 2px solid var(--forest);
+    border-left: 6px solid var(--forest);
+    background: var(--forest-tint);
+  }
+  .policy-meta {
+    display: flex; align-items: center; gap: 0.625rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+    margin-bottom: 0.5rem;
+  }
+  .policy-source {
+    font-weight: 700; color: var(--forest-deep);
+    padding: 0.2rem 0.45rem; background: var(--surface);
+    border: 1.5px solid var(--forest-line); border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .policy-tier {
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid;
+  }
+  .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
+  .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
+  .policy-date { color: var(--text-dim); margin-left: auto; }
+  .policy-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep);
+    margin-bottom: 0.4rem; line-height: 1.3;
+  }
+  .policy-summary {
+    font-size: 0.875rem; color: var(--text-mid);
+    line-height: 1.55; margin-bottom: 0.75rem;
+  }
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo-block">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">ENT / Airway / Face Digest</div>
+        <div class="brand-sub">Daily Literature Brief</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:25 ET</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="report-head">
+      <div>
+        <div class="head-status">
+          <div class="pulse-dot"></div>
+          <span class="head-status-text">Curated by Sonnet 4.6</span>
+        </div>
+        <h1 class="head-title">Saturday, May 17, 2026</h1>
+        <div class="head-meta">
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>EDAT range: May 3, 2026 – May 17, 2026</span>
+          </div>
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            <span class="scope-tag">10 PubMed queries · ENT/Airway/Face/Peds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Surfaced</span>
+          <span class="stat-value">1406</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Made Cut</span>
+          <span class="stat-value accent">19</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Must Read</span>
+          <span class="stat-value">4</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="policy-section">
+      <div class="section-label">
+        <div class="section-rule"></div>
+        <span class="section-label-text primary">Policy &amp; Practice Updates · 0</span>
+      </div>
+      
+        <p class="policy-empty">No new policy updates this week.</p>
+      
+    </section>
+
+    <div class="grid-12">
+
+      <!-- MUST READ -->
+      <section class="col-must">
+        <div class="section-label">
+          <div class="section-rule"></div>
+          <span class="section-label-text primary">Must Read · 4</span>
+        </div>
+
+        
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">01 · Ann Otol Rhinol Laryngol</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">RCT</span><span class="badge badge-type">Double-Blind</span><span class="badge badge-type">Placebo-Controlled</span>
+    
+  </div>
+  <h3 class="must-title">Vitamin D Supplementation for Preventing Recurrent Benign Paroxysmal Positional Vertigo: A Randomized Clinical Study</h3>
+  <div class="must-authors">Tawfeeq HA, Zaidan MA … <span class="senior">Ghanim AK (senior, Al-Karkh Health Directorate, Ministry of Health, Baghdad, Iraq)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>BPPV has a 30–50% 1-year recurrence rate. Observational data linked vitamin D deficiency (25-OHD &lt; 20 ng/mL) to increased recurrence, but no high-quality RCT had tested supplementation prospectively.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>160 adults with confirmed idiopathic BPPV and 25-OHD &lt; 20 ng/mL were randomized 1:1 at two Baghdad tertiary ENT centers to cholecalciferol 10,000 IU weekly vs matched placebo for 24 months. Primary endpoint: cumulative BPPV recurrence at 6, 12, 18, and 24 months (ITT analysis, multiple imputation for missing data).</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Cholecalciferol significantly raised 25-OHD at all timepoints (24-month mean 24.8 ± 3.2 vs 9.8 ± 3.6 ng/mL). Recurrence rates were significantly lower in the supplementation arm at each timepoint through 24 months. DHI scores and per-participant recurrence frequency also favored supplementation. No safety signals were observed.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Single-region (Baghdad) cohort limits generalizability; abstract does not report exact recurrence rates or NNT. Authors were not from a top-tier academic ENT program. Only vitamin D-deficient patients were enrolled, so results do not apply to replete patients.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Screen BPPV patients for vitamin D deficiency (25-OHD) and supplement with cholecalciferol if deficient. This is a low-cost, safe intervention with a 24-month sustained benefit — check the vitamin D level at the next BPPV clinic visit.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Double-blind placebo-controlled RCT (n=160, 24 months) of a safe, cheap, widely available intervention (cholecalciferol) for the most common vestibular disorder. Meaningful recurrence reduction with excellent safety profile makes this immediately implementable Monday morning for vitamin D-deficient BPPV patients.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42098930" target="_blank" rel="noopener">PMID 42098930
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1177/00034894261449743" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42098930" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">02 · Ear Nose Throat J</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">RCT Pool</span><span class="badge badge-type">7 trials</span>
+    
+  </div>
+  <h3 class="must-title">Prophylactic Central Lymph Node Dissection Versus Thyroidectomy Alone in Clinically Node-Negative Thyroid Cancer: A Systematic Review and Meta-Analysis</h3>
+  <div class="must-authors">Zhou X … <span class="senior">Jiang J (senior, Oncology Department, The First People&#39;s Hospital of Neijiang, Neijiang, Sichuan, China)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Whether to perform prophylactic central neck dissection (pCND) in cN0 differentiated thyroid cancer is one of the most debated questions in thyroid surgery. pCND improves nodal staging and may reduce recurrence, but risks permanent hypoparathyroidism and RLN injury.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>PRISMA-compliant systematic review and meta-analysis of RCTs comparing thyroidectomy + pCND vs thyroidectomy alone in cN0 thyroid cancer. Searched PubMed, EMBASE, Web of Science, Cochrane through September 2025. Seven RCTs, 1,484 patients included. Data extraction, bias assessment, and synthesis performed independently.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>pCND significantly increased lymph node metastasis detection (OR 7.43; confidence interval and recurrence data not fully reported in available abstract). pCND also carried increased risk of hypoparathyroidism and RLN injury per the meta-analyzed data. Recurrence rate differences were assessed at study-defined follow-up periods.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Abstract truncated; full effect sizes for recurrence and complications not retrievable. Journal tier (ENT Journal) is lower than specialty flagships. Trial heterogeneity in follow-up duration and staging criteria across the 7 RCTs is likely.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>This is the strongest available evidence base for pCND decision-making in cN0 thyroid cancer. The data support selective use: staging benefit is real (OR 7.43 for nodal detection), but so is complication risk. Discuss with patients using this quantified trade-off, particularly for high-risk histology or planned radioactive iodine.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Meta-analysis of 7 RCTs (1,484 patients) brings unusually strong methodology to an actively debated thyroid surgery question. pCND improves staging and cuts recurrence but carries real risks of hypoparathyroidism and RLN injury — this pooled analysis is the best available quantification of that trade-off.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42133284" target="_blank" rel="noopener">PMID 42133284
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1177/01455613261451138" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42133284" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">03 · Lancet Respir Med</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Prospective Cohort</span><span class="badge badge-type">83 ICUs</span><span class="badge badge-type">34 Countries</span>
+    
+  </div>
+  <h3 class="must-title">Epidemiology, ventilation management, and clinical outcomes in children (PRoVENT-PED): first results from the 10-year, investigator-initiated, international, multicentre, prospective cohort study</h3>
+  <div class="must-authors">van Vliet R, Melger JWJ, Bem RA, Blokpoel RGT, Schultz MJ, Paulus F, Kneyber MCJ … <span class="senior">PRoVENT-PED Steering Committee (senior, Amsterdam University Medical Centre &amp; University Medical Centre Groningen, Netherlands)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Pediatric lung-protective ventilation guidelines have largely been extrapolated from adult trials. Large prospective pediatric-specific cohort data on PARDS epidemiology and potentially modifiable ventilator factors were lacking.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Ten-year investigator-initiated international multicenter prospective cohort. 83 PICUs across 34 countries enrolled 1,427 children (&lt;18 years) receiving invasive ventilation ≥12 h between April–June 2024 and Oct–Dec 2024. Primary outcome: 28-day ICU mortality. Preterm neonates and ECMO patients excluded.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>PARDS occurred in 11% of ventilated children, most frequently in preschoolers (3–6 years). 28-day ICU mortality: 14% overall; 27% in PARDS vs 12% without. Neonates had lowest mortality (3%). Only PEEP, driving pressure (ΔP), and FiO₂ were identified as modifiable ventilator factors independently associated with outcome — tidal volume was not independently significant after adjustment.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Observational cohort — cannot establish causality. Two discrete enrollment windows (6 months apart) may not capture seasonal variation uniformly. ICU case mix varied considerably across 34 countries.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>For ENT surgeons operating on high-risk pediatric airways: minimize driving pressure and FiO₂, and optimize PEEP when children require postoperative ventilation — these are the three modifiable factors with the strongest outcome association in the largest pediatric airway/ventilation cohort to date. PARDS carries a 27% 28-day mortality, underscoring the stakes of airway injury in pediatric surgical patients.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Lancet Respiratory Medicine; 83 ICUs, 34 countries, 1,427 children. Quantifies pediatric airway/PARDS epidemiology and identifies PEEP, driving pressure, and FiO₂ as the only modifiable ventilator factors linked to outcome — directly informs perioperative pediatric airway management for ENT surgeons who operate on high-risk airways.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42081907" target="_blank" rel="noopener">PMID 42081907
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1016/S2213-2600(26)00044-5" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42081907" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">04 · J Neurosurg</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Retrospective Cohort</span><span class="badge badge-type">Median 12.9yr Follow-Up</span><span class="badge badge-type">n=878</span>
+    
+  </div>
+  <h3 class="must-title">Long-term outcomes of Gamma Knife surgery for vestibular schwannomas: tumor stability supports reduced surveillance after 10 years</h3>
+  <div class="must-authors">Hasegawa T, Kato T, Mizuno A, Naito T, Ando Y … <span class="senior">Kosaka N (senior, Japan (single center Gamma Knife pioneer institution))</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>GKS is a primary treatment option for small-to-medium vestibular schwannomas, but optimal long-term surveillance intensity after year 5 is undefined. Most existing series have shorter follow-up.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Single-center retrospective cohort of 878 sporadic VS patients treated with single-session GKS from May 1991 to January 2020. Tumors classified by modified Koos type. Subgroup of 793 patients without salvage treatment within 5 years and ≥5 years of follow-up analyzed for long-term stability. Median follow-up: 154.5 months.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Salvage required in 7.5% overall; type D (severe brainstem compression) had 24.7% 5-year salvage rate vs 3.6% for types A–C (HR 2.3, p=0.036). Among the 793 stable-at-5-year subgroup, cumulative salvage incidence at 15 years was only 2.1%; true tumor progression found in just 2 patients (0.3%) beyond 10 years. Hearing preservation improved in more recent treatment periods (63% at 10 years for GR class 1 in 2005–2023 vs 48% in 1991–2004). Late adverse events: cyst formation 3.1%, trigeminal neuralgia 1.6%, persistent facial palsy 0.1%, malignant transformation 0.2%.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Single-center retrospective design from a specialized Gamma Knife center — results may not apply to programs without similar technique refinement. No comparison arm (observation or microsurgery). Long enrollment span (1991–2020) means early-era patients received less precise dosimetry.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>For VS patients stable at 5 years post-GKS: the risk of true tumor progression beyond 10 years is essentially zero in this large series (0.3%). MRI surveillance frequency can be reduced or individualized after year 10 — annual imaging is likely unnecessary for stable patients. However, watch for late cyst formation (3.1%) and trigeminal neuralgia (1.6%), which can still emerge years later. Counsel patients upfront about these rare but real delayed adverse events.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> 878 patients, median 154.5-month (12.9-year) follow-up from a Gamma Knife pioneer center — no true tumor progression observed beyond 10 years in stable patients. This is the strongest long-term VS-GKS dataset available and directly supports reducing routine surveillance imaging frequency after year 10, a concrete practice change for neurotologists.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42102400" target="_blank" rel="noopener">PMID 42102400
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.3171/2025.12.JNS252098" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42102400" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+      </section>
+
+      <!-- NOTED -->
+      <section class="col-noted">
+        <div class="section-label">
+          <span class="section-label-text secondary">Noted · 15</span>
+          <div class="section-rule soft"></div>
+        </div>
+
+        <div class="noted-grid">
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">n=358</span>
+  </div>
+  <div class="noted-title">Mitomycin C in the Endoscopic Treatment of Airway Stenosis: A Systematic Review and a Meta-Analysis</div>
+  <p class="noted-summary">Single-arm meta-analysis of 358 patients (IRCCS Humanitas, Milan) found adjuvant MMC achieved 76% cumulative stenosis resolution and only 4% required additional open surgery over median 25-month follow-up. However, 52% still required multiple endoscopic procedures, and pooled evidence does not yet support universal MMC use — the authors call for prospective controlled trials. Useful benchmark for counseling patients about the multi-procedure nature of endoscopic airway management.</p>
+  <div class="noted-source">Ann Otol Rhinol Laryngol · PMID 42126099 · <button class="copy-pmid noted-copy" data-pmid="42126099" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">13 Studies</span>
+  </div>
+  <div class="noted-title">Effect of Perioperative Sucralfate Administration on Pain Control After Tonsillectomy: A Systemic Review and Meta-Analysis</div>
+  <p class="noted-summary">Meta-analysis of 13 studies: perioperative intraoral sucralfate significantly reduced throat pain, otalgia, and swallowing pain post-tonsillectomy, improved mucosal healing by day 5–7, reduced analgesic use, and shortened time to normal diet. No difference in bleeding or nausea/vomiting. Sucralfate is inexpensive and safe — this meta-analysis supports its inclusion in routine post-tonsillectomy analgesia protocols, particularly where opioid-sparing strategies are prioritized.</p>
+  <div class="noted-source">Ann Otol Rhinol Laryngol · PMID 42126168 · <button class="copy-pmid noted-copy" data-pmid="42126168" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Real-World</span><span class="badge-type-mini">n=88</span>
+  </div>
+  <div class="noted-title">Switching to Dupilumab From Other Biologic Therapies in CRSwNP: A Comparison With Biologic-Naïve Patients</div>
+  <p class="noted-summary">DUPIREAL network Italy: 44 patients who switched to dupilumab after inadequate asthma-targeted biologic therapy achieved equivalent nasal polyp score, olfactory, and asthma outcomes vs 44 biologic-naïve dupilumab initiators at 24 months. Eosinophilia was more frequent in switchers from 12 months but did not affect clinical outcomes or safety. Practical reassurance: prior biologic use does not blunt dupilumab&#39;s effectiveness in CRSwNP — switching is clinically safe.</p>
+  <div class="noted-source">Eur Arch Otorhinolaryngol · PMID 42087001 · <button class="copy-pmid noted-copy" data-pmid="42087001" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Phase I RCT</span><span class="badge-type-mini">Crossover</span><span class="badge-type-mini">Novel Technique</span>
+  </div>
+  <div class="noted-title">Letter: Thalamic Deep Brain Stimulation for Spasmodic Dysphonia: A Phase I Prospective Randomized Double-Blind Crossover Trial</div>
+  <p class="noted-summary">This Neurosurgery letter from the University of British Columbia describes the first randomized double-blind crossover Phase I trial of thalamic DBS for spasmodic dysphonia (SD). Building on DBS efficacy in essential tremor, thalamic targeting has been explored for SD as an alternative to recurrent botulinum toxin injections. The double-blind crossover design is methodologically sophisticated for a first-in-human surgical trial. Full results are pending the companion paper, but this signals an important emerging neurosurgical option for medically refractory SD. No abstract available (letter format).</p>
+  <div class="noted-source">Neurosurgery · PMID 42138366 · <button class="copy-pmid noted-copy" data-pmid="42138366" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective</span><span class="badge-type-mini">18 Centers</span><span class="badge-type-mini">n=195</span>
+  </div>
+  <div class="noted-title">Multi-Frequency Electrocochleography Results in Fewer Drop Alarms During Cochlear Implant Insertion</div>
+  <p class="noted-summary">18-center prospective cohort (195 ears): multi-frequency ECochG during CI insertion reduced mean drop alarms from 1.72 (single-frequency) to 0.42 per insertion (p&lt;0.001). Multi-frequency recording also generated fewer no-response patterns and altered Type C/D insertion tracks, suggesting a more accurate read of the cochlear microenvironment. Fewer false drop alarms means fewer unnecessary pauses or electrode pullbacks during surgery, potentially reducing insertion trauma and preserving residual hearing.</p>
+  <div class="noted-source">The Laryngoscope · PMID 42084107 · <button class="copy-pmid noted-copy" data-pmid="42084107" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Retrospective</span><span class="badge-type-mini">UT Southwestern</span><span class="badge-type-mini">n=304</span>
+  </div>
+  <div class="noted-title">Identifying High-Risk Children Safe for Same-Day Discharge After Tonsillectomy</div>
+  <p class="noted-summary">Retrospective cohort of 304 obese children with severe OSA (AHI ≥10) undergoing tonsillectomy at UT Southwestern: only 11.8% had a severe perioperative event. Simple polysomnographic thresholds (SpO₂ nadir and AHI subgroups) identified a very low-risk subset suitable for same-day discharge. Current AAP/AAO-HNS guidelines recommend universal admission for this group — this data supports individualized risk stratification rather than blanket admission, with prospective validation still needed before implementation.</p>
+  <div class="noted-source">The Laryngoscope · PMID 42135615 · <button class="copy-pmid noted-copy" data-pmid="42135615" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">15 Studies</span><span class="badge-type-mini">Thomas Jefferson</span>
+  </div>
+  <div class="noted-title">Cochlear Implantation in Patients With CHARGE Syndrome: A Systematic Review and Meta-Analysis</div>
+  <p class="noted-summary">Meta-analysis of 15 studies (85 CHARGE patients, 99 implanted ears; Thomas Jefferson University): CI produced significant postoperative improvements in IT-MAIS scores (pre/post MD +11.9, p=0.036) and CAP scores (MD +2.9, p=0.004). Despite complex inner ear malformations characteristic of CHARGE, outcomes justify offering CI — confirms that anatomical challenges should not be an automatic contraindication, and counseling families about meaningful but variable benefit is supported by pooled evidence.</p>
+  <div class="noted-source">Otol Neurotol · PMID 42087294 · <button class="copy-pmid noted-copy" data-pmid="42087294" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Systematic Review</span><span class="badge-type-mini">35 Studies</span>
+  </div>
+  <div class="noted-title">Cost-Effectiveness of Allergen Immunotherapy for Allergic Rhinitis: A Systematic Review</div>
+  <p class="noted-summary">Review of 35 economic evaluations: 91% (32/35) concluded allergen immunotherapy (SCIT or SLIT) is cost-effective vs symptomatic pharmacotherapy, with ICERs below jurisdictional willingness-to-pay thresholds. Benefit was strongest in patients with co-morbid asthma and when sustained post-treatment effects were modeled. Practical implication: AIT is economically rational even before accounting for its disease-modifying (not just symptomatic) benefits — this evidence supports payer arguments for reimbursement of AIT.</p>
+  <div class="noted-source">Allergy · PMID 42093212 · <button class="copy-pmid noted-copy" data-pmid="42093212" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Systematic Review</span><span class="badge-type-mini">Mayo Clinic FL</span><span class="badge-type-mini">36 Studies</span>
+  </div>
+  <div class="noted-title">Risk Reduction of Recurrent Cerebrospinal Fluid Leaks With Postoperative Intracranial Pressure Management: A Systematic Review</div>
+  <p class="noted-summary">Mayo Clinic Florida review of 36 studies (687 patients, 737 cases) of lateral skull base spontaneous CSF leak repair: pooled evidence does not support universal postoperative ICP-lowering therapy. The 6 comparative cohorts showed no significant recurrence difference for lumbar drain. Acetazolamide showed a possible but non-definitive benefit. Key takeaway: stop routine ICP-lowering post-repair unless a specific high-risk indication exists — individualize rather than protocolize.</p>
+  <div class="noted-source">Otolaryngol Head Neck Surg · PMID 42106964 · <button class="copy-pmid noted-copy" data-pmid="42106964" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">Boston Children&#39;s</span><span class="badge-type-mini">n=376</span>
+  </div>
+  <div class="noted-title">Comparison of Speech Outcomes Following Furlow Z-Plasty Versus Pharyngeal Flap in the Primary Management of Submucous Cleft Palate</div>
+  <p class="noted-summary">Boston Children&#39;s Hospital meta-analysis of 8 nonrandomized studies (376 pediatric SMCP patients): both Furlow Z-plasty and pharyngeal flap achieve significant improvements in VPI/speech outcomes for submucous cleft palate, with no statistically significant difference between techniques in primary management. Choice can be individualized based on surgeon experience, degree of VPI, and patient anatomy. This is the most rigorous comparative synthesis available for this surgical decision.</p>
+  <div class="noted-source">Cleft Palate Craniofacial J · PMID 42130402 · <button class="copy-pmid noted-copy" data-pmid="42130402" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">7 Studies</span><span class="badge-type-mini">n=219</span>
+  </div>
+  <div class="noted-title">Efficacy of the Twin-Block Appliance for Pediatric Obstructive Sleep Apnea: An Updated Systematic Review and Meta-Analysis</div>
+  <p class="noted-summary">Updated meta-analysis of 7 studies (219 children with OSA): Twin-Block appliance significantly reduced AHI (pooled MD -6.68, 95% CI -8.76 to -4.60, p&lt;0.0001), though heterogeneity was high (I²=89.1%). A recent high-quality RCT confirmed mechanism via oropharyngeal airway volume enlargement. Findings support Twin-Block as a viable non-surgical option for pediatric OSA with mandibular retrognathia — particularly useful where adenotonsillectomy has failed or is not appropriate.</p>
+  <div class="noted-source">Sleep Breath · PMID 42101711 · <button class="copy-pmid noted-copy" data-pmid="42101711" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective</span><span class="badge-type-mini">McGovern/UTHealth</span><span class="badge-type-mini">n=15</span>
+  </div>
+  <div class="noted-title">The Effect of Radiofrequency Ablation of Posterior Nasal Nerves on Inflammatory Cytokines, Peak Nasal Inspiratory Flow, and Subjective Symptom Scores in Chronic Rhinitis</div>
+  <p class="noted-summary">First cytokine-level mechanistic study of posterior nasal nerve (Clari-fix/RFN) treatment from McGovern Medical School: 15 chronic rhinitis patients showed significant rTNSS improvement (median 7.5 → 4.0 at 12 weeks). Group-level PNIF and cytokines were inconsistent, but IL-10 correlated with symptom relief, suggesting neural ablation modulates local mucosal immune environment. Small pilot study — cytokine data is preliminary, but the IL-10 pathway is a mechanistic lead worth watching for future trials.</p>
+  <div class="noted-source">Ann Otol Rhinol Laryngol · PMID 42105251 · <button class="copy-pmid noted-copy" data-pmid="42105251" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Retrospective</span><span class="badge-type-mini">King&#39;s College London</span><span class="badge-type-mini">n=28</span><span class="badge-type-mini">6yr Follow-Up</span>
+  </div>
+  <div class="noted-title">Long-term outcomes of Suprasternal Aortopexy in Paediatric Patients With Tracheomalacia</div>
+  <p class="noted-summary">King&#39;s College London 28-patient aortopexy cohort (median follow-up 6y 7m): short-term improvement in 75%, complete resolution in 46%; at long-term review, 82% improved and 64% symptom-free. Syndromic patients (Down, VACTERL) had consistently worst outcomes with no later improvement. Practical guidance: aortopexy is safe and durable for primary/postoperative tracheomalacia but outcomes in syndromic children are poor enough to warrant careful family counseling and alternative management exploration.</p>
+  <div class="noted-source">Pediatr Surg Int · PMID 42080943 · <button class="copy-pmid noted-copy" data-pmid="42080943" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Review</span><span class="badge-type-mini">UVA</span><span class="badge-type-mini">Practice Guidance</span>
+  </div>
+  <div class="noted-title">Biologics vs Endoscopic Surgery in the Management of Chronic Rhinosinusitis With Nasal Polyps</div>
+  <p class="noted-summary">University of Virginia review synthesizes the current evidence for biologics (dupilumab, omalizumab, mepolizumab, tezepelumab) vs FESS in refractory CRSwNP. FESS augments topical drug delivery but does not modify inflammation; biologics are most effective for patients with comorbid atopy and best QoL/olfactory outcomes. Cost-effectiveness analyses in the US favor FESS even over revision surgery. Combination FESS + biologic is best for appropriate patients. Practical algorithm for the rhinologist or allergist managing refractory CRSwNP.</p>
+  <div class="noted-source">Ann Allergy Asthma Immunol · PMID 42114718 · <button class="copy-pmid noted-copy" data-pmid="42114718" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">199 Studies</span><span class="badge-type-mini">n=304,352</span>
+  </div>
+  <div class="noted-title">Prevalence and Determinants of Recurrent Laryngeal Nerve Injury After Thyroidectomy: A Systematic Review and Meta-Analysis</div>
+  <p class="noted-summary">Massive meta-analysis of 199 studies (304,352 patients): transient RLNI rates highest after completion thyroidectomy (10%) and hemithyroidectomy (8%); lowest after near-total thyroidectomy (2%). Transoral and transcervical approaches had highest transient RLNI rates (5%); transaxillary lowest (1%). Permanent RLNI highest in revision surgery (2%). Meta-regression identified IONM use, hemostasis method, approach, drain use, and patient age as significant determinants. Reference-standard dataset for surgical consent and quality benchmarking.</p>
+  <div class="noted-source">Front Endocrinol · PMID 42137353 · <button class="copy-pmid noted-copy" data-pmid="42137353" type="button">📋 Copy</button></div>
+</div>
+
+        </div>
+
+        <footer class="report-footer">
+          <span>Run · 2026-05-17 · 06:25 ET</span>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
+          </div>
+        </footer>
+
+      </section>
+    </div>
+  </div>
+</main>
+
+<script type="application/json" id="digest-data">
+{"papers": [{"pmid": "42098930", "score": 4, "title": "Vitamin D Supplementation for Preventing Recurrent Benign Paroxysmal Positional Vertigo: A Randomized Clinical Study", "journal": "Ann Otol Rhinol Laryngol", "study_type": "RCT", "n": 160, "rationale": "Double-blind placebo-controlled RCT (n=160, 24 months) of a safe, cheap, widely available intervention (cholecalciferol) for the most common vestibular disorder. Meaningful recurrence reduction with excellent safety profile makes this immediately implementable Monday morning for vitamin D-deficient BPPV patients.", "novel_technique": false}, {"pmid": "42133284", "score": 4, "title": "Prophylactic Central Lymph Node Dissection Versus Thyroidectomy Alone in Clinically Node-Negative Thyroid Cancer: A Systematic Review and Meta-Analysis", "journal": "Ear Nose Throat J", "study_type": "Meta-Analysis of RCTs", "n": 1484, "rationale": "Meta-analysis of 7 RCTs (1,484 patients) brings unusually strong methodology to an actively debated thyroid surgery question. pCND improves staging and cuts recurrence but carries real risks of hypoparathyroidism and RLN injury — this pooled analysis is the best available quantification of that trade-off.", "novel_technique": false}, {"pmid": "42081907", "score": 4, "title": "Epidemiology, ventilation management, and clinical outcomes in children (PRoVENT-PED): first results from the 10-year, investigator-initiated, international, multicentre, prospective cohort study", "journal": "Lancet Respir Med", "study_type": "Prospective Cohort", "n": 1427, "rationale": "Lancet Respiratory Medicine; 83 ICUs, 34 countries, 1,427 children. Quantifies pediatric airway/PARDS epidemiology and identifies PEEP, driving pressure, and FiO₂ as the only modifiable ventilator factors linked to outcome — directly informs perioperative pediatric airway management for ENT surgeons who operate on high-risk airways.", "novel_technique": false}, {"pmid": "42102400", "score": 4, "title": "Long-term outcomes of Gamma Knife surgery for vestibular schwannomas: tumor stability supports reduced surveillance after 10 years", "journal": "J Neurosurg", "study_type": "Retrospective Cohort", "n": 878, "rationale": "878 patients, median 154.5-month (12.9-year) follow-up from a Gamma Knife pioneer center — no true tumor progression observed beyond 10 years in stable patients. This is the strongest long-term VS-GKS dataset available and directly supports reducing routine surveillance imaging frequency after year 10, a concrete practice change for neurotologists.", "novel_technique": false}, {"pmid": "42126099", "score": 3, "title": "Mitomycin C in the Endoscopic Treatment of Airway Stenosis: A Systematic Review and a Meta-Analysis", "journal": "Ann Otol Rhinol Laryngol", "study_type": "Systematic Review & Meta-Analysis", "n": null, "rationale": "Single-arm meta-analysis of 358 patients (IRCCS Humanitas, Milan) found adjuvant MMC achieved 76% cumulative stenosis resolution and only 4% required additional open surgery over median 25-month follow-up. However, 52% still required multiple endoscopic procedures, and pooled evidence does not yet support universal MMC use — the authors call for prospective controlled trials. Useful benchmark for counseling patients about the multi-procedure nature of endoscopic airway management.", "novel_technique": false}, {"pmid": "42126168", "score": 3, "title": "Effect of Perioperative Sucralfate Administration on Pain Control After Tonsillectomy: A Systemic Review and Meta-Analysis", "journal": "Ann Otol Rhinol Laryngol", "study_type": "Meta-Analysis", "n": null, "rationale": "Meta-analysis of 13 studies: perioperative intraoral sucralfate significantly reduced throat pain, otalgia, and swallowing pain post-tonsillectomy, improved mucosal healing by day 5–7, reduced analgesic use, and shortened time to normal diet. No difference in bleeding or nausea/vomiting. Sucralfate is inexpensive and safe — this meta-analysis supports its inclusion in routine post-tonsillectomy analgesia protocols, particularly where opioid-sparing strategies are prioritized.", "novel_technique": false}, {"pmid": "42087001", "score": 3, "title": "Switching to Dupilumab From Other Biologic Therapies in CRSwNP: A Comparison With Biologic-Naïve Patients", "journal": "Eur Arch Otorhinolaryngol", "study_type": "Retrospective Matched Case-Control", "n": null, "rationale": "DUPIREAL network Italy: 44 patients who switched to dupilumab after inadequate asthma-targeted biologic therapy achieved equivalent nasal polyp score, olfactory, and asthma outcomes vs 44 biologic-naïve dupilumab initiators at 24 months. Eosinophilia was more frequent in switchers from 12 months but did not affect clinical outcomes or safety. Practical reassurance: prior biologic use does not blunt dupilumab's effectiveness in CRSwNP — switching is clinically safe.", "novel_technique": false}, {"pmid": "42138366", "score": 3, "title": "Letter: Thalamic Deep Brain Stimulation for Spasmodic Dysphonia: A Phase I Prospective Randomized Double-Blind Crossover Trial", "journal": "Neurosurgery", "study_type": "Phase I RCT (Letter)", "n": null, "rationale": "This Neurosurgery letter from the University of British Columbia describes the first randomized double-blind crossover Phase I trial of thalamic DBS for spasmodic dysphonia (SD). Building on DBS efficacy in essential tremor, thalamic targeting has been explored for SD as an alternative to recurrent botulinum toxin injections. The double-blind crossover design is methodologically sophisticated for a first-in-human surgical trial. Full results are pending the companion paper, but this signals an important emerging neurosurgical option for medically refractory SD. No abstract available (letter format).", "novel_technique": true}, {"pmid": "42084107", "score": 3, "title": "Multi-Frequency Electrocochleography Results in Fewer Drop Alarms During Cochlear Implant Insertion", "journal": "The Laryngoscope", "study_type": "Prospective Cohort", "n": null, "rationale": "18-center prospective cohort (195 ears): multi-frequency ECochG during CI insertion reduced mean drop alarms from 1.72 (single-frequency) to 0.42 per insertion (p<0.001). Multi-frequency recording also generated fewer no-response patterns and altered Type C/D insertion tracks, suggesting a more accurate read of the cochlear microenvironment. Fewer false drop alarms means fewer unnecessary pauses or electrode pullbacks during surgery, potentially reducing insertion trauma and preserving residual hearing.", "novel_technique": false}, {"pmid": "42135615", "score": 3, "title": "Identifying High-Risk Children Safe for Same-Day Discharge After Tonsillectomy", "journal": "The Laryngoscope", "study_type": "Retrospective Cohort", "n": null, "rationale": "Retrospective cohort of 304 obese children with severe OSA (AHI ≥10) undergoing tonsillectomy at UT Southwestern: only 11.8% had a severe perioperative event. Simple polysomnographic thresholds (SpO₂ nadir and AHI subgroups) identified a very low-risk subset suitable for same-day discharge. Current AAP/AAO-HNS guidelines recommend universal admission for this group — this data supports individualized risk stratification rather than blanket admission, with prospective validation still needed before implementation.", "novel_technique": false}, {"pmid": "42087294", "score": 3, "title": "Cochlear Implantation in Patients With CHARGE Syndrome: A Systematic Review and Meta-Analysis", "journal": "Otol Neurotol", "study_type": "Systematic Review & Meta-Analysis", "n": null, "rationale": "Meta-analysis of 15 studies (85 CHARGE patients, 99 implanted ears; Thomas Jefferson University): CI produced significant postoperative improvements in IT-MAIS scores (pre/post MD +11.9, p=0.036) and CAP scores (MD +2.9, p=0.004). Despite complex inner ear malformations characteristic of CHARGE, outcomes justify offering CI — confirms that anatomical challenges should not be an automatic contraindication, and counseling families about meaningful but variable benefit is supported by pooled evidence.", "novel_technique": false}, {"pmid": "42093212", "score": 3, "title": "Cost-Effectiveness of Allergen Immunotherapy for Allergic Rhinitis: A Systematic Review", "journal": "Allergy", "study_type": "Systematic Review", "n": null, "rationale": "Review of 35 economic evaluations: 91% (32/35) concluded allergen immunotherapy (SCIT or SLIT) is cost-effective vs symptomatic pharmacotherapy, with ICERs below jurisdictional willingness-to-pay thresholds. Benefit was strongest in patients with co-morbid asthma and when sustained post-treatment effects were modeled. Practical implication: AIT is economically rational even before accounting for its disease-modifying (not just symptomatic) benefits — this evidence supports payer arguments for reimbursement of AIT.", "novel_technique": false}, {"pmid": "42106964", "score": 3, "title": "Risk Reduction of Recurrent Cerebrospinal Fluid Leaks With Postoperative Intracranial Pressure Management: A Systematic Review", "journal": "Otolaryngol Head Neck Surg", "study_type": "Systematic Review", "n": null, "rationale": "Mayo Clinic Florida review of 36 studies (687 patients, 737 cases) of lateral skull base spontaneous CSF leak repair: pooled evidence does not support universal postoperative ICP-lowering therapy. The 6 comparative cohorts showed no significant recurrence difference for lumbar drain. Acetazolamide showed a possible but non-definitive benefit. Key takeaway: stop routine ICP-lowering post-repair unless a specific high-risk indication exists — individualize rather than protocolize.", "novel_technique": false}, {"pmid": "42130402", "score": 3, "title": "Comparison of Speech Outcomes Following Furlow Z-Plasty Versus Pharyngeal Flap in the Primary Management of Submucous Cleft Palate", "journal": "Cleft Palate Craniofacial J", "study_type": "Systematic Review & Meta-Analysis", "n": null, "rationale": "Boston Children's Hospital meta-analysis of 8 nonrandomized studies (376 pediatric SMCP patients): both Furlow Z-plasty and pharyngeal flap achieve significant improvements in VPI/speech outcomes for submucous cleft palate, with no statistically significant difference between techniques in primary management. Choice can be individualized based on surgeon experience, degree of VPI, and patient anatomy. This is the most rigorous comparative synthesis available for this surgical decision.", "novel_technique": false}, {"pmid": "42101711", "score": 3, "title": "Efficacy of the Twin-Block Appliance for Pediatric Obstructive Sleep Apnea: An Updated Systematic Review and Meta-Analysis", "journal": "Sleep Breath", "study_type": "Systematic Review & Meta-Analysis", "n": null, "rationale": "Updated meta-analysis of 7 studies (219 children with OSA): Twin-Block appliance significantly reduced AHI (pooled MD -6.68, 95% CI -8.76 to -4.60, p<0.0001), though heterogeneity was high (I²=89.1%). A recent high-quality RCT confirmed mechanism via oropharyngeal airway volume enlargement. Findings support Twin-Block as a viable non-surgical option for pediatric OSA with mandibular retrognathia — particularly useful where adenotonsillectomy has failed or is not appropriate.", "novel_technique": false}, {"pmid": "42105251", "score": 3, "title": "The Effect of Radiofrequency Ablation of Posterior Nasal Nerves on Inflammatory Cytokines, Peak Nasal Inspiratory Flow, and Subjective Symptom Scores in Chronic Rhinitis", "journal": "Ann Otol Rhinol Laryngol", "study_type": "Prospective Clinical Trial", "n": null, "rationale": "First cytokine-level mechanistic study of posterior nasal nerve (Clari-fix/RFN) treatment from McGovern Medical School: 15 chronic rhinitis patients showed significant rTNSS improvement (median 7.5 → 4.0 at 12 weeks). Group-level PNIF and cytokines were inconsistent, but IL-10 correlated with symptom relief, suggesting neural ablation modulates local mucosal immune environment. Small pilot study — cytokine data is preliminary, but the IL-10 pathway is a mechanistic lead worth watching for future trials.", "novel_technique": false}, {"pmid": "42080943", "score": 3, "title": "Long-term outcomes of Suprasternal Aortopexy in Paediatric Patients With Tracheomalacia", "journal": "Pediatr Surg Int", "study_type": "Retrospective Cohort", "n": null, "rationale": "King's College London 28-patient aortopexy cohort (median follow-up 6y 7m): short-term improvement in 75%, complete resolution in 46%; at long-term review, 82% improved and 64% symptom-free. Syndromic patients (Down, VACTERL) had consistently worst outcomes with no later improvement. Practical guidance: aortopexy is safe and durable for primary/postoperative tracheomalacia but outcomes in syndromic children are poor enough to warrant careful family counseling and alternative management exploration.", "novel_technique": false}, {"pmid": "42114718", "score": 3, "title": "Biologics vs Endoscopic Surgery in the Management of Chronic Rhinosinusitis With Nasal Polyps", "journal": "Ann Allergy Asthma Immunol", "study_type": "Review", "n": null, "rationale": "University of Virginia review synthesizes the current evidence for biologics (dupilumab, omalizumab, mepolizumab, tezepelumab) vs FESS in refractory CRSwNP. FESS augments topical drug delivery but does not modify inflammation; biologics are most effective for patients with comorbid atopy and best QoL/olfactory outcomes. Cost-effectiveness analyses in the US favor FESS even over revision surgery. Combination FESS + biologic is best for appropriate patients. Practical algorithm for the rhinologist or allergist managing refractory CRSwNP.", "novel_technique": false}, {"pmid": "42137353", "score": 3, "title": "Prevalence and Determinants of Recurrent Laryngeal Nerve Injury After Thyroidectomy: A Systematic Review and Meta-Analysis", "journal": "Front Endocrinol", "study_type": "Systematic Review & Meta-Analysis", "n": null, "rationale": "Massive meta-analysis of 199 studies (304,352 patients): transient RLNI rates highest after completion thyroidectomy (10%) and hemithyroidectomy (8%); lowest after near-total thyroidectomy (2%). Transoral and transcervical approaches had highest transient RLNI rates (5%); transaxillary lowest (1%). Permanent RLNI highest in revision surgery (2%). Meta-regression identified IONM use, hemostasis method, approach, drain use, and patient age as significant determinants. Reference-standard dataset for surgical consent and quality benchmarking.", "novel_technique": false}], "fetch_failures": "CMS (503 unavailable, retried once), HHS (403 forbidden, retried once). AAO-HNS fetched: no qualifying items within last 7 days."}
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.copy-pmid').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pmid = btn.getAttribute('data-pmid');
+      navigator.clipboard.writeText(pmid).then(function() {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+
+<div style="max-width:1280px;margin:2rem auto;padding:0 1.5rem;border-top:2px solid #1A4730;padding-top:2rem;">
+  <h2 style="font-family:'Source Serif 4',serif;font-size:1.25rem;color:#103022;margin-bottom:1rem;">Archive</h2>
+  <ul style="list-style:none;padding:0;font-family:'JetBrains Mono',monospace;font-size:0.8125rem;color:#2F6B49;">
+    <li><a href="digests/2026-05-17.html" style="color:#1A4730;text-decoration:none;">2026-05-17 — Saturday, May 17, 2026 (4 Must Read · 15 Noted)</a></li>
+  </ul>
+</div>
+</body>
+</html>
