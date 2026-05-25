@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT/Airway/Face Digest — Sunday, May 25, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF; --surface: #ffffff;
+    --border: #B8C9BC; --border-strong: #8FA897; --border-soft: #D5DFD5; --hairline: #E4EAE2;
+    --text: #131A15; --text-mid: #3F4A42; --text-dim: #6E7A70; --text-faint: #A5AEA6;
+    --forest: #1A4730; --forest-deep: #103022; --forest-mid: #2F6B49; --forest-soft: #57966F;
+    --forest-tint: #E4ECE3; --forest-tint-strong: #D2DFD2; --forest-line: #98B49E;
+    --s5-bg: #C5DFC8; --s5-fg: #103022; --s5-bd: #3F7A52;
+    --s4-bg: #D9E2B8; --s4-fg: #3D4D17; --s4-bd: #7A8E43;
+    --s3-bg: #F4E3A5; --s3-fg: #5E4308; --s3-bd: #C19E3A;
+    --s2-bg: #F5C99A; --s2-fg: #7A3712; --s2-bd: #C57A39;
+    --s1-bg: #F0A8A4; --s1-fg: #6E141A; --s1-bd: #B94D49;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .paper-grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%); }
+  header { position: sticky; top: 0; z-index: 50; border-bottom: 2px solid var(--forest); background: rgba(247,245,239,0.94); backdrop-filter: blur(10px); }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
+  .logo-block { display: flex; align-items: center; gap: 1rem; }
+  .logo { width: 48px; height: 48px; border-radius: 8px; background: var(--forest-deep); color: #fff; display: flex; align-items: center; justify-content: center; border: 2px solid var(--forest); }
+  .logo svg { width: 24px; height: 24px; }
+  .brand-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep); }
+  .brand-sub { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em; color: var(--forest-mid); text-transform: uppercase; margin-top: 3px; }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .status-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line); border-radius: 6px; background: var(--forest-tint); font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600; }
+  .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+  main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+  .report-head { border-bottom: 2px solid var(--forest); padding-bottom: 2.5rem; margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end; }
+  .head-status { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--forest-deep); margin-bottom: 1.25rem; padding: 0.3rem 0.75rem 0.3rem 0.55rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-radius: 999px; }
+  .head-status-text { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+  .head-title { font-family: 'Source Serif 4', serif; font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep); }
+  .head-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: var(--text-mid); font-weight: 500; }
+  .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+  .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
+  .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+  .stats { display: flex; gap: 0; border: 2px solid var(--forest); border-radius: 10px; overflow: hidden; background: var(--surface); }
+  .stat { padding: 1rem 1.5rem; text-align: right; min-width: 110px; }
+  .stat + .stat { border-left: 2px solid var(--forest); }
+  .stat-label { display: block; font-size: 0.625rem; font-weight: 700; color: var(--forest-mid); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .stat-value { font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep); }
+  .stat-value.accent { color: var(--forest); }
+  .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+  .col-must { grid-column: span 5; }
+  .col-noted { grid-column: span 7; }
+  @media (max-width: 900px) { .col-must, .col-noted { grid-column: span 12; } .head-title { font-size: 2.25rem; } .grid-12 { gap: 2rem; } }
+  .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
+  .section-label-text { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; white-space: nowrap; }
+  .section-label-text.primary { color: var(--forest-deep); }
+  .section-label-text.secondary { color: var(--forest-mid); }
+  .section-rule { height: 2px; flex: 1; background: var(--forest); }
+  .section-rule.soft { background: var(--forest-soft); }
+  .must-card { position: relative; overflow: hidden; border: 2px solid var(--forest); border-radius: 10px; background: var(--surface); padding: 1.75rem; transition: all 0.2s; margin-bottom: 1.5rem; box-shadow: 0 2px 0 var(--forest-deep); }
+  .must-card:hover { border-color: var(--forest-deep); box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25); transform: translateY(-1px); }
+  .must-card .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--forest); }
+  .must-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .must-meta-left { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--forest-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .score-box { display: inline-flex; align-items: baseline; gap: 0.375rem; padding: 0.45rem 0.75rem; border-radius: 6px; border: 2px solid; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .score-box .score-num { font-size: 1rem; line-height: 1; }
+  .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
+  .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-box[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border: 1.5px solid; }
+  .badge-type { background: #F1F2EC; border-color: var(--border); color: var(--text-mid); }
+  .badge-novel { background: var(--forest); border-color: var(--forest-deep); color: #ffffff; }
+  .badge-novel::before { content: '✦'; font-size: 0.75rem; line-height: 1; }
+  .must-title { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .must-authors { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft); }
+  .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+  .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
+  .summary-section:last-child { margin-bottom: 0; }
+  .summary-section h4 { font-family: 'Inter', sans-serif; font-size: 0.625rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
+  .must-rationale { margin-top: 1.25rem; display: flex; align-items: flex-start; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-left-width: 4px; border-radius: 6px; font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55; }
+  .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
+  .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
+  .must-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .link-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep); text-decoration: none; padding: 0.45rem 0.7rem; border: 1.5px solid var(--forest-line); border-radius: 4px; background: var(--surface); transition: all 0.15s; }
+  .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
+  .link-pill svg { width: 11px; height: 11px; }
+  .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .noted-item { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 6px; background: var(--surface); padding: 1rem 1.125rem; transition: all 0.15s; }
+  .noted-item:hover { border-left-color: var(--forest); border-color: var(--forest-line); transform: translateX(2px); }
+  .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+  .score-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 0.45rem; border-radius: 4px; border: 1.5px solid; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; }
+  .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .badge-type-mini { font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-mid); padding: 0.2rem 0.45rem; background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px; }
+  .noted-title { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 700; color: var(--forest-deep); line-height: 1.32; margin-bottom: 0.5rem; }
+  .noted-summary { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+  .noted-source { margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding-top: 0.5rem; border-top: 1px dashed var(--border-soft); }
+  footer.report-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest); display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; color: var(--forest-mid); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem; }
+  .policy-section { margin-bottom: 3rem; }
+  .policy-empty { font-size: 0.875rem; color: var(--text-dim); font-style: italic; padding: 0.5rem 0; }
+  .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .policy-card { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 8px; background: var(--surface); padding: 1.125rem 1.25rem; }
+  .policy-card.policy-critical { border: 2px solid var(--forest); border-left: 6px solid var(--forest); background: var(--forest-tint); }
+  .policy-card.policy-notable { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); }
+  .policy-meta { display: flex; align-items: center; gap: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; margin-bottom: 0.5rem; }
+  .policy-source { font-weight: 700; color: var(--forest-deep); padding: 0.2rem 0.45rem; background: var(--surface); border: 1.5px solid var(--forest-line); border-radius: 4px; letter-spacing: 0.05em; }
+  .policy-tier { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid; }
+  .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
+  .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
+  .policy-date { color: var(--text-dim); margin-left: auto; }
+  .policy-title { font-family: 'Source Serif 4', serif; font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 0.4rem; line-height: 1.3; }
+  .policy-summary { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.75rem; }
+  .fetch-note { font-size: 0.75rem; color: var(--text-dim); font-style: italic; margin-top: 0.5rem; }
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+<header>
+  <div class="container header-inner">
+    <div class="logo-block">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">ENT / Airway / Face Digest</div>
+        <div class="brand-sub">Daily Literature Brief</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:18 ET</span>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="report-head">
+      <div>
+        <div class="head-status">
+          <div class="pulse-dot"></div>
+          <span class="head-status-text">Curated by Sonnet 4.6</span>
+        </div>
+        <h1 class="head-title">Sunday, May 25, 2026</h1>
+        <div class="head-meta">
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>EDAT range: May 18 – May 25</span>
+          </div>
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            <span class="scope-tag">10 PubMed queries · ENT/Airway/Face/Peds</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Surfaced</span>
+          <span class="stat-value">1107</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Made Cut</span>
+          <span class="stat-value accent">20</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Must Read</span>
+          <span class="stat-value">5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- POLICY SECTION -->
+    <section class="policy-section">
+      <div class="section-label">
+        <div class="section-rule"></div>
+        <span class="section-label-text primary">Policy &amp; Practice Updates · 1</span>
+      </div>
+      <div class="policy-grid">
+        <div class="policy-card policy-notable">
+          <div class="policy-meta">
+            <span class="policy-source">AAO-HNS</span>
+            <span class="policy-tier policy-tier-notable">NOTABLE</span>
+            <span class="policy-date">2026-05-20</span>
+          </div>
+          <h3 class="policy-title">House Committee Holds Hearing on Medicare Physician Payment Reform</h3>
+          <p class="policy-summary">The House Energy and Commerce Health Subcommittee convened May 20 to examine the Medicare Physician Fee Schedule, MACRA, and payment reform opportunities. AAO-HNS and allied societies are advocating for inflation-tied annual payment increases, reformed budget-neutrality adjustment thresholds, and reduced MIPS administrative burden — priorities that directly affect independent otolaryngology practice viability.</p>
+          <a class="link-pill" href="https://www.entnet.org/news/house-committee-holds-hearing-on-medicare-physician-payment-reform/" target="_blank" rel="noopener">Source ↗</a>
+        </div>
+      </div>
+      <p class="fetch-note">⚠ CMS Newsroom unavailable (503) and HHS News inaccessible (403) this run — sources skipped, retried once.</p>
+    </section>
+
+    <div class="grid-12">
+      <!-- MUST READ -->
+      <section class="col-must">
+        <div class="section-label">
+          <div class="section-rule"></div>
+          <span class="section-label-text primary">Must Read · 5</span>
+        </div>
+
+        <!-- Paper 1 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">01 · Otolaryngology–HNS</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Systematic Review &amp; Meta-Analysis</span>
+          </div>
+          <h3 class="must-title">Adverse Airway Events Following Head and Neck Cancer Reconstruction Without Elective Tracheostomy</h3>
+          <div class="must-authors">Young TC, Tsai TY, Chan KC</div>
+          <div class="summary-section"><h4>Background</h4><p>Whether to perform elective tracheostomy (ET) at the time of head and neck cancer free-flap reconstruction is one of the most common intraoperative decisions an ENT surgeon makes. Prior studies catalogued factors driving the ET decision, but the actual rate of adverse airway events (AAEs) in patients managed without ET was poorly characterised.</p></div>
+          <div class="summary-section"><h4>Methods</h4><p>Systematic review + meta-analysis (PRISMA) of Embase, PubMed, Scopus, Web of Science, and Ovid MEDLINE (2009–2026). 25 studies, n = 5,987 patients not receiving elective tracheostomy. Pooled ORs used to identify AAE predictors; number-needed-to-harm framework applied to ET complication data.</p></div>
+          <div class="summary-section"><h4>Results</h4><p>Pooled AAE incidence without ET: 10.3% (95% CI 6.7–15.6%). Highest-risk sites: floor-of-mouth (OR 5.96) and oropharynx (OR 2.60) vs other oral cavity subsites. Bilateral neck dissection (OR 6.36) and higher ASA class (OR 1.51) were independent predictors. ET itself was associated with increased flap complications (OR 2.15), unplanned return to OR (OR 1.73), and delayed oral feeding (+5.86 days).</p></div>
+          <div class="summary-section"><h4>Limitations</h4><p>Heterogeneity across included studies in AAE definitions and patient selection. Observational study design precludes causal inference. Potential publication bias toward higher-volume centres.</p></div>
+          <div class="summary-section"><h4>Clinical Takeaway</h4><p>A 1-in-10 adverse airway rate without ET demands pre-operative risk stratification, not a blanket policy. Floor-of-mouth and oropharyngeal tumours with bilateral neck dissection and poor ASA status represent the highest-risk phenotype; ET may be warranted despite its morbidity in these patients. Conversely, routine ET adds real costs and delays — use it selectively.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> PRISMA-compliant meta-analysis of 25 studies (n=5,987) in the specialty's flagship journal. Directly informs perioperative airway planning decisions every head and neck surgeon faces. Pooled ORs are clinically actionable.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42171258" target="_blank" rel="noopener">PMID 42171258 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1002/ohn.70293" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42171258" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+        <!-- Paper 2 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">02 · The Laryngoscope</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Systematic Review &amp; Meta-Analysis of RCTs</span>
+          </div>
+          <h3 class="must-title">Neuromodulation for Subjective Tinnitus: A Systematic Review and Meta-Analysis of Randomized Trials</h3>
+          <div class="must-authors">Kitsis D, Sideris G, Skouloudaki A, Delides A, Vlastarakos P</div>
+          <div class="summary-section"><h4>Background</h4><p>Chronic subjective tinnitus lacks an FDA-approved pharmacological cure. Neuromodulation (transcranial electrical stimulation, repetitive TMS, bimodal somatosensory–acoustic stimulation, vagus nerve stimulation) has been tested in RCTs with inconsistent results; the landscape needed a rigorous meta-analysis.</p></div>
+          <div class="summary-section"><h4>Methods</h4><p>PRISMA 2020. PubMed/MEDLINE, Web of Science, EMBASE searched January 2015 – December 2025. Included: adult RCTs ≥ 18 yr with chronic tinnitus > 3 months, validated instruments (THI, TFI, TQ). 26 RCTs (n=1,576) met criteria. Random-effects REML meta-analyses with SMDs.</p></div>
+          <div class="summary-section"><h4>Results</h4><p>tDCS: non-significant pooled effect (SMD –0.36; 95% CI –0.75 to 0.02). Bimodal somatosensory–acoustic stimulation showed the most consistent and durable clinical improvements across modalities. All modalities had acceptable safety profiles with no serious adverse events.</p></div>
+          <div class="summary-section"><h4>Limitations</h4><p>High between-trial heterogeneity in protocols, sham controls, and outcome instruments. Small individual trial sizes. Long-term follow-up (&gt; 6 months) was sparse. Publication bias likely.</p></div>
+          <div class="summary-section"><h4>Clinical Takeaway</h4><p>Bimodal stimulation (e.g., Lenire device) is the most evidence-backed non-invasive option with durable effect. Standard tDCS and rTMS have not convincingly separated from sham in pooled analysis. Frame patient expectations accordingly — average benefit is modest. Referral to audiology for sound therapy remains first-line.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> 26 RCTs, n=1,576, published in the Laryngoscope. Tinnitus affects 10–15% of the population; this is the most up-to-date synthesis of non-invasive neuromodulation — a space patients increasingly ask about.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42167925" target="_blank" rel="noopener">PMID 42167925 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1002/lary.70633" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42167925" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+        <!-- Paper 3 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">03 · JAMA Otolaryngology</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Secondary Analysis of Multicenter RCT</span>
+          </div>
+          <h3 class="must-title">Hypoglossal Nerve Stimulation and Hypoxic Burden in Patients With Obstructive Sleep Apnea: A Secondary Analysis of the STAR Trial</h3>
+          <div class="must-authors">Xu J, Hajipour Z, Aloia MS, de Beeck SO … <span class="senior">Azarbarzin A (senior, Division of Sleep and Circadian Disorders, Brigham and Women's Hospital and Harvard Medical School)</span></div>
+          <div class="summary-section"><h4>Background</h4><p>HGNS reduces AHI, but AHI is a poor surrogate for OSA-related cardiovascular and neurocognitive risk. Hypoxic burden (HB — cumulative oxygen desaturation area under the curve) may better capture that risk. Whether HGNS reduces HB, and whether HB reduction translates to symptom benefit, was unknown.</p></div>
+          <div class="summary-section"><h4>Methods</h4><p>Secondary analysis of the STAR trial (NCT01161420), a multicenter non-randomized trial with a randomized withdrawal component. n=108 adults with moderate-to-severe OSA intolerant of PAP. Polysomnography at baseline and 12 months. Primary outcome: HB change; secondary: correlation of HB with Epworth Sleepiness Scale.</p></div>
+          <div class="summary-section"><h4>Results</h4><p>Baseline median HB 63.4 %min/h. After 12 months of HGNS, median HB fell 76.6% (IQR 33.1–90.7%). ESS improvement correlated with HB reduction (β=1.25; 95% CI 0.02–2.48) but not with AHI, Arousal Index, or oxygen nadir. Critically, 9/18 (50%) of Sher-20 AHI non-responders still showed marked HB improvement.</p></div>
+          <div class="summary-section"><h4>Limitations</h4><p>Secondary analysis not powered for HB outcomes. Lack of randomised control arm for full 12-month analysis. Single-device (Inspire) results may not generalise to other HGNS platforms.</p></div>
+          <div class="summary-section"><h4>Clinical Takeaway</h4><p>Consider reporting hypoxic burden alongside AHI when evaluating HGNS response. A patient who remains AHI &gt; 20 but achieves 80% HB reduction may be deriving meaningful cardiovascular benefit. Daytime sleepiness persisting despite apparent AHI non-response deserves HB re-evaluation — and should not automatically trigger device explanation or change in therapy.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Flagship ENT journal (JAMA Otolaryngology), Harvard/BWH senior authorship, secondary analysis of the landmark STAR trial. Reshapes how HGNS treatment response is defined and communicated to patients.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42166156" target="_blank" rel="noopener">PMID 42166156 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1001/jamaoto.2026.1049" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42166156" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+        <!-- Paper 4 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">04 · Clin Exp Otorhinolaryngology</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Evidence-Based Clinical Practice Guideline</span>
+          </div>
+          <h3 class="must-title">Clinical Practice Guideline for the Evaluation and Management of Facial Nerve Palsy</h3>
+          <div class="must-authors">Lee SA, Lee HY, Kwak MY, Kim J, Yoo MC … Lee JD (senior)</div>
+          <div class="summary-section"><h4>Background</h4><p>Peripheral facial nerve palsy — encompassing Bell's palsy, Ramsay Hunt syndrome, and iatrogenic/traumatic palsies — is the most common mononeuropathy in ENT practice. Management varies widely; this guideline synthesises current evidence to standardise evaluation and treatment.</p></div>
+          <div class="summary-section"><h4>Methods</h4><p>Multidisciplinary committee (otolaryngologists, neurologist, neurosurgeon, rehab specialist, ophthalmologist, plastic surgeon). Systematic literature review through November 30, 2024 (MEDLINE, Embase, Cochrane, KoreaMed). GRADE appraisal. 9 key clinical questions. Patient preference survey (n=51). External review by 7 independent experts.</p></div>
+          <div class="summary-section"><h4>Results</h4><p>10 recommendations: House-Brackmann grading as standard (Grade A). Routine testing unnecessary for typical Bell's palsy; selective for atypical features (Grade B). Electrodiagnostic studies for prognostic evaluation in severe cases (Grade B). Oral corticosteroids strongly recommended within 72 h of onset (Grade A). Antivirals may be added per clinical judgment (Grade B). Surgical decompression in selected patients with severe degeneration (Grade B). Rehabilitation, botulinum toxin for synkinesis, and multidisciplinary care conditionally recommended (Grade B).</p></div>
+          <div class="summary-section"><h4>Limitations</h4><p>Developed within the Korean healthcare system (NHI coverage and regional accessibility explicitly embedded); some recommendations may not translate 1:1 to US practice. Patient preference survey was small (n=51).</p></div>
+          <div class="summary-section"><h4>Clinical Takeaway</h4><p>For acute Bell's palsy: corticosteroids within 72 hours is Grade A — non-negotiable. Antivirals are Grade B, reasonable to add especially in Ramsay Hunt. House-Brackmann remains the standard grading tool. Reserve ENoG for clinically severe cases to guide decompression decisions. Synkinesis → botulinum toxin is conditionally supported.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Evidence-based CPG using GRADE methodology from a multidisciplinary committee. Facial nerve palsy spans all ENT subspecialties; 10 actionable recommendations with graded evidence directly applicable to practice.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42163702" target="_blank" rel="noopener">PMID 42163702 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.21053/ceo.2026-00096" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42163702" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+        <!-- Paper 5 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">05 · Clinical Otolaryngology</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Systematic Review &amp; Meta-Analysis</span>
+          </div>
+          <h3 class="must-title">Inflammatory Myofibroblastic Tumour of Head and Neck: A Systematic Review Plus Meta-Analysis</h3>
+          <div class="must-authors">Sharifi A, Zojaji M, Badragheh N, Jamali M … <span class="senior">Turner MT (senior, Dept of Otolaryngology–HNS, West Virginia University)</span></div>
+          <div class="summary-section"><h4>Background</h4><p>Inflammatory myofibroblastic tumour (IMT) is a rare intermediate-grade mesenchymal neoplasm disproportionately involving the head and neck. It can mimic inflammatory and malignant conditions, making diagnosis challenging and surgical planning uncertain.</p></div>
+          <div class="summary-section"><h4>Methods</h4><p>PRISMA-adherent systematic review + meta-analysis. 7 databases searched through February 2026. 22 studies, n=337 patients. Primary outcomes: clinical presentation, IHC findings, treatment approach, recurrence, metastasis.</p></div>
+          <div class="summary-section"><h4>Results</h4><p>Most common origin: sinonasal space (40.1%). Dominant symptoms: proptosis and facial pain/swelling. IHC: positive for vimentin and SMA; negative for desmin, S-100, ALK, CD34. Treatment: surgical resection alone sufficient for most. Recurrence rate: 21.6%. Metastasis rate: 8.8%. CT calcification absence may distinguish from other diagnoses.</p></div>
+          <div class="summary-section"><h4>Limitations</h4><p>Most included studies were case reports and small series; high selection bias risk. Heterogeneous treatment protocols and follow-up durations. ALK-positivity rates could not be reliably pooled. Level of evidence inherently limited for rare tumours.</p></div>
+          <div class="summary-section"><h4>Clinical Takeaway</h4><p>When encountering a sinonasal/head-and-neck mass with proptosis or facial swelling and histopathology showing spindle cells positive for vimentin and SMA, consider IMT. Surgical resection with free margins is primary treatment. Counsel patients on 21.6% recurrence and 8.8% metastasis risk; long-term surveillance is warranted even after apparently complete resection.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> First comprehensive systematic review + meta-analysis of IMT in the head and neck in Clinical Otolaryngology. Provides pooled recurrence (21.6%) and metastasis (8.8%) rates surgeons need for counselling this rare but clinically tricky diagnosis.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42169394" target="_blank" rel="noopener">PMID 42169394 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1111/coa.70120" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42169394" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTED -->
+      <section class="col-noted">
+        <div class="section-label">
+          <span class="section-label-text secondary">Noted · 15</span>
+          <div class="section-rule soft"></div>
+        </div>
+        <div class="noted-grid">
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Original Research</span></div>
+            <div class="noted-title">Novel Anti-BNLF2b Antibody Screening and Early Detection of Nasopharyngeal Carcinoma</div>
+            <p class="noted-summary">A prospective study in JAMA Otolaryngology evaluated a novel anti-BNLF2b monoclonal antibody assay for early NPC detection. BNLF2b is an EBV-encoded protein expressed uniquely during lytic infection. The assay demonstrated high specificity at screening-relevant thresholds, complementing existing VCA/EBNA serology. Combined antibody panels improved discrimination between NPC and non-malignant EBV exposure. This may advance population-level NPC screening programs in high-incidence regions.</p>
+            <div class="noted-source">JAMA Otolaryngology · PMID 42166171 · <button class="copy-pmid noted-copy" data-pmid="42166171" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective Cohort</span></div>
+            <div class="noted-title">Treatment and Prognosis of Subglottic Cancers: A 10-Year Multicenter Retrospective Study in Northern China</div>
+            <p class="noted-summary">A 10-year multicenter retrospective study (n=1,763) characterised treatment patterns and survival in subglottic cancer — one of the rarest laryngeal subsites. Primary surgical resection achieved better local control than definitive radiotherapy in most stages. Five-year overall survival was substantially lower than glottic and supraglottic cancers, reflecting delayed diagnosis and challenging anatomy. Neck dissection was frequently omitted despite occult nodal disease rates of ~15%. These data reinforce that subglottic cancer warrants specialist centre referral and aggressive nodal management.</p>
+            <div class="noted-source">Oral Oncology · PMID 42167037 · <button class="copy-pmid noted-copy" data-pmid="42167037" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective Cohort</span></div>
+            <div class="noted-title">Concurrent Chemoradiotherapy vs. Total Laryngectomy in Locally Advanced Laryngeal Squamous Cell Carcinoma</div>
+            <p class="noted-summary">This retrospective comparative study (n=512) examined CCRT versus total laryngectomy for locally advanced laryngeal SCC. CCRT and TL demonstrated comparable overall survival in stage III–IVA disease; however, TL was associated with superior locoregional control. Post-CCRT salvage laryngectomy carried significantly higher complication rates than primary TL. Functional laryngeal preservation was achieved in 58% of the CCRT group at 3 years. These findings support shared decision-making with careful patient selection for organ-preservation strategies.</p>
+            <div class="noted-source">Am J Cancer Research · PMID 42163871 · <button class="copy-pmid noted-copy" data-pmid="42163871" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective Cohort</span></div>
+            <div class="noted-title">Socioeconomic Disadvantage and Care Proximity Influence Stage at Presentation in Head and Neck Cancer</div>
+            <p class="noted-summary">A large retrospective cohort (n=1,170, Sidney Kimmel Medical College) showed that patients in the highest Area Deprivation Index quintile were significantly more likely to present with stage III–IV head and neck cancer. Geographic distance to academic centres independently predicted late-stage presentation after controlling for socioeconomic status. Black and Hispanic patients experienced disproportionate delays to diagnosis. These disparities underscore the need for community-based ENT outreach and decentralised early-detection programs.</p>
+            <div class="noted-source">Otolaryngology–HNS · PMID 42171240 · <button class="copy-pmid noted-copy" data-pmid="42171240" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Multicenter Retrospective</span></div>
+            <div class="noted-title">A Multicenter Study on Occult Lymph Node Metastases in Sinonasal Malignancies</div>
+            <p class="noted-summary">A multicenter retrospective study (n=438) pooled European centre data on occult lymph node metastases in sinonasal malignancies undergoing elective neck dissection. Overall occult metastasis rate was 18.9%, varying substantially by histology — squamous cell carcinoma carried the highest risk. T3–T4 tumours and orbital involvement were independent predictors of occult nodal disease. Authors propose stratified elective neck dissection criteria based on histology and T stage rather than uniform policy.</p>
+            <div class="noted-source">Scientific Reports · PMID 42178324 · <button class="copy-pmid noted-copy" data-pmid="42178324" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Systematic Review</span></div>
+            <div class="noted-title">Clinical Characteristics, Diagnostic Features, and Medical Treatment of Sinonasal Sarcoidosis: A Systematic Review</div>
+            <p class="noted-summary">A systematic review (n=369 patients, 38 studies) examined sinonasal sarcoidosis. Presenting symptoms — nasal obstruction, crusting, epistaxis — are non-specific and mimic CRS. Tissue biopsy showing non-caseating granulomas is required for diagnosis; serum ACE was elevated in only 65% of cases. Systemic corticosteroids are the mainstay; steroid-sparing agents (methotrexate, hydroxychloroquine) used for refractory disease. Sinonasal sarcoidosis should be considered in any patient with atypical or treatment-refractory CRS.</p>
+            <div class="noted-source">Am J Rhinology &amp; Allergy · PMID 42175600 · <button class="copy-pmid noted-copy" data-pmid="42175600" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective Cohort</span></div>
+            <div class="noted-title">Headache or Facial Pain/Pressure in Rhinosinusitis: Subtle Clinical Patterns</div>
+            <p class="noted-summary">A retrospective cohort study (n=304, Laryngoscope) characterised headache and facial pain subtypes in chronic rhinosinusitis patients. Facial pressure was most common; tension-type headache pattern was surprisingly prevalent and not always attributable to sinus disease alone. Symptom resolution after FESS was incomplete in patients with comorbid primary headache disorders. These data support pre-operative screening for primary headache disorders in CRS patients to set realistic post-FESS expectations.</p>
+            <div class="noted-source">The Laryngoscope · PMID 42166221 · <button class="copy-pmid noted-copy" data-pmid="42166221" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">RCT</span></div>
+            <div class="noted-title">Comparative Analysis of Cold Curettage and Coblation Adenoidectomy: Surgical and Postoperative Outcomes</div>
+            <p class="noted-summary">A randomised controlled trial (n=128) compared cold curettage versus coblation adenoidectomy. Coblation was associated with less intraoperative bleeding and faster haemostasis. Recovery times were similar; both techniques showed equivalent rates of residual adenoid tissue on post-operative nasopharyngoscopy. Coblation showed a trend toward less post-operative pain on day 1 (NS). The study supports coblation as a safe alternative with a favourable intraoperative bleeding profile.</p>
+            <div class="noted-source">BMC Surgery · PMID 42174589 · <button class="copy-pmid noted-copy" data-pmid="42174589" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective Cohort</span></div>
+            <div class="noted-title">Predictors of Delayed Facial Nerve Palsy Following Acoustic Neuroma Surgery</div>
+            <p class="noted-summary">A retrospective cohort study (n=93, UCSF) identified predictors of delayed facial nerve palsy (dFNP) following acoustic neuroma surgery. dFNP — new or worsening palsy arising ≥ 4 days post-operatively — occurred in 12.9% of patients. Larger tumour size and extended surgical duration were the strongest predictors. dFNP was associated with viral reactivation (HSV/VZV) in several cases, supporting post-operative antiviral prophylaxis in high-risk patients. Most cases resolved to House-Brackmann grade I–II with conservative management.</p>
+            <div class="noted-source">Otology &amp; Neurotology · PMID 42165247 · <button class="copy-pmid noted-copy" data-pmid="42165247" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective Cohort</span></div>
+            <div class="noted-title">Frequency of Electrode Migration and Other Device-Related Complications in a Large Single-Center Cochlear Implant Programme</div>
+            <p class="noted-summary">A large single-centre retrospective study evaluated electrode migration and complications in cochlear implant revision surgery (n=53 revisions). Electrode migration — the most common complication requiring revision — was associated with younger implantation age and incomplete initial electrode insertion. Migration to shallow depths produced measurable threshold shifts. These data support intraoperative imaging verification of electrode depth and ongoing impedance/threshold surveillance as early markers of migration.</p>
+            <div class="noted-source">European Archives ORL · PMID 42165883 · <button class="copy-pmid noted-copy" data-pmid="42165883" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective Cohort</span></div>
+            <div class="noted-title">Three-Year Oncologic Outcomes of 445-nm TruBlue Laser Ablation for Early Glottic Cancer and Dysplasia</div>
+            <p class="noted-summary">A 3-year retrospective outcomes study (Journal of Voice) evaluated 445-nm TruBlue laser ablation for early glottic cancer and dysplasia. Local control rates at 3 years were comparable to CO₂ laser and radiotherapy for Tis–T1a lesions. Voice outcomes were preserved in the majority, with minimal scarring attributed to the blue laser's selective haemoglobin absorption reducing thermal spread. The 445-nm blue laser represents a viable OR/office-based alternative to traditional CO₂ laser for early glottic lesions.</p>
+            <div class="noted-source">Journal of Voice · PMID 42168031 · <button class="copy-pmid noted-copy" data-pmid="42168031" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Prospective Cohort</span></div>
+            <div class="noted-title">Interplay Between Rhinosinusitis and Eustachian Tube Dysfunction in Patients Undergoing Functional Endoscopic Sinus Surgery</div>
+            <p class="noted-summary">A prospective cohort study (Otolaryngology–HNS) examined the relationship between CRS and Eustachian tube dysfunction (ETD) in FESS patients. Baseline ETD scores correlated significantly with CRS severity (SNOT-22). Post-FESS, ETD scores improved in parallel with sinonasal symptoms, suggesting a shared inflammatory mechanism. Patients with pre-operative ETD were more likely to report residual ear symptoms at 6 months. These findings argue for routine ETD assessment in CRS patients pre- and post-FESS.</p>
+            <div class="noted-source">Otolaryngology–HNS · PMID 42171192 · <button class="copy-pmid noted-copy" data-pmid="42171192" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective Cohort</span></div>
+            <div class="noted-title">Rates and Outcomes of Head and Neck Cancer Among Patients With Primary Immunodeficiency Disorders</div>
+            <p class="noted-summary">A retrospective cohort from Keck/USC examined HNC rates and outcomes in patients with primary immunodeficiency disorders (PID). PID patients developed HNC at younger ages and presented more frequently with EBV-associated malignancies. Stage at diagnosis was comparable to the general population, but survival outcomes trended worse — possibly reflecting immune dysregulation limiting treatment tolerance. These data highlight PID as an underrecognised risk factor for HNC requiring dedicated oncologic surveillance.</p>
+            <div class="noted-source">Otolaryngology–HNS · PMID 42171009 · <button class="copy-pmid noted-copy" data-pmid="42171009" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Systematic Review</span></div>
+            <div class="noted-title">NUT Midline Carcinoma of the Head and Neck: A Systematic Review and Pooled Survival Analysis</div>
+            <p class="noted-summary">A systematic review and pooled survival analysis (Head &amp; Neck; n=138, 85 studies) compiled the world literature on NUT midline carcinoma (NMC) in the head and neck. NMC is molecularly defined by NUT::BRD4 rearrangement, is highly aggressive, and occurs in young adults. Median survival was only 6.7 months regardless of treatment. Combined multimodal therapy yielded marginally better outcomes. BET inhibitors showed partial responses in small series. Awareness is critical — misdiagnosis as poorly differentiated SCC is common and delays targeted treatment.</p>
+            <div class="noted-source">Head &amp; Neck · PMID 42175568 · <button class="copy-pmid noted-copy" data-pmid="42175568" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Prospective Cohort</span></div>
+            <div class="noted-title">Evaluating the Efficacy of a Novel Multimaterial 3D-Printed Phantom for Otologic Surgical Education and Simulation</div>
+            <p class="noted-summary">A prospective cohort study from Johns Hopkins (Otology &amp; Neurotology; n=16 residents) validated a cost-effective 3D-printed temporal bone phantom fabricated from calcium-enriched SimuBone PLA for otologic surgical simulation. Anatomic fidelity scored 3.56/5 and visual realism 3.62/5; all participants rated the model moderately to highly valuable for training. At only $6.13 per unit, it offers a scalable alternative to cadaveric dissection. Color-coded 'no-go' zones were particularly valued by novice surgeons for spatial orientation during mastoidectomy.</p>
+            <div class="noted-source">Otology &amp; Neurotology · PMID 42165253 · <button class="copy-pmid noted-copy" data-pmid="42165253" type="button">📋 Copy</button></div>
+          </div>
+
+        </div><!-- end noted-grid -->
+
+        <footer class="report-footer">
+          <span>Run · 2026-05-25 · 06:18 ET</span>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed · 1,107 surfaced · 47 dropped (score 1)</span>
+          </div>
+        </footer>
+      </section>
+    </div><!-- end grid-12 -->
+  </div><!-- end container -->
+</main>
+
+<script type="application/json" id="digest-data">
+{
+  "date": "2026-05-25",
+  "must_read_pmids": ["42171258", "42167925", "42166156", "42163702", "42169394"],
+  "noted_pmids": ["42166171", "42167037", "42163871", "42171240", "42178324", "42175600", "42166221", "42174589", "42165247", "42165883", "42168031", "42171192", "42171009", "42175568", "42165253"]
+}
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.copy-pmid').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pmid = btn.getAttribute('data-pmid');
+      navigator.clipboard.writeText(pmid).then(function() {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
