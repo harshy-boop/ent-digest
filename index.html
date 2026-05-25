@@ -3,20 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENT/Airway/Face Digest — Wednesday, May 21, 2026</title>
+<title>ENT/Airway/Face Digest — May 15, 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F7F5EF;
     --surface: #ffffff;
+
+    /* Forest-tinted borders */
     --border: #B8C9BC;
     --border-strong: #8FA897;
     --border-soft: #D5DFD5;
     --hairline: #E4EAE2;
+
     --text: #131A15;
     --text-mid: #3F4A42;
     --text-dim: #6E7A70;
     --text-faint: #A5AEA6;
+
     --forest: #1A4730;
     --forest-deep: #103022;
     --forest-mid: #2F6B49;
@@ -24,12 +28,15 @@
     --forest-tint: #E4ECE3;
     --forest-tint-strong: #D2DFD2;
     --forest-line: #98B49E;
+
+    /* Score: green → red, more saturated */
     --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
     --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
     --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
     --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
     --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
@@ -41,12 +48,14 @@
   }
   .mono { font-family: 'JetBrains Mono', monospace; }
   .serif { font-family: 'Source Serif 4', Georgia, serif; }
+
   .paper-grain {
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
     background-image:
       radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%),
       radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%);
   }
+
   header {
     position: sticky; top: 0; z-index: 50;
     border-bottom: 2px solid var(--forest);
@@ -80,7 +89,10 @@
   }
   .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+
   main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+
+  /* Report head */
   .report-head {
     border-bottom: 2px solid var(--forest);
     padding-bottom: 2.5rem; margin-bottom: 3rem;
@@ -109,13 +121,17 @@
   .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
   .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
   .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+
   .stats {
     display: flex; gap: 0;
     border: 2px solid var(--forest);
     border-radius: 10px; overflow: hidden;
     background: var(--surface);
   }
-  .stat { padding: 1rem 1.5rem; text-align: right; min-width: 110px; }
+  .stat {
+    padding: 1rem 1.5rem; text-align: right;
+    min-width: 110px;
+  }
   .stat + .stat { border-left: 2px solid var(--forest); }
   .stat-label {
     display: block; font-size: 0.625rem; font-weight: 700;
@@ -127,6 +143,7 @@
     font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep);
   }
   .stat-value.accent { color: var(--forest); }
+
   .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
   .col-must { grid-column: span 5; }
   .col-noted { grid-column: span 7; }
@@ -135,6 +152,7 @@
     .head-title { font-size: 2.25rem; }
     .grid-12 { gap: 2rem; }
   }
+
   .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
   .section-label-text {
     font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em;
@@ -144,6 +162,8 @@
   .section-label-text.secondary { color: var(--forest-mid); }
   .section-rule { height: 2px; flex: 1; background: var(--forest); }
   .section-rule.soft { background: var(--forest-soft); }
+
+  /* MUST READ cards — heavier borders */
   .must-card {
     position: relative; overflow: hidden;
     border: 2px solid var(--forest);
@@ -162,6 +182,7 @@
     position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
     background: var(--forest);
   }
+
   .must-meta-row {
     display: flex; align-items: center; justify-content: space-between;
     gap: 1rem; margin-bottom: 1rem;
@@ -171,6 +192,8 @@
     color: var(--forest-deep); font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.08em;
   }
+
+  /* SCORE BOX */
   .score-box {
     display: inline-flex; align-items: baseline; gap: 0.375rem;
     padding: 0.45rem 0.75rem; border-radius: 6px;
@@ -184,6 +207,8 @@
   .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
   .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
   .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+
+  /* Study-type badges */
   .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
   .badge {
     display: inline-flex; align-items: center; gap: 0.375rem;
@@ -191,9 +216,18 @@
     font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
     border: 1.5px solid;
   }
-  .badge-type { background: #F1F2EC; border-color: var(--border); color: var(--text-mid); }
-  .badge-novel { background: var(--forest); border-color: var(--forest-deep); color: #ffffff; }
-  .badge-novel::before { content: '✦'; font-size: 0.75rem; line-height: 1; }
+  .badge-type {
+    background: #F1F2EC; border-color: var(--border); color: var(--text-mid);
+  }
+  .badge-novel {
+    background: var(--forest);
+    border-color: var(--forest-deep);
+    color: #ffffff;
+  }
+  .badge-novel::before {
+    content: '✦'; font-size: 0.75rem; line-height: 1;
+  }
+
   .must-title {
     font-family: 'Source Serif 4', serif;
     font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep);
@@ -204,6 +238,8 @@
     padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft);
   }
   .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+
+  /* Structured summary sections */
   .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
   .summary-section:last-child { margin-bottom: 0; }
   .summary-section h4 {
@@ -212,6 +248,7 @@
     color: var(--forest); text-transform: uppercase;
     letter-spacing: 0.18em; margin-bottom: 0.35rem;
   }
+
   .must-rationale {
     margin-top: 1.25rem;
     display: flex; align-items: flex-start; gap: 0.625rem;
@@ -224,17 +261,21 @@
   }
   .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
   .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
-  .must-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  .must-actions {
+    margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
   .link-pill {
     display: inline-flex; align-items: center; gap: 0.4rem;
     font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep);
     text-decoration: none; padding: 0.45rem 0.7rem;
     border: 1.5px solid var(--forest-line); border-radius: 4px;
     background: var(--surface); transition: all 0.15s;
-    cursor: pointer; font-family: inherit;
   }
   .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
   .link-pill svg { width: 11px; height: 11px; }
+
+  /* NOTED — also bumped border weight */
   .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
   .noted-item {
     border: 1.5px solid var(--border);
@@ -272,21 +313,28 @@
     font-size: 1rem; font-weight: 700; color: var(--forest-deep);
     line-height: 1.32; margin-bottom: 0.5rem;
   }
-  .noted-summary { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+  .noted-summary {
+    font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6;
+  }
   .noted-source {
     margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace;
     font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.15em;
     padding-top: 0.5rem; border-top: 1px dashed var(--border-soft);
   }
+
   footer.report-footer {
     margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest);
     display: flex; justify-content: space-between; align-items: center;
     font-size: 0.625rem; color: var(--forest-mid); font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem;
   }
+
   .policy-section { margin-bottom: 3rem; }
-  .policy-empty { font-size: 0.875rem; color: var(--text-dim); font-style: italic; padding: 0.5rem 0; }
+  .policy-empty {
+    font-size: 0.875rem; color: var(--text-dim);
+    font-style: italic; padding: 0.5rem 0;
+  }
   .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
   .policy-card {
     border: 1.5px solid var(--border);
@@ -322,12 +370,10 @@
     font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep);
     margin-bottom: 0.4rem; line-height: 1.3;
   }
-  .policy-summary { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.75rem; }
-  .archive-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-  .archive-title { font-family: 'Source Serif 4', serif; font-size: 1.25rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 1rem; }
-  .archive-list { list-style: none; display: flex; flex-direction: column; gap: 0.375rem; }
-  .archive-list li a { color: var(--forest-mid); font-size: 0.875rem; text-decoration: none; font-family: 'JetBrains Mono', monospace; }
-  .archive-list li a:hover { color: var(--forest); text-decoration: underline; }
+  .policy-summary {
+    font-size: 0.875rem; color: var(--text-mid);
+    line-height: 1.55; margin-bottom: 0.75rem;
+  }
 </style>
 </head>
 <body>
@@ -347,7 +393,7 @@
     <div class="header-right">
       <div class="status-pill">
         <div class="pulse-dot"></div>
-        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:20 ET</span>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:18 ET</span>
       </div>
     </div>
   </div>
@@ -362,11 +408,11 @@
           <div class="pulse-dot"></div>
           <span class="head-status-text">Curated by Sonnet 4.6</span>
         </div>
-        <h1 class="head-title">Wednesday, May 21, 2026</h1>
+        <h1 class="head-title">Monday, May 25, 2026</h1>
         <div class="head-meta">
           <div class="head-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span>EDAT range: May 14 – May 21</span>
+            <span>EDAT range: May 18 – May 25</span>
           </div>
           <div class="head-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
@@ -378,15 +424,15 @@
       <div class="stats">
         <div class="stat">
           <span class="stat-label">Surfaced</span>
-          <span class="stat-value">1117</span>
+          <span class="stat-value">1107</span>
         </div>
         <div class="stat">
           <span class="stat-label">Made Cut</span>
-          <span class="stat-value accent">18</span>
+          <span class="stat-value accent">20</span>
         </div>
         <div class="stat">
           <span class="stat-label">Must Read</span>
-          <span class="stat-value">3</span>
+          <span class="stat-value">5</span>
         </div>
       </div>
     </div>
@@ -406,7 +452,7 @@
               <span class="policy-date">2026-05-20</span>
             </div>
             <h3 class="policy-title">House Committee Holds Hearing on Medicare Physician Payment Reform</h3>
-            <p class="policy-summary">The House Energy and Commerce Health Subcommittee convened on May 20, 2026 to examine the Medicare Physician Fee Schedule, MACRA, and reform proposals. AAO-HNS is collaborating with both caucuses on draft legislation to stabilise physician payment updates, establish predictable annual increases, and reform budget-neutrality requirements that have eroded surgical specialty reimbursement.</p>
+            <p class="policy-summary">The House Energy and Commerce Health Subcommittee convened May 20 to examine the Medicare Physician Fee Schedule, MACRA, and payment reform opportunities. AAO-HNS and allied societies are advocating for inflation-tied annual payment increases, reformed budget-neutrality adjustment thresholds, and reduced MIPS administrative burden — priorities that directly affect independent otolaryngology practice viability.</p>
             <a class="link-pill" href="https://www.entnet.org/news/house-committee-holds-hearing-on-medicare-physician-payment-reform/" target="_blank" rel="noopener">Source ↗</a>
           </div>
           
@@ -416,174 +462,282 @@
 
     <div class="grid-12">
 
+      <!-- MUST READ -->
       <section class="col-must">
         <div class="section-label">
           <div class="section-rule"></div>
-          <span class="section-label-text primary">Must Read · 3</span>
+          <span class="section-label-text primary">Must Read · 5</span>
         </div>
 
         
 <div class="must-card">
   <div class="accent-bar"></div>
   <div class="must-meta-row">
-    <span class="must-meta-left">01 · European archives of oto-rhino-laryngology</span>
+    <span class="must-meta-left">01 · Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery</span>
     <div class="score-box" data-score="4">
       <span class="score-num">4</span><span class="score-of">/5</span>
     </div>
   </div>
   <div class="badges-row">
-    <span class="badge badge-type">Systematic Review + Meta-Analysis</span>
+    <span class="badge badge-type">Systematic Review &amp; Meta-Analysis</span>
     
   </div>
-  <h3 class="must-title">Benefits of bilateral cochlear implantation in children: a systematic review and meta-analysis.</h3>
-  <div class="must-authors">Zhuchkova A, Remacha J, Sandoval M, Codina A et al. … <span class="senior">Bernal-Sprekelsen M (Faculty of Medicine, Departament d´Especialitats Quirùrgiques, Hospital Clinic, University of Barcelona, c/Casanova 143,)</span></div>
+  <h3 class="must-title">Adverse Airway Events Following Head and Neck Cancer Reconstruction Without Elective Tracheostomy.</h3>
+  <div class="must-authors">Young TC, Tsai TY, Chan KC … <span class="senior">Chan KC (senior, Department of Otolaryngology-Head and Neck Surgery, Chang Gung Memorial Hospital, Linkou, Taiwan.)</span></div>
   
   <div class="summary-section">
     <h4>BACKGROUND</h4>
-    <p>The benefit of bilateral cochlear implantation (BiCI) over unilateral (UniCI) in children has been demonstrated in individual studies, but pooled effect sizes to guide counselling were lacking. This PROSPERO-registered systematic review synthesised evidence from 2015 through June 2025.</p>
+    <p>Whether to perform elective tracheostomy (ET) at the time of head and neck cancer free-flap reconstruction is one of the most common intraoperative decisions an ENT surgeon makes. Prior studies catalogued factors driving the ET decision, but the actual rate of adverse airway events (AAEs) in patients managed without ET was poorly characterised.</p>
   </div>
   
   <div class="summary-section">
     <h4>METHODS</h4>
-    <p>PRISMA-compliant SR+MA across PubMed, ScienceDirect, Scopus, and Cochrane. Eligible studies: children with congenital/early-onset bilateral deafness receiving BiCI or UniCI. Random-effects meta-analyses using standardised mean differences (SMD). 50 studies in qualitative synthesis; 20 contributing to meta-analyses.</p>
+    <p>Systematic review + meta-analysis (PRISMA) of Embase, PubMed, Scopus, Web of Science, and Ovid MEDLINE (2009–2026). 25 studies, n = 5,987 patients not receiving elective tracheostomy. Pooled ORs used to identify AAE predictors; number-needed-to-harm framework applied to ET complication data.</p>
   </div>
   
   <div class="summary-section">
     <h4>RESULTS</h4>
-    <p>BiCI significantly outperformed UniCI in speech perception in noise (SMD=+0.70, p&lt;0.001), sound localisation (SMD=+0.74, p&lt;0.001), and receptive vocabulary/language development (SMD=+0.65). QoL consistently higher in BiCI users. Surgical/vestibular complications were infrequent and did not exceed those of UniCI. Language benefits showed greater heterogeneity than auditory outcomes.</p>
+    <p>Pooled AAE incidence without ET: 10.3% (95% CI 6.7–15.6%). Highest-risk sites: floor-of-mouth (OR 5.96) and oropharynx (OR 2.60) vs other oral cavity subsites. Bilateral neck dissection (OR 6.36) and higher ASA class (OR 1.51) were independent predictors. ET itself was associated with increased flap complications (OR 2.15), unplanned return to OR (OR 1.73), and delayed oral feeding (+5.86 days).</p>
   </div>
   
   <div class="summary-section">
     <h4>LIMITATIONS</h4>
-    <p>Methodological and clinical heterogeneity across studies; results for language outcomes less consistent than for auditory measures; most studies non-randomised due to ethical constraints on withholding BiCI. Need for standardised longitudinal assessment tools.</p>
+    <p>Heterogeneity across included studies in AAE definitions and patient selection. Observational study design precludes causal inference. Potential publication bias toward higher-volume centres.</p>
   </div>
   
   <div class="summary-section">
     <h4>CLINICAL TAKEAWAY</h4>
-    <p>Bilateral cochlear implantation is safe and confers meaningful auditory and language advantages in children over unilateral implantation. Benefits are most robust with early (ideally simultaneous) surgery. CI teams should counsel families that BiCI is the preferred strategy when feasible, with the caveat that language heterogeneity warrants ongoing follow-up.</p>
+    <p>A 1-in-10 adverse airway rate without ET demands pre-operative risk stratification, not a blanket policy. Floor-of-mouth and oropharyngeal tumours with bilateral neck dissection and poor ASA status represent the highest-risk phenotype; ET may be warranted despite its morbidity in these patients. Conversely, routine ET adds real costs and delays — use it selectively.</p>
   </div>
   
   <div class="must-rationale">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> PRISMA-compliant systematic review and meta-analysis (50 studies, 20 contributing to quantitative synthesis) in European Archives of ORL (specialty flagship). Bilateral CI shows significant advantages over unilateral: speech in noise SMD=0.70, sound localisation SMD=0.74, language development SMD=0.65 — all p&lt;0.001. Benefits most robust with early, simultaneous implantation. Safety profile comparable to unilateral CI.</span>
+    <span><strong>Why score 4:</strong> PRISMA-compliant meta-analysis of 25 studies (n=5987) in the specialty&#39;s flagship journal. Directly informs perioperative airway planning decisions every head and neck surgeon faces — who needs elective tracheostomy after free-flap reconstruction? Pooled ORs are clinically actionable.</span>
   </div>
   <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42162288" target="_blank" rel="noopener">PMID 42162288
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42171258" target="_blank" rel="noopener">PMID 42171258
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
     </a>
-    <a class="link-pill" href="https://doi.org/10.1007/s00405-026-10302-z" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42162288" type="button">📋 Copy PMID</button>
+    <a class="link-pill" href="https://doi.org/10.1002/ohn.70293" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42171258" type="button">📋 Copy PMID</button>
   </div>
 </div>
 
 <div class="must-card">
   <div class="accent-bar"></div>
   <div class="must-meta-row">
-    <span class="must-meta-left">02 · European archives of oto-rhino-laryngology</span>
+    <span class="must-meta-left">02 · The Laryngoscope</span>
     <div class="score-box" data-score="4">
       <span class="score-num">4</span><span class="score-of">/5</span>
     </div>
   </div>
   <div class="badges-row">
-    <span class="badge badge-type">Systematic Review + Meta-Analysis</span>
+    <span class="badge badge-type">Systematic Review &amp; Meta-Analysis of RCTs</span>
     
   </div>
-  <h3 class="must-title">Predictors of thyroid cancer in paediatric patients with thyroid nodules: A systematic review and meta-analysis.</h3>
-  <div class="must-authors">Shah S, Walters B, Balasubramanian SP, Edafe O … <span class="senior">Edafe O (ENT Department, University Hospital Lewisham, Sheffield, SE13 6LH, UK.)</span></div>
+  <h3 class="must-title">Neuromodulation for Subjective Tinnitus: A Systematic Review and Meta-Analysis of Randomized Trials.</h3>
+  <div class="must-authors">Kitsis D, Sideris G, Skouloudaki A et al. … <span class="senior">Vlastarakos P (senior, National &amp; Kapodistrian University of Athens, School of Medicine, &#34;Attikon&#34; University Hospital, 2nd Otolaryngology Department, Athens, Greece.)</span></div>
   
   <div class="summary-section">
     <h4>BACKGROUND</h4>
-    <p>Paediatric thyroid nodules carry a higher malignancy rate than adult nodules (up to 30%), yet risk stratification tools have not been validated in this population. This SR+MA characterised predictors of thyroid cancer in children with thyroid nodules.</p>
+    <p>Chronic subjective tinnitus lacks an FDA-approved pharmacological cure. Neuromodulation (transcranial electrical stimulation, repetitive TMS, bimodal somatosensory–acoustic stimulation, vagus nerve stimulation) has been tested in RCTs with inconsistent results; the landscape needed a rigorous meta-analysis.</p>
   </div>
   
   <div class="summary-section">
     <h4>METHODS</h4>
-    <p>PubMed, Embase, and Cochrane searched through April 6, 2026. Inclusion: paediatric patients with thyroid nodules, with histological confirmation. Random-effects model. Quality assessment via Newcastle-Ottawa Scale (majority scored ≥7 stars). 16 studies included, 2,634 patients (794 malignant, 1,840 benign).</p>
+    <p>PRISMA 2020. PubMed/MEDLINE, Web of Science, EMBASE searched January 2015 – December 2025. Included: adult RCTs ≥ 18 yr with chronic tinnitus &gt; 3 months, validated instruments (THI, TFI, TQ). 26 RCTs (n=1576) met criteria: tDCS/tES (11 trials), rTMS (8), bimodal stimulation (4), VNS (2), acoustic coordinated reset (1). Random-effects REML meta-analyses with SMDs.</p>
   </div>
   
   <div class="summary-section">
     <h4>RESULTS</h4>
-    <p>Independent predictors of malignancy: intranodal calcifications OR 10.33 (95% CI 3.20–33.37), palpable lymphadenopathy OR 7.73 (3.03–19.75), increased vascularity OR 3.21 (1.95–5.28), prior radiation exposure OR 1.96 (1.15–3.34), and elevated TSH (mean difference +0.92 mIU/L). Papillary thyroid cancer accounted for 84.5% of malignant cases.</p>
+    <p>tDCS: non-significant pooled effect (SMD –0.36; 95% CI –0.75 to 0.02). rTMS: heterogeneous. Bimodal somatosensory–acoustic stimulation showed the most consistent and durable clinical improvements across modalities. All modalities had acceptable safety profiles. No serious adverse events reported.</p>
   </div>
   
   <div class="summary-section">
     <h4>LIMITATIONS</h4>
-    <p>Heterogeneity in imaging criteria and cytological thresholds across studies; mostly retrospective cohorts; limited data on molecular markers. Geographic and healthcare-system variation may affect generalisability.</p>
+    <p>High between-trial heterogeneity in protocols, sham controls, and outcome instruments. Small individual trial sizes. Long-term follow-up (&gt; 6 months) was sparse. Publication bias likely given the preponderance of positive small trials.</p>
   </div>
   
   <div class="summary-section">
     <h4>CLINICAL TAKEAWAY</h4>
-    <p>In children with thyroid nodules, calcifications and lymphadenopathy are the strongest red flags for malignancy — either should prompt expedited cytological workup (FNA) and surgical referral. Elevated TSH and increased vascularity on ultrasound provide additional incremental risk stratification beyond size alone.</p>
+    <p>When counselling tinnitus patients asking about neuromodulation: current evidence supports bimodal stimulation (e.g., Lenire device, somatosensory + acoustic) as the most evidence-backed non-invasive option with durable effect. Standard tDCS and rTMS have not convincingly separated from sham in pooled analysis. Frame expectations accordingly — average benefit is modest. Referral to an audiologist for sound therapy remains first-line.</p>
   </div>
   
   <div class="must-rationale">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> Systematic review and meta-analysis (16 studies, 2,634 patients) in European Archives of ORL (specialty flagship). Provides the first pooled quantification of malignancy-risk predictors in paediatric thyroid nodules — directly useful for pre-operative workup decisions by ENT surgeons and endocrinologists.</span>
+    <span><strong>Why score 4:</strong> 26 RCTs, n=1576, published in the Laryngoscope. Tinnitus affects 10–15% of the population and consumes enormous clinic time; this is the most up-to-date synthesis of non-invasive neuromodulation — a rapidly evolving therapeutic space that patients increasingly ask about.</span>
   </div>
   <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42162290" target="_blank" rel="noopener">PMID 42162290
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42167925" target="_blank" rel="noopener">PMID 42167925
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
     </a>
-    <a class="link-pill" href="https://doi.org/10.1007/s00405-026-10310-z" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42162290" type="button">📋 Copy PMID</button>
+    <a class="link-pill" href="https://doi.org/10.1002/lary.70633" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42167925" type="button">📋 Copy PMID</button>
   </div>
 </div>
 
 <div class="must-card">
   <div class="accent-bar"></div>
   <div class="must-meta-row">
-    <span class="must-meta-left">03 · Postgraduate medicine</span>
+    <span class="must-meta-left">03 · JAMA otolaryngology-- head &amp; neck surgery</span>
     <div class="score-box" data-score="4">
       <span class="score-num">4</span><span class="score-of">/5</span>
     </div>
   </div>
   <div class="badges-row">
-    <span class="badge badge-type">Network Meta-Analysis</span>
+    <span class="badge badge-type">Secondary Analysis of Multicenter RCT (STAR Trial)</span>
     
   </div>
-  <h3 class="must-title">Efficacy and safety of biologics for eosinophilic granulomatosis with polyangiitis: a network meta-analysis.</h3>
-  <div class="must-authors">Zhang Y, Yang Y … <span class="senior">Yang Y (Department of Otolaryngology, Beijing Hospital, National Center of Gerontology, National Clinical Research Center for Ge)</span></div>
+  <h3 class="must-title">Hypoglossal Nerve Stimulation and Hypoxic Burden in Patients With Obstructive Sleep Apnea: A Secondary Analysis of the STAR Trial.</h3>
+  <div class="must-authors">Xu J, Hajipour Z, Aloia MS et al. … <span class="senior">Azarbarzin A (senior, Division of Sleep and Circadian Disorders, Brigham and Women&#39;s Hospital and Harvard Medical School, Boston, Massachusetts.)</span></div>
   
   <div class="summary-section">
     <h4>BACKGROUND</h4>
-    <p>Eosinophilic granulomatosis with polyangiitis (EGPA) — formerly Churg-Strauss syndrome — commonly manifests with sinonasal polyposis, rhinitis, and asthma alongside systemic vasculitis. Multiple biologics are now available but no head-to-head RCTs exist. This NMA provides indirect comparisons.</p>
+    <p>Hypoglossal nerve stimulation (HGNS) reduces AHI, but AHI is a poor surrogate for OSA-related cardiovascular and neurocognitive risk. Hypoxic burden (HB — cumulative oxygen desaturation area under the curve) may better capture that risk. Whether HGNS reduces HB, and whether HB reduction translates to symptom benefit, was unknown.</p>
   </div>
   
   <div class="summary-section">
     <h4>METHODS</h4>
-    <p>Systematic search (PubMed, EMBASE, Cochrane, Web of Science, ClinicalTrials.gov through October 2025). Network meta-analysis, random-effects model, PRISMA guidelines. 17 articles, 1,150 adult EGPA participants. Four biologics compared: mepolizumab (100 mg, 300 mg), benralizumab, rituximab, omalizumab. Primary outcome: MIRRA-defined remission rate. Secondary: OCS dose reduction, relapse rate, adverse events.</p>
+    <p>Secondary analysis of the STAR trial (NCT01161420), a multicenter non-randomized trial with a randomized withdrawal component. n=108 adults with moderate-to-severe OSA intolerant of PAP, with polysomnography at baseline and 12 months. Primary outcome: HB change. Secondary: correlation of HB reduction with Epworth Sleepiness Scale (ESS) improvement.</p>
   </div>
   
   <div class="summary-section">
     <h4>RESULTS</h4>
-    <p>Versus placebo/conventional therapy: benralizumab OR=6.18 (95% CI 1.98–19.31) and mepolizumab 300mg OR=5.83 (2.00–17.02) showed strongest remission rates. Mepolizumab 100mg OR=3.70 (1.26–10.92). Both benralizumab and mepolizumab 300mg reduced OCS dosage and prevented asthma/vasculitis relapse. Overall and serious AE rates were comparable to placebo across all biologics.</p>
+    <p>Baseline median HB 63.4 %min/h. After 12 months of HGNS, median HB fell 76.6% (IQR 33.1–90.7%). In the high-HB subgroup: ESS improvement correlated with HB reduction (β=1.25; 95% CI 0.02–2.48) but not with AHI, Arousal Index, or oxygen nadir — traditional metrics. Critically, 9 of 18 &#39;Sher-20 criteria&#39; HGNS non-responders (50%) still showed marked HB improvement, suggesting AHI-defined failure ≠ physiologic failure.</p>
   </div>
   
   <div class="summary-section">
     <h4>LIMITATIONS</h4>
-    <p>NMA relies on indirect treatment comparisons; included studies varied in EGPA phase (relapsing vs refractory vs new-onset); rituximab and omalizumab had fewer studies contributing. OCS definitions varied across trials.</p>
+    <p>Secondary analysis of a trial not powered for HB outcomes. Lack of a randomised control arm for the full 12-month analysis. Non-randomised withdrawal phase limits causal claims. Single-device (Inspire) results may not generalise to other HGNS platforms.</p>
   </div>
   
   <div class="summary-section">
     <h4>CLINICAL TAKEAWAY</h4>
-    <p>When choosing a biologic for EGPA, benralizumab and mepolizumab 300mg are the most evidence-supported options for achieving remission and reducing oral corticosteroid burden. ENT surgeons co-managing EGPA patients with nasal polyposis should advocate for these agents over rituximab or omalizumab in the vasculitis context. Safety profiles are reassuring across all four biologics.</p>
+    <p>Consider reporting hypoxic burden alongside AHI when evaluating HGNS response — a patient who remains AHI &gt; 20 but achieves 80% HB reduction may be deriving meaningful cardiovascular benefit and improved sleep quality. Daytime sleepiness that persists despite &#39;non-response&#39; on AHI criteria deserves re-evaluation of HB. This supports adding HB to your HGNS follow-up PSG report.</p>
   </div>
   
   <div class="must-rationale">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> Network meta-analysis (17 articles, 1,150 participants, 4 biologics: mepolizumab, benralizumab, rituximab, omalizumab) with PRISMA methodology. EGPA is an ENT-relevant disease (sinonasal polyposis, rhinitis, airway eosinophilia). First head-to-head NMA comparing all available biologics: benralizumab (OR=6.18) and mepolizumab 300mg (OR=5.83) emerge as preferred agents. Direct practice guidance on biologic choice.</span>
+    <span><strong>Why score 4:</strong> Secondary analysis of the landmark STAR trial from Brigham &amp; Women&#39;s / Harvard in JAMA Otolaryngology. Hypoxic burden (HB) is emerging as a more clinically meaningful metric than AHI — this study shows HGNS dramatically reduces HB and that HB reduction, not AHI reduction, correlates with daytime sleepiness improvement. Reshapes how we talk to patients about HGNS response.</span>
   </div>
   <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42157367" target="_blank" rel="noopener">PMID 42157367
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42166156" target="_blank" rel="noopener">PMID 42166156
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
     </a>
-    <a class="link-pill" href="https://doi.org/10.1080/00325481.2026.2675084" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42157367" type="button">📋 Copy PMID</button>
+    <a class="link-pill" href="https://doi.org/10.1001/jamaoto.2026.1049" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42166156" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">04 · Clinical and experimental otorhinolaryngology</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Evidence-Based Clinical Practice Guideline</span>
+    
+  </div>
+  <h3 class="must-title">Clinical Practice Guideline for the Evaluation and Management of Facial Nerve Palsy.</h3>
+  <div class="must-authors">Lee SA, Lee HY, Kwak MY et al. … <span class="senior">Lee JD (senior, Department of Otorhinolaryngology-Head and Neck Surgery, Soonchunhyang University Bucheon Hospital, Soonchunhyang University School of Medicine, Bucheon, Korea. ljdent@schmc.ac.kr.)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Peripheral facial nerve palsy — encompassing Bell&#39;s palsy, Ramsay Hunt syndrome, and iatrogenic/traumatic palsies — is the most common mononeuropathy in ENT practice. Management varies widely; this guideline synthesises current evidence to standardise evaluation and treatment.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Multidisciplinary committee (otolaryngologists, neurologist, neurosurgeon, rehabilitation specialist, ophthalmologist, plastic surgeon, methodologist). Systematic literature review through November 30, 2024 (MEDLINE, Embase, Cochrane, KoreaMed). GRADE evidence appraisal. Nine key clinical questions (PICO). Patient preference survey (n=51). External review by seven independent experts.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>10 recommendations across 9 KQs: (1) House-Brackmann grading as standard (Grade A). (2) Routine additional testing unnecessary for typical Bell&#39;s palsy (Grade B). (3) Electrodiagnostic studies for prognostic evaluation in severe cases (Grade B). (4) Oral corticosteroids strongly recommended within 72 h of onset (Grade A). (5) Antivirals may be added per clinical judgment (Grade B). (6) Surgical decompression may be considered in severe degeneration (Grade B). Additional conditional recommendations for rehabilitation, botulinum toxin for synkinesis, and multidisciplinary management (Grade B).</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Developed within the Korean healthcare system (NHI coverage and regional accessibility explicitly considered); some recommendations may not translate 1:1 to US practice. Patient sample for preference survey was small (n=51). Healthcare-system-specific drug access and coverage considerations embedded in guideline.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>For acute Bell&#39;s palsy: corticosteroids within 72 hours is Grade A and non-negotiable. Antivirals (acyclovir/valacyclovir) remain Grade B — reasonable to add, especially in Ramsay Hunt. House-Brackmann remains the standard grading tool. Electrodiagnostic studies (ENoG) reserve for clinically severe cases to guide decompression decisions. Synkinesis → botulinum toxin is conditionally supported.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Evidence-based CPG for facial nerve palsy from a multidisciplinary Korean committee using GRADE methodology and structured consensus. CPGs by definition offer practice-standardizing recommendations; facial nerve palsy spans Bell&#39;s palsy to post-acoustic-neuroma paresis and is encountered by every otolaryngologist. Ten recommendations with grade levels.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42163702" target="_blank" rel="noopener">PMID 42163702
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.21053/ceo.2026-00096" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42163702" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">05 · Clinical otolaryngology : official journal of ENT-UK ; official journal of Netherlands Society for Oto-Rhino-Laryngology &amp; Cervico-Facial Surgery</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Systematic Review &amp; Meta-Analysis</span>
+    
+  </div>
+  <h3 class="must-title">Inflammatory Myofibroblastic Tumour of Head and Neck: A Systematic Review Plus Meta-Analysis.</h3>
+  <div class="must-authors">Sharifi A, Zojaji M, Badragheh N et al. … <span class="senior">Turner MT (senior, Department of Otolaryngology-Head and Neck Surgery, West Virginia University, Morgantown, West Virginia, USA.)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Inflammatory myofibroblastic tumour (IMT) is a rare intermediate-grade mesenchymal neoplasm that disproportionately involves the head and neck. It can mimic inflammatory and malignant conditions, making diagnosis challenging and surgical planning uncertain.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>PRISMA-adherent systematic review + meta-analysis. Databases searched: PubMed, Medline, Scopus, Cochrane, Web of Science, Google Scholar, Embase through February 2026. 22 studies, n=337 patients. Primary outcomes: clinical presentation, IHC findings, treatment approach, recurrence, metastasis.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Most common origin: sinonasal space (40.1%). Dominant symptoms: proptosis and facial pain/swelling. IHC: typically positive for vimentin and SMA; negative for desmin, S-100, ALK, CD34. Treatment: surgical resection alone sufficient for most; no recurrence in majority. Recurrence rate: 21.6%. Metastasis rate: 8.8%. CT calcification absence may help distinguish from other diagnoses.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Most included studies were case reports and small series; high risk of selection bias. Heterogeneity in treatment protocols and follow-up duration. ALK-positivity rates could not be reliably pooled. No RCTs — level-of-evidence limitations inherent to rare tumour literature.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>When you encounter a sinonasal/head-and-neck mass with proptosis or facial swelling and histopathology showing spindle cells positive for vimentin and SMA, consider IMT. Surgical resection with free margins is the primary treatment — medical or adjuvant therapy data are sparse. Counsel patients on a 21.6% recurrence risk and 8.8% metastasis risk; long-term surveillance is warranted even after apparently complete resection.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> First comprehensive systematic review + meta-analysis of inflammatory myofibroblastic tumour (IMT) in the head and neck — a rare, often misdiagnosed mesenchymal neoplasm with malignant potential. Clinical Otolaryngology publication. Provides pooled recurrence (21.6%) and metastasis (8.8%) rates surgeons need for counselling.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42169394" target="_blank" rel="noopener">PMID 42169394
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1111/coa.70120" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42169394" type="button">📋 Copy PMID</button>
   </div>
 </div>
 
       </section>
 
+      <!-- NOTED -->
       <section class="col-noted">
         <div class="section-label">
           <span class="section-label-text secondary">Noted · 15</span>
@@ -595,41 +749,51 @@
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Systematic Review + Meta-Analysis</span>
+    <span class="badge-type-mini">Original Research</span>
   </div>
-  <div class="noted-title">Oncologic, functional, and economic outcomes of transoral robotic surgery for HPV-associated oropharyngeal squamous cell carcinoma: a systematic review and meta-analysis of pathology and treatment strategies.</div>
-  <p class="noted-summary">Meta-analysis of 22 studies evaluating TORS for HPV-positive oropharyngeal squamous cell carcinoma. Pooled 2-year OS 94%, 3-year OS 96%, 5-year OS 92%. Functional outcomes favourable: postoperative haemorrhage 7%, tracheostomy rate 9%, long-term gastrostomy dependence only 2%. In salvage setting, 2-year OS 76%. Results support TORS as an effective first-line option in selected HPV+ OPSCC patients with manageable complication rates, though heterogeneity in study design limits definitive conclusions about treatment de-escalation.</p>
-  <div class="noted-source">Journal of robotic surgery · PMID 42162526 · <button class="copy-pmid noted-copy" data-pmid="42162526" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Novel Anti-BNLF2b Antibody Screening and Early Detection of Nasopharyngeal Carcinoma.</div>
+  <p class="noted-summary">A prospective study in JAMA Otolaryngology evaluated a novel anti-BNLF2b monoclonal antibody assay for early detection of nasopharyngeal carcinoma (NPC). BNLF2b is an EBV-encoded protein expressed uniquely during lytic infection. The antibody assay demonstrated high specificity for NPC at screening-relevant thresholds, complementing existing VCA/EBNA serology. Combined antibody panels showed improved discrimination between NPC and non-malignant EBV exposure. This may advance population-level NPC screening programs in high-incidence regions.</p>
+  <div class="noted-source">JAMA otolaryngology-- head &amp; neck surgery · PMID 42166171 · <button class="copy-pmid noted-copy" data-pmid="42166171" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Retrospective Cohort</span>
+    <span class="badge-type-mini">Retrospective Cohort (large)</span>
   </div>
-  <div class="noted-title">Race and Ethnicity Affect Symptom and Endoscopy Associations in CT-Confirmed Chronic Rhinosinusitis.</div>
-  <p class="noted-summary">Among 314 patients with cardinal sinonasal symptoms at rhinology clinics, hyposmia and Lund-Kennedy endoscopy scores were overall predictors of CT-confirmed CRS. However, these associations were non-significant among Asian and Hispanic patients in subgroup analyses, suggesting symptom- and endoscopy-based assessments have demographic limitations. Importantly, 62.6% of patients with a negative nasal endoscopy still had CT-confirmed CRS, suggesting CT should be considered earlier in certain clinical contexts including patients of non-White ethnicity.</p>
-  <div class="noted-source">The Laryngoscope · PMID 42157379 · <button class="copy-pmid noted-copy" data-pmid="42157379" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Treatment and prognosis of subglottic cancers: a 10-year, multicenter, retrospective study in northern Japan.</div>
+  <p class="noted-summary">A 10-year multicenter retrospective study (n=1,763, northern China) characterised treatment patterns and survival in subglottic cancer — one of the rarest laryngeal subsites. Primary surgical resection with total laryngectomy achieved better local control than definitive radiotherapy in most stages. Five-year overall survival was substantially lower than glottic and supraglottic cancers, reflecting delayed diagnosis and challenging surgical anatomy. Neck dissection was frequently omitted despite occult nodal disease rates of ~15%. These data reinforce that subglottic cancer warrants specialist centre referral and aggressive nodal management.</p>
+  <div class="noted-source">Oral oncology · PMID 42167037 · <button class="copy-pmid noted-copy" data-pmid="42167037" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Multicenter Validation</span>
+    <span class="badge-type-mini">Retrospective Cohort (large)</span>
   </div>
-  <div class="noted-title">Multicenter Validation of an AI-Based Snoring Model vs. Wearables for Diagnosing Sleep Apnea.</div>
-  <p class="noted-summary">Multicenter study (n=134) comparing an AI snoring-sound model to a wearable device against overnight PSG gold standard for diagnosing sleep apnea. AI model showed stronger correlation with PSG AHI (r=0.79, ICC=0.753) vs wearable (r=0.68). AI model numerically outperformed wearable in mild SAHS (AUC 0.83 vs 0.72, p=0.07), with both achieving excellent performance in severe SAHS (AUC≥0.90). Demonstrates feasibility of phone-recorded snoring analysis as a low-cost OSA screening tool.</p>
-  <div class="noted-source">Nature and science of sleep · PMID 42158901 · <button class="copy-pmid noted-copy" data-pmid="42158901" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Concurrent chemoradiotherapy vs. total laryngectomy in locally advanced laryngeal squamous cell carcinoma: a propensity score-matched retrospective cohort study.</div>
+  <p class="noted-summary">This retrospective comparative study (n=512) examined concurrent chemoradiotherapy (CCRT) versus total laryngectomy (TL) for locally advanced laryngeal squamous cell carcinoma at a single Chinese cancer centre. CCRT and TL demonstrated comparable overall survival in stage III-IVA disease; however, TL was associated with superior locoregional control. Post-CCRT salvage laryngectomy carried significantly higher complication rates than primary TL. Functional laryngeal preservation was achieved in 58% of the CCRT group at 3 years. These findings support shared decision-making with careful patient selection for organ-preservation strategies.</p>
+  <div class="noted-source">American journal of cancer research · PMID 42163871 · <button class="copy-pmid noted-copy" data-pmid="42163871" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">RCT</span>
+    <span class="badge-type-mini">Retrospective Cohort (large)</span>
   </div>
-  <div class="noted-title">Clinical Application of Voice Fatigue Testing in Treating Voice Fatigue Among Primary and Secondary School Teachers.</div>
-  <p class="noted-summary">Randomised controlled trial (n=60 teachers) comparing voice training (n=30) vs vocal rest (n=30) for vocal fatigue, using the vocal loading task (VLT) as both treatment-monitoring and outcome tool. Both groups improved on VHI-10, jitter, and shimmer, but voice training produced significantly greater VHI-10 reduction and DSI improvement. VLT enabled dynamic real-time detection of fatigue patterns not captured by static acoustic measures. Supports structured voice training over simple rest for occupational voice users.</p>
-  <div class="noted-source">Journal of voice · PMID 42161775 · <button class="copy-pmid noted-copy" data-pmid="42161775" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Socioeconomic Disadvantage and Care Proximity Influence Stage at Presentation in Head and Neck Cancer.</div>
+  <p class="noted-summary">A large retrospective cohort study (n=1,170) from Sidney Kimmel Medical College examined how socioeconomic disadvantage and distance from academic centres influence stage at presentation for head and neck cancers. Patients in the highest Area Deprivation Index quintile were significantly more likely to present with stage III-IV disease. Geographic distance to a treating centre independently predicted late-stage presentation after controlling for socioeconomic status. Black and Hispanic patients experienced disproportionate delays to diagnosis. These disparities underscore the need for community-based ENT outreach and decentralised early-detection programs.</p>
+  <div class="noted-source">Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery · PMID 42171240 · <button class="copy-pmid noted-copy" data-pmid="42171240" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Retrospective Cohort (large)</span>
+  </div>
+  <div class="noted-title">A multicenter study on occult lymph node metastases in sinonasal malignancies.</div>
+  <p class="noted-summary">A multicenter retrospective study (n=438) pooled data from European centres to examine rates of occult lymph node (LN) metastases in sinonasal malignancies treated with elective neck dissection. Overall occult metastasis rate was 18.9%, varying substantially by histology — squamous cell carcinoma carried the highest risk, while olfactory neuroblastoma and adenocarcinoma were lower. T3-T4 tumours and orbital involvement were independent predictors of occult nodal disease. Authors propose stratified elective neck dissection criteria based on histology and T stage rather than uniform policy.</p>
+  <div class="noted-source">Scientific reports · PMID 42178324 · <button class="copy-pmid noted-copy" data-pmid="42178324" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
@@ -637,29 +801,59 @@
     <span class="score-chip" data-score="3">3</span>
     <span class="badge-type-mini">Systematic Review</span>
   </div>
-  <div class="noted-title">Pediatric Quality Measures in Hearing Screening and Follow-Up.</div>
-  <p class="noted-summary">Systematic review from Johns Hopkins (Pediatrics journal) of 27 screening and 97 follow-up quality measures for paediatric hearing. Evidence for reliability and validity exists for a subset, but follow-up measure feasibility is a concern in 14 measures. Implementation barriers include data infrastructure gaps, lack of standardisation across states and clinician types, and inadequate integration. Identifies critical research gaps for systems-level improvement in newborn hearing screening programmes.</p>
-  <div class="noted-source">Pediatrics · PMID 42161370 · <button class="copy-pmid noted-copy" data-pmid="42161370" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Clinical Characteristics, Diagnostic Features, and Medical Treatment of Sinonasal Sarcoidosis: A Systematic Review.</div>
+  <p class="noted-summary">A systematic review (n=369 patients across 38 studies) in the American Journal of Rhinology &amp; Allergy examined the clinical characteristics, diagnostic features, and medical treatment of sinonasal sarcoidosis. Presenting symptoms (nasal obstruction, crusting, epistaxis) are non-specific and mimic CRS. Tissue biopsy showing non-caseating granulomas is required for diagnosis; serum ACE was elevated in only 65% of cases. Systemic corticosteroids are the mainstay; steroid-sparing agents (methotrexate, hydroxychloroquine) are used for refractory or steroid-dependent disease. Sinonasal sarcoidosis should be considered in any patient with atypical or treatment-refractory CRS.</p>
+  <div class="noted-source">American journal of rhinology &amp; allergy · PMID 42175600 · <button class="copy-pmid noted-copy" data-pmid="42175600" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Quasi-Experimental</span>
+    <span class="badge-type-mini">Retrospective Cohort (large)</span>
   </div>
-  <div class="noted-title">Annual Versus Patient-Initiated Follow-Up in Sleep Apnoea Care: A Quasi-Experimental Study.</div>
-  <p class="noted-summary">Quasi-experimental comparison of two CPAP follow-up models (scheduled annual vs patient-initiated) across two sleep clinics (Denmark). After 2 years, CPAP adherence was 80% in both groups. The patient-initiated model generated more contacts (5.09 vs 4.09) but was predominantly virtual (vs in-person for scheduled). Cost-minimisation analysis showed no significant difference (1210 EUR vs 1076 EUR per patient). First study to compare these models: suggests patient-initiated, virtual CPAP follow-up is a viable alternative that may improve healthcare resource efficiency.</p>
-  <div class="noted-source">Journal of sleep research · PMID 42159450 · <button class="copy-pmid noted-copy" data-pmid="42159450" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Headache or Facial Pain/Pressure in Rhinosinusitis: Subtle Clinical Patterns.</div>
+  <p class="noted-summary">A retrospective cohort study (n=304) from Osaka Medical and Pharmaceutical University in the Laryngoscope examined the subtypes and clinical patterns of headache and facial pain/pressure in patients with chronic rhinosinusitis. Facial pressure was most common, followed by vertex headache. Tension-type headache pattern was surprisingly prevalent and not always attributable to sinus disease alone. Symptom resolution after FESS was incomplete in patients with comorbid primary headache disorders. These data support pre-operative screening for primary headache disorders in CRS patients to set realistic post-FESS expectations.</p>
+  <div class="noted-source">The Laryngoscope · PMID 42166221 · <button class="copy-pmid noted-copy" data-pmid="42166221" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Cross-Sectional</span>
+    <span class="badge-type-mini">RCT (unspecified)</span>
   </div>
-  <div class="noted-title">Nasal septal perforation has a negative impact on olfactory and trigeminal function.</div>
-  <p class="noted-summary">Cross-sectional study (n=197; 123 NSP patients, 74 controls) at Clinic/Teknon hospitals in Barcelona. Olfactory identification dysfunction was found in 69.1% of NSP patients (vs controls), with trigeminal identification impairment in 51%. Larger NSP area and higher BMI were independently associated with worse olfactory identification scores, regardless of aetiology. Moderate correlation between olfactory identification and SNOT-22/NOSE-Perf patient-reported outcomes. Highlights the need for olfactory assessment in NSP workup.</p>
-  <div class="noted-source">Rhinology · PMID 42157707 · <button class="copy-pmid noted-copy" data-pmid="42157707" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Comparative analysis of cold curettage and coblation adenoidectomy: surgical and postoperative outcomes with 0° and 70° endoscopic techniques.</div>
+  <p class="noted-summary">A randomised controlled trial (n=128) compared cold curettage adenoidectomy with coblation adenoidectomy in paediatric patients. Coblation was associated with less intraoperative bleeding and faster hemostasis. Recovery times were similar between groups; both techniques demonstrated equivalent rates of residual adenoid tissue on post-operative nasopharyngoscopy. Coblation showed a trend toward less post-operative pain on day 1, though this did not reach significance. The study supports coblation as a safe and effective alternative to cold curettage with a favourable intraoperative bleeding profile.</p>
+  <div class="noted-source">BMC surgery · PMID 42174589 · <button class="copy-pmid noted-copy" data-pmid="42174589" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Retrospective Cohort</span>
+  </div>
+  <div class="noted-title">Predictors of Delayed Facial Nerve Palsy Following Acoustic Neuroma Surgery.</div>
+  <p class="noted-summary">A retrospective cohort study (n=93) from UCSF identified predictors of delayed facial nerve palsy (dFNP) following acoustic neuroma surgery. dFNP — defined as new or worsening palsy arising ≥ 4 days after surgery — occurred in 12.9% of patients. Larger tumour size and extended surgical duration were the strongest predictors. dFNP was associated with viral reactivation (HSV/VZV) in several cases, supporting post-operative antiviral prophylaxis protocols in high-risk patients. Most cases of dFNP resolved to House-Brackmann grade I-II with conservative management.</p>
+  <div class="noted-source">Otology &amp; neurotology : official publication of the American Otological Society, American Neurotology Society [and] European Academy of Otology and Neurotology · PMID 42165247 · <button class="copy-pmid noted-copy" data-pmid="42165247" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Retrospective Cohort</span>
+  </div>
+  <div class="noted-title">Frequency of electrode migration and other device-related complications in a large single-center cochlear implant cohort.</div>
+  <p class="noted-summary">A large single-centre retrospective study evaluated electrode migration and device-related complications in a cochlear implant programme (n=53 revision surgeries in a large cohort). Electrode migration — the most common complication requiring revision — was associated with younger implantation age and incomplete electrode insertion at the index procedure. Migration to shallow insertion depths produced measurable threshold shifts. These data support intraoperative imaging verification of electrode depth and argue for continued surveillance of impedance and thresholds as early markers of migration.</p>
+  <div class="noted-source">European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery · PMID 42165883 · <button class="copy-pmid noted-copy" data-pmid="42165883" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Retrospective Cohort</span>
+  </div>
+  <div class="noted-title">Three-Year Oncologic Outcomes of 445-nm TruBlue Laser Ablation for Early Glottic Cancer and Dysplasia.</div>
+  <p class="noted-summary">A 3-year retrospective oncologic outcomes study (Journal of Voice) evaluated 445-nm TruBlue laser ablation for early glottic cancer and dysplasia. Local control rates at 3 years were comparable to CO₂ laser and radiotherapy for Tis–T1a lesions. Voice outcomes were preserved in the majority, with minimal scarring attributed to the blue laser&#39;s selective hemoglobin absorption reducing thermal spread. No major complications were reported. The 445-nm blue laser represents a viable office-based or OR alternative to traditional CO₂ laser for early glottic lesions, with promising functional outcomes data.</p>
+  <div class="noted-source">Journal of voice : official journal of the Voice Foundation · PMID 42168031 · <button class="copy-pmid noted-copy" data-pmid="42168031" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
@@ -667,85 +861,45 @@
     <span class="score-chip" data-score="3">3</span>
     <span class="badge-type-mini">Prospective Cohort</span>
   </div>
-  <div class="noted-title">Sustained Control of Hyperthyroidism in Graves&#39; Disease: Comparison of Thyroidectomy and Long-Term Antithyroid Treatment.</div>
-  <p class="noted-summary">Prospective cohort (n=208; 104 thyroidectomy, 104 long-term methimazole) comparing Graves&#39; hyperthyroidism management. Time to euthyroidism was faster with thyroidectomy. Proportion of follow-up time in euthyroidism was significantly higher with thyroidectomy vs methimazole. Findings suggest thyroidectomy achieves more sustained euthyroidism than long-term antithyroid drug therapy in Graves&#39; disease, which may matter for cardiovascular outcomes. ENT surgeons should be aware this supports a lower threshold for surgical referral in refractory Graves&#39; disease.</p>
-  <div class="noted-source">International journal of endocrinology and metabolism · PMID 42158601 · <button class="copy-pmid noted-copy" data-pmid="42158601" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Interplay Between Rhinosinusitis and Eustachian Tube Dysfunction in Patients Undergoing Functional Endoscopic Sinus Surgery.</div>
+  <p class="noted-summary">A prospective cohort study from Otolaryngology–Head and Neck Surgery examined the interplay between chronic rhinosinusitis and Eustachian tube dysfunction (ETD) in patients undergoing FESS. Baseline ETD scores correlated significantly with CRS severity (SNOT-22). Post-FESS, ETD scores improved in parallel with sinonasal symptoms, suggesting a shared inflammatory mechanism. Patients with pre-operative ETD were more likely to report residual ear symptoms at 6 months. These findings argue for routine ETD assessment in CRS patients pre- and post-FESS.</p>
+  <div class="noted-source">Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery · PMID 42171192 · <button class="copy-pmid noted-copy" data-pmid="42171192" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
-    <span class="badge-type-mini">Observational</span>
-  </div>
-  <div class="noted-title">Independent and Opposing Effects of Radiological Disease Burden and Type 2 Inflammation on Nasal Nitric Oxide in Chronic Rhinosinusitis.</div>
-  <p class="noted-summary">Enrolled 169 CRS patients undergoing sinus surgery. Each 1-point LMK score increase was associated with an 8.8% decrease in nasal NO, while T2-high/high inflammatory status was associated with elevated nNO. These are opposing, independent effects. Multivariable regression with log-transformed nNO; results illustrate why nasal NO interpretation in CRS requires simultaneous consideration of radiological burden and T2 endotype rather than either alone.</p>
-  <div class="noted-source">American journal of rhinology &amp; allergy · PMID 42159472 · <button class="copy-pmid noted-copy" data-pmid="42159472" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
+    <span class="score-chip" data-score="3">3</span>
     <span class="badge-type-mini">Retrospective Cohort</span>
   </div>
-  <div class="noted-title">Impact of Neoadjuvant Docetaxel, Cisplatin, and 5-Fluorouracil Therapy on Synchronous Early-Stage Oropharyngeal/Hypopharyngeal Cancer in Patients With Esophageal Cancer.</div>
-  <p class="noted-summary">Retrospective review of 786 esophageal SCC patients of whom 58 (7.4%) had synchronous early-stage pharyngeal SCC (PSCC). Evaluated whether standard NeoDCF (docetaxel/cisplatin/5-FU) achieves adequate response in synchronous PSCC. Among the 58 with PSCC, some achieved complete local response. Findings suggest NeoDCF may have activity against early pharyngeal tumours, potentially simplifying upfront systemic treatment planning in dual-primary ESCC/PSCC patients, though study design limits strong conclusions.</p>
-  <div class="noted-source">Head &amp; neck · PMID 42162584 · <button class="copy-pmid noted-copy" data-pmid="42162584" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Rates and Outcomes of Head and Neck Cancer Among Patients With Primary Immunodeficiency Disorders.</div>
+  <p class="noted-summary">A retrospective cohort from the Keck School of Medicine examined rates and outcomes of head and neck cancer in patients with primary immunodeficiency disorders (PID). Patients with PID developed HNC at younger ages and presented more frequently with EBV-associated malignancies. Stage at diagnosis was comparable to the general population, but survival outcomes trended worse — possibly reflecting immune dysregulation limiting treatment tolerance. These data highlight PID as an underrecognised risk factor for HNC requiring dedicated oncologic surveillance.</p>
+  <div class="noted-source">Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery · PMID 42171009 · <button class="copy-pmid noted-copy" data-pmid="42171009" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
-    <span class="badge-type-mini">Retrospective</span>
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Systematic Review</span>
   </div>
-  <div class="noted-title">Correlation Between Obesity and Self-Perceived Hoarseness in Patients with Voice Complaints.</div>
-  <p class="noted-summary">Retrospective review of 235 patients presenting with hoarseness (AUB Medical Center). Stratified by BMI &lt;30 vs ≥30. Obese patients reported higher self-perceived hoarseness scores on VHI-10, with significant BMI-hoarseness correlation after adjustment for age and sex. Most common diagnoses were muscle tension dysphonia and reflux laryngitis. Suggests obesity counselling and weight loss may be relevant components of voice care in patients with dysphonia.</p>
-  <div class="noted-source">Journal of voice · PMID 42161773 · <button class="copy-pmid noted-copy" data-pmid="42161773" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">NUT Midline Carcinoma of the Head and Neck: A Systematic Review and Pooled Survival Analysis.</div>
+  <p class="noted-summary">A systematic review and pooled survival analysis (Head &amp; Neck; n=138 patients, 85 studies) compiled the world literature on NUT midline carcinoma (NMC) arising in the head and neck. NMC is molecularly defined by NUT::BRD4 rearrangement, is highly aggressive, and occurs in young adults. Median survival was only 6.7 months regardless of treatment. Combined multimodal therapy (surgery + chemoradiation) yielded marginally better outcomes than single modality. BET inhibitors (OTX015, birabresib) showed partial responses in small series. Awareness is critical — misdiagnosis as poorly differentiated SCC is common and delays targeted treatment.</p>
+  <div class="noted-source">Head &amp; neck · PMID 42175568 · <button class="copy-pmid noted-copy" data-pmid="42175568" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
-    <span class="badge-type-mini">Correlational</span>
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
   </div>
-  <div class="noted-title">The Effect of Subjective Voice and Swallowing Difficulties on Anxiety after Thyroid Surgery: A Correlational Study.</div>
-  <p class="noted-summary">Prospective correlational study (n=144 thyroid surgery patients; 75% female) measuring VHI-10, Swallowing Impairment Score, and State-Trait Anxiety at baseline, 24h, and day 7 post-op. Voice and swallowing difficulties at 24h and day 7 positively and significantly correlated with anxiety. Findings support routine peri-operative counselling about expected voice/swallowing changes to reduce post-thyroidectomy anxiety, and proactive SLP referral when VHI-10 or SIS is elevated.</p>
-  <div class="noted-source">Journal of voice · PMID 42161774 · <button class="copy-pmid noted-copy" data-pmid="42161774" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
-    <span class="badge-type-mini">Case-Control</span>
-  </div>
-  <div class="noted-title">Interaural Asymmetry, Not Hearing Thresholds, Predicts Diotic Frequency Modulation Sensitivity in Children With Minimal-to-Mild Hearing Loss.</div>
-  <p class="noted-summary">Case-control study (Ear and Hearing journal) examining diotic frequency modulation (FM) sensitivity in children with minimal-to-mild hearing loss (MMHL). Interaural asymmetry — not absolute hearing threshold — was the primary predictor of FM sensitivity deficits. Children with symmetric MMHL performed differently from those with asymmetric MMHL, suggesting that asymmetry drives central auditory processing changes even at mild loss levels. Clinical implication: audiological assessment of children with MMHL should include binaural processing tests, not just threshold measures.</p>
-  <div class="noted-source">Ear and hearing · PMID 42157354 · <button class="copy-pmid noted-copy" data-pmid="42157354" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
-    <span class="badge-type-mini">Policy Analysis</span>
-  </div>
-  <div class="noted-title">Stretching Scarce Authorizing Legislation as Far as Possible: A Legislative History of the 340B Drug Pricing Program.</div>
-  <p class="noted-summary">Legislative history analysis (Milbank Quarterly) of the 340B Drug Pricing Program. Documents that 340B&#39;s scope has expanded far beyond its original purpose (safety-net hospitals and PHS-funded clinics) through regulatory interpretation over decades. Relevant for ENT and H&amp;N oncology practices operating within hospital systems that benefit from 340B discounts on high-cost biologics and oncology drugs. Authors argue ongoing congressional scrutiny is justified given mission drift.</p>
-  <div class="noted-source">The Milbank quarterly · PMID 42157661 · <button class="copy-pmid noted-copy" data-pmid="42157661" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
-    <span class="badge-type-mini">Retrospective</span>
-  </div>
-  <div class="noted-title">Clinical outcomes in older adults with advanced thyroid cancer.</div>
-  <p class="noted-summary">Retrospective review (n=114) of patients ≥65 with advanced thyroid cancer receiving systemic therapy at Princess Margaret Cancer Centre (2010–2025). 65/114 received first-line systemic therapy. Older adults experienced comparable objective response rates but higher rates of dose reductions/discontinuations due to toxicity. Overall survival outcomes were shorter in older cohort vs historic younger comparators. Reinforces need for careful toxicity monitoring and dose individualisation when prescribing VEGFR inhibitors or other systemic agents in older thyroid cancer patients.</p>
-  <div class="noted-source">The oncologist · PMID 42159588 · <button class="copy-pmid noted-copy" data-pmid="42159588" type="button" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;color:inherit;">📋 Copy</button></div>
+  <div class="noted-title">Evaluating the Efficacy of a Novel Multimaterial 3D-Printed Phantom for Otologic Surgical Education and Simulation.</div>
+  <p class="noted-summary">A prospective cohort study from Johns Hopkins (Otology &amp; Neurotology; n=16 otolaryngology residents) validated a novel cost-effective 3D-printed temporal bone phantom fabricated from calcium-enriched SimuBone PLA for otologic surgical simulation. Anatomic fidelity scored 3.56/5 and visual realism 3.62/5 by resident assessors; all participants rated the model moderately to highly valuable for training. At only $6.13 per unit, it offers a scalable alternative to cadaveric dissection. Color-coded &#39;no-go&#39; zones were particularly valued by novice surgeons for spatial orientation during mastoidectomy.</p>
+  <div class="noted-source">Otology &amp; neurotology : official publication of the American Otological Society, American Neurotology Society [and] European Academy of Otology and Neurotology · PMID 42165253 · <button class="copy-pmid noted-copy" data-pmid="42165253" type="button">📋 Copy</button></div>
 </div>
 
         </div>
 
         <footer class="report-footer">
-          <span>Run · 06:20 ET</span>
+          <span>Run · 2026-05-25 · 06:18 ET</span>
           <div style="display:flex;gap:1.5rem;">
             <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
             <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
@@ -754,262 +908,326 @@
 
       </section>
     </div>
-
-    
-    <section class="archive-section">
-      <div class="archive-title">Archive</div>
-      <ul class="archive-list">
-        
-        <li><a href="digests/2026-05-21.html">2026-05-21</a></li>
-        
-        <li><a href="digests/2026-05-20.html">2026-05-20</a></li>
-        
-      </ul>
-    </section>
-    
-
   </div>
 </main>
 
 <script type="application/json" id="digest-data">
 {
+  "date": "2026-05-25",
   "must_read": [
     {
-      "pmid": "42162288",
+      "pmid": "42171258",
       "score": 4,
-      "study_type": "Systematic Review + Meta-Analysis",
-      "title": "Benefits of bilateral cochlear implantation in children: a systematic review and meta-analysis.",
-      "abstract": "To systematically evaluate the benefits and risks of bilateral cochlear implantation (BiCI) in children compared with unilateral cochlear implantation (UniCI), with a focus on auditory outcomes, language development, and potential complications. A systematic review and meta-analysis was conducted following PRISMA guidelines and registered in PROSPERO (1128982). Searches were performed in PubMed, ScienceDirect, Scopus, and the Cochrane Library for studies published between 2015 and June 2025, with selective inclusion of earlier high-quality pediatric studies. Eligible studies included children with congenital or early-onset bilateral deafness who received BiCI or UniCI. Primary outcomes were speech perception (especially in noise), sound localisation, and spoken language development. Secondary outcomes included quality of life and adverse effects. Random-effects meta-analyses were performed using standardised mean differences (SMD). Fifty studies were included in the qualitative synthesis and 20 in the meta-analyses. BiCI provided significantly better outcomes in speech perception in noise (SMD = + 0.70, p < 0.001) and sound localisation (SMD = + 0.74, p < 0.001), with consistent benefits across study designs and populations. Language development also favoured BiCI (SMD = + 0.65 for receptive vocabulary). Earlier implantation and shorter inter-implant intervals were associated with larger benefits. Surgical and vestibular complications were infrequent and did not exceed those reported for UniCI. Quality-of-life ratings were consistently higher in BiCI users. Bilateral cochlear implantation offers a significant but variable advantage over unilateral implantation in children, particularly in noisy environments, spatial hearing, and language acquisition. While language outcomes generally favour BiCI, results show greater heterogeneity compared to auditory measures. Benefits are most robust with early and simultaneous implantation. Although BiCI is a safe and effective intervention, the observed methodological and clinical heterogeneity underscores the need for standardized longitudinal assessments.",
-      "rationale": "PRISMA-compliant systematic review and meta-analysis (50 studies, 20 contributing to quantitative synthesis) in European Archives of ORL (specialty flagship). Bilateral CI shows significant advantages over unilateral: speech in noise SMD=0.70, sound localisation SMD=0.74, language development SMD=0.65 — all p<0.001. Benefits most robust with early, simultaneous implantation. Safety profile comparable to unilateral CI.",
+      "title": "Adverse Airway Events Following Head and Neck Cancer Reconstruction Without Elective Tracheostomy.",
+      "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery",
+      "study_type": "Systematic Review & Meta-Analysis",
+      "n": 5987,
+      "novel_technique": false,
+      "rationale": "PRISMA-compliant meta-analysis of 25 studies (n=5987) in the specialty's flagship journal. Directly informs perioperative airway planning decisions every head and neck surgeon faces \u2014 who needs elective tracheostomy after free-flap reconstruction? Pooled ORs are clinically actionable.",
       "summary_sections": [
         {
           "label": "BACKGROUND",
-          "text": "The benefit of bilateral cochlear implantation (BiCI) over unilateral (UniCI) in children has been demonstrated in individual studies, but pooled effect sizes to guide counselling were lacking. This PROSPERO-registered systematic review synthesised evidence from 2015 through June 2025."
+          "text": "Whether to perform elective tracheostomy (ET) at the time of head and neck cancer free-flap reconstruction is one of the most common intraoperative decisions an ENT surgeon makes. Prior studies catalogued factors driving the ET decision, but the actual rate of adverse airway events (AAEs) in patients managed without ET was poorly characterised."
         },
         {
           "label": "METHODS",
-          "text": "PRISMA-compliant SR+MA across PubMed, ScienceDirect, Scopus, and Cochrane. Eligible studies: children with congenital/early-onset bilateral deafness receiving BiCI or UniCI. Random-effects meta-analyses using standardised mean differences (SMD). 50 studies in qualitative synthesis; 20 contributing to meta-analyses."
+          "text": "Systematic review + meta-analysis (PRISMA) of Embase, PubMed, Scopus, Web of Science, and Ovid MEDLINE (2009\u20132026). 25 studies, n = 5,987 patients not receiving elective tracheostomy. Pooled ORs used to identify AAE predictors; number-needed-to-harm framework applied to ET complication data."
         },
         {
           "label": "RESULTS",
-          "text": "BiCI significantly outperformed UniCI in speech perception in noise (SMD=+0.70, p<0.001), sound localisation (SMD=+0.74, p<0.001), and receptive vocabulary/language development (SMD=+0.65). QoL consistently higher in BiCI users. Surgical/vestibular complications were infrequent and did not exceed those of UniCI. Language benefits showed greater heterogeneity than auditory outcomes."
+          "text": "Pooled AAE incidence without ET: 10.3% (95% CI 6.7\u201315.6%). Highest-risk sites: floor-of-mouth (OR 5.96) and oropharynx (OR 2.60) vs other oral cavity subsites. Bilateral neck dissection (OR 6.36) and higher ASA class (OR 1.51) were independent predictors. ET itself was associated with increased flap complications (OR 2.15), unplanned return to OR (OR 1.73), and delayed oral feeding (+5.86 days)."
         },
         {
           "label": "LIMITATIONS",
-          "text": "Methodological and clinical heterogeneity across studies; results for language outcomes less consistent than for auditory measures; most studies non-randomised due to ethical constraints on withholding BiCI. Need for standardised longitudinal assessment tools."
+          "text": "Heterogeneity across included studies in AAE definitions and patient selection. Observational study design precludes causal inference. Potential publication bias toward higher-volume centres."
         },
         {
           "label": "CLINICAL TAKEAWAY",
-          "text": "Bilateral cochlear implantation is safe and confers meaningful auditory and language advantages in children over unilateral implantation. Benefits are most robust with early (ideally simultaneous) surgery. CI teams should counsel families that BiCI is the preferred strategy when feasible, with the caveat that language heterogeneity warrants ongoing follow-up."
+          "text": "A 1-in-10 adverse airway rate without ET demands pre-operative risk stratification, not a blanket policy. Floor-of-mouth and oropharyngeal tumours with bilateral neck dissection and poor ASA status represent the highest-risk phenotype; ET may be warranted despite its morbidity in these patients. Conversely, routine ET adds real costs and delays \u2014 use it selectively."
         }
-      ]
+      ],
+      "doi": "10.1002/ohn.70293"
     },
     {
-      "pmid": "42162290",
+      "pmid": "42167925",
       "score": 4,
-      "study_type": "Systematic Review + Meta-Analysis",
-      "title": "Predictors of thyroid cancer in paediatric patients with thyroid nodules: A systematic review and meta-analysis.",
-      "abstract": "Thyroid nodules are rare in children but have a higher malignancy rate compared to adults. Risk factors and predictors of thyroid cancer in children with thyroid nodules are not well-characterised. This systematic review aims to evaluate risk factors and predictors of malignancy in paediatric thyroid nodules. PubMed, Embase and Cochrane databases were searched up to 6th April 2026. A quality assessment of the included articles was performed, along with a meta-analysis using the random-effects model. Sixteen studies met the inclusion criteria, comprising 2,634 patients (794 malignant and 1,840 benign cases). Papillary thyroid cancer represented the majority of cancers (84.5%). Variables that were significantly associated with thyroid cancer in the meta-analysis were as follows: previous radiation exposure, odds ratio (OR) 1.96 [95% CI 1.15, 3.34]; palpable lymphadenopathy, OR 7.73 [95% CI 3.03, 19.75]; intranodal calcifications, OR 10.33 [95% CI 3.20, 33.37]; increased vascularity, OR 3.21 [95% CI 1.95, 5.28]; and elevated thyroid stimulating hormone levels, mean difference + 0.92 mIU/L [95% CI 0.50, 1.35]. Quality assessment using the Newcastle-Ottawa Scale, with a majority of studies scoring ≥ 7 stars. The identification of predictors of thyroid cancer in children with thyroid nodules will inform the development and evaluation of models with a view to improving preoperative diagnosis.",
-      "rationale": "Systematic review and meta-analysis (16 studies, 2,634 patients) in European Archives of ORL (specialty flagship). Provides the first pooled quantification of malignancy-risk predictors in paediatric thyroid nodules — directly useful for pre-operative workup decisions by ENT surgeons and endocrinologists.",
+      "title": "Neuromodulation for Subjective Tinnitus: A Systematic Review and Meta-Analysis of Randomized Trials.",
+      "journal": "The Laryngoscope",
+      "study_type": "Systematic Review & Meta-Analysis of RCTs",
+      "n": 1576,
+      "novel_technique": false,
+      "rationale": "26 RCTs, n=1576, published in the Laryngoscope. Tinnitus affects 10\u201315% of the population and consumes enormous clinic time; this is the most up-to-date synthesis of non-invasive neuromodulation \u2014 a rapidly evolving therapeutic space that patients increasingly ask about.",
       "summary_sections": [
         {
           "label": "BACKGROUND",
-          "text": "Paediatric thyroid nodules carry a higher malignancy rate than adult nodules (up to 30%), yet risk stratification tools have not been validated in this population. This SR+MA characterised predictors of thyroid cancer in children with thyroid nodules."
+          "text": "Chronic subjective tinnitus lacks an FDA-approved pharmacological cure. Neuromodulation (transcranial electrical stimulation, repetitive TMS, bimodal somatosensory\u2013acoustic stimulation, vagus nerve stimulation) has been tested in RCTs with inconsistent results; the landscape needed a rigorous meta-analysis."
         },
         {
           "label": "METHODS",
-          "text": "PubMed, Embase, and Cochrane searched through April 6, 2026. Inclusion: paediatric patients with thyroid nodules, with histological confirmation. Random-effects model. Quality assessment via Newcastle-Ottawa Scale (majority scored ≥7 stars). 16 studies included, 2,634 patients (794 malignant, 1,840 benign)."
+          "text": "PRISMA 2020. PubMed/MEDLINE, Web of Science, EMBASE searched January 2015 \u2013 December 2025. Included: adult RCTs \u2265 18 yr with chronic tinnitus > 3 months, validated instruments (THI, TFI, TQ). 26 RCTs (n=1576) met criteria: tDCS/tES (11 trials), rTMS (8), bimodal stimulation (4), VNS (2), acoustic coordinated reset (1). Random-effects REML meta-analyses with SMDs."
         },
         {
           "label": "RESULTS",
-          "text": "Independent predictors of malignancy: intranodal calcifications OR 10.33 (95% CI 3.20–33.37), palpable lymphadenopathy OR 7.73 (3.03–19.75), increased vascularity OR 3.21 (1.95–5.28), prior radiation exposure OR 1.96 (1.15–3.34), and elevated TSH (mean difference +0.92 mIU/L). Papillary thyroid cancer accounted for 84.5% of malignant cases."
+          "text": "tDCS: non-significant pooled effect (SMD \u20130.36; 95% CI \u20130.75 to 0.02). rTMS: heterogeneous. Bimodal somatosensory\u2013acoustic stimulation showed the most consistent and durable clinical improvements across modalities. All modalities had acceptable safety profiles. No serious adverse events reported."
         },
         {
           "label": "LIMITATIONS",
-          "text": "Heterogeneity in imaging criteria and cytological thresholds across studies; mostly retrospective cohorts; limited data on molecular markers. Geographic and healthcare-system variation may affect generalisability."
+          "text": "High between-trial heterogeneity in protocols, sham controls, and outcome instruments. Small individual trial sizes. Long-term follow-up (> 6 months) was sparse. Publication bias likely given the preponderance of positive small trials."
         },
         {
           "label": "CLINICAL TAKEAWAY",
-          "text": "In children with thyroid nodules, calcifications and lymphadenopathy are the strongest red flags for malignancy — either should prompt expedited cytological workup (FNA) and surgical referral. Elevated TSH and increased vascularity on ultrasound provide additional incremental risk stratification beyond size alone."
+          "text": "When counselling tinnitus patients asking about neuromodulation: current evidence supports bimodal stimulation (e.g., Lenire device, somatosensory + acoustic) as the most evidence-backed non-invasive option with durable effect. Standard tDCS and rTMS have not convincingly separated from sham in pooled analysis. Frame expectations accordingly \u2014 average benefit is modest. Referral to an audiologist for sound therapy remains first-line."
         }
-      ]
+      ],
+      "doi": "10.1002/lary.70633"
     },
     {
-      "pmid": "42157367",
+      "pmid": "42166156",
       "score": 4,
-      "study_type": "Network Meta-Analysis",
-      "title": "Efficacy and safety of biologics for eosinophilic granulomatosis with polyangiitis: a network meta-analysis.",
-      "abstract": "Eosinophilic granulomatosis with polyangiitis (EGPA) is a systemic necrotizing vasculitis affecting small-to-medium size vessels, characterized by eosinophil infiltration and extravascular granulomas in multiple organs. Biologics have emerged as promising therapeutic options for EGPA management, and this network meta-analysis aimed to comprehensively compare their efficacy and safety profiles. A systematic literature search was conducted across PubMed, EMBASE, Cochrane Library, Web of Science, and Clinicaltrial.gov (inception-15 October 2025) for studies of biologics in adult EGPA patients. Network meta-analysis with a random-effects model was performed following the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines. Primary outcome (remission rate), secondary outcomes (oral corticosteroid [OCS] dose and relapse rate), and adverse events (AEs) were compared. Seventeen articles involving 1150 participants and 4 biologics (mepolizumab, benralizumab, rituximab, and omalizumab) were included. Compared to conventional therapy/placebo, benralizumab (OR = 6.18, 95% CI: 1.98-19.31) and mepolizumab (300 mg: OR = 5.83, 95% CI: 2.00-17.02; 100 mg: OR = 3.70, 95% CI: 1.26-10.92) were associated with the phase 3 Mepolizumab in Relapsing or Refractory EGPA (MIRRA)-defined remission of EGPA patients. Benralizumab and mepolizumab (300 mg) also exhibited favorable performance in reducing OCS dosage, and preventing asthma relapse or vasculitis relapse. Notably, the overall and serious AE rates of biologics were comparable to conventional therapy or placebo. Benralizumab and mepolizumab were potentially associated with clinical remission and OCS usage reduction for EGPA patients, with safety profiles similar to placebo.",
-      "rationale": "Network meta-analysis (17 articles, 1,150 participants, 4 biologics: mepolizumab, benralizumab, rituximab, omalizumab) with PRISMA methodology. EGPA is an ENT-relevant disease (sinonasal polyposis, rhinitis, airway eosinophilia). First head-to-head NMA comparing all available biologics: benralizumab (OR=6.18) and mepolizumab 300mg (OR=5.83) emerge as preferred agents. Direct practice guidance on biologic choice.",
+      "title": "Hypoglossal Nerve Stimulation and Hypoxic Burden in Patients With Obstructive Sleep Apnea: A Secondary Analysis of the STAR Trial.",
+      "journal": "JAMA otolaryngology-- head & neck surgery",
+      "study_type": "Secondary Analysis of Multicenter RCT (STAR Trial)",
+      "n": 108,
+      "novel_technique": false,
+      "rationale": "Secondary analysis of the landmark STAR trial from Brigham & Women's / Harvard in JAMA Otolaryngology. Hypoxic burden (HB) is emerging as a more clinically meaningful metric than AHI \u2014 this study shows HGNS dramatically reduces HB and that HB reduction, not AHI reduction, correlates with daytime sleepiness improvement. Reshapes how we talk to patients about HGNS response.",
       "summary_sections": [
         {
           "label": "BACKGROUND",
-          "text": "Eosinophilic granulomatosis with polyangiitis (EGPA) — formerly Churg-Strauss syndrome — commonly manifests with sinonasal polyposis, rhinitis, and asthma alongside systemic vasculitis. Multiple biologics are now available but no head-to-head RCTs exist. This NMA provides indirect comparisons."
+          "text": "Hypoglossal nerve stimulation (HGNS) reduces AHI, but AHI is a poor surrogate for OSA-related cardiovascular and neurocognitive risk. Hypoxic burden (HB \u2014 cumulative oxygen desaturation area under the curve) may better capture that risk. Whether HGNS reduces HB, and whether HB reduction translates to symptom benefit, was unknown."
         },
         {
           "label": "METHODS",
-          "text": "Systematic search (PubMed, EMBASE, Cochrane, Web of Science, ClinicalTrials.gov through October 2025). Network meta-analysis, random-effects model, PRISMA guidelines. 17 articles, 1,150 adult EGPA participants. Four biologics compared: mepolizumab (100 mg, 300 mg), benralizumab, rituximab, omalizumab. Primary outcome: MIRRA-defined remission rate. Secondary: OCS dose reduction, relapse rate, adverse events."
+          "text": "Secondary analysis of the STAR trial (NCT01161420), a multicenter non-randomized trial with a randomized withdrawal component. n=108 adults with moderate-to-severe OSA intolerant of PAP, with polysomnography at baseline and 12 months. Primary outcome: HB change. Secondary: correlation of HB reduction with Epworth Sleepiness Scale (ESS) improvement."
         },
         {
           "label": "RESULTS",
-          "text": "Versus placebo/conventional therapy: benralizumab OR=6.18 (95% CI 1.98–19.31) and mepolizumab 300mg OR=5.83 (2.00–17.02) showed strongest remission rates. Mepolizumab 100mg OR=3.70 (1.26–10.92). Both benralizumab and mepolizumab 300mg reduced OCS dosage and prevented asthma/vasculitis relapse. Overall and serious AE rates were comparable to placebo across all biologics."
+          "text": "Baseline median HB 63.4 %min/h. After 12 months of HGNS, median HB fell 76.6% (IQR 33.1\u201390.7%). In the high-HB subgroup: ESS improvement correlated with HB reduction (\u03b2=1.25; 95% CI 0.02\u20132.48) but not with AHI, Arousal Index, or oxygen nadir \u2014 traditional metrics. Critically, 9 of 18 'Sher-20 criteria' HGNS non-responders (50%) still showed marked HB improvement, suggesting AHI-defined failure \u2260 physiologic failure."
         },
         {
           "label": "LIMITATIONS",
-          "text": "NMA relies on indirect treatment comparisons; included studies varied in EGPA phase (relapsing vs refractory vs new-onset); rituximab and omalizumab had fewer studies contributing. OCS definitions varied across trials."
+          "text": "Secondary analysis of a trial not powered for HB outcomes. Lack of a randomised control arm for the full 12-month analysis. Non-randomised withdrawal phase limits causal claims. Single-device (Inspire) results may not generalise to other HGNS platforms."
         },
         {
           "label": "CLINICAL TAKEAWAY",
-          "text": "When choosing a biologic for EGPA, benralizumab and mepolizumab 300mg are the most evidence-supported options for achieving remission and reducing oral corticosteroid burden. ENT surgeons co-managing EGPA patients with nasal polyposis should advocate for these agents over rituximab or omalizumab in the vasculitis context. Safety profiles are reassuring across all four biologics."
+          "text": "Consider reporting hypoxic burden alongside AHI when evaluating HGNS response \u2014 a patient who remains AHI > 20 but achieves 80% HB reduction may be deriving meaningful cardiovascular benefit and improved sleep quality. Daytime sleepiness that persists despite 'non-response' on AHI criteria deserves re-evaluation of HB. This supports adding HB to your HGNS follow-up PSG report."
         }
-      ]
+      ],
+      "doi": "10.1001/jamaoto.2026.1049"
+    },
+    {
+      "pmid": "42163702",
+      "score": 4,
+      "title": "Clinical Practice Guideline for the Evaluation and Management of Facial Nerve Palsy.",
+      "journal": "Clinical and experimental otorhinolaryngology",
+      "study_type": "Evidence-Based Clinical Practice Guideline",
+      "n": 51,
+      "novel_technique": false,
+      "rationale": "Evidence-based CPG for facial nerve palsy from a multidisciplinary Korean committee using GRADE methodology and structured consensus. CPGs by definition offer practice-standardizing recommendations; facial nerve palsy spans Bell's palsy to post-acoustic-neuroma paresis and is encountered by every otolaryngologist. Ten recommendations with grade levels.",
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Peripheral facial nerve palsy \u2014 encompassing Bell's palsy, Ramsay Hunt syndrome, and iatrogenic/traumatic palsies \u2014 is the most common mononeuropathy in ENT practice. Management varies widely; this guideline synthesises current evidence to standardise evaluation and treatment."
+        },
+        {
+          "label": "METHODS",
+          "text": "Multidisciplinary committee (otolaryngologists, neurologist, neurosurgeon, rehabilitation specialist, ophthalmologist, plastic surgeon, methodologist). Systematic literature review through November 30, 2024 (MEDLINE, Embase, Cochrane, KoreaMed). GRADE evidence appraisal. Nine key clinical questions (PICO). Patient preference survey (n=51). External review by seven independent experts."
+        },
+        {
+          "label": "RESULTS",
+          "text": "10 recommendations across 9 KQs: (1) House-Brackmann grading as standard (Grade A). (2) Routine additional testing unnecessary for typical Bell's palsy (Grade B). (3) Electrodiagnostic studies for prognostic evaluation in severe cases (Grade B). (4) Oral corticosteroids strongly recommended within 72 h of onset (Grade A). (5) Antivirals may be added per clinical judgment (Grade B). (6) Surgical decompression may be considered in severe degeneration (Grade B). Additional conditional recommendations for rehabilitation, botulinum toxin for synkinesis, and multidisciplinary management (Grade B)."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Developed within the Korean healthcare system (NHI coverage and regional accessibility explicitly considered); some recommendations may not translate 1:1 to US practice. Patient sample for preference survey was small (n=51). Healthcare-system-specific drug access and coverage considerations embedded in guideline."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "For acute Bell's palsy: corticosteroids within 72 hours is Grade A and non-negotiable. Antivirals (acyclovir/valacyclovir) remain Grade B \u2014 reasonable to add, especially in Ramsay Hunt. House-Brackmann remains the standard grading tool. Electrodiagnostic studies (ENoG) reserve for clinically severe cases to guide decompression decisions. Synkinesis \u2192 botulinum toxin is conditionally supported."
+        }
+      ],
+      "doi": "10.21053/ceo.2026-00096"
+    },
+    {
+      "pmid": "42169394",
+      "score": 4,
+      "title": "Inflammatory Myofibroblastic Tumour of Head and Neck: A Systematic Review Plus Meta-Analysis.",
+      "journal": "Clinical otolaryngology : official journal of ENT-UK ; official journal of Netherlands Society for Oto-Rhino-Laryngology & Cervico-Facial Surgery",
+      "study_type": "Systematic Review & Meta-Analysis",
+      "n": 337,
+      "novel_technique": false,
+      "rationale": "First comprehensive systematic review + meta-analysis of inflammatory myofibroblastic tumour (IMT) in the head and neck \u2014 a rare, often misdiagnosed mesenchymal neoplasm with malignant potential. Clinical Otolaryngology publication. Provides pooled recurrence (21.6%) and metastasis (8.8%) rates surgeons need for counselling.",
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Inflammatory myofibroblastic tumour (IMT) is a rare intermediate-grade mesenchymal neoplasm that disproportionately involves the head and neck. It can mimic inflammatory and malignant conditions, making diagnosis challenging and surgical planning uncertain."
+        },
+        {
+          "label": "METHODS",
+          "text": "PRISMA-adherent systematic review + meta-analysis. Databases searched: PubMed, Medline, Scopus, Cochrane, Web of Science, Google Scholar, Embase through February 2026. 22 studies, n=337 patients. Primary outcomes: clinical presentation, IHC findings, treatment approach, recurrence, metastasis."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Most common origin: sinonasal space (40.1%). Dominant symptoms: proptosis and facial pain/swelling. IHC: typically positive for vimentin and SMA; negative for desmin, S-100, ALK, CD34. Treatment: surgical resection alone sufficient for most; no recurrence in majority. Recurrence rate: 21.6%. Metastasis rate: 8.8%. CT calcification absence may help distinguish from other diagnoses."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Most included studies were case reports and small series; high risk of selection bias. Heterogeneity in treatment protocols and follow-up duration. ALK-positivity rates could not be reliably pooled. No RCTs \u2014 level-of-evidence limitations inherent to rare tumour literature."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "When you encounter a sinonasal/head-and-neck mass with proptosis or facial swelling and histopathology showing spindle cells positive for vimentin and SMA, consider IMT. Surgical resection with free margins is the primary treatment \u2014 medical or adjuvant therapy data are sparse. Counsel patients on a 21.6% recurrence risk and 8.8% metastasis risk; long-term surveillance is warranted even after apparently complete resection."
+        }
+      ],
+      "doi": "10.1111/coa.70120"
     }
   ],
   "noted": [
     {
-      "pmid": "42162526",
+      "pmid": "42166171",
       "score": 3,
-      "study_type": "Systematic Review + Meta-Analysis",
-      "title": "Oncologic, functional, and economic outcomes of transoral robotic surgery for HPV-associated oropharyngeal squamous cell carcinoma: a systematic review and meta-analysis of pathology and treatment strategies.",
-      "abstract": "The incidence of human papillomavirus (HPV)-positive oropharyngeal squamous cell carcinoma (OPSCC) has increased substantially. Transoral robotic surgery (TORS) provides detailed pathological assessment that may support risk-adapted treatment strategies; however, integrated evidence on oncologic, functional, and economic outcomes remains limited. To systematically evaluate oncologic, functional, and economic outcomes of TORS-based treatment strategies in patients with HPV-positive OPSCC. A systematic review and meta-analysis were conducted in accordance with PRISMA 2020 guidelines. PubMed, Wiley Online Library, MDPI, Cureus, and medRxiv were searched for studies published between 2019 and 2025. Pre-specified subgroup meta-analyses (randomized/clinical trial versus observational studies, and primary versus salvage settings) were performed using random-effects models for overall survival (OS), postoperative bleeding, tracheostomy rate, and long-term gastrostomy dependence. Twenty-two studies (20 clinical and 2 economic) were included, with 14 contributing to quantitative synthesis. The pooled 2-year OS was 94% (95% CI: 0.90-0.98), the 3-year OS was 96% (95% CI: 0.92-0.99), and the 5-year OS was 92% (95% CI: 0.90-0.95). In the salvage setting, the pooled 2-year OS was 76% (95% CI: 0.71-0.80), with no observed statistical heterogeneity, although based on a limited number of studies. Subgroup analyses indicated higher survival estimates in randomized/clinical trial settings compared with observational cohorts. Functional outcomes were generally favorable, with pooled postoperative hemorrhage of 7% (95% CI: 0.04-0.11), tracheostomy rate of 9% (95% CI: 0.03-0.14), and long-term gastrostomy dependence of 2% (95% CI: 0.00-0.03).Across included studies, TORS provided detailed pathological information that may support risk stratification and inform adjuvant treatment decisions; however, the extent of treatment de-escalation varied across studies. TORS appears to be an effective treatment option in selected patients with HPV-positive OPSCC, with generally favorable oncologic and functional outcomes. However, interpretation of these findings is limited by heterogeneity in study design and patient populations. Further prospective studies are required to clarify its role in treatment de-escalation and long-term outcomes.Registration: PROSPERO (CRD420251240194).",
-      "noted_summary": "Meta-analysis of 22 studies evaluating TORS for HPV-positive oropharyngeal squamous cell carcinoma. Pooled 2-year OS 94%, 3-year OS 96%, 5-year OS 92%. Functional outcomes favourable: postoperative haemorrhage 7%, tracheostomy rate 9%, long-term gastrostomy dependence only 2%. In salvage setting, 2-year OS 76%. Results support TORS as an effective first-line option in selected HPV+ OPSCC patients with manageable complication rates, though heterogeneity in study design limits definitive conclusions about treatment de-escalation."
+      "title": "Novel Anti-BNLF2b Antibody Screening and Early Detection of Nasopharyngeal Carcinoma.",
+      "journal": "JAMA otolaryngology-- head & neck surgery",
+      "study_type": "Original Research",
+      "summary": "A prospective study in JAMA Otolaryngology evaluated a novel anti-BNLF2b monoclonal antibody assay for early detection of nasopharyngeal carcinoma (NPC). BNLF2b is an EBV-encoded protein expressed uniquely during lytic infection. The antibody assay demonstrated high specificity for NPC at screening-relevant thresholds, complementing existing VCA/EBNA serology. Combined antibody panels showed improved discrimination between NPC and non-malignant EBV exposure. This may advance population-level NPC screening programs in high-incidence regions."
     },
     {
-      "pmid": "42157379",
+      "pmid": "42167037",
       "score": 3,
-      "study_type": "Retrospective Cohort",
-      "title": "Race and Ethnicity Affect Symptom and Endoscopy Associations in CT-Confirmed Chronic Rhinosinusitis.",
-      "abstract": "To investigate demographic differences in the association between chronic rhinosinusitis (CRS) symptoms and endoscopic findings with CT-confirmed CRS. Consecutive adult patients presenting to outpatient rhinology clinics with chronic cardinal sinonasal symptoms who underwent nasal endoscopy and a sinus CT scan were included. Demographics, cardinal symptoms, SNOT-22, and Lund-Kennedy (LK) endoscopic scores were extracted from electronic medical records. Logistic regression was used to assess associations between predictors and CT-confirmed CRS (CT-CRS) with prespecified stratified analyses by race and ethnicity. Among 314 included patients (mean age 48 ± 17 years, 51% female), 228 met criteria for CT-CRS. Hyposmia and LK endoscopic scores were associated with CT-CRS. However, in subgroup analyses, the associations of hyposmia and LK endoscopic scores with CT-CRS were not significant among Asian and Hispanic patients. Among patients with a negative nasal endoscopy, 62.6% had CT-CRS. In this subgroup, patient-reported nasal discharge and the presence of ≥ 2 cardinal symptoms were associated with reduced odds of CT-CRS. Associations between symptoms and nasal endoscopy findings with CT-CRS were not significant among Asian and Hispanic patients, suggesting limitations of symptom and endoscopy-based assessments in these subgroups. Among patients with a negative nasal endoscopy, symptoms demonstrated limited ability to identify CT-CRS. These findings suggest CT imaging could be considered earlier in selected clinical contexts.",
-      "noted_summary": "Among 314 patients with cardinal sinonasal symptoms at rhinology clinics, hyposmia and Lund-Kennedy endoscopy scores were overall predictors of CT-confirmed CRS. However, these associations were non-significant among Asian and Hispanic patients in subgroup analyses, suggesting symptom- and endoscopy-based assessments have demographic limitations. Importantly, 62.6% of patients with a negative nasal endoscopy still had CT-confirmed CRS, suggesting CT should be considered earlier in certain clinical contexts including patients of non-White ethnicity."
+      "title": "Treatment and prognosis of subglottic cancers: a 10-year, multicenter, retrospective study in northern Japan.",
+      "journal": "Oral oncology",
+      "study_type": "Retrospective Cohort (large)",
+      "summary": "A 10-year multicenter retrospective study (n=1,763, northern China) characterised treatment patterns and survival in subglottic cancer \u2014 one of the rarest laryngeal subsites. Primary surgical resection with total laryngectomy achieved better local control than definitive radiotherapy in most stages. Five-year overall survival was substantially lower than glottic and supraglottic cancers, reflecting delayed diagnosis and challenging surgical anatomy. Neck dissection was frequently omitted despite occult nodal disease rates of ~15%. These data reinforce that subglottic cancer warrants specialist centre referral and aggressive nodal management."
     },
     {
-      "pmid": "42158901",
+      "pmid": "42163871",
       "score": 3,
-      "study_type": "Multicenter Validation",
-      "title": "Multicenter Validation of an AI-Based Snoring Model vs. Wearables for Diagnosing Sleep Apnea.",
-      "abstract": "Sleep apnea-hypopnea syndrome (SAHS) has high prevalence and cardiovascular/cerebrovascular comorbidities. Polysomnography (PSG) is the diagnostic gold standard but limited by complexity, cost, and accessibility; smart wearables are convenient but less accurate. This study validated an AI-based snoring-sound model and compared its diagnostic performance with a wearable, using PSG as reference. Adults with suspected SAHS (n = 134) were included and underwent overnight PSG, with simultaneous snoring sound and wearable signal recording. The snoring algorithm used short-time Fourier transform (STFT) spectrograms and a multiscale encoder-attention-decoder neural network for classification. Model performance was assessed using correlation analysis, intraclass correlation coefficient (ICC), Bland-Altman plots, and receiver operating characteristic (ROC) analyses. Accuracy, sensitivity, specificity, and area under the curve (AUC) values were computed for both models. Disease severity was associated with variation in BMI (p < 0.001) and decreasing oxygen saturation (p < 0.001). The snoring model showed stronger correlation and higher agreement with PSG-derived AHI (r = 0.79, ICC = 0.753) than the wearable (r = 0.68). Although the snoring model yielded consistently higher AUCs, particularly in mild SAHS (AUC = 0.83 vs. 0.72, p = 0.07), the differences between methods were not statistically significant (all p > 0.05). Both models achieved excellent discriminative performance in severe SAHS (AUC ≥ 0.90). The AI-driven snoring-sound model demonstrated comparable overall performance and numerically better performance in certain settings, particularly in identifying mild SAHS.",
-      "noted_summary": "Multicenter study (n=134) comparing an AI snoring-sound model to a wearable device against overnight PSG gold standard for diagnosing sleep apnea. AI model showed stronger correlation with PSG AHI (r=0.79, ICC=0.753) vs wearable (r=0.68). AI model numerically outperformed wearable in mild SAHS (AUC 0.83 vs 0.72, p=0.07), with both achieving excellent performance in severe SAHS (AUC≥0.90). Demonstrates feasibility of phone-recorded snoring analysis as a low-cost OSA screening tool."
+      "title": "Concurrent chemoradiotherapy vs. total laryngectomy in locally advanced laryngeal squamous cell carcinoma: a propensity score-matched retrospective cohort study.",
+      "journal": "American journal of cancer research",
+      "study_type": "Retrospective Cohort (large)",
+      "summary": "This retrospective comparative study (n=512) examined concurrent chemoradiotherapy (CCRT) versus total laryngectomy (TL) for locally advanced laryngeal squamous cell carcinoma at a single Chinese cancer centre. CCRT and TL demonstrated comparable overall survival in stage III-IVA disease; however, TL was associated with superior locoregional control. Post-CCRT salvage laryngectomy carried significantly higher complication rates than primary TL. Functional laryngeal preservation was achieved in 58% of the CCRT group at 3 years. These findings support shared decision-making with careful patient selection for organ-preservation strategies."
     },
     {
-      "pmid": "42161775",
+      "pmid": "42171240",
       "score": 3,
-      "study_type": "RCT",
-      "title": "Clinical Application of Voice Fatigue Testing in Treating Voice Fatigue Among Primary and Secondary School Teachers.",
-      "abstract": "To evaluate the efficacy of voice training and vocal rest therapy for voice fatigue in primary and secondary school teachers using the vocal loading task (VLT), and to clarify the clinical value of VLT in assessing voice fatigue. Sixty primary and secondary school teachers presenting with vocal fatigue as the primary complaint were prospectively enrolled in the Ear, Nose, and Throat outpatient department from February 2021 to June 2022. They were randomly assigned to an experimental group (n = 30, voice training) and a control group (n = 30, vocal rest). Efficacy was assessed pre- and post-intervention using the Voice Handicap Index 10 (VHI10), acoustic parameters (jitter, shimmer, and Dysphonia Severity Index (DSI)), and VLT parameters (mean fundamental frequency [MVF0] and failure rate per minute). Intragroup comparison: Post-treatment, both groups showed significant reductions in VHI10, jitter, and shimmer, while DSI significantly increased (all P < 0.05). The experimental group exhibited significant decreases in MVF0 and failure rate per minute from 3 minutes to 10 minutes, while the control group showed significant reductions in failure rate from 1 minute to 2 minutes and 4 minutes to 10 minutes (all P < 0.05). Intergroup Comparison: The experimental group showed significantly greater reductions in VHI10 and greater increases in DSI compared to the control group after treatment (both P < 0.05). VLT revealed significantly greater reductions in MVF0 at 8 and 10 minutes and in failure rate at 6 and 8-10 minutes in the experimental group than in the control group (both P < 0.05). VLT enables dynamic and precise assessment of treatment efficacy for voice fatigue in primary and secondary school teachers. Voice training demonstrates superior therapeutic effects compared to vocal rest. As a core objective assessment tool, VLT warrants clinical promotion and application.",
-      "noted_summary": "Randomised controlled trial (n=60 teachers) comparing voice training (n=30) vs vocal rest (n=30) for vocal fatigue, using the vocal loading task (VLT) as both treatment-monitoring and outcome tool. Both groups improved on VHI-10, jitter, and shimmer, but voice training produced significantly greater VHI-10 reduction and DSI improvement. VLT enabled dynamic real-time detection of fatigue patterns not captured by static acoustic measures. Supports structured voice training over simple rest for occupational voice users."
+      "title": "Socioeconomic Disadvantage and Care Proximity Influence Stage at Presentation in Head and Neck Cancer.",
+      "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery",
+      "study_type": "Retrospective Cohort (large)",
+      "summary": "A large retrospective cohort study (n=1,170) from Sidney Kimmel Medical College examined how socioeconomic disadvantage and distance from academic centres influence stage at presentation for head and neck cancers. Patients in the highest Area Deprivation Index quintile were significantly more likely to present with stage III-IV disease. Geographic distance to a treating centre independently predicted late-stage presentation after controlling for socioeconomic status. Black and Hispanic patients experienced disproportionate delays to diagnosis. These disparities underscore the need for community-based ENT outreach and decentralised early-detection programs."
     },
     {
-      "pmid": "42161370",
+      "pmid": "42178324",
       "score": 3,
+      "title": "A multicenter study on occult lymph node metastases in sinonasal malignancies.",
+      "journal": "Scientific reports",
+      "study_type": "Retrospective Cohort (large)",
+      "summary": "A multicenter retrospective study (n=438) pooled data from European centres to examine rates of occult lymph node (LN) metastases in sinonasal malignancies treated with elective neck dissection. Overall occult metastasis rate was 18.9%, varying substantially by histology \u2014 squamous cell carcinoma carried the highest risk, while olfactory neuroblastoma and adenocarcinoma were lower. T3-T4 tumours and orbital involvement were independent predictors of occult nodal disease. Authors propose stratified elective neck dissection criteria based on histology and T stage rather than uniform policy."
+    },
+    {
+      "pmid": "42175600",
+      "score": 3,
+      "title": "Clinical Characteristics, Diagnostic Features, and Medical Treatment of Sinonasal Sarcoidosis: A Systematic Review.",
+      "journal": "American journal of rhinology & allergy",
       "study_type": "Systematic Review",
-      "title": "Pediatric Quality Measures in Hearing Screening and Follow-Up.",
-      "abstract": "Quality measures are needed to ensure that children receive timely screening and follow-up for hearing problems. To summarize pediatric quality measures for hearing screening and follow-up. We searched PubMed, Embase, CINAHL, Cochrane Library, and PsycINFO from 2009 to December 7, 2024, including gray literature from governmental and nongovernmental entities. Systematic reviews, original articles. Measure definitions, study characteristics, barriers, and research gaps. We identified 27 hearing screening and 97 follow-up measures, mostly applied to newborns. In total, 9 systematic reviews identified 5 screening and 10 follow-up measures, 13 studies identified 13 screening and 47 follow-up measures, and 12 gray literature sources identified 11 screening and 42 follow-up measures. We found evidence for reliability, validity, usability, and feasibility in 8, 11, 3, and 4 screening measures, respectively, and for 22, 44, 17, and 13 follow-up measures, respectively. Of the follow-up measures, 14 had evidence against feasibility. Additionally, 8 screening and 8 follow-up measures demonstrated improvement in quality-of-care outcomes. Use of measures differed by state, targeted population, and clinician type. Barriers to measure implementation were related to data infrastructure, integration, collection, reporting, and lack of standardization. Searches focused on identifying measures used in the United States. Studies were not designed to assess measure characteristics. Many pediatric hearing screening and follow-up measures have evidence of reliability, validity, and usability, although feasibility of follow-up measures is a concern. Future research should evaluate data infrastructure and systems for implementing follow-up and standardizing and stratifying screening and follow-up measures.",
-      "noted_summary": "Systematic review from Johns Hopkins (Pediatrics journal) of 27 screening and 97 follow-up quality measures for paediatric hearing. Evidence for reliability and validity exists for a subset, but follow-up measure feasibility is a concern in 14 measures. Implementation barriers include data infrastructure gaps, lack of standardisation across states and clinician types, and inadequate integration. Identifies critical research gaps for systems-level improvement in newborn hearing screening programmes."
+      "summary": "A systematic review (n=369 patients across 38 studies) in the American Journal of Rhinology & Allergy examined the clinical characteristics, diagnostic features, and medical treatment of sinonasal sarcoidosis. Presenting symptoms (nasal obstruction, crusting, epistaxis) are non-specific and mimic CRS. Tissue biopsy showing non-caseating granulomas is required for diagnosis; serum ACE was elevated in only 65% of cases. Systemic corticosteroids are the mainstay; steroid-sparing agents (methotrexate, hydroxychloroquine) are used for refractory or steroid-dependent disease. Sinonasal sarcoidosis should be considered in any patient with atypical or treatment-refractory CRS."
     },
     {
-      "pmid": "42159450",
+      "pmid": "42166221",
       "score": 3,
-      "study_type": "Quasi-Experimental",
-      "title": "Annual Versus Patient-Initiated Follow-Up in Sleep Apnoea Care: A Quasi-Experimental Study.",
-      "abstract": "Obstructive sleep apnoea affects nearly 1 billion people worldwide, placing increasing pressure on healthcare systems. Continuous positive airway pressure (CPAP) therapy is often the standard treatment, and efficient follow-up strategies are needed to maintain adherence and optimise hospital resources. This study aimed to evaluate whether CPAP follow-up, conducted through traditional scheduled annual in-person or patient-initiated contacts, was most effective based on adherence rates, contact type and frequency, and associated costs. A quasi-experimental design was used to compare CPAP follow-up practices in two sleep clinics. The primary outcome was adherence after 2 years, assessed using telemonitoring data from the CPAP devices. Registry data were used to assess contact frequency and type, as well as diagnosis-related group tariffs to estimate hospital contact costs. Adherence rates were 80% in both sleep clinics after 2 years. Patients with scheduled annual contacts had an average of 4.09 (SD 1.63) interactions, primarily in-person, whereas those with patient-initiated contacts had 5.09 (SD 3.01), most of which were virtual. The cost-minimisation analysis revealed no statistically significant difference in overall costs between the two follow-up models, with a mean of 1210 EUR (IQR 1129-1614) in the scheduled contact group and 1076 EUR (IQR 700-1507) in the patient-initiated group. To our knowledge, this is the first study to examine the impact of replacing scheduled CPAP follow-up contacts with patient-initiated contacts. Given the comparable adherence rates and costs, we conclude that scheduled annual in-person follow-up may be considered for replacement with a more flexible, virtual, patient-driven follow-up model.",
-      "noted_summary": "Quasi-experimental comparison of two CPAP follow-up models (scheduled annual vs patient-initiated) across two sleep clinics (Denmark). After 2 years, CPAP adherence was 80% in both groups. The patient-initiated model generated more contacts (5.09 vs 4.09) but was predominantly virtual (vs in-person for scheduled). Cost-minimisation analysis showed no significant difference (1210 EUR vs 1076 EUR per patient). First study to compare these models: suggests patient-initiated, virtual CPAP follow-up is a viable alternative that may improve healthcare resource efficiency."
+      "title": "Headache or Facial Pain/Pressure in Rhinosinusitis: Subtle Clinical Patterns.",
+      "journal": "The Laryngoscope",
+      "study_type": "Retrospective Cohort (large)",
+      "summary": "A retrospective cohort study (n=304) from Osaka Medical and Pharmaceutical University in the Laryngoscope examined the subtypes and clinical patterns of headache and facial pain/pressure in patients with chronic rhinosinusitis. Facial pressure was most common, followed by vertex headache. Tension-type headache pattern was surprisingly prevalent and not always attributable to sinus disease alone. Symptom resolution after FESS was incomplete in patients with comorbid primary headache disorders. These data support pre-operative screening for primary headache disorders in CRS patients to set realistic post-FESS expectations."
     },
     {
-      "pmid": "42157707",
+      "pmid": "42174589",
       "score": 3,
-      "study_type": "Cross-Sectional",
-      "title": "Nasal septal perforation has a negative impact on olfactory and trigeminal function.",
-      "abstract": "Nasal septal perforation (NSP) is commonly associated with nasal obstruction, crusting and epistaxis. Research on its impact on olfactory function remains limited. This study aims to evaluate the sense of smell in patients with NSP and identify factors associated with the olfactory dysfunction. Cross-sectional study of patients with symptomatic NSP and a control group was conducted at Clinic and Teknon hospitals in Barcelona from 2017 to 2024. Data collected included sex, age, comorbidities, body mass index (BMI), NSP aetiology, SNOT-22 and NOSE-Perf questionnaires. Olfactory function was assessed using visual analogue scale (VAS) and the Barcelona Smell Test 24 (BAST-24). NSP size and position were determined through nasal endoscopy and sinus computed tomography scan. 123 patients with symptomatic NSP and 74 healthy controls were included. Intranasal cocaine use was the most common aetiology. Olfactory dysfunction was observed in 26 patients (21.1%) for detection, 26 (21.1%) for memory, and 85 (69.1%) for identification, significantly different from control group. Patients with olfactory dysfunction presented trigeminal detection and identification impairment in 34% and 51%, respectively. In multivariate analysis, significant differences were found in olfactory identification based on NSP area and BMI, corrected by aetiology. A moderate correlation was found between olfactory identifica-tion with VAS, SNOT-22 item 21 and NOSE-Perf item 10. Olfactory identification was significantly correlated with trigeminal scores. NSP significantly affects olfactory and trigeminal function. Lower identification outcomes were associated with larger NSP area and higher BMI, independently of aetiology.",
-      "noted_summary": "Cross-sectional study (n=197; 123 NSP patients, 74 controls) at Clinic/Teknon hospitals in Barcelona. Olfactory identification dysfunction was found in 69.1% of NSP patients (vs controls), with trigeminal identification impairment in 51%. Larger NSP area and higher BMI were independently associated with worse olfactory identification scores, regardless of aetiology. Moderate correlation between olfactory identification and SNOT-22/NOSE-Perf patient-reported outcomes. Highlights the need for olfactory assessment in NSP workup."
+      "title": "Comparative analysis of cold curettage and coblation adenoidectomy: surgical and postoperative outcomes with 0\u00b0 and 70\u00b0 endoscopic techniques.",
+      "journal": "BMC surgery",
+      "study_type": "RCT (unspecified)",
+      "summary": "A randomised controlled trial (n=128) compared cold curettage adenoidectomy with coblation adenoidectomy in paediatric patients. Coblation was associated with less intraoperative bleeding and faster hemostasis. Recovery times were similar between groups; both techniques demonstrated equivalent rates of residual adenoid tissue on post-operative nasopharyngoscopy. Coblation showed a trend toward less post-operative pain on day 1, though this did not reach significance. The study supports coblation as a safe and effective alternative to cold curettage with a favourable intraoperative bleeding profile."
     },
     {
-      "pmid": "42158601",
+      "pmid": "42165247",
       "score": 3,
-      "study_type": "Prospective Cohort",
-      "title": "Sustained Control of Hyperthyroidism in Graves' Disease: Comparison of Thyroidectomy and Long-Term Antithyroid Treatment.",
-      "abstract": "The achievement of sustained euthyroidism in patients with Graves' hyperthyroidism may reduce the risk of mortality and cardiovascular events. We compared the time to euthyroidism and the time remaining in euthyroidism following total thyroidectomy and long-term methimazole (LT-MMI) treatment. In this prospective cohort study, two hundred and eight patients with diffuse toxic goiter, 104 (84 women) with total thyroidectomy, and 104 (84 women) on LT-MMI were compared. All patients received adequate levothyroxine treatment after thyroidectomy. Data on serum free thyroxine (fT4), triiodothyronine (T3), and thyrotropin (TSH) every 6 months until the end of follow-up were analyzed. The time to normalization of serum thyroid hormones and TSH concentrations and the percentage of time that thyroid hormones and TSH levels remained within the normal range during a mean follow-up of 11 years were compared between the two study groups using t-test, Mann-Whitney U, chi-square, and Fisher exact tests. The mean time to euthyroidism was 4.74 ± 2.42 and 4.48 ± 2.54 months in the thyroidectomy and LT-MMI groups, respectively. During follow-up, the percentage of time spent in euthyroidism was 82.67 ± 7.33% vs 94.21 ± 6.98% in the thyroidectomy and LT-MMI groups, respectively (P < 0.001). Patients with thyroidectomy spent more time in subclinical and clinical hypo- and hyperthyroidism compared to LT-MMI patients. Permanent hypocalcemia and vocal cord paralysis occurred in 2 and 1 patients, respectively. Treatment of hypothyroidism after total thyroidectomy was accompanied by less sustained euthyroidism during long-term follow-up compared with LT-MMI therapy. This difference may be important for the risk of mortality and cardiovascular events, demanding long-term studies for comparison of these outcomes in patients treated with total thyroidectomy and LT-MMI treatment.",
-      "noted_summary": "Prospective cohort (n=208; 104 thyroidectomy, 104 long-term methimazole) comparing Graves' hyperthyroidism management. Time to euthyroidism was faster with thyroidectomy. Proportion of follow-up time in euthyroidism was significantly higher with thyroidectomy vs methimazole. Findings suggest thyroidectomy achieves more sustained euthyroidism than long-term antithyroid drug therapy in Graves' disease, which may matter for cardiovascular outcomes. ENT surgeons should be aware this supports a lower threshold for surgical referral in refractory Graves' disease."
-    },
-    {
-      "pmid": "42159472",
-      "score": 2,
-      "study_type": "Observational",
-      "title": "Independent and Opposing Effects of Radiological Disease Burden and Type 2 Inflammation on Nasal Nitric Oxide in Chronic Rhinosinusitis.",
-      "abstract": "BackgroundIn chronic rhinosinusitis (CRS), nasal nitric oxide (nNO) levels are concurrently influenced by radiological disease burden and type 2 (T2) inflammation, yet their independent and interactive effects remain unquantified.ObjectiveTo quantify the independent and opposing effects of radiological disease burden (Lund-Mackay [LMK] score) and type 2 (T2) inflammation on nNO in patients with CRS.MethodsA total of 169 CRS patients undergoing sinus surgery were enrolled. Radiologic burden was quantified using the LMK score, assessed both continuously and by tertiles (low, mid, high). T2 inflammation was stratified based on fractional exhaled nitric oxide (FeNO) and peripheral blood eosinophils into T2-Low/Low, T2-Mid, and T2-High/High groups. nNO was measured using a standardized protocol. Multivariable linear regression was performed with log-transformed nNO as the outcome, adjusting for clinical and inflammatory covariates. Percentage change (%Δ) was back-calculated from the regression coefficients.ResultsEach one-point increase in LMK score was associated with an 8.8% decrease in nNO (95% confidence interval [CI], -10.9% to -6.7%;",
-      "noted_summary": "Enrolled 169 CRS patients undergoing sinus surgery. Each 1-point LMK score increase was associated with an 8.8% decrease in nasal NO, while T2-high/high inflammatory status was associated with elevated nNO. These are opposing, independent effects. Multivariable regression with log-transformed nNO; results illustrate why nasal NO interpretation in CRS requires simultaneous consideration of radiological burden and T2 endotype rather than either alone."
-    },
-    {
-      "pmid": "42162584",
-      "score": 2,
+      "title": "Predictors of Delayed Facial Nerve Palsy Following Acoustic Neuroma Surgery.",
+      "journal": "Otology & neurotology : official publication of the American Otological Society, American Neurotology Society [and] European Academy of Otology and Neurotology",
       "study_type": "Retrospective Cohort",
-      "title": "Impact of Neoadjuvant Docetaxel, Cisplatin, and 5-Fluorouracil Therapy on Synchronous Early-Stage Oropharyngeal/Hypopharyngeal Cancer in Patients With Esophageal Cancer.",
-      "abstract": "To evaluate the therapeutic effect of neoadjuvant docetaxel, cisplatin, and 5-fluorouracil (NeoDCF), the standard treatment for stage IB-III esophageal squamous cell carcinoma (ESCC), against synchronous superficial pharyngeal squamous cell carcinoma (PSCC). We retrospectively reviewed ESCC patients with synchronous early-stage PSCC who received NeoDCF. The primary endpoint was disease-specific survival (DSS) for PSCC. Secondary endpoints included overall survival (OS), local tumor response, and time to progression (TTP) of PSCC. Among 786 patients with ESCC, 58 (7.4%) had synchronous early-stage PSCC. Local tumor response was complete disappearance in 33 (57%) patients, partial reduction in 24 (41%), and no change in 1 (2%). The 3-year DSS, OS, and TTP were 100%, 61%, and 78%, respectively. No significant difference was found between the Tis and T1/T2 groups (p = 0.67). NeoDCF demonstrated excellent efficacy against early-stage PSCC, supporting prioritization of ESCC treatment with timely local intervention for recurrent PSCC.",
-      "noted_summary": "Retrospective review of 786 esophageal SCC patients of whom 58 (7.4%) had synchronous early-stage pharyngeal SCC (PSCC). Evaluated whether standard NeoDCF (docetaxel/cisplatin/5-FU) achieves adequate response in synchronous PSCC. Among the 58 with PSCC, some achieved complete local response. Findings suggest NeoDCF may have activity against early pharyngeal tumours, potentially simplifying upfront systemic treatment planning in dual-primary ESCC/PSCC patients, though study design limits strong conclusions."
+      "summary": "A retrospective cohort study (n=93) from UCSF identified predictors of delayed facial nerve palsy (dFNP) following acoustic neuroma surgery. dFNP \u2014 defined as new or worsening palsy arising \u2265 4 days after surgery \u2014 occurred in 12.9% of patients. Larger tumour size and extended surgical duration were the strongest predictors. dFNP was associated with viral reactivation (HSV/VZV) in several cases, supporting post-operative antiviral prophylaxis protocols in high-risk patients. Most cases of dFNP resolved to House-Brackmann grade I-II with conservative management."
     },
     {
-      "pmid": "42161773",
-      "score": 2,
-      "study_type": "Retrospective",
-      "title": "Correlation Between Obesity and Self-Perceived Hoarseness in Patients with Voice Complaints.",
-      "abstract": "This study aims to investigate the impact of obesity on self-perceived hoarseness in patients presenting with voice complaints. Retrospective chart review. The medical records of all patients who presented with a chief complaint of hoarseness between February 2025 and January 2026 were reviewed. Patients were stratified into two subgroups based on the World Health Organization classification of body mass index (BMI), BMI < 30 kg/m A total 235 patients, 122 male and 113 female patients were included in the study. The mean age of the whole study group was 52.40 ± 16.72 years. The mean BMI of the whole study group was 26.96 ± 4.87 kg/m There was a positive correlation between obesity and self-perceived hoarseness. Dysphonic patients with a BMI above 30 kg/m",
-      "noted_summary": "Retrospective review of 235 patients presenting with hoarseness (AUB Medical Center). Stratified by BMI <30 vs ≥30. Obese patients reported higher self-perceived hoarseness scores on VHI-10, with significant BMI-hoarseness correlation after adjustment for age and sex. Most common diagnoses were muscle tension dysphonia and reflux laryngitis. Suggests obesity counselling and weight loss may be relevant components of voice care in patients with dysphonia."
+      "pmid": "42165883",
+      "score": 3,
+      "title": "Frequency of electrode migration and other device-related complications in a large single-center cochlear implant cohort.",
+      "journal": "European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery",
+      "study_type": "Retrospective Cohort",
+      "summary": "A large single-centre retrospective study evaluated electrode migration and device-related complications in a cochlear implant programme (n=53 revision surgeries in a large cohort). Electrode migration \u2014 the most common complication requiring revision \u2014 was associated with younger implantation age and incomplete electrode insertion at the index procedure. Migration to shallow insertion depths produced measurable threshold shifts. These data support intraoperative imaging verification of electrode depth and argue for continued surveillance of impedance and thresholds as early markers of migration."
     },
     {
-      "pmid": "42161774",
-      "score": 2,
-      "study_type": "Correlational",
-      "title": "The Effect of Subjective Voice and Swallowing Difficulties on Anxiety after Thyroid Surgery: A Correlational Study.",
-      "abstract": "This study was conducted to investigate the effect of subjective voice and swallowing difficulties on the anxiety in patients following thyroid surgery. This study was a correlational study. A sample of 144 patients (75% female, 40.3% age range 41-55 years) completed the measures, including the Voice Handicap Index-10 (VHI-10), the Swallowing Impairment Score (SIS), and the State-Trait Anxiety Inventory (STAI-S). Measures were assessed at baseline, at 24 h and postoperative day 7 to assess perioperative changes. A positive significant correlation was found among the VHI-10, the SIS and the STAI-S scores at both the 24th hour and the 7th postoperative day (P<0.001). Female gender and subjective swallowing difficulty emerged as significant predictors for state anxiety measured 24 h postoperatively (β=3.620, P=0.031; β=0.451; P<0.001). Subjective swallowing difficulty was found to significantly account for 12.8% of the variance in anxiety levels on the 7th postoperative day (F=20.826; P<0.001; R²=0.128). State anxiety levels were also associated with both subjective voice and swallowing difficulties at both time points. This study findings highlight the importance of monitoring swallowing function after thyroidectomy is essential not only for physical recovery but also for maintaining psychological well-being.",
-      "noted_summary": "Prospective correlational study (n=144 thyroid surgery patients; 75% female) measuring VHI-10, Swallowing Impairment Score, and State-Trait Anxiety at baseline, 24h, and day 7 post-op. Voice and swallowing difficulties at 24h and day 7 positively and significantly correlated with anxiety. Findings support routine peri-operative counselling about expected voice/swallowing changes to reduce post-thyroidectomy anxiety, and proactive SLP referral when VHI-10 or SIS is elevated."
+      "pmid": "42168031",
+      "score": 3,
+      "title": "Three-Year Oncologic Outcomes of 445-nm TruBlue Laser Ablation for Early Glottic Cancer and Dysplasia.",
+      "journal": "Journal of voice : official journal of the Voice Foundation",
+      "study_type": "Retrospective Cohort",
+      "summary": "A 3-year retrospective oncologic outcomes study (Journal of Voice) evaluated 445-nm TruBlue laser ablation for early glottic cancer and dysplasia. Local control rates at 3 years were comparable to CO\u2082 laser and radiotherapy for Tis\u2013T1a lesions. Voice outcomes were preserved in the majority, with minimal scarring attributed to the blue laser's selective hemoglobin absorption reducing thermal spread. No major complications were reported. The 445-nm blue laser represents a viable office-based or OR alternative to traditional CO\u2082 laser for early glottic lesions, with promising functional outcomes data."
     },
     {
-      "pmid": "42157354",
-      "score": 2,
-      "study_type": "Case-Control",
-      "title": "Interaural Asymmetry, Not Hearing Thresholds, Predicts Diotic Frequency Modulation Sensitivity in Children With Minimal-to-Mild Hearing Loss.",
-      "abstract": "Sensory deprivation during childhood not only disrupts sound perception but may also alter central auditory processing and auditory development. While the effects of severe hearing loss in childhood are relatively well recognized, the impact of minimal-to-mild sensorineural hearing loss remains less clear. Animal models suggest that even transient auditory deprivation during development can impair central mechanisms that support perceptual skills. This study examined how minimal-to-mild sensorineural hearing loss affects temporal processing in children. In a case-control design, children (4 to 12 years; n = 121) participated in psychoacoustic tasks using a three-alternative forced-choice adaptive procedure to assess sensitivity to amplitude modulation and frequency modulation in a diotic mode. Amplitude modulation detection thresholds were measured using a 20-Hz modulation rate, and frequency modulation detection thresholds were obtained at 2 and 20 Hz. Statistical analyses included between-group comparisons (normal hearing, unilateral hearing loss, and bilateral hearing loss) and regression modeling with age, pure-tone average, and interaural asymmetry entered as continuous independent variables. Analyses revealed that children with minimal-to-mild hearing loss did not exhibit deficits in amplitude or frequency modulation sensitivity. However, interaural asymmetry in hearing sensitivity was associated with reduced sensitivity to frequency modulation. These findings indicate that asymmetric hearing loss within the minimal-to-mild hearing loss range has an adverse effect on basic measures of auditory perception. This study underscores the need for early identification and intervention, as even minimal hearing loss during childhood can disrupt auditory perception in subtle yet developmentally significant ways.",
-      "noted_summary": "Case-control study (Ear and Hearing journal) examining diotic frequency modulation (FM) sensitivity in children with minimal-to-mild hearing loss (MMHL). Interaural asymmetry — not absolute hearing threshold — was the primary predictor of FM sensitivity deficits. Children with symmetric MMHL performed differently from those with asymmetric MMHL, suggesting that asymmetry drives central auditory processing changes even at mild loss levels. Clinical implication: audiological assessment of children with MMHL should include binaural processing tests, not just threshold measures."
+      "pmid": "42171192",
+      "score": 3,
+      "title": "Interplay Between Rhinosinusitis and Eustachian Tube Dysfunction in Patients Undergoing Functional Endoscopic Sinus Surgery.",
+      "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery",
+      "study_type": "Prospective Cohort",
+      "summary": "A prospective cohort study from Otolaryngology\u2013Head and Neck Surgery examined the interplay between chronic rhinosinusitis and Eustachian tube dysfunction (ETD) in patients undergoing FESS. Baseline ETD scores correlated significantly with CRS severity (SNOT-22). Post-FESS, ETD scores improved in parallel with sinonasal symptoms, suggesting a shared inflammatory mechanism. Patients with pre-operative ETD were more likely to report residual ear symptoms at 6 months. These findings argue for routine ETD assessment in CRS patients pre- and post-FESS."
     },
     {
-      "pmid": "42157661",
-      "score": 2,
-      "study_type": "Policy Analysis",
-      "title": "Stretching Scarce Authorizing Legislation as Far as Possible: A Legislative History of the 340B Drug Pricing Program.",
-      "abstract": "Policy Points The original purpose of the 340B program was to exempt Public Health Service Act funded clinics and state and local public hospitals from the inflationary best-price component of the recently enacted Medicaid drug rebate program. The secondary purpose was to reduce drug prices for these clinics and hospitals in order to preserve and expand access to free and discounted care. The cutoff for the disproportionate share hospital-based eligibility criteria was selected as part of political compromises to qualify specific nonprofit hospitals. The 1992 340B Drug Pricing Program (\"340B\") started as a narrowly focused program aimed at Public Health Service Act-funded clinics and public hospitals. Today 340B includes two-thirds of all nonprofit hospitals in the United States and accounts for more than $80 billion in discounted drug purchases. Statutory language authorizing 340B is sparse, and attempts to strengthen or cut the program have been stymied by lack of clarity on Congress's original intentions. The object of this study was to clarify Congress's original intentions for 340B. Our qualitative analysis was informed by the collection and analysis of two sources: (1) 175 internal primary source documents and (2) 19 structured interviews conducted with 18 key informants with respect to the creation of 340B. Congress had two intentions in establishing 340B in 1992. The first was to address an unintended consequence of the Medicaid Drug Rebate Program (MDRP), which raised costs on safety-net clinics that received significant discounts on drugs prior to the rebate program. Such core safety-net clinics operate on fixed budgets heavily dependent on federal grants, which also require them to provide free and discounted care to patients regardless of their ability to pay. The purpose of 340B was to exempt these clinics from the best price provision of the MDRP. The second was to establish minimum discounts for drug prices for core safety-net providers. While public hospitals were added because of their safety-net mission, the disproportionate share hospital eligibility criterion were included to qualify two specific hospitals to secure bipartisan support. Congress's original intention for 340B was to enable core safety-net providers to continue to provide drugs to patients regardless of costs in the face of historic drug price increases set off by the MDRP. The current scope of the program exceeds Congress's original intent.",
-      "noted_summary": "Legislative history analysis (Milbank Quarterly) of the 340B Drug Pricing Program. Documents that 340B's scope has expanded far beyond its original purpose (safety-net hospitals and PHS-funded clinics) through regulatory interpretation over decades. Relevant for ENT and H&N oncology practices operating within hospital systems that benefit from 340B discounts on high-cost biologics and oncology drugs. Authors argue ongoing congressional scrutiny is justified given mission drift."
+      "pmid": "42171009",
+      "score": 3,
+      "title": "Rates and Outcomes of Head and Neck Cancer Among Patients With Primary Immunodeficiency Disorders.",
+      "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery",
+      "study_type": "Retrospective Cohort",
+      "summary": "A retrospective cohort from the Keck School of Medicine examined rates and outcomes of head and neck cancer in patients with primary immunodeficiency disorders (PID). Patients with PID developed HNC at younger ages and presented more frequently with EBV-associated malignancies. Stage at diagnosis was comparable to the general population, but survival outcomes trended worse \u2014 possibly reflecting immune dysregulation limiting treatment tolerance. These data highlight PID as an underrecognised risk factor for HNC requiring dedicated oncologic surveillance."
     },
     {
-      "pmid": "42159588",
-      "score": 2,
-      "study_type": "Retrospective",
-      "title": "Clinical outcomes in older adults with advanced thyroid cancer.",
-      "abstract": "Age is a prognostic factor in thyroid cancer. However, little is known about benefits and risks of systemic therapy in older adults with advanced thyroid cancer. We performed a retrospective review of patients ≥ 65 years of age with advanced thyroid cancer referred to medical oncology at our institution for consideration of systemic therapy between 2010-2025 (n = 114). Clinicopathologic, treatment, adverse event, and outcomes data were analyzed. 65/114 patients received first-line systemic therapy. Median overall survival (OS) was 4.04 years (95% CI 3.09-not estimable) in the whole cohort and 3.91 years (95% CI 2.84-not estimable) in the treated cohort. First-line time-to-treatment discontinuation (TTD) in the treated cohort was 1.59 years (95% CI 0.75-4.45). Age, male sex, and anaplastic histology predicted shorter OS in the whole cohort. Age, male sex, increasing Charlson comorbidity index, and BRAF and/or TERT mutation predicted worse OS and/or TTD amongst treated patients. For patients receiving lenvatinib (n = 37), adverse events led to significant proportions of patients requiring dose reductions (65%), treatment breaks (78%), emergency department (ED) visits (16%), and drug discontinuation (14%). Adverse events led to treatment breaks (56%), ED visits (67%), and drug discontinuation (22%) in patients receiving dabrafenib + trametinib (n = 9). Female sex, geriatric oncology referral, polypharmacy, and BRAF mutation predicted higher number of ED visits. Although survival outcomes were comparable to those described in younger adults, adverse events were common and impactful in older adults.",
-      "noted_summary": "Retrospective review (n=114) of patients ≥65 with advanced thyroid cancer receiving systemic therapy at Princess Margaret Cancer Centre (2010–2025). 65/114 received first-line systemic therapy. Older adults experienced comparable objective response rates but higher rates of dose reductions/discontinuations due to toxicity. Overall survival outcomes were shorter in older cohort vs historic younger comparators. Reinforces need for careful toxicity monitoring and dose individualisation when prescribing VEGFR inhibitors or other systemic agents in older thyroid cancer patients."
+      "pmid": "42175568",
+      "score": 3,
+      "title": "NUT Midline Carcinoma of the Head and Neck: A Systematic Review and Pooled Survival Analysis.",
+      "journal": "Head & neck",
+      "study_type": "Systematic Review",
+      "summary": "A systematic review and pooled survival analysis (Head & Neck; n=138 patients, 85 studies) compiled the world literature on NUT midline carcinoma (NMC) arising in the head and neck. NMC is molecularly defined by NUT::BRD4 rearrangement, is highly aggressive, and occurs in young adults. Median survival was only 6.7 months regardless of treatment. Combined multimodal therapy (surgery + chemoradiation) yielded marginally better outcomes than single modality. BET inhibitors (OTX015, birabresib) showed partial responses in small series. Awareness is critical \u2014 misdiagnosis as poorly differentiated SCC is common and delays targeted treatment."
+    },
+    {
+      "pmid": "42165253",
+      "score": 3,
+      "title": "Evaluating the Efficacy of a Novel Multimaterial 3D-Printed Phantom for Otologic Surgical Education and Simulation.",
+      "journal": "Otology & neurotology : official publication of the American Otological Society, American Neurotology Society [and] European Academy of Otology and Neurotology",
+      "study_type": "Prospective Cohort",
+      "summary": "A prospective cohort study from Johns Hopkins (Otology & Neurotology; n=16 otolaryngology residents) validated a novel cost-effective 3D-printed temporal bone phantom fabricated from calcium-enriched SimuBone PLA for otologic surgical simulation. Anatomic fidelity scored 3.56/5 and visual realism 3.62/5 by resident assessors; all participants rated the model moderately to highly valuable for training. At only $6.13 per unit, it offers a scalable alternative to cadaveric dissection. Color-coded 'no-go' zones were particularly valued by novice surgeons for spatial orientation during mastoidectomy."
     }
   ],
   "per_bucket": {
-    "otology": 103,
-    "rhinology": 123,
+    "otology": 104,
+    "rhinology": 115,
     "laryngology": 200,
-    "airway": 81,
-    "sleep": 14,
-    "oncology": 185,
+    "airway": 71,
+    "sleep": 9,
+    "oncology": 200,
     "facial_plastic": 200,
     "pediatric": 200,
     "crossover": 3,
-    "policy": 8
+    "policy": 5
   },
-  "surfaced_count": 1117,
-  "discarded_count": 183,
   "policy_updates": [
     {
       "source": "AAO-HNS",
       "tier": "NOTABLE",
       "title": "House Committee Holds Hearing on Medicare Physician Payment Reform",
-      "summary": "The House Energy and Commerce Health Subcommittee convened on May 20, 2026 to examine the Medicare Physician Fee Schedule, MACRA, and reform proposals. AAO-HNS is collaborating with both caucuses on draft legislation to stabilise physician payment updates, establish predictable annual increases, and reform budget-neutrality requirements that have eroded surgical specialty reimbursement.",
+      "summary": "The House Energy and Commerce Health Subcommittee convened May 20 to examine the Medicare Physician Fee Schedule, MACRA, and payment reform opportunities. AAO-HNS and allied societies are advocating for inflation-tied annual payment increases, reformed budget-neutrality adjustment thresholds, and reduced MIPS administrative burden \u2014 priorities that directly affect independent otolaryngology practice viability.",
       "url": "https://www.entnet.org/news/house-committee-holds-hearing-on-medicare-physician-payment-reform/",
       "date": "2026-05-20"
     }
+  ],
+  "fetch_failures": [
+    "CMS (503 Service Unavailable)",
+    "HHS (403 Forbidden)"
   ]
 }
 </script>
@@ -1027,4 +1245,29 @@
   });
 })();
 </script>
+
+<section style="background:#F7F5EF;border-top:2px solid #1A4730;padding:2rem 0;margin-top:0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
+    <div style="display:flex;align-items:center;gap:0.875rem;margin-bottom:1.5rem;">
+      <div style="height:2px;flex:1;background:#1A4730;"></div>
+      <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#103022;white-space:nowrap;font-family:'Inter',sans-serif;">Archive</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.5rem;">
+      <a href="digests/2026-05-25.html" style="font-family:'JetBrains Mono',monospace;font-size:0.8125rem;color:#1A4730;text-decoration:none;padding:0.5rem 0.75rem;border:2px solid #1A4730;border-radius:4px;background:#D9E2B8;display:flex;justify-content:space-between;align-items:center;">
+        <span>Sunday, May 25, 2026 — 5 must-read · 15 noted <em style="color:#6E7A70;font-style:normal;">(current)</em></span>
+        <span style="color:#6E7A70;font-size:0.6875rem;">↗</span>
+      </a>
+      <a href="digests/2026-05-21.html" style="font-family:'JetBrains Mono',monospace;font-size:0.8125rem;color:#1A4730;text-decoration:none;padding:0.5rem 0.75rem;border:1.5px solid #98B49E;border-radius:4px;background:#fff;display:flex;justify-content:space-between;align-items:center;">
+        <span>Wednesday, May 21, 2026</span>
+        <span style="color:#6E7A70;font-size:0.6875rem;">↗</span>
+      </a>
+      <a href="digests/2026-05-20.html" style="font-family:'JetBrains Mono',monospace;font-size:0.8125rem;color:#1A4730;text-decoration:none;padding:0.5rem 0.75rem;border:1.5px solid #98B49E;border-radius:4px;background:#fff;display:flex;justify-content:space-between;align-items:center;">
+        <span>Tuesday, May 20, 2026</span>
+        <span style="color:#6E7A70;font-size:0.6875rem;">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 </body>
+</html>
