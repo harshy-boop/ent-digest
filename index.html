@@ -1,1 +1,877 @@
-/tmp/index_content.txt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT/Airway/Face Digest — Monday, June 15, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF;
+    --surface: #ffffff;
+
+    /* Forest-tinted borders */
+    --border: #B8C9BC;
+    --border-strong: #8FA897;
+    --border-soft: #D5DFD5;
+    --hairline: #E4EAE2;
+
+    --text: #131A15;
+    --text-mid: #3F4A42;
+    --text-dim: #6E7A70;
+    --text-faint: #A5AEA6;
+
+    --forest: #1A4730;
+    --forest-deep: #103022;
+    --forest-mid: #2F6B49;
+    --forest-soft: #57966F;
+    --forest-tint: #E4ECE3;
+    --forest-tint-strong: #D2DFD2;
+    --forest-line: #98B49E;
+
+    /* Score: green → red, more saturated */
+    --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
+    --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
+    --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
+    --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
+    --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
+
+  .paper-grain {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%);
+  }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    border-bottom: 2px solid var(--forest);
+    background: rgba(247,245,239,0.94);
+    backdrop-filter: blur(10px);
+  }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
+  .logo-block { display: flex; align-items: center; gap: 1rem; }
+  .logo {
+    width: 48px; height: 48px; border-radius: 8px;
+    background: var(--forest-deep); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--forest);
+  }
+  .logo svg { width: 24px; height: 24px; }
+  .brand-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep);
+  }
+  .brand-sub {
+    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em;
+    color: var(--forest-mid); text-transform: uppercase; margin-top: 3px;
+  }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .status-pill {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line);
+    border-radius: 6px; background: var(--forest-tint);
+    font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600;
+  }
+  .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+
+  main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+
+  /* Report head */
+  .report-head {
+    border-bottom: 2px solid var(--forest);
+    padding-bottom: 2.5rem; margin-bottom: 3rem;
+    display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;
+  }
+  .head-status {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--forest-deep); margin-bottom: 1.25rem;
+    padding: 0.3rem 0.75rem 0.3rem 0.55rem;
+    background: var(--forest-tint); border: 1.5px solid var(--forest-line);
+    border-radius: 999px;
+  }
+  .head-status-text {
+    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .head-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em;
+    line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep);
+  }
+  .head-meta {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    font-size: 0.875rem; color: var(--text-mid); font-weight: 500;
+  }
+  .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+  .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
+  .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+
+  .stats {
+    display: flex; gap: 0;
+    border: 2px solid var(--forest);
+    border-radius: 10px; overflow: hidden;
+    background: var(--surface);
+  }
+  .stat {
+    padding: 1rem 1.5rem; text-align: right;
+    min-width: 110px;
+  }
+  .stat + .stat { border-left: 2px solid var(--forest); }
+  .stat-label {
+    display: block; font-size: 0.625rem; font-weight: 700;
+    color: var(--forest-mid); text-transform: uppercase;
+    letter-spacing: 0.2em; margin-bottom: 0.5rem;
+  }
+  .stat-value {
+    font-family: 'Source Serif 4', serif;
+    font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep);
+  }
+  .stat-value.accent { color: var(--forest); }
+
+  .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+  .col-must { grid-column: span 5; }
+  .col-noted { grid-column: span 7; }
+  @media (max-width: 900px) {
+    .col-must, .col-noted { grid-column: span 12; }
+    .head-title { font-size: 2.25rem; }
+    .grid-12 { gap: 2rem; }
+  }
+
+  .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
+  .section-label-text {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .section-label-text.primary { color: var(--forest-deep); }
+  .section-label-text.secondary { color: var(--forest-mid); }
+  .section-rule { height: 2px; flex: 1; background: var(--forest); }
+  .section-rule.soft { background: var(--forest-soft); }
+
+  /* MUST READ cards — heavier borders */
+  .must-card {
+    position: relative; overflow: hidden;
+    border: 2px solid var(--forest);
+    border-radius: 10px;
+    background: var(--surface);
+    padding: 1.75rem;
+    transition: all 0.2s; margin-bottom: 1.5rem;
+    box-shadow: 0 2px 0 var(--forest-deep);
+  }
+  .must-card:hover {
+    border-color: var(--forest-deep);
+    box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25);
+    transform: translateY(-1px);
+  }
+  .must-card .accent-bar {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+    background: var(--forest);
+  }
+
+  .must-meta-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; margin-bottom: 1rem;
+  }
+  .must-meta-left {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+    color: var(--forest-deep); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  /* SCORE BOX */
+  .score-box {
+    display: inline-flex; align-items: baseline; gap: 0.375rem;
+    padding: 0.45rem 0.75rem; border-radius: 6px;
+    border: 2px solid; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .score-box .score-num { font-size: 1rem; line-height: 1; }
+  .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
+  .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-box[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+
+  /* Study-type badges */
+  .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    border: 1.5px solid;
+  }
+  .badge-type {
+    background: #F1F2EC; border-color: var(--border); color: var(--text-mid);
+  }
+  .badge-novel {
+    background: var(--forest);
+    border-color: var(--forest-deep);
+    color: #ffffff;
+  }
+  .badge-novel::before {
+    content: '✦'; font-size: 0.75rem; line-height: 1;
+  }
+
+  .must-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep);
+    margin-bottom: 0.5rem; letter-spacing: -0.01em;
+  }
+  .must-authors {
+    font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5;
+    padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft);
+  }
+  .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+
+  /* Structured summary sections */
+  .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
+  .summary-section:last-child { margin-bottom: 0; }
+  .summary-section h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.625rem; font-weight: 700;
+    color: var(--forest); text-transform: uppercase;
+    letter-spacing: 0.18em; margin-bottom: 0.35rem;
+  }
+
+  .must-rationale {
+    margin-top: 1.25rem;
+    display: flex; align-items: flex-start; gap: 0.625rem;
+    padding: 0.875rem 1rem;
+    background: var(--forest-tint);
+    border: 1.5px solid var(--forest-line);
+    border-left-width: 4px;
+    border-radius: 6px;
+    font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55;
+  }
+  .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
+  .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
+
+  .must-actions {
+    margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .link-pill {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep);
+    text-decoration: none; padding: 0.45rem 0.7rem;
+    border: 1.5px solid var(--forest-line); border-radius: 4px;
+    background: var(--surface); transition: all 0.15s;
+  }
+  .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
+  .link-pill svg { width: 11px; height: 11px; }
+
+  /* NOTED — also bumped border weight */
+  .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .noted-item {
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--forest-soft);
+    border-radius: 6px;
+    background: var(--surface);
+    padding: 1rem 1.125rem;
+    transition: all 0.15s; cursor: pointer;
+  }
+  .noted-item:hover {
+    border-left-color: var(--forest);
+    border-color: var(--forest-line);
+    transform: translateX(2px);
+  }
+  .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+  .score-chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 26px; height: 24px; padding: 0 0.45rem;
+    border-radius: 4px; border: 1.5px solid;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700;
+  }
+  .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-chip[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badge-type-mini {
+    font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-mid); padding: 0.2rem 0.45rem;
+    background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px;
+  }
+  .noted-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem; font-weight: 700; color: var(--forest-deep);
+    line-height: 1.32; margin-bottom: 0.5rem;
+  }
+  .noted-summary {
+    font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6;
+  }
+  .noted-source {
+    margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    padding-top: 0.5rem; border-top: 1px dashed var(--border-soft);
+  }
+
+  footer.report-footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.625rem; color: var(--forest-mid); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem;
+  }
+
+  .policy-section { margin-bottom: 3rem; }
+  .policy-empty {
+    font-size: 0.875rem; color: var(--text-dim);
+    font-style: italic; padding: 0.5rem 0;
+  }
+  .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .policy-card {
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--forest-soft);
+    border-radius: 8px; background: var(--surface);
+    padding: 1.125rem 1.25rem;
+  }
+  .policy-card.policy-critical {
+    border: 2px solid var(--forest);
+    border-left: 6px solid var(--forest);
+    background: var(--forest-tint);
+  }
+  .policy-meta {
+    display: flex; align-items: center; gap: 0.625rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+    margin-bottom: 0.5rem;
+  }
+  .policy-source {
+    font-weight: 700; color: var(--forest-deep);
+    padding: 0.2rem 0.45rem; background: var(--surface);
+    border: 1.5px solid var(--forest-line); border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .policy-tier {
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid;
+  }
+  .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
+  .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
+  .policy-date { color: var(--text-dim); margin-left: auto; }
+  .policy-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep);
+    margin-bottom: 0.4rem; line-height: 1.3;
+  }
+  .policy-summary {
+    font-size: 0.875rem; color: var(--text-mid);
+    line-height: 1.55; margin-bottom: 0.75rem;
+  }
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo-block">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">ENT / Airway / Face Digest</div>
+        <div class="brand-sub">Daily Literature Brief</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:13 ET</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="report-head">
+      <div>
+        <div class="head-status">
+          <div class="pulse-dot"></div>
+          <span class="head-status-text">Curated by Sonnet 4.6</span>
+        </div>
+        <h1 class="head-title">Monday, June 15, 2026</h1>
+        <div class="head-meta">
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>EDAT range: June 8, 2026 – June 15, 2026</span>
+          </div>
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            <span class="scope-tag">10 PubMed queries · ENT/Airway/Face/Peds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Surfaced</span>
+          <span class="stat-value">1101</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Made Cut</span>
+          <span class="stat-value accent">19</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Must Read</span>
+          <span class="stat-value">4</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="policy-section">
+      <div class="section-label">
+        <div class="section-rule"></div>
+        <span class="section-label-text primary">Policy &amp; Practice Updates · 0</span>
+      </div>
+      
+        <p class="policy-empty">No new policy updates this week.</p>
+      
+    </section>
+
+    <div class="grid-12">
+
+      <!-- MUST READ -->
+      <section class="col-must">
+        <div class="section-label">
+          <div class="section-rule"></div>
+          <span class="section-label-text primary">Must Read · 4</span>
+        </div>
+
+        
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">01 · Otol Neurotol</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">RCT</span><span class="badge badge-type">Prospective</span>
+    
+  </div>
+  <h3 class="must-title">Efficacy of Vestibular Rehabilitation Therapy on Benign Paroxysmal Positional Vertigo After Repositioning: Improvement of Vestibular Symptoms and Vertigo Disability</h3>
+  <div class="must-authors">Yang CH, Zhang L, Wang X … <span class="senior">Yang CH (senior, Otolaryngology, Tianjin Fourth Central Hospital, Tianjin, China)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Canalith repositioning maneuvers resolve the canal dysfunction underlying BPPV, but a substantial proportion of patients retain residual dizziness and vestibular disability (DHI ≥20) that repositioning alone does not address. Vestibular rehabilitation therapy (VRT) is a candidate adjunct, yet randomized evidence comparing outcomes by canal subtype has been sparse.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Prospective, stratified RCT enrolling 207 BPPV patients with residual symptoms (DHI ≥20) after standard repositioning (modified Epley for pc-BPPV; Gufoni/Barbecue for hc-BPPV). VRT group received vestibulo-ocular reflex training, habituation exercises, and pharmacotherapy (betahistine + ginkgolide) for 28 days; control group received pharmacotherapy alone. Outcomes—DHI, VAS, balance compliance, dynamic visual acuity—were assessed at day 14 and 28.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>VRT group had significantly lower 28-day DHI (18 vs 28, p&lt;0.001), lower VAS ratings (1.60 ± 1.40 vs 3.46 ± 1.45, p&lt;0.001), better balance compliance (88.7% vs 61.8%), and greater visual acuity improvement (3 vs 1 Snellen line). Subtype analysis: pc-BPPV showed faster early symptom relief with VRT; hc-BPPV showed superior long-term visual acuity gains.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Single-center Chinese study; VRT was bundled with pharmacotherapy so the isolated exercise effect cannot be cleanly separated; blinding to exercise allocation is not feasible; external validity to practices without pharmacotherapy-plus-VRT protocols may vary.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>For BPPV patients with residual dizziness after successful repositioning (DHI ≥20), structured VRT produces meaningful, statistically significant reductions in vestibular disability and symptom burden. Canal-subtype-tailored protocols—emphasizing early symptom relief in pc-BPPV and long-term visual acuity gains in hc-BPPV—should be integrated into routine post-repositioning care.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Prospective stratified RCT (n=207) published in Otology &amp; Neurotology (flagship journal). Addresses a high-prevalence clinical problem—residual post-repositioning symptoms—with directly actionable subtype-specific results. Effect sizes are clinically meaningful (DHI 18 vs 28, 3 vs 1 Snellen line).</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42268590" target="_blank" rel="noopener">PMID 42268590
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    
+    <button class="link-pill copy-pmid" data-pmid="42268590" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">02 · Am J Rhinol Allergy</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">RCT</span><span class="badge badge-type">Double-Blind</span><span class="badge badge-type">Placebo-Controlled</span>
+    
+  </div>
+  <h3 class="must-title">Mupirocin Nasal Irrigation Following Endoscopic Sinus Surgery: A Prospective, Double-Blinded, Placebo-Controlled Trial</h3>
+  <div class="must-authors">Al-Bar MH, Alqutub A, Ruiz JW … <span class="senior">Casiano RR (senior, Department of Otolaryngology-Head and Neck Surgery, University of Miami Miller School of Medicine, Miami, Florida, USA)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Saline nasal irrigation is the post-ESS standard of care, but the benefit of adding topical mupirocin—a bacteriostatic antibiotic—during the early postoperative inflammatory window remains uncertain. Bacterial colonization may drive early mucosal complications such as edema, adhesions, and antibiotic escalation.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>68 adult CRS patients undergoing ESS were enrolled and randomized; 56 completed follow-up. Treatment: mupirocin 0.05% nasal irrigation vs. placebo saline irrigation twice daily for 21 days. Outcomes: SNOT-22 and VAS (patient-reported), endoscopic scoring (edema, polyp formation, crusting, granulation, purulence), sinus culture results, and systemic antibiotic requirement.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Patient-reported QoL (SNOT-22, VAS) improved significantly from baseline in both groups with no between-group difference. Mupirocin produced significantly lower rates of endoscopic mucosal edema and polyp formation at 1 month, more frequent negative postoperative cultures, and reduced systemic antibiotic prescriptions. No difference in crusting, granulation, purulence, steroid use, or pain medication.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Small completers (n=56); single academic center; 21-day treatment window limits insight into longer-term mucosal effects; patients with known methicillin resistance were not analyzed separately; antibiotic culture sensitivity profiles not reported.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Mupirocin nasal irrigation does not improve patient-reported symptoms over saline alone, but does reduce early endoscopic inflammatory markers (edema, polyp reformation) and the rate of positive sinus cultures and systemic antibiotic use. A pragmatic role exists for mupirocin irrigation in patients at high risk for early postoperative bacterial colonization or recurrent polyp formation.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Prospective DBPC RCT with a clinically critical question (topical antibiotic post-ESS). Although patient-reported outcomes were equivalent, the objective endoscopic and microbiological benefits justify practice consideration. Senior author (Casiano RR, U Miami) is a recognized rhinology figure. Moderate sample size (n=56) is appropriate for an early phase answer.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42252639" target="_blank" rel="noopener">PMID 42252639
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    
+    <button class="link-pill copy-pmid" data-pmid="42252639" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">03 · JAMA Otolaryngology</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Prospective Cohort</span><span class="badge badge-type">Multicenter</span><span class="badge badge-type">Pediatric</span>
+    
+  </div>
+  <h3 class="must-title">Palate Repair Timing Under Age 15 Months and Early Speech Outcomes</h3>
+  <div class="must-authors">Wren Y, Roulstone S, Persson M … <span class="senior">Wren Y (senior, Bristol Dental School, University of Bristol, Bristol, UK)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Early primary palatoplasty (before age 12–15 months) is consensus best practice for optimizing velopharyngeal competence and speech. Whether small timing variations within the already-early &lt;15-month window meaningfully affect passive cleft speech characteristics (CSCs)—which can persist despite early repair—remains debated among cleft teams.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Longitudinal cohort from the UK Cleft Collective (2013–ongoing, all UK regional cleft centers). Children with cleft palate (with or without cleft lip) whose palates were repaired before 15 months were assessed for passive CSCs (nasal emission, hypernasality) at 18–24 months (n=157, mean repair age 9.6 months) and 36 months (n=174, mean repair age 9.7 months). Logistic regression adjusted for cleft type and other covariates.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>No significant association between repair timing and passive CSCs at 18–24 months. At 36 months, each additional month of delay was independently associated with increased odds of passive CSCs (OR 1.24). Passive CSC prevalence: 18.5% at 18–24 months; 16.7% at 36 months.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Observational cohort (no RCT); UK cleft center practice norms shape the timing distribution; passive CSCs are one speech measure and do not capture active articulation errors; long-term speech outcomes beyond age 3 not yet available; family and surgeon-level factors in timing not fully adjusted.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Even within the established early window (&lt;15 months), each month of additional delay in palatoplasty carries a ~24% increase in odds of passive cleft speech characteristics at 36 months. Cleft teams should aim for the earliest surgically safe repair, not simply meeting the 15-month cutoff. This evidence should prompt multidisciplinary discussion when scheduling delays are anticipated.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> JAMA Otolaryngology (top specialty journal), large national UK cohort with prospective design and rigorously ascertained speech outcomes. Directly practice-relevant for every cleft team debating optimal timing within the early-repair paradigm. OR of 1.24 per month has clear clinical meaning.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42275034" target="_blank" rel="noopener">PMID 42275034
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    
+    <button class="link-pill copy-pmid" data-pmid="42275034" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">04 · Sleep Medicine</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">RCTs</span>
+    
+  </div>
+  <h3 class="must-title">Efficacy and Safety of Atomoxetine Combination Therapy for Obstructive Sleep Apnea: A Meta-Analysis of Randomized Placebo-Controlled Trials</h3>
+  <div class="must-authors">Wang C, Liu H, Zhang X … <span class="senior">Wang C (senior, Department of Sleep Medicine, The Second Affiliated Hospital of Henan Medical University (Henan Mental Hospital), Xinxiang, China)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Significant unmet need exists for pharmacotherapy in OSA. Atomoxetine—a norepinephrine reuptake inhibitor that increases upper airway dilator muscle tone—has been studied in combination regimens (e.g., atomoxetine + oxybutynin) as an accessible, non-PAP alternative for patients who cannot tolerate or refuse CPAP and who may not be surgical candidates.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Systematic search of PubMed, EMBASE, Cochrane, Web of Science, and PsycINFO identified 13 RCTs (528 patients) comparing atomoxetine combination therapy to placebo. Primary efficacy outcome: change in Apnea-Hypopnea Index (AHI). Secondary outcomes: oxygen saturation metrics, adverse events. Random-effects meta-analysis; heterogeneity assessed by I².</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Atomoxetine combination significantly reduced AHI (MD −5.83, 95% CI −9.05 to −2.62; p=0.0004; I²=20%), improved lowest oxygen saturation (MD +2.91; p=0.002), and reduced oxygen desaturation index (MD −5.40; p=0.0003). Adverse events were significantly more frequent (RR 1.65, 95% CI 1.28–2.13); dry mouth occurred in 29.2% vs. 9.5% and urination difficulty in 10.7% vs. 0.8%.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>13 RCTs totaling only 528 patients; AHI reduction (~6 events/hr) is modest in absolute terms and falls short of usual treatment thresholds; no head-to-head comparison against CPAP or surgical alternatives; adverse event rates at the 10%+ level for urinary symptoms may limit acceptance; trials mostly short-term.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Atomoxetine-based combination pharmacotherapy achieves a statistically significant, low-heterogeneity AHI reduction of ~6 events/hr with improvements in oxygenation metrics. This positions it as an alternative or bridge therapy for CPAP-intolerant patients or as a pre-surgical optimization strategy. Patient counseling must address the substantial rates of dry mouth (29%) and urinary difficulty (11%), particularly in older men.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Meta-analysis of 13 RCTs (highest evidence tier) with low heterogeneity (I²=20%) addressing a genuine clinical unmet need—pharmacotherapy for OSA. AHI reduction is modest but consistent; adverse event quantification is clinically actionable. Sleep surgeons need to know this data before counseling patients.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42269187" target="_blank" rel="noopener">PMID 42269187
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    
+    <button class="link-pill copy-pmid" data-pmid="42269187" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+      </section>
+
+      <!-- NOTED -->
+      <section class="col-noted">
+        <div class="section-label">
+          <span class="section-label-text secondary">Noted · 15</span>
+          <div class="section-rule soft"></div>
+        </div>
+
+        <div class="noted-grid">
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Phase 1b/2</span><span class="badge-type-mini">Multicenter</span>
+  </div>
+  <div class="noted-title">Efficacy and Safety of Toripalimab in Combination with Cetuximab in Patients with Recurrent or Metastatic HNSCC: A Phase 1b/2 Study</div>
+  <p class="noted-summary">This multicenter Phase 1b/2 trial (n=88) evaluated anti-PD-1 toripalimab plus cetuximab in platinum-refractory (Cohort A, n=45) and PD-L1-positive untreated (Cohort B, n=43) recurrent/metastatic HNSCC. Cohort A achieved an ORR of 60%, mPFS 9.9 months, and mOS 14.1 months—results that meaningfully exceed historical cetuximab monotherapy benchmarks. Cohort B showed 44.2% ORR and 18.1-month median OS. Grade ≥3 adverse events occurred in 51–53% across cohorts. These data position the combination as a promising strategy for PD-L1-selected or platinum-refractory HNSCC and support ongoing Phase 3 validation.</p>
+  <div class="noted-source">Signal Transduct Target Ther · PMID 42260304 · <button class="copy-pmid noted-copy" data-pmid="42260304" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">RCT</span><span class="badge-type-mini">Prospective</span>
+  </div>
+  <div class="noted-title">Rotational Chair vs. Manual Maneuvers for Non-Complex BPPV: A Prospective Randomized Study</div>
+  <p class="noted-summary">This prospective randomized trial (n=89 evaluable) compared the TRV rotational chair to standard manual Epley/Gufoni maneuvers for uncomplicated BPPV over 12 months. No significant difference was found in maneuvers required for resolution (TRV 2.25 vs manual 1.82; p=0.19), 12-month recurrence rates, or DHI/VAS quality-of-life scores. Both approaches produced comparable resolution rates, and the TRV chair conferred no measurable clinical advantage. Multivariate analysis identified known BPPV recurrence risk factors. For otology practices evaluating whether to invest in specialized rotational chairs, this study argues against acquisition on the basis of superior clinical outcomes.</p>
+  <div class="noted-source">Laryngoscope · PMID 42267460 · <button class="copy-pmid noted-copy" data-pmid="42267460" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Cohort</span><span class="badge-type-mini">Genetics</span>
+  </div>
+  <div class="noted-title">Performance Results and Timing of Cochlear Implantation in Patients With DFNA9 (p.Pro51Ser)</div>
+  <p class="noted-summary">Radboud University Medical Center compared 56 DFNA9 (COCH gene, p.Pro51Ser) cochlear implant recipients to matched controls without hereditary HL at 6 weeks, 1 year, and 5 years. DFNA9 patients achieved comparable speech perception and quality-of-life outcomes (Nijmegen CI Questionnaire, Glasgow Benefit Inventory) to matched postlingual deaf controls. Earlier implantation correlated with superior long-term performance, supporting proactive CI referral before profound deafness in this predictable progressive condition. Vestibular co-dysfunction characteristic of DFNA9 did not significantly impair CI rehabilitation outcomes. Genetic testing positive for COCH variants should trigger dedicated cochlear implant counseling before hearing thresholds reach profound levels.</p>
+  <div class="noted-source">Otol Neurotol · PMID 42259506 · <button class="copy-pmid noted-copy" data-pmid="42259506" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">Rhinology</span>
+  </div>
+  <div class="noted-title">The Effect of Chitosan-Based Dressings on Postoperative Outcomes in Patients Undergoing Endoscopic Sinus Surgery: A Systematic Review and Meta-Analysis</div>
+  <p class="noted-summary">This systematic review and meta-analysis of randomized trials evaluated chitosan-based nasal packing and gels after ESS versus no treatment or standard dressings. Chitosan products significantly improved ostial area preservation and reduced postoperative adhesion rates versus comparators. Wound-healing parameters at final follow-up favored chitosan-based approaches with risk ratios supporting both hemostatic and anti-adhesive benefits. Methodological heterogeneity across trials was acknowledged as a limitation. These findings support selective use of chitosan-based adjuncts in ESS patients at elevated risk for synechiae or ostial stenosis, particularly in revision cases or those with extensive polypoid disease.</p>
+  <div class="noted-source">Am J Rhinol Allergy · PMID 42273764 · <button class="copy-pmid noted-copy" data-pmid="42273764" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Cohort</span><span class="badge-type-mini">Skull Base</span>
+  </div>
+  <div class="noted-title">Radicality and Revision Surgery in Vestibular Schwannoma Treatment: Balancing Optimal Outcomes with Unavoidable Necessity</div>
+  <p class="noted-summary">This high-volume retrospective series from Charles University (1998–2025) analyzed revision VS microsurgery outcomes after failed prior microsurgery and/or stereotactic irradiation, with facial nerve function (House-Brackmann grade) as the primary endpoint. Tumor control was achievable in the majority of cases, though facial nerve outcomes were inferior to those expected in primary surgery and improved significantly with subtotal rather than total resection intent. Near-total resection with planned radiosurgery for residual tumor offered the best balance of tumor control and facial nerve preservation in the revision setting. High-volume tertiary center referral was the dominant predictor of outcome. These data should inform consent discussions for patients who have failed initial VS treatment.</p>
+  <div class="noted-source">Eur Arch Otorhinolaryngol · PMID 42265245 · <button class="copy-pmid noted-copy" data-pmid="42265245" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Case-Control</span><span class="badge-type-mini">Laryngology</span>
+  </div>
+  <div class="noted-title">Idiopathic Subglottic Stenosis in Pregnancy: A Case-Control Study of Management and Maternal Safety</div>
+  <p class="noted-summary">This Johns Hopkins retrospective case-control study (n=33; 23 pregnant vs. 10 age-matched never-pregnant iSGS controls) characterized clinical course and management of iSGS during pregnancy. Approximately one-third of pregnant patients required operative dilation during pregnancy, and inter-dilation intervals and stenosis severity were comparable to non-pregnant controls, suggesting pregnancy does not dramatically accelerate stenosis progression. Maternal and fetal safety outcomes were acceptable with appropriately timed surgical intervention. Variables predictive of requiring in-pregnancy intervention were identified, enabling preconception counseling. Laryngologists managing reproductive-age women with iSGS should counsel proactively before and early in pregnancy to establish surveillance and operative plans.</p>
+  <div class="noted-source">Laryngoscope · PMID 42267438 · <button class="copy-pmid noted-copy" data-pmid="42267438" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Case-Control</span><span class="badge-type-mini">Sleep Surgery</span><span class="badge-type-mini">DISE</span>
+  </div>
+  <div class="noted-title">Positive Airway Pressure-Associated Epiglottis-Related Obstruction in Adult Men with Obstructive Sleep Apnea</div>
+  <p class="noted-summary">Kezirian EJ and colleagues at UCLA used drug-induced sleep endoscopy (DISE) with concurrent airflow/pressure measurement to characterize PAP-associated epiglottis obstruction in OSA—a mechanism underlying PAP failure in a subset of patients. Cases with epiglottis obstruction showed measurably reduced ventilation and inspiratory airflow compared to matched controls without epiglottis involvement, both before and during PAP administration. This study provides the first objective physiologic quantification of PAP-related epiglottis collapse, explaining the clinical phenotype of patients who tolerate PAP titration but report continued symptomatic obstruction. Identification of this pattern during DISE should guide targeted intervention (epiglottoplasty, positional therapy, or oral appliance) rather than further PAP pressure escalation. This work has direct clinical utility for sleep surgeons evaluating PAP-intolerant or PAP-partial-response patients.</p>
+  <div class="noted-source">J Clin Sleep Med · PMID 42260258 · <button class="copy-pmid noted-copy" data-pmid="42260258" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Multicenter</span><span class="badge-type-mini">Head &amp; Neck Oncology</span>
+  </div>
+  <div class="noted-title">Impact of Tongue Tip Reconstruction on Articulatory Performance After Major Tongue Resections: Evidence From a Multicentric Study</div>
+  <p class="noted-summary">This retrospective multicentric study across four tertiary referral centers (n=57, 2007–2023) examined whether tongue tip reconstruction following hemiglossectomy or extended glossectomy for oral squamous cell carcinoma improves articulatory performance and self-perceived speech. Lingual tip reconstruction was associated with better articulatory scores on the Fussi-Cantagallo test and improved Speech Handicap Index (SHI) outcomes, with the greatest benefit seen in extended glossectomy patients. These data support prioritizing tongue tip reconstruction in flap design for major oral tongue resections. The multicenter design strengthens generalizability despite retrospective limitations. Head and neck oncologic surgeons should incorporate lingual tip reconstruction as a functional priority when planning oral tongue free-flap reconstructions.</p>
+  <div class="noted-source">Microsurgery · PMID 42257252 · <button class="copy-pmid noted-copy" data-pmid="42257252" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Cohort</span><span class="badge-type-mini">Thyroid Oncology</span><span class="badge-type-mini">Molecular</span>
+  </div>
+  <div class="noted-title">Clinical Actionability of Molecular Testing in Advanced Thyroid Cancer: A Real-World Cohort Study</div>
+  <p class="noted-summary">This real-world cohort from Radboud University Medical Center (n=103 advanced thyroid cancer patients) evaluated clinical actionability of panel-based molecular testing using ESMO ESCAT criteria across a 10-year period. Actionable alterations (ESCAT I–III) were identified in a meaningful proportion of patients, with BRAF, RET, and NTRK fusions being the most therapeutically actionable findings guiding targeted therapy selection. Matched systemic therapy based on molecular profiling demonstrated clinical benefit in affected patients. These data support systematic reflex molecular profiling at the time of disease progression or diagnosis of advanced disease. Thyroid surgeons referring patients for systemic therapy should advocate strongly for molecular panel testing to enable access to targeted agents.</p>
+  <div class="noted-source">Eur Thyroid J · PMID 42258399 · <button class="copy-pmid noted-copy" data-pmid="42258399" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Cohort</span><span class="badge-type-mini">Cochlear Implant</span>
+  </div>
+  <div class="noted-title">Hearing Preservation Rates After Cochlear Implantation Using Soft Surgery Techniques</div>
+  <p class="noted-summary">This 10-year retrospective analysis from the University of Minnesota quantified hearing preservation rates and predictors in adult CI recipients using soft surgery techniques. Higher perioperative steroid dosing was associated with substantially better low-frequency hearing preservation on univariate analysis (33% vs 14.8%), though this did not reach significance on multivariate analysis when correlated with year of surgery. A small but statistically significant temporal trend (r=0.22) suggests cumulative refinement of soft surgery technique over time improves outcomes independently of steroid use. Electrode type, sex, and age were not significant predictors. Programs adopting standardized soft surgery protocols should combine this with attention to perioperative steroid dosing as a potentially modifiable factor in hearing preservation.</p>
+  <div class="noted-source">Laryngoscope · PMID 42273910 · <button class="copy-pmid noted-copy" data-pmid="42273910" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Novel Technique</span><span class="badge-type-mini">Cochlear Implant</span>
+  </div>
+  <div class="noted-title">A Novel Technique for Safe Intraoperative Perilymph Sampling in Humans</div>
+  <p class="noted-summary">O&#39;Leary SJ and colleagues at the University of Melbourne developed and validated a novel perilymph sampling methodology using calibrated nylon epidural catheters during cochlear implantation, enabling reliable biomarker collection without significant cochlear trauma. Two catheter gauges (16G and 18G) were calibrated against glass capillaries to yield predictable sample volumes using measured fluid column heights, providing a reproducible technique. Assessment in hearing-preservation CI candidates confirmed minimal audiometric impact of sampling. This methodology enables molecular biomarker discovery from perilymph at the time of CI surgery, with applications to pharmacodynamic monitoring as cochlear pharmacotherapy matures. As inner-ear drug delivery systems advance, this technique provides a translatable framework for intraoperative precision diagnostics.</p>
+  <div class="noted-source">Eur Arch Otorhinolaryngol · PMID 42265243 · <button class="copy-pmid noted-copy" data-pmid="42265243" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Survey</span><span class="badge-type-mini">Facial Plastic</span>
+  </div>
+  <div class="noted-title">Measuring the Socially Perceived Value of Surgery for Facial Paralysis and Facial Synkinesis</div>
+  <p class="noted-summary">This Mayo Clinic survey study (n=557 casual observers) quantified willingness-to-pay (WTP) and quality-adjusted life years for surgical correction of complete facial paralysis (CFP) versus synkinesis using standardized video stimuli. Both conditions were associated with significantly reduced observer-perceived quality of life, with substantial WTP for correction of each. A key finding was that synkinesis was systematically undervalued relative to complete paralysis despite causing comparable QoL impairment—a discrepancy that likely contributes to insurance denial rates for synkinesis surgery. These data provide economic justification for reanimation coverage and represent a high-quality dataset for advocacy efforts. Facial plastic surgeons can cite this study in prior authorization and appeals processes.</p>
+  <div class="noted-source">Facial Plast Surg Aesthet Med · PMID 42272035 · <button class="copy-pmid noted-copy" data-pmid="42272035" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">AI / LLM</span><span class="badge-type-mini">Head &amp; Neck</span>
+  </div>
+  <div class="noted-title">Diagnostic Performance of Contemporary Large Language Models on Free-Text Histopathologic Descriptions in Oral and Maxillofacial Pathology</div>
+  <p class="noted-summary">This diagnostic accuracy study benchmarked ChatGPT-5.0, Gemini-2.5-Pro, and Claude-Opus-4.1 on 155 de-identified oral and maxillofacial pathology cases using free-text histopathologic descriptions and a zero-shot prompt. All three models achieved moderate-to-good accuracy, with inter-model agreement varying by diagnostic category and case complexity. Straightforward entities were classified with high accuracy; rare entities showed significant inter-model discordance and misclassification. The findings illustrate both the promise and the current ceiling of LLM-assisted pathology in head and neck contexts. While not yet ready for independent clinical use, LLMs may serve as a second-opinion tool in training and low-resource settings.</p>
+  <div class="noted-source">Head Neck Pathol · PMID 42274902 · <button class="copy-pmid noted-copy" data-pmid="42274902" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="2">2</span>
+    <span class="badge-type-mini">Database Study</span><span class="badge-type-mini">Otology</span>
+  </div>
+  <div class="noted-title">Real-World Analysis of Meniere Disease: Treatment Patterns, Surgical Trends, Demographic Disparities, and Comorbidities Using TriNetX Data</div>
+  <p class="noted-summary">This TriNetX large-database analysis from Stony Brook characterized real-world treatment patterns, surgical referral rates, demographic disparities, and comorbidity profiles in Meniere disease across US health systems. Significant disparities in surgical intervention rates by race and insurance status were identified, mirroring patterns seen in other otologic conditions. Comorbidity burden (migraine, vestibular migraine, autoimmune disorders) was higher than often acknowledged in clinical trial populations. Surgical trends showed evolving use of endolymphatic sac decompression and intratympanic gentamicin. The TriNetX design provides real-world external validity that complements trial data for understanding care delivery gaps in Meniere disease management.</p>
+  <div class="noted-source">J Laryngol Otol · PMID 42252840 · <button class="copy-pmid noted-copy" data-pmid="42252840" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="2">2</span>
+    <span class="badge-type-mini">Case Report</span><span class="badge-type-mini">Skull Base</span><span class="badge-type-mini">Novel Technique</span>
+  </div>
+  <div class="noted-title">Autologous Mastoid Cortex Bone Graft for Multilayer Repair of Lateral Skull Base Defects</div>
+  <p class="noted-summary">Eisenman DJ at the University of Maryland describes use of a monocortical mastoid cortex bone graft as a rigid autologous support layer in multilayer repair of lateral skull base CSF leaks and encephaloceles. Harvesting is performed via the same mastoidectomy approach without additional operative time, donor site morbidity, or separate incisions—contrasting with calvarial or rib donor options. The compact cortex provides durable rigidity for the outer repair layer. Limited to a case report series without comparative failure rate data. For lateral skull base surgeons performing CSF leak repairs, the mastoid cortex offers a readily accessible, zero-added-morbidity rigid graft material worth incorporating into the technique repertoire.</p>
+  <div class="noted-source">Laryngoscope · PMID 42265819 · <button class="copy-pmid noted-copy" data-pmid="42265819" type="button">📋 Copy</button></div>
+</div>
+
+        </div>
+
+        <footer class="report-footer">
+          <span>Run · June 15, 2026 · 06:13 ET</span>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
+          </div>
+        </footer>
+
+      </section>
+    </div>
+  </div>
+</main>
+
+<script type="application/json" id="digest-data">
+{"papers": [{"pmid": "42268590", "score": 4, "novel_technique": false, "study_type": "Randomized Controlled Trial", "n": 207, "journal": "Otol Neurotol", "journal_impact_factor": null, "doi": null, "title": "Efficacy of Vestibular Rehabilitation Therapy on Benign Paroxysmal Positional Vertigo After Repositioning: Improvement of Vestibular Symptoms and Vertigo Disability", "authors": ["Yang CH", "Zhang L", "Wang X", "Li J", "Chen Y"], "senior_author": "Yang CH", "senior_affiliation": "Otolaryngology, Tianjin Fourth Central Hospital, Tianjin, China", "badges": ["RCT", "Prospective"], "summary_sections": [{"label": "BACKGROUND", "text": "Canalith repositioning maneuvers resolve the canal dysfunction underlying BPPV, but a substantial proportion of patients retain residual dizziness and vestibular disability (DHI ≥20) that repositioning alone does not address. Vestibular rehabilitation therapy (VRT) is a candidate adjunct, yet randomized evidence comparing outcomes by canal subtype has been sparse."}, {"label": "METHODS", "text": "Prospective, stratified RCT enrolling 207 BPPV patients with residual symptoms (DHI ≥20) after standard repositioning (modified Epley for pc-BPPV; Gufoni/Barbecue for hc-BPPV). VRT group received vestibulo-ocular reflex training, habituation exercises, and pharmacotherapy (betahistine + ginkgolide) for 28 days; control group received pharmacotherapy alone. Outcomes—DHI, VAS, balance compliance, dynamic visual acuity—were assessed at day 14 and 28."}, {"label": "RESULTS", "text": "VRT group had significantly lower 28-day DHI (18 vs 28, p<0.001), lower VAS ratings (1.60 ± 1.40 vs 3.46 ± 1.45, p<0.001), better balance compliance (88.7% vs 61.8%), and greater visual acuity improvement (3 vs 1 Snellen line). Subtype analysis: pc-BPPV showed faster early symptom relief with VRT; hc-BPPV showed superior long-term visual acuity gains."}, {"label": "LIMITATIONS", "text": "Single-center Chinese study; VRT was bundled with pharmacotherapy so the isolated exercise effect cannot be cleanly separated; blinding to exercise allocation is not feasible; external validity to practices without pharmacotherapy-plus-VRT protocols may vary."}, {"label": "CLINICAL TAKEAWAY", "text": "For BPPV patients with residual dizziness after successful repositioning (DHI ≥20), structured VRT produces meaningful, statistically significant reductions in vestibular disability and symptom burden. Canal-subtype-tailored protocols—emphasizing early symptom relief in pc-BPPV and long-term visual acuity gains in hc-BPPV—should be integrated into routine post-repositioning care."}], "rationale": "Prospective stratified RCT (n=207) published in Otology & Neurotology (flagship journal). Addresses a high-prevalence clinical problem—residual post-repositioning symptoms—with directly actionable subtype-specific results. Effect sizes are clinically meaningful (DHI 18 vs 28, 3 vs 1 Snellen line)."}, {"pmid": "42252639", "score": 4, "novel_technique": false, "study_type": "Randomized Controlled Trial", "n": 56, "journal": "Am J Rhinol Allergy", "journal_impact_factor": null, "doi": null, "title": "Mupirocin Nasal Irrigation Following Endoscopic Sinus Surgery: A Prospective, Double-Blinded, Placebo-Controlled Trial", "authors": ["Al-Bar MH", "Alqutub A", "Ruiz JW", "Kuperan A", "Kobran Z"], "senior_author": "Casiano RR", "senior_affiliation": "Department of Otolaryngology-Head and Neck Surgery, University of Miami Miller School of Medicine, Miami, Florida, USA", "badges": ["RCT", "Double-Blind", "Placebo-Controlled"], "summary_sections": [{"label": "BACKGROUND", "text": "Saline nasal irrigation is the post-ESS standard of care, but the benefit of adding topical mupirocin—a bacteriostatic antibiotic—during the early postoperative inflammatory window remains uncertain. Bacterial colonization may drive early mucosal complications such as edema, adhesions, and antibiotic escalation."}, {"label": "METHODS", "text": "68 adult CRS patients undergoing ESS were enrolled and randomized; 56 completed follow-up. Treatment: mupirocin 0.05% nasal irrigation vs. placebo saline irrigation twice daily for 21 days. Outcomes: SNOT-22 and VAS (patient-reported), endoscopic scoring (edema, polyp formation, crusting, granulation, purulence), sinus culture results, and systemic antibiotic requirement."}, {"label": "RESULTS", "text": "Patient-reported QoL (SNOT-22, VAS) improved significantly from baseline in both groups with no between-group difference. Mupirocin produced significantly lower rates of endoscopic mucosal edema and polyp formation at 1 month, more frequent negative postoperative cultures, and reduced systemic antibiotic prescriptions. No difference in crusting, granulation, purulence, steroid use, or pain medication."}, {"label": "LIMITATIONS", "text": "Small completers (n=56); single academic center; 21-day treatment window limits insight into longer-term mucosal effects; patients with known methicillin resistance were not analyzed separately; antibiotic culture sensitivity profiles not reported."}, {"label": "CLINICAL TAKEAWAY", "text": "Mupirocin nasal irrigation does not improve patient-reported symptoms over saline alone, but does reduce early endoscopic inflammatory markers (edema, polyp reformation) and the rate of positive sinus cultures and systemic antibiotic use. A pragmatic role exists for mupirocin irrigation in patients at high risk for early postoperative bacterial colonization or recurrent polyp formation."}], "rationale": "Prospective DBPC RCT with a clinically critical question (topical antibiotic post-ESS). Although patient-reported outcomes were equivalent, the objective endoscopic and microbiological benefits justify practice consideration. Senior author (Casiano RR, U Miami) is a recognized rhinology figure. Moderate sample size (n=56) is appropriate for an early phase answer."}, {"pmid": "42275034", "score": 4, "novel_technique": false, "study_type": "Prospective Longitudinal Cohort", "n": 174, "journal": "JAMA Otolaryngology", "journal_impact_factor": null, "doi": null, "title": "Palate Repair Timing Under Age 15 Months and Early Speech Outcomes", "authors": ["Wren Y", "Roulstone S", "Persson M", "Sandy J", "Waylen A"], "senior_author": "Wren Y", "senior_affiliation": "Bristol Dental School, University of Bristol, Bristol, UK", "badges": ["Prospective Cohort", "Multicenter", "Pediatric"], "summary_sections": [{"label": "BACKGROUND", "text": "Early primary palatoplasty (before age 12–15 months) is consensus best practice for optimizing velopharyngeal competence and speech. Whether small timing variations within the already-early <15-month window meaningfully affect passive cleft speech characteristics (CSCs)—which can persist despite early repair—remains debated among cleft teams."}, {"label": "METHODS", "text": "Longitudinal cohort from the UK Cleft Collective (2013–ongoing, all UK regional cleft centers). Children with cleft palate (with or without cleft lip) whose palates were repaired before 15 months were assessed for passive CSCs (nasal emission, hypernasality) at 18–24 months (n=157, mean repair age 9.6 months) and 36 months (n=174, mean repair age 9.7 months). Logistic regression adjusted for cleft type and other covariates."}, {"label": "RESULTS", "text": "No significant association between repair timing and passive CSCs at 18–24 months. At 36 months, each additional month of delay was independently associated with increased odds of passive CSCs (OR 1.24). Passive CSC prevalence: 18.5% at 18–24 months; 16.7% at 36 months."}, {"label": "LIMITATIONS", "text": "Observational cohort (no RCT); UK cleft center practice norms shape the timing distribution; passive CSCs are one speech measure and do not capture active articulation errors; long-term speech outcomes beyond age 3 not yet available; family and surgeon-level factors in timing not fully adjusted."}, {"label": "CLINICAL TAKEAWAY", "text": "Even within the established early window (<15 months), each month of additional delay in palatoplasty carries a ~24% increase in odds of passive cleft speech characteristics at 36 months. Cleft teams should aim for the earliest surgically safe repair, not simply meeting the 15-month cutoff. This evidence should prompt multidisciplinary discussion when scheduling delays are anticipated."}], "rationale": "JAMA Otolaryngology (top specialty journal), large national UK cohort with prospective design and rigorously ascertained speech outcomes. Directly practice-relevant for every cleft team debating optimal timing within the early-repair paradigm. OR of 1.24 per month has clear clinical meaning."}, {"pmid": "42269187", "score": 4, "novel_technique": false, "study_type": "Meta-Analysis", "n": 528, "journal": "Sleep Medicine", "journal_impact_factor": null, "doi": null, "title": "Efficacy and Safety of Atomoxetine Combination Therapy for Obstructive Sleep Apnea: A Meta-Analysis of Randomized Placebo-Controlled Trials", "authors": ["Wang C", "Liu H", "Zhang X", "Chen Y", "Li M"], "senior_author": "Wang C", "senior_affiliation": "Department of Sleep Medicine, The Second Affiliated Hospital of Henan Medical University (Henan Mental Hospital), Xinxiang, China", "badges": ["Meta-Analysis", "RCTs"], "summary_sections": [{"label": "BACKGROUND", "text": "Significant unmet need exists for pharmacotherapy in OSA. Atomoxetine—a norepinephrine reuptake inhibitor that increases upper airway dilator muscle tone—has been studied in combination regimens (e.g., atomoxetine + oxybutynin) as an accessible, non-PAP alternative for patients who cannot tolerate or refuse CPAP and who may not be surgical candidates."}, {"label": "METHODS", "text": "Systematic search of PubMed, EMBASE, Cochrane, Web of Science, and PsycINFO identified 13 RCTs (528 patients) comparing atomoxetine combination therapy to placebo. Primary efficacy outcome: change in Apnea-Hypopnea Index (AHI). Secondary outcomes: oxygen saturation metrics, adverse events. Random-effects meta-analysis; heterogeneity assessed by I²."}, {"label": "RESULTS", "text": "Atomoxetine combination significantly reduced AHI (MD −5.83, 95% CI −9.05 to −2.62; p=0.0004; I²=20%), improved lowest oxygen saturation (MD +2.91; p=0.002), and reduced oxygen desaturation index (MD −5.40; p=0.0003). Adverse events were significantly more frequent (RR 1.65, 95% CI 1.28–2.13); dry mouth occurred in 29.2% vs. 9.5% and urination difficulty in 10.7% vs. 0.8%."}, {"label": "LIMITATIONS", "text": "13 RCTs totaling only 528 patients; AHI reduction (~6 events/hr) is modest in absolute terms and falls short of usual treatment thresholds; no head-to-head comparison against CPAP or surgical alternatives; adverse event rates at the 10%+ level for urinary symptoms may limit acceptance; trials mostly short-term."}, {"label": "CLINICAL TAKEAWAY", "text": "Atomoxetine-based combination pharmacotherapy achieves a statistically significant, low-heterogeneity AHI reduction of ~6 events/hr with improvements in oxygenation metrics. This positions it as an alternative or bridge therapy for CPAP-intolerant patients or as a pre-surgical optimization strategy. Patient counseling must address the substantial rates of dry mouth (29%) and urinary difficulty (11%), particularly in older men."}], "rationale": "Meta-analysis of 13 RCTs (highest evidence tier) with low heterogeneity (I²=20%) addressing a genuine clinical unmet need—pharmacotherapy for OSA. AHI reduction is modest but consistent; adverse event quantification is clinically actionable. Sleep surgeons need to know this data before counseling patients."}, {"pmid": "42260304", "score": 3, "novel_technique": false, "study_type": "Phase 1b/2 Trial", "journal": "Signal Transduct Target Ther", "badges": ["Phase 1b/2", "Multicenter"], "title": "Efficacy and Safety of Toripalimab in Combination with Cetuximab in Patients with Recurrent or Metastatic HNSCC: A Phase 1b/2 Study", "summary": "This multicenter Phase 1b/2 trial (n=88) evaluated anti-PD-1 toripalimab plus cetuximab in platinum-refractory (Cohort A, n=45) and PD-L1-positive untreated (Cohort B, n=43) recurrent/metastatic HNSCC. Cohort A achieved an ORR of 60%, mPFS 9.9 months, and mOS 14.1 months—results that meaningfully exceed historical cetuximab monotherapy benchmarks. Cohort B showed 44.2% ORR and 18.1-month median OS. Grade ≥3 adverse events occurred in 51–53% across cohorts. These data position the combination as a promising strategy for PD-L1-selected or platinum-refractory HNSCC and support ongoing Phase 3 validation."}, {"pmid": "42267460", "score": 3, "novel_technique": false, "study_type": "Randomized Controlled Trial", "journal": "Laryngoscope", "badges": ["RCT", "Prospective"], "title": "Rotational Chair vs. Manual Maneuvers for Non-Complex BPPV: A Prospective Randomized Study", "summary": "This prospective randomized trial (n=89 evaluable) compared the TRV rotational chair to standard manual Epley/Gufoni maneuvers for uncomplicated BPPV over 12 months. No significant difference was found in maneuvers required for resolution (TRV 2.25 vs manual 1.82; p=0.19), 12-month recurrence rates, or DHI/VAS quality-of-life scores. Both approaches produced comparable resolution rates, and the TRV chair conferred no measurable clinical advantage. Multivariate analysis identified known BPPV recurrence risk factors. For otology practices evaluating whether to invest in specialized rotational chairs, this study argues against acquisition on the basis of superior clinical outcomes."}, {"pmid": "42259506", "score": 3, "novel_technique": false, "study_type": "Retrospective Cohort", "journal": "Otol Neurotol", "badges": ["Cohort", "Genetics"], "title": "Performance Results and Timing of Cochlear Implantation in Patients With DFNA9 (p.Pro51Ser)", "summary": "Radboud University Medical Center compared 56 DFNA9 (COCH gene, p.Pro51Ser) cochlear implant recipients to matched controls without hereditary HL at 6 weeks, 1 year, and 5 years. DFNA9 patients achieved comparable speech perception and quality-of-life outcomes (Nijmegen CI Questionnaire, Glasgow Benefit Inventory) to matched postlingual deaf controls. Earlier implantation correlated with superior long-term performance, supporting proactive CI referral before profound deafness in this predictable progressive condition. Vestibular co-dysfunction characteristic of DFNA9 did not significantly impair CI rehabilitation outcomes. Genetic testing positive for COCH variants should trigger dedicated cochlear implant counseling before hearing thresholds reach profound levels."}, {"pmid": "42273764", "score": 3, "novel_technique": false, "study_type": "Systematic Review & Meta-Analysis", "journal": "Am J Rhinol Allergy", "badges": ["Meta-Analysis", "Rhinology"], "title": "The Effect of Chitosan-Based Dressings on Postoperative Outcomes in Patients Undergoing Endoscopic Sinus Surgery: A Systematic Review and Meta-Analysis", "summary": "This systematic review and meta-analysis of randomized trials evaluated chitosan-based nasal packing and gels after ESS versus no treatment or standard dressings. Chitosan products significantly improved ostial area preservation and reduced postoperative adhesion rates versus comparators. Wound-healing parameters at final follow-up favored chitosan-based approaches with risk ratios supporting both hemostatic and anti-adhesive benefits. Methodological heterogeneity across trials was acknowledged as a limitation. These findings support selective use of chitosan-based adjuncts in ESS patients at elevated risk for synechiae or ostial stenosis, particularly in revision cases or those with extensive polypoid disease."}, {"pmid": "42265245", "score": 3, "novel_technique": false, "study_type": "Retrospective Cohort", "journal": "Eur Arch Otorhinolaryngol", "badges": ["Cohort", "Skull Base"], "title": "Radicality and Revision Surgery in Vestibular Schwannoma Treatment: Balancing Optimal Outcomes with Unavoidable Necessity", "summary": "This high-volume retrospective series from Charles University (1998–2025) analyzed revision VS microsurgery outcomes after failed prior microsurgery and/or stereotactic irradiation, with facial nerve function (House-Brackmann grade) as the primary endpoint. Tumor control was achievable in the majority of cases, though facial nerve outcomes were inferior to those expected in primary surgery and improved significantly with subtotal rather than total resection intent. Near-total resection with planned radiosurgery for residual tumor offered the best balance of tumor control and facial nerve preservation in the revision setting. High-volume tertiary center referral was the dominant predictor of outcome. These data should inform consent discussions for patients who have failed initial VS treatment."}, {"pmid": "42267438", "score": 3, "novel_technique": false, "study_type": "Case-Control Study", "journal": "Laryngoscope", "badges": ["Case-Control", "Laryngology"], "title": "Idiopathic Subglottic Stenosis in Pregnancy: A Case-Control Study of Management and Maternal Safety", "summary": "This Johns Hopkins retrospective case-control study (n=33; 23 pregnant vs. 10 age-matched never-pregnant iSGS controls) characterized clinical course and management of iSGS during pregnancy. Approximately one-third of pregnant patients required operative dilation during pregnancy, and inter-dilation intervals and stenosis severity were comparable to non-pregnant controls, suggesting pregnancy does not dramatically accelerate stenosis progression. Maternal and fetal safety outcomes were acceptable with appropriately timed surgical intervention. Variables predictive of requiring in-pregnancy intervention were identified, enabling preconception counseling. Laryngologists managing reproductive-age women with iSGS should counsel proactively before and early in pregnancy to establish surveillance and operative plans."}, {"pmid": "42260258", "score": 3, "novel_technique": false, "study_type": "Case-Control Study", "journal": "J Clin Sleep Med", "badges": ["Case-Control", "Sleep Surgery", "DISE"], "title": "Positive Airway Pressure-Associated Epiglottis-Related Obstruction in Adult Men with Obstructive Sleep Apnea", "summary": "Kezirian EJ and colleagues at UCLA used drug-induced sleep endoscopy (DISE) with concurrent airflow/pressure measurement to characterize PAP-associated epiglottis obstruction in OSA—a mechanism underlying PAP failure in a subset of patients. Cases with epiglottis obstruction showed measurably reduced ventilation and inspiratory airflow compared to matched controls without epiglottis involvement, both before and during PAP administration. This study provides the first objective physiologic quantification of PAP-related epiglottis collapse, explaining the clinical phenotype of patients who tolerate PAP titration but report continued symptomatic obstruction. Identification of this pattern during DISE should guide targeted intervention (epiglottoplasty, positional therapy, or oral appliance) rather than further PAP pressure escalation. This work has direct clinical utility for sleep surgeons evaluating PAP-intolerant or PAP-partial-response patients."}, {"pmid": "42257252", "score": 3, "novel_technique": false, "study_type": "Retrospective Multicenter Study", "journal": "Microsurgery", "badges": ["Multicenter", "Head & Neck Oncology"], "title": "Impact of Tongue Tip Reconstruction on Articulatory Performance After Major Tongue Resections: Evidence From a Multicentric Study", "summary": "This retrospective multicentric study across four tertiary referral centers (n=57, 2007–2023) examined whether tongue tip reconstruction following hemiglossectomy or extended glossectomy for oral squamous cell carcinoma improves articulatory performance and self-perceived speech. Lingual tip reconstruction was associated with better articulatory scores on the Fussi-Cantagallo test and improved Speech Handicap Index (SHI) outcomes, with the greatest benefit seen in extended glossectomy patients. These data support prioritizing tongue tip reconstruction in flap design for major oral tongue resections. The multicenter design strengthens generalizability despite retrospective limitations. Head and neck oncologic surgeons should incorporate lingual tip reconstruction as a functional priority when planning oral tongue free-flap reconstructions."}, {"pmid": "42258399", "score": 3, "novel_technique": false, "study_type": "Retrospective Cohort", "journal": "Eur Thyroid J", "badges": ["Cohort", "Thyroid Oncology", "Molecular"], "title": "Clinical Actionability of Molecular Testing in Advanced Thyroid Cancer: A Real-World Cohort Study", "summary": "This real-world cohort from Radboud University Medical Center (n=103 advanced thyroid cancer patients) evaluated clinical actionability of panel-based molecular testing using ESMO ESCAT criteria across a 10-year period. Actionable alterations (ESCAT I–III) were identified in a meaningful proportion of patients, with BRAF, RET, and NTRK fusions being the most therapeutically actionable findings guiding targeted therapy selection. Matched systemic therapy based on molecular profiling demonstrated clinical benefit in affected patients. These data support systematic reflex molecular profiling at the time of disease progression or diagnosis of advanced disease. Thyroid surgeons referring patients for systemic therapy should advocate strongly for molecular panel testing to enable access to targeted agents."}, {"pmid": "42273910", "score": 3, "novel_technique": false, "study_type": "Retrospective Cohort", "journal": "Laryngoscope", "badges": ["Cohort", "Cochlear Implant"], "title": "Hearing Preservation Rates After Cochlear Implantation Using Soft Surgery Techniques", "summary": "This 10-year retrospective analysis from the University of Minnesota quantified hearing preservation rates and predictors in adult CI recipients using soft surgery techniques. Higher perioperative steroid dosing was associated with substantially better low-frequency hearing preservation on univariate analysis (33% vs 14.8%), though this did not reach significance on multivariate analysis when correlated with year of surgery. A small but statistically significant temporal trend (r=0.22) suggests cumulative refinement of soft surgery technique over time improves outcomes independently of steroid use. Electrode type, sex, and age were not significant predictors. Programs adopting standardized soft surgery protocols should combine this with attention to perioperative steroid dosing as a potentially modifiable factor in hearing preservation."}, {"pmid": "42265243", "score": 3, "novel_technique": true, "study_type": "Technical Development / Cohort", "journal": "Eur Arch Otorhinolaryngol", "badges": ["Novel Technique", "Cochlear Implant"], "title": "A Novel Technique for Safe Intraoperative Perilymph Sampling in Humans", "summary": "O'Leary SJ and colleagues at the University of Melbourne developed and validated a novel perilymph sampling methodology using calibrated nylon epidural catheters during cochlear implantation, enabling reliable biomarker collection without significant cochlear trauma. Two catheter gauges (16G and 18G) were calibrated against glass capillaries to yield predictable sample volumes using measured fluid column heights, providing a reproducible technique. Assessment in hearing-preservation CI candidates confirmed minimal audiometric impact of sampling. This methodology enables molecular biomarker discovery from perilymph at the time of CI surgery, with applications to pharmacodynamic monitoring as cochlear pharmacotherapy matures. As inner-ear drug delivery systems advance, this technique provides a translatable framework for intraoperative precision diagnostics."}, {"pmid": "42272035", "score": 3, "novel_technique": false, "study_type": "Survey Study", "journal": "Facial Plast Surg Aesthet Med", "badges": ["Survey", "Facial Plastic"], "title": "Measuring the Socially Perceived Value of Surgery for Facial Paralysis and Facial Synkinesis", "summary": "This Mayo Clinic survey study (n=557 casual observers) quantified willingness-to-pay (WTP) and quality-adjusted life years for surgical correction of complete facial paralysis (CFP) versus synkinesis using standardized video stimuli. Both conditions were associated with significantly reduced observer-perceived quality of life, with substantial WTP for correction of each. A key finding was that synkinesis was systematically undervalued relative to complete paralysis despite causing comparable QoL impairment—a discrepancy that likely contributes to insurance denial rates for synkinesis surgery. These data provide economic justification for reanimation coverage and represent a high-quality dataset for advocacy efforts. Facial plastic surgeons can cite this study in prior authorization and appeals processes."}, {"pmid": "42274902", "score": 3, "novel_technique": false, "study_type": "Retrospective Accuracy Study", "journal": "Head Neck Pathol", "badges": ["AI / LLM", "Head & Neck"], "title": "Diagnostic Performance of Contemporary Large Language Models on Free-Text Histopathologic Descriptions in Oral and Maxillofacial Pathology", "summary": "This diagnostic accuracy study benchmarked ChatGPT-5.0, Gemini-2.5-Pro, and Claude-Opus-4.1 on 155 de-identified oral and maxillofacial pathology cases using free-text histopathologic descriptions and a zero-shot prompt. All three models achieved moderate-to-good accuracy, with inter-model agreement varying by diagnostic category and case complexity. Straightforward entities were classified with high accuracy; rare entities showed significant inter-model discordance and misclassification. The findings illustrate both the promise and the current ceiling of LLM-assisted pathology in head and neck contexts. While not yet ready for independent clinical use, LLMs may serve as a second-opinion tool in training and low-resource settings."}, {"pmid": "42252840", "score": 2, "novel_technique": false, "study_type": "Database Cohort", "journal": "J Laryngol Otol", "badges": ["Database Study", "Otology"], "title": "Real-World Analysis of Meniere Disease: Treatment Patterns, Surgical Trends, Demographic Disparities, and Comorbidities Using TriNetX Data", "summary": "This TriNetX large-database analysis from Stony Brook characterized real-world treatment patterns, surgical referral rates, demographic disparities, and comorbidity profiles in Meniere disease across US health systems. Significant disparities in surgical intervention rates by race and insurance status were identified, mirroring patterns seen in other otologic conditions. Comorbidity burden (migraine, vestibular migraine, autoimmune disorders) was higher than often acknowledged in clinical trial populations. Surgical trends showed evolving use of endolymphatic sac decompression and intratympanic gentamicin. The TriNetX design provides real-world external validity that complements trial data for understanding care delivery gaps in Meniere disease management."}, {"pmid": "42265819", "score": 2, "novel_technique": true, "study_type": "Case Report / Technique Description", "journal": "Laryngoscope", "badges": ["Case Report", "Skull Base", "Novel Technique"], "title": "Autologous Mastoid Cortex Bone Graft for Multilayer Repair of Lateral Skull Base Defects", "summary": "Eisenman DJ at the University of Maryland describes use of a monocortical mastoid cortex bone graft as a rigid autologous support layer in multilayer repair of lateral skull base CSF leaks and encephaloceles. Harvesting is performed via the same mastoidectomy approach without additional operative time, donor site morbidity, or separate incisions—contrasting with calvarial or rib donor options. The compact cortex provides durable rigidity for the outer repair layer. Limited to a case report series without comparative failure rate data. For lateral skull base surgeons performing CSF leak repairs, the mastoid cortex offers a readily accessible, zero-added-morbidity rigid graft material worth incorporating into the technique repertoire."}], "generated": "2026-06-15"}
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.copy-pmid').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pmid = btn.getAttribute('data-pmid');
+      navigator.clipboard.writeText(pmid).then(function() {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+
+<div style="max-width:1280px;margin:0 auto;padding:2rem 1.5rem 4rem;">
+  <div style="border-top:2px solid #1A4730;padding-top:1.5rem;margin-top:2rem;">
+    <div style="font-size:0.625rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#2F6B49;margin-bottom:1rem;">Archive</div>
+    <div style="display:flex;flex-direction:column;gap:0.5rem;">
+      <a href="digests/2026-05-25.html" style="font-family:JetBrains Mono,monospace;font-size:0.8125rem;color:#1A4730;text-decoration:none;padding:0.5rem 0.75rem;border:1.5px solid #B8C9BC;border-radius:4px;display:inline-block;width:fit-content;">2026-05-25 — Sunday, May 25, 2026</a>
+      <a href="digests/2026-05-21.html" style="font-family:JetBrains Mono,monospace;font-size:0.8125rem;color:#1A4730;text-decoration:none;padding:0.5rem 0.75rem;border:1.5px solid #B8C9BC;border-radius:4px;display:inline-block;width:fit-content;">2026-05-21 — Wednesday, May 21, 2026</a>
+      <a href="digests/2026-05-20.html" style="font-family:JetBrains Mono,monospace;font-size:0.8125rem;color:#1A4730;text-decoration:none;padding:0.5rem 0.75rem;border:1.5px solid #B8C9BC;border-radius:4px;display:inline-block;width:fit-content;">2026-05-20 — Tuesday, May 20, 2026</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
