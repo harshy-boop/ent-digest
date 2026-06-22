@@ -1,1 +1,928 @@
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9IlVURi04Ij4KPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiPgo8dGl0bGU+RU5UL0FpcndheS9GYWNlIERpZ2VzdCDigJQgTW9uZGF5LCBKYW5lIDIyLCAyMDI2PC90aXRsZT4=
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT/Airway/Face Digest — Monday, June 22, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF;
+    --surface: #ffffff;
+    --border: #B8C9BC;
+    --border-strong: #8FA897;
+    --border-soft: #D5DFD5;
+    --hairline: #E4EAE2;
+    --text: #131A15;
+    --text-mid: #3F4A42;
+    --text-dim: #6E7A70;
+    --text-faint: #A5AEA6;
+    --forest: #1A4730;
+    --forest-deep: #103022;
+    --forest-mid: #2F6B49;
+    --forest-soft: #57966F;
+    --forest-tint: #E4ECE3;
+    --forest-tint-strong: #D2DFD2;
+    --forest-line: #98B49E;
+    --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
+    --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
+    --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
+    --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
+    --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
+  .paper-grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%); }
+  header { position: sticky; top: 0; z-index: 50; border-bottom: 2px solid var(--forest); background: rgba(247,245,239,0.94); backdrop-filter: blur(10px); }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
+  .logo-block { display: flex; align-items: center; gap: 1rem; }
+  .logo { width: 48px; height: 48px; border-radius: 8px; background: var(--forest-deep); color: #fff; display: flex; align-items: center; justify-content: center; border: 2px solid var(--forest); }
+  .logo svg { width: 24px; height: 24px; }
+  .brand-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep); }
+  .brand-sub { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em; color: var(--forest-mid); text-transform: uppercase; margin-top: 3px; }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .status-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line); border-radius: 6px; background: var(--forest-tint); font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600; }
+  .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+  main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+  .report-head { border-bottom: 2px solid var(--forest); padding-bottom: 2.5rem; margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end; }
+  .head-status { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--forest-deep); margin-bottom: 1.25rem; padding: 0.3rem 0.75rem 0.3rem 0.55rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-radius: 999px; }
+  .head-status-text { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+  .head-title { font-family: 'Source Serif 4', serif; font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep); }
+  .head-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: var(--text-mid); font-weight: 500; }
+  .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+  .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
+  .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+  .stats { display: flex; gap: 0; border: 2px solid var(--forest); border-radius: 10px; overflow: hidden; background: var(--surface); }
+  .stat { padding: 1rem 1.5rem; text-align: right; min-width: 110px; }
+  .stat + .stat { border-left: 2px solid var(--forest); }
+  .stat-label { display: block; font-size: 0.625rem; font-weight: 700; color: var(--forest-mid); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .stat-value { font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep); }
+  .stat-value.accent { color: var(--forest); }
+  .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+  .col-must { grid-column: span 5; }
+  .col-noted { grid-column: span 7; }
+  @media (max-width: 900px) { .col-must, .col-noted { grid-column: span 12; } .head-title { font-size: 2.25rem; } .grid-12 { gap: 2rem; } }
+  .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
+  .section-label-text { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; white-space: nowrap; }
+  .section-label-text.primary { color: var(--forest-deep); }
+  .section-label-text.secondary { color: var(--forest-mid); }
+  .section-rule { height: 2px; flex: 1; background: var(--forest); }
+  .section-rule.soft { background: var(--forest-soft); }
+  .must-card { position: relative; overflow: hidden; border: 2px solid var(--forest); border-radius: 10px; background: var(--surface); padding: 1.75rem; transition: all 0.2s; margin-bottom: 1.5rem; box-shadow: 0 2px 0 var(--forest-deep); }
+  .must-card:hover { border-color: var(--forest-deep); box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25); transform: translateY(-1px); }
+  .must-card .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--forest); }
+  .must-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .must-meta-left { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--forest-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .score-box { display: inline-flex; align-items: baseline; gap: 0.375rem; padding: 0.45rem 0.75rem; border-radius: 6px; border: 2px solid; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .score-box .score-num { font-size: 1rem; line-height: 1; }
+  .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
+  .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-box[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border: 1.5px solid; }
+  .badge-type { background: #F1F2EC; border-color: var(--border); color: var(--text-mid); }
+  .badge-novel { background: var(--forest); border-color: var(--forest-deep); color: #ffffff; }
+  .badge-novel::before { content: '✦'; font-size: 0.75rem; line-height: 1; }
+  .must-title { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .must-authors { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft); }
+  .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+  .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
+  .summary-section:last-child { margin-bottom: 0; }
+  .summary-section h4 { font-family: 'Inter', sans-serif; font-size: 0.625rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
+  .must-rationale { margin-top: 1.25rem; display: flex; align-items: flex-start; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-left-width: 4px; border-radius: 6px; font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55; }
+  .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
+  .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
+  .must-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .link-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep); text-decoration: none; padding: 0.45rem 0.7rem; border: 1.5px solid var(--forest-line); border-radius: 4px; background: var(--surface); transition: all 0.15s; }
+  .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
+  .link-pill svg { width: 11px; height: 11px; }
+  .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .noted-item { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 6px; background: var(--surface); padding: 1rem 1.125rem; transition: all 0.15s; cursor: pointer; }
+  .noted-item:hover { border-left-color: var(--forest); border-color: var(--forest-line); transform: translateX(2px); }
+  .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+  .score-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 0.45rem; border-radius: 4px; border: 1.5px solid; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; }
+  .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-chip[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badge-type-mini { font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-mid); padding: 0.2rem 0.45rem; background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px; }
+  .noted-title { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 700; color: var(--forest-deep); line-height: 1.32; margin-bottom: 0.5rem; }
+  .noted-summary { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+  .noted-source { margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding-top: 0.5rem; border-top: 1px dashed var(--border-soft); }
+  footer.report-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest); display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; color: var(--forest-mid); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem; }
+  .policy-section { margin-bottom: 3rem; }
+  .policy-empty { font-size: 0.875rem; color: var(--text-dim); font-style: italic; padding: 0.5rem 0; }
+  .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .policy-card { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 8px; background: var(--surface); padding: 1.125rem 1.25rem; }
+  .policy-card.policy-critical { border: 2px solid var(--forest); border-left: 6px solid var(--forest); background: var(--forest-tint); }
+  .policy-meta { display: flex; align-items: center; gap: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; margin-bottom: 0.5rem; }
+  .policy-source { font-weight: 700; color: var(--forest-deep); padding: 0.2rem 0.45rem; background: var(--surface); border: 1.5px solid var(--forest-line); border-radius: 4px; letter-spacing: 0.05em; }
+  .policy-tier { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid; }
+  .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
+  .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
+  .policy-date { color: var(--text-dim); margin-left: auto; }
+  .policy-title { font-family: 'Source Serif 4', serif; font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 0.4rem; line-height: 1.3; }
+  .policy-summary { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.75rem; }
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo-block">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">ENT / Airway / Face Digest</div>
+        <div class="brand-sub">Daily Literature Brief</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:15 ET</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="report-head">
+      <div>
+        <div class="head-status">
+          <div class="pulse-dot"></div>
+          <span class="head-status-text">Curated by Sonnet 4.6</span>
+        </div>
+        <h1 class="head-title">Monday, June 22, 2026</h1>
+        <div class="head-meta">
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>EDAT range: June 15, 2026 – June 22, 2026</span>
+          </div>
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            <span class="scope-tag">10 PubMed queries · ENT/Airway/Face/Peds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Surfaced</span>
+          <span class="stat-value">1134</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Made Cut</span>
+          <span class="stat-value accent">17</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Must Read</span>
+          <span class="stat-value">5</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="policy-section">
+      <div class="section-label">
+        <div class="section-rule"></div>
+        <span class="section-label-text primary">Policy &amp; Practice Updates · 0</span>
+      </div>
+      
+        <p class="policy-empty">No new policy updates this week.</p>
+      
+    </section>
+
+    <div class="grid-12">
+
+      <!-- MUST READ -->
+      <section class="col-must">
+        <div class="section-label">
+          <div class="section-rule"></div>
+          <span class="section-label-text primary">Must Read · 5</span>
+        </div>
+
+        
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">01 · JAMA Otolaryngology–Head &amp; Neck Surgery</span>
+    <div class="score-box" data-score="5">
+      <span class="score-num">5</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">RCT</span><span class="badge badge-type">Open-Label</span><span class="badge badge-type">6-mo F/U</span>
+    
+  </div>
+  <h3 class="must-title">Endoscopic Sinus Surgery for Recurrent Acute Rhinosinusitis: A Randomized Clinical Trial</h3>
+  <div class="must-authors">Kaski H, Alakärppä A, Laajala A, Tokola P … <span class="senior">Alho OP (senior, Oulu University Hospital, Finland)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Recurrent acute rhinosinusitis (RARS — ≥3 episodes/6 months or ≥4/year) dramatically impairs quality of life, yet evidence for endoscopic sinus surgery (ESS) in this indication has been sparse relative to chronic rhinosinusitis.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Open-label RCT at Oulu University Hospital (Finland), May 2020–December 2024. Adults with physician-confirmed RARS and insufficient symptom control on conservative therapy randomized 1:1 to ESS + medical therapy vs. medical therapy alone. Primary outcome: SNOT-22 change at 6 months. ITT analysis; n=59 (30 operative, 29 conservative).</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Mean SNOT-22 improvement was 22.4 points greater in the ESS group (95% CI, 13.7–31.1). This exceeds the minimal clinically important difference (~9 points). ESS patients also had fewer healthcare visits, fewer antibiotic courses, and fewer work absences. Only 4 operative complications (3 infections, 1 synechia), no major adverse events.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Small sample (n=59); open-label design (no sham control); single Finnish center with limited generalizability; 6-month follow-up only. Predominantly female population (88%) noted.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>This is the first RCT to demonstrate that ESS provides a clinically meaningful, statistically significant benefit over medical therapy alone in adults with RARS. Consider broadening the ESS conversation to RARS patients who have failed conservative management — this trial directly supports that discussion.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 5:</strong> RCT in JAMA Otolaryngol, the top ENT subspecialty journal. Effect size (22.4 SNOT-22 points) is clinically meaningful and exceeded all secondary endpoints. Addresses a longstanding evidence gap in a common clinical scenario. Despite modest n and open-label design, this is the best prospective evidence available for ESS in RARS and will likely influence next-cycle guidelines.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42313411" target="_blank" rel="noopener">PMID 42313411
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1001/jamaoto.2026.1537" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42313411" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">02 · Otolaryngology–Head and Neck Surgery</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">SR/Meta-Analysis</span><span class="badge badge-type">GRADE Assessment</span>
+    
+  </div>
+  <h3 class="must-title">Effectiveness of Over-the-Counter Hearing Aids Versus Professionally Fitted Devices: A Systematic Review and Meta-analysis</h3>
+  <div class="must-authors">De Sousa KC, Almufarrij I, Kruger M, Manchaiah V … <span class="senior">Swanepoel W (senior, University of Pretoria, South Africa)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Since FDA over-the-counter (OTC) hearing aid regulations took effect in 2022, patients are buying self-fitting OTC devices without audiology assessment. Clinicians need data on whether outcomes differ versus professionally fitted aids.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>SR/meta-analysis of 15 unique field trials (24 records) comparing FDA-cleared self-fitting OTC aids with audiologist-fitted prescription devices in adults. Databases searched through August 2025; 774 participants, 739 analyzed. Random-effects meta-analysis with Hedges&#39; g; GRADE certainty assessment.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>No significant differences detected across four key patient-reported or objective outcomes: APHAB (g=−0.05), SSQ-12 (g=0.01), IOI-HA (g=0.12), QuickSIN (g=0.03). Confidence intervals were narrow for functional outcomes. Risk of bias moderate-high; GRADE certainty: low.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Most trials were short-term (10 days–8 weeks), not representative of real-world sustained use; many compared self-fit and professional fit of the same device (not OTC vs. premium aids); GRADE certainty is low.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Self-fitting OTC hearing aids appear to deliver comparable short-term benefit to professionally fitted devices. For counseling mildly-to-moderately hearing impaired adults who inquire about OTC options: these data support them as a valid starting point, while complex audiologic needs, asymmetric loss, or prior OTC failure warrant professional evaluation.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Published in OTO-HNS flagship, directly addresses a practice-level question every audiologist and otologist faces since OTC legalization. Meta-analysis design with 774 participants adds weight. Key limitation (low GRADE certainty, short studies) appropriately tempers enthusiasm but doesn&#39;t diminish the clinical relevance.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42307981" target="_blank" rel="noopener">PMID 42307981
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1002/ohn.70306" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42307981" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">03 · Otolaryngology–Head and Neck Surgery</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">SR/Meta-Analysis</span><span class="badge badge-type">Rhinology</span><span class="badge badge-type">Biologics</span>
+    
+  </div>
+  <h3 class="must-title">Dupilumab Extended Interval Dosing in Chronic Rhinosinusitis With Nasal Polyps: A Systematic Review and Meta-analysis</h3>
+  <div class="must-authors">Alqutub A, Herzallah AI, Alqutub S, Assiri SA … <span class="senior">Herzallah IR (senior, King Abdullah Medical City, Makkah, Saudi Arabia)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Dupilumab 300 mg Q2W is FDA-approved for CRSwNP. Real-world clinicians have been extending to Q4W or longer in stable patients to reduce injection burden and cost. No controlled trial has tested this strategy — only observational data exist.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Systematic review with random-effects meta-analysis. 19 studies met inclusion, 9 contributed quantitative data (n=1075 patients) who transitioned from Q2W to extended intervals (≥Q4W) after 6–12 months induction. Outcomes: SNOT-22, nasal congestion, olfaction, NPS, Lund-Mackay CT score, eosinophil counts.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>All outcomes showed non-significant changes after extending to Q4W: SNOT-22 (−0.56), nasal polyp score (−0.29), Lund-Mackay score (−1.25), olfaction (+0.23). Eosinophils decreased significantly, suggesting ongoing biologic activity. Subgroup analysis: 12 months of induction before spacing appeared safer than 6 months.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>All included studies are observational (no controlled arm); heterogeneity in extension intervals and induction periods; mostly high-income center data; no long-term relapse data beyond the interval extension period.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>In stable CRSwNP patients after ≥12 months of standard Q2W dosing, extending dupilumab to Q4W appears to maintain disease control based on current data. This has meaningful cost and convenience implications. A formal tapering protocol remains to be validated, and individualized patient selection (biomarker profile, prior polyp burden) is warranted before spacing.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Meta-analysis of 1075 patients in OTO-HNS flagship. Directly informs a common clinical question: can I extend the dosing interval in a biologic-stabilized CRSwNP patient? Observational nature of underlying studies limits certainty, but the pooled findings are consistent across outcomes. High practice-relevance given biologic cost and prior authorization burden.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42290623" target="_blank" rel="noopener">PMID 42290623
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1002/ohn.70295" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42290623" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">04 · The Laryngoscope</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">RCT</span><span class="badge badge-type">Multicenter</span><span class="badge badge-type">Point-of-Care Imaging</span>
+    
+  </div>
+  <h3 class="must-title">Transoral Ultrasound in the Diagnostic Workup of Peritonsillar Abscess — A Randomized Clinical Trial</h3>
+  <div class="must-authors">Todsen T, Stage MG, Melchiors J, Mejdahl M … <span class="senior">Michaelsen SH (senior, Odense University Hospital, Denmark)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Distinguishing peritonsillar abscess (PTA) from cellulitis on clinical exam is difficult, leading to unnecessary blind needle aspirations. Transoral ultrasound (TOUS) has been proposed as a point-of-care tool but lacked RCT evidence.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Multicenter RCT across two Danish university ENT departments. Adults with suspected PTA randomized to standard clinical exam alone (n=48) vs. exam + TOUS (n=47). Primary outcome: diagnostic accuracy. Secondary: number of aspiration attempts. 28 different physicians performed evaluations.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Diagnostic accuracy: 80.9% (TOUS group) vs. 72.9% (control); p=0.50 — no significant difference. However, unsuccessful needle aspiration attempts: 26.0% vs. 37.5%, and the TOUS group required 31.9% fewer aspiration attempts overall (p&lt;0.01). No significant difference in patient outcomes.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Multicenter but limited to two Danish centers; diverse operator experience (28 physicians) may affect accuracy; study may be underpowered to detect diagnostic accuracy differences. No long-term follow-up.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Adding TOUS to the PTA workup significantly reduces unnecessary needle aspiration attempts (~32% fewer), though it did not improve diagnostic accuracy or final outcomes in this trial. For departments with access to point-of-care ultrasound, incorporating TOUS can spare patients failed aspiration attempts. It does not replace clinical judgment but adds procedural efficiency.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Multicenter RCT published in Laryngoscope. The reduction in unnecessary aspiration attempts (31.9%, p&lt;0.01) is a meaningful, patient-centered finding even without a diagnostic accuracy gain. PTA is one of the highest-volume ENT emergencies, making this operationally relevant. Clean RCT design with diverse operators increases generalizability.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42315354" target="_blank" rel="noopener">PMID 42315354
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1002/lary.70679" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42315354" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">05 · JAMA Otolaryngology–Head &amp; Neck Surgery</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Retrospective Cohort</span><span class="badge badge-type">Machine Learning</span><span class="badge badge-type">ACS-NSQIP</span>
+    
+  </div>
+  <h3 class="must-title">Artificial Intelligence-Based Risk Prediction Models for Complications After Tongue Cancer Surgery</h3>
+  <div class="must-authors">Matar DY, Matar AY, Nimbalkar A, Saad CG … <span class="senior">Panayi AC (senior, University Hospital Zurich, Switzerland)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Glossectomy for tongue cancer carries substantial postoperative morbidity. Current generic risk tools (ACS-NSQIP calculator) lack individualized prediction for tongue cancer-specific complications such as bleeding requiring transfusion.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Retrospective ACS-NSQIP data, 2008–2024, &gt;700 US hospitals. 8,266 adults undergoing glossectomy for malignant tongue tumors. Six ML models trained on 31 preoperative variables; validated on 2024 data. Outcomes: 6 major 30-day events including reoperation, SSI, pneumonia, bleeding, and composite complications.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>XGBoost and LightGBM models performed comparably to ACS-NSQIP calculator for most outcomes and provided new prediction for bleeding (AUROC 0.88–0.90), not previously available. Resulted in PRO-TONGUE — a publicly available, interpretable, outcome-specific online risk calculator for preoperative counseling.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Retrospective NSQIP data; 30-day outcomes only; no external validation outside NSQIP hospitals; model requires prospective real-world validation before widespread clinical adoption.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>PRO-TONGUE (publicly available) offers surgeons an individualized, interpretable risk estimate for 6 major 30-day complications before tongue cancer surgery, including bleeding prediction not currently in ACS-NSQIP. External validation is still needed, but the tool is available now and may be useful for preoperative patient counseling and shared decision-making.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> JAMA Otolaryngol publication, large NSQIP cohort (8,266 cases), directly produces a publicly available clinical tool. Although retrospective and needing external validation, the sample size, multi-outcome scope, and journal tier justify a score-4. The bleeding prediction gap filled here is practically useful for head-and-neck surgeons.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42313426" target="_blank" rel="noopener">PMID 42313426
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1001/jamaoto.2026.1453" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42313426" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+      </section>
+
+      <!-- NOTED -->
+      <section class="col-noted">
+        <div class="section-label">
+          <span class="section-label-text secondary">Noted · 12</span>
+          <div class="section-rule soft"></div>
+        </div>
+
+        <div class="noted-grid">
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Phase 2</span><span class="badge-type-mini">Nonrandomized</span><span class="badge-type-mini">H&amp;N Oncology</span>
+  </div>
+  <div class="noted-title">Pembrolizumab Plus Quad-Shot Radiotherapy for Recurrent, Unresectable, or Metastatic Head and Neck Cancer: A Nonrandomized Clinical Trial</div>
+  <p class="noted-summary">Single-arm Phase 2 trial (n=21 enrolled, n=15 evaluable) at Wake Forest of pembrolizumab + quad-shot radiotherapy (14.8 Gy in 4 fractions over 2 days) for RUM HNSCC. ORR 47% (95% CI 21–73%), median PFS 11.5 months and OS 15.3 months in evaluable patients. Grade 3/4 AEs in 8 patients. Promising signal for ICI + hypofractionated RT in the salvage setting — warrants RCT, which the authors explicitly call for.</p>
+  <div class="noted-source">JAMA Otolaryngology–Head &amp; Neck Surgery · PMID 42313403 · <button class="copy-pmid noted-copy" data-pmid="42313403" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">Laryngology</span><span class="badge-type-mini">Neurogenic Cough</span>
+  </div>
+  <div class="noted-title">Effect of Superior Laryngeal Nerve Block for Neurogenic Cough: A Single-Arm Meta-Analysis</div>
+  <p class="noted-summary">Meta-analysis of 8 retrospective studies (n=552) evaluating superior laryngeal nerve block (SLNB) for neurogenic cough. Pooled subjective improvement: 74% (95% CI 69–79%). Cough Severity Index improved significantly (MD −7.37). Greatest benefit with ≥3 injections (MD −10.57). Adverse events minimal and self-resolving in 17.9%; serious AEs in 2%. Supports SLNB as a safe, effective office procedure for neurogenic cough refractory to medical therapy — Harvard-led synthesis from OTO-HNS.</p>
+  <div class="noted-source">Otolaryngology–Head and Neck Surgery · PMID 42319377 · <button class="copy-pmid noted-copy" data-pmid="42319377" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective</span><span class="badge-type-mini">Multicenter</span><span class="badge-type-mini">CI / SSD</span>
+  </div>
+  <div class="noted-title">A Prospective Multicenter Post-Market Study Evaluating the Safety and Effectiveness of Cochlear Implantation in Adults With Single-Sided Deafness</div>
+  <p class="noted-summary">Five-center prospective FDA post-market study of cochlear implantation in 30 adults with profound unilateral SNHL (SSD). Significant improvements at 12 months in speech recognition in quiet and noise, head-shadow and binaural squelch, tinnitus severity, fatigue, QoL, and spatial hearing. Confirms CI as the gold-standard option for SSD — critical for payer authorization discussions given the recent FDA approval of CI for SSD.</p>
+  <div class="noted-source">Otology &amp; Neurotology · PMID 42297729 · <button class="copy-pmid noted-copy" data-pmid="42297729" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Feasibility RCT</span><span class="badge-type-mini">Multicenter</span><span class="badge-type-mini">Vestibular</span>
+  </div>
+  <div class="noted-title">Data from a UK-based Multicentre Randomised Feasibility Study Investigating the Management of Post-Traumatic Benign Paroxysmal Positional Vertigo</div>
+  <p class="noted-summary">Mixed-methods feasibility RCT at 3 UK major trauma centres evaluating 3 management arms for post-traumatic BPPV (repositioning manoeuvres, Brandt-Daroff exercises, advice-only). Confirms feasibility and patient acceptability of all three interventions, flags variability in site-level recruitment, and identifies design refinements for a future full-power effectiveness trial. Lays groundwork for a much-needed RCT in this under-evidenced neuro-otology scenario.</p>
+  <div class="noted-source">BMJ Open · PMID 42303391 · <button class="copy-pmid noted-copy" data-pmid="42303391" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Phase III RCT</span><span class="badge-type-mini">CRSwNP</span><span class="badge-type-mini">Dupilumab</span>
+  </div>
+  <div class="noted-title">Efficacy and Safety of Dupilumab in Chinese Adult Patients With Chronic Rhinosinusitis With Nasal Polyps: A Randomized, Placebo-Controlled, Phase III Trial</div>
+  <p class="noted-summary">Phase III RCT of dupilumab 300 mg Q2W vs. placebo for 24 weeks in Chinese adults with severe, uncontrolled CRSwNP. Primary endpoint (nasal polyp score change) and patient-reported outcomes showed significant improvement with dupilumab vs. placebo. Safety consistent with global trials. Confirms dupilumab efficacy and safety in the East Asian CRSwNP population, supporting regulatory access in China — broadens the generalizability of dupilumab data beyond Western cohorts.</p>
+  <div class="noted-source">Allergy · PMID 42299713 · <button class="copy-pmid noted-copy" data-pmid="42299713" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR</span><span class="badge-type-mini">Pediatric ENT</span><span class="badge-type-mini">Pain Management</span>
+  </div>
+  <div class="noted-title">Nonpharmacologic Therapy for Pediatric Posttonsillectomy Pain: A Systematic Review</div>
+  <p class="noted-summary">Systematic review of nonpharmacologic interventions for pain after pediatric tonsillectomy, published in OTO-HNS. Evaluated modalities including ice pack, honey, acupuncture, and distraction/hypnosis. Honey and cold-water ingestion showed the most consistent evidence for pain reduction on standardized scales. Relevant for post-opioid practice as clinicians seek alternatives to narcotics after pediatric tonsillectomy.</p>
+  <div class="noted-source">Otolaryngology–Head and Neck Surgery · PMID 42308000 · <button class="copy-pmid noted-copy" data-pmid="42308000" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR</span><span class="badge-type-mini">Global Health</span><span class="badge-type-mini">Cochlear Implant</span>
+  </div>
+  <div class="noted-title">Complications of Cochlear Implant Surgery in Low- and Middle-Income Countries: A Systematic Review</div>
+  <p class="noted-summary">Systematic review examining CI complication rates and types in LMICs (search to May 2025). Identifies higher rates of certain complications in LMICs compared to high-income benchmarks, attributable to infrastructure gaps, delayed post-op care, and device supply chain issues. Provides a global equity perspective on CI access and identifies facilitators/barriers to safe surgery. Relevant for mission-oriented ENT surgeons and global health policy.</p>
+  <div class="noted-source">Otolaryngology–Head and Neck Surgery · PMID 42307989 · <button class="copy-pmid noted-copy" data-pmid="42307989" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR of RCTs</span><span class="badge-type-mini">Vestibular</span><span class="badge-type-mini">BPPV</span>
+  </div>
+  <div class="noted-title">Betahistine for Residual Dizziness After Canalith Repositioning in Benign Paroxysmal Positional Vertigo: A Systematic Review of Randomized Controlled Trials</div>
+  <p class="noted-summary">Systematic review of RCTs evaluating betahistine as adjunctive therapy for residual dizziness (RD) after successful canalith repositioning maneuvers in BPPV. Meta-analysis found evidence of benefit for betahistine in reducing RD duration and severity, but highlights heterogeneity in dosing and outcome measures across trials. Addresses a common and often frustrating clinical problem: the patient whose nystagmus resolved but dizziness persists for weeks.</p>
+  <div class="noted-source">Frontiers in Pharmacology · PMID 42311406 · <button class="copy-pmid noted-copy" data-pmid="42311406" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR/Meta-Analysis</span><span class="badge-type-mini">Laryngology</span><span class="badge-type-mini">Presbyphonia</span>
+  </div>
+  <div class="noted-title">Vocal Fold Atrophy: Where Are We and Where Do We Need to Go? A Systematic Review and Meta-analysis</div>
+  <p class="noted-summary">SR/meta-analysis comparing voice therapy vs. augmentation procedures (medialization laryngoplasty, injection augmentation) for vocal fold atrophy (presbyphonia). Augmentation produced larger effect sizes on acoustic and patient-reported outcomes than voice therapy alone. Baylor-led review (Ongkasuwan senior) identifies gaps in standardized outcome reporting. Relevant for laryngologists managing the growing aging population presenting with presbyphonia.</p>
+  <div class="noted-source">Journal of Voice · PMID 42323232 · <button class="copy-pmid noted-copy" data-pmid="42323232" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR/Meta-Analysis</span><span class="badge-type-mini">Laryngology</span><span class="badge-type-mini">Office Procedure</span>
+  </div>
+  <div class="noted-title">Clinical Efficacy of Vocal Fold Steroid Injection for Benign Vocal Fold Lesions: A Systematic Review and Meta-analysis</div>
+  <p class="noted-summary">SR/meta-analysis evaluating vocal fold steroid injection (VFSI) for benign vocal fold lesions (nodules, polyps, cysts, Reinke&#39;s edema). Pooled data show significant lesion size reduction and voice quality improvement with VFSI. Nodules and polyps respond better than cysts. VFSI emerges as a viable office-based, surgery-sparing option for patients with benign lesions, with acceptable adverse event profile. Relevant for laryngologists considering the order of interventions.</p>
+  <div class="noted-source">Journal of Voice · PMID 42323235 · <button class="copy-pmid noted-copy" data-pmid="42323235" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Retrospective</span><span class="badge-type-mini">H&amp;N Oncology</span><span class="badge-type-mini">OPSCC</span>
+  </div>
+  <div class="noted-title">Induction Chemotherapy for Locally Advanced OPSCC: Real-World Evidence and HPV-Dependent Prognostic Value of Treatment Response</div>
+  <p class="noted-summary">Two-center retrospective real-world cohort (n=496) examining induction chemotherapy (IC) before definitive radiotherapy in stage III–IV OPSCC. IPTW-adjusted analysis found IC provided survival benefit in HPV-negative but not HPV-positive OPSCC. Early response to IC predicted locoregional control, suggesting response-adapted de-escalation may be feasible in HPV+ disease. Supports ongoing HPV-stratified IC trial design.</p>
+  <div class="noted-source">Radiation Oncology · PMID 42304463 · <button class="copy-pmid noted-copy" data-pmid="42304463" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="2">2</span>
+    <span class="badge-type-mini">Prospective</span><span class="badge-type-mini">Rhinology</span><span class="badge-type-mini">Olfaction</span>
+  </div>
+  <div class="noted-title">Olfactory Outcomes After Endoscopic Sinus Surgery for Chronic Rhinosinusitis With Nasal Polyposis</div>
+  <p class="noted-summary">Small prospective study (n=36) of objective (Sniffin&#39; Sticks) and subjective (SNOT-22 olfaction subdomain) olfactory function at 1, 3, and 6 months post-ESS for CRSwNP. Both subjective and objective olfaction improved significantly by 3 months and were sustained at 6 months. Confirms olfactory benefit of ESS in CRSwNP but limited by small n and single-center design. Useful supporting data for patient counseling.</p>
+  <div class="noted-source">Laryngoscope Investigative Otolaryngology · PMID 42292752 · <button class="copy-pmid noted-copy" data-pmid="42292752" type="button">📋 Copy</button></div>
+</div>
+
+        </div>
+
+        <footer class="report-footer">
+          <span>Run · 2026-06-22 · 06:15 ET ET</span>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
+          </div>
+        </footer>
+
+      </section>
+    </div>
+  </div>
+</main>
+
+<script type="application/json" id="digest-data">
+{
+  "run_date": "2026-06-22",
+  "must_read": [
+    {
+      "pmid": "42313411",
+      "score": 5,
+      "title": "Endoscopic Sinus Surgery for Recurrent Acute Rhinosinusitis: A Randomized Clinical Trial",
+      "journal": "JAMA Otolaryngology\u2013Head & Neck Surgery",
+      "study_type": "Randomized Controlled Trial",
+      "doi": "10.1001/jamaoto.2026.1537",
+      "novel_technique": false,
+      "rationale": "RCT in JAMA Otolaryngol, the top ENT subspecialty journal. Effect size (22.4 SNOT-22 points) is clinically meaningful and exceeded all secondary endpoints. Addresses a longstanding evidence gap in a common clinical scenario. Despite modest n and open-label design, this is the best prospective evidence available for ESS in RARS and will likely influence next-cycle guidelines.",
+      "n": 59,
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Recurrent acute rhinosinusitis (RARS \u2014 \u22653 episodes/6 months or \u22654/year) dramatically impairs quality of life, yet evidence for endoscopic sinus surgery (ESS) in this indication has been sparse relative to chronic rhinosinusitis."
+        },
+        {
+          "label": "METHODS",
+          "text": "Open-label RCT at Oulu University Hospital (Finland), May 2020\u2013December 2024. Adults with physician-confirmed RARS and insufficient symptom control on conservative therapy randomized 1:1 to ESS + medical therapy vs. medical therapy alone. Primary outcome: SNOT-22 change at 6 months. ITT analysis; n=59 (30 operative, 29 conservative)."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Mean SNOT-22 improvement was 22.4 points greater in the ESS group (95% CI, 13.7\u201331.1). This exceeds the minimal clinically important difference (~9 points). ESS patients also had fewer healthcare visits, fewer antibiotic courses, and fewer work absences. Only 4 operative complications (3 infections, 1 synechia), no major adverse events."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Small sample (n=59); open-label design (no sham control); single Finnish center with limited generalizability; 6-month follow-up only. Predominantly female population (88%) noted."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "This is the first RCT to demonstrate that ESS provides a clinically meaningful, statistically significant benefit over medical therapy alone in adults with RARS. Consider broadening the ESS conversation to RARS patients who have failed conservative management \u2014 this trial directly supports that discussion."
+        }
+      ]
+    },
+    {
+      "pmid": "42307981",
+      "score": 4,
+      "title": "Effectiveness of Over-the-Counter Hearing Aids Versus Professionally Fitted Devices: A Systematic Review and Meta-analysis",
+      "journal": "Otolaryngology\u2013Head and Neck Surgery",
+      "study_type": "Systematic Review / Meta-Analysis",
+      "doi": "10.1002/ohn.70306",
+      "novel_technique": false,
+      "rationale": "Published in OTO-HNS flagship, directly addresses a practice-level question every audiologist and otologist faces since OTC legalization. Meta-analysis design with 774 participants adds weight. Key limitation (low GRADE certainty, short studies) appropriately tempers enthusiasm but doesn't diminish the clinical relevance.",
+      "n": 774,
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Since FDA over-the-counter (OTC) hearing aid regulations took effect in 2022, patients are buying self-fitting OTC devices without audiology assessment. Clinicians need data on whether outcomes differ versus professionally fitted aids."
+        },
+        {
+          "label": "METHODS",
+          "text": "SR/meta-analysis of 15 unique field trials (24 records) comparing FDA-cleared self-fitting OTC aids with audiologist-fitted prescription devices in adults. Databases searched through August 2025; 774 participants, 739 analyzed. Random-effects meta-analysis with Hedges' g; GRADE certainty assessment."
+        },
+        {
+          "label": "RESULTS",
+          "text": "No significant differences detected across four key patient-reported or objective outcomes: APHAB (g=\u22120.05), SSQ-12 (g=0.01), IOI-HA (g=0.12), QuickSIN (g=0.03). Confidence intervals were narrow for functional outcomes. Risk of bias moderate-high; GRADE certainty: low."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Most trials were short-term (10 days\u20138 weeks), not representative of real-world sustained use; many compared self-fit and professional fit of the same device (not OTC vs. premium aids); GRADE certainty is low."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "Self-fitting OTC hearing aids appear to deliver comparable short-term benefit to professionally fitted devices. For counseling mildly-to-moderately hearing impaired adults who inquire about OTC options: these data support them as a valid starting point, while complex audiologic needs, asymmetric loss, or prior OTC failure warrant professional evaluation."
+        }
+      ]
+    },
+    {
+      "pmid": "42290623",
+      "score": 4,
+      "title": "Dupilumab Extended Interval Dosing in Chronic Rhinosinusitis With Nasal Polyps: A Systematic Review and Meta-analysis",
+      "journal": "Otolaryngology\u2013Head and Neck Surgery",
+      "study_type": "Systematic Review / Meta-Analysis",
+      "doi": "10.1002/ohn.70295",
+      "novel_technique": false,
+      "rationale": "Meta-analysis of 1075 patients in OTO-HNS flagship. Directly informs a common clinical question: can I extend the dosing interval in a biologic-stabilized CRSwNP patient? Observational nature of underlying studies limits certainty, but the pooled findings are consistent across outcomes. High practice-relevance given biologic cost and prior authorization burden.",
+      "n": 1075,
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Dupilumab 300 mg Q2W is FDA-approved for CRSwNP. Real-world clinicians have been extending to Q4W or longer in stable patients to reduce injection burden and cost. No controlled trial has tested this strategy \u2014 only observational data exist."
+        },
+        {
+          "label": "METHODS",
+          "text": "Systematic review with random-effects meta-analysis. 19 studies met inclusion, 9 contributed quantitative data (n=1075 patients) who transitioned from Q2W to extended intervals (\u2265Q4W) after 6\u201312 months induction. Outcomes: SNOT-22, nasal congestion, olfaction, NPS, Lund-Mackay CT score, eosinophil counts."
+        },
+        {
+          "label": "RESULTS",
+          "text": "All outcomes showed non-significant changes after extending to Q4W: SNOT-22 (\u22120.56), nasal polyp score (\u22120.29), Lund-Mackay score (\u22121.25), olfaction (+0.23). Eosinophils decreased significantly, suggesting ongoing biologic activity. Subgroup analysis: 12 months of induction before spacing appeared safer than 6 months."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "All included studies are observational (no controlled arm); heterogeneity in extension intervals and induction periods; mostly high-income center data; no long-term relapse data beyond the interval extension period."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "In stable CRSwNP patients after \u226512 months of standard Q2W dosing, extending dupilumab to Q4W appears to maintain disease control based on current data. This has meaningful cost and convenience implications. A formal tapering protocol remains to be validated, and individualized patient selection (biomarker profile, prior polyp burden) is warranted before spacing."
+        }
+      ]
+    },
+    {
+      "pmid": "42315354",
+      "score": 4,
+      "title": "Transoral Ultrasound in the Diagnostic Workup of Peritonsillar Abscess \u2014 A Randomized Clinical Trial",
+      "journal": "The Laryngoscope",
+      "study_type": "Randomized Controlled Trial",
+      "doi": "10.1002/lary.70679",
+      "novel_technique": false,
+      "rationale": "Multicenter RCT published in Laryngoscope. The reduction in unnecessary aspiration attempts (31.9%, p<0.01) is a meaningful, patient-centered finding even without a diagnostic accuracy gain. PTA is one of the highest-volume ENT emergencies, making this operationally relevant. Clean RCT design with diverse operators increases generalizability.",
+      "n": 95,
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Distinguishing peritonsillar abscess (PTA) from cellulitis on clinical exam is difficult, leading to unnecessary blind needle aspirations. Transoral ultrasound (TOUS) has been proposed as a point-of-care tool but lacked RCT evidence."
+        },
+        {
+          "label": "METHODS",
+          "text": "Multicenter RCT across two Danish university ENT departments. Adults with suspected PTA randomized to standard clinical exam alone (n=48) vs. exam + TOUS (n=47). Primary outcome: diagnostic accuracy. Secondary: number of aspiration attempts. 28 different physicians performed evaluations."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Diagnostic accuracy: 80.9% (TOUS group) vs. 72.9% (control); p=0.50 \u2014 no significant difference. However, unsuccessful needle aspiration attempts: 26.0% vs. 37.5%, and the TOUS group required 31.9% fewer aspiration attempts overall (p<0.01). No significant difference in patient outcomes."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Multicenter but limited to two Danish centers; diverse operator experience (28 physicians) may affect accuracy; study may be underpowered to detect diagnostic accuracy differences. No long-term follow-up."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "Adding TOUS to the PTA workup significantly reduces unnecessary needle aspiration attempts (~32% fewer), though it did not improve diagnostic accuracy or final outcomes in this trial. For departments with access to point-of-care ultrasound, incorporating TOUS can spare patients failed aspiration attempts. It does not replace clinical judgment but adds procedural efficiency."
+        }
+      ]
+    },
+    {
+      "pmid": "42313426",
+      "score": 4,
+      "title": "Artificial Intelligence-Based Risk Prediction Models for Complications After Tongue Cancer Surgery",
+      "journal": "JAMA Otolaryngology\u2013Head & Neck Surgery",
+      "study_type": "Retrospective Cohort (ML Development & Validation)",
+      "doi": "10.1001/jamaoto.2026.1453",
+      "novel_technique": false,
+      "rationale": "JAMA Otolaryngol publication, large NSQIP cohort (8,266 cases), directly produces a publicly available clinical tool. Although retrospective and needing external validation, the sample size, multi-outcome scope, and journal tier justify a score-4. The bleeding prediction gap filled here is practically useful for head-and-neck surgeons.",
+      "n": 8266,
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Glossectomy for tongue cancer carries substantial postoperative morbidity. Current generic risk tools (ACS-NSQIP calculator) lack individualized prediction for tongue cancer-specific complications such as bleeding requiring transfusion."
+        },
+        {
+          "label": "METHODS",
+          "text": "Retrospective ACS-NSQIP data, 2008\u20132024, >700 US hospitals. 8,266 adults undergoing glossectomy for malignant tongue tumors. Six ML models trained on 31 preoperative variables; validated on 2024 data. Outcomes: 6 major 30-day events including reoperation, SSI, pneumonia, bleeding, and composite complications."
+        },
+        {
+          "label": "RESULTS",
+          "text": "XGBoost and LightGBM models performed comparably to ACS-NSQIP calculator for most outcomes and provided new prediction for bleeding (AUROC 0.88\u20130.90), not previously available. Resulted in PRO-TONGUE \u2014 a publicly available, interpretable, outcome-specific online risk calculator for preoperative counseling."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Retrospective NSQIP data; 30-day outcomes only; no external validation outside NSQIP hospitals; model requires prospective real-world validation before widespread clinical adoption."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "PRO-TONGUE (publicly available) offers surgeons an individualized, interpretable risk estimate for 6 major 30-day complications before tongue cancer surgery, including bleeding prediction not currently in ACS-NSQIP. External validation is still needed, but the tool is available now and may be useful for preoperative patient counseling and shared decision-making."
+        }
+      ]
+    }
+  ],
+  "noted": [
+    {
+      "pmid": "42313403",
+      "score": 3,
+      "title": "Pembrolizumab Plus Quad-Shot Radiotherapy for Recurrent, Unresectable, or Metastatic Head and Neck Cancer: A Nonrandomized Clinical Trial",
+      "journal": "JAMA Otolaryngology\u2013Head & Neck Surgery",
+      "study_type": "Single-Arm Phase 2 Trial",
+      "doi": "10.1001/jamaoto.2026.1527",
+      "summary": "Single-arm Phase 2 trial (n=21 enrolled, n=15 evaluable) at Wake Forest of pembrolizumab + quad-shot radiotherapy (14.8 Gy in 4 fractions over 2 days) for RUM HNSCC. ORR 47% (95% CI 21\u201373%), median PFS 11.5 months and OS 15.3 months in evaluable patients. Grade 3/4 AEs in 8 patients. Promising signal for ICI + hypofractionated RT in the salvage setting \u2014 warrants RCT, which the authors explicitly call for."
+    },
+    {
+      "pmid": "42319377",
+      "score": 3,
+      "title": "Effect of Superior Laryngeal Nerve Block for Neurogenic Cough: A Single-Arm Meta-Analysis",
+      "journal": "Otolaryngology\u2013Head and Neck Surgery",
+      "study_type": "Single-Arm Meta-Analysis (8 retrospective studies)",
+      "doi": "10.1002/ohn.70292",
+      "summary": "Meta-analysis of 8 retrospective studies (n=552) evaluating superior laryngeal nerve block (SLNB) for neurogenic cough. Pooled subjective improvement: 74% (95% CI 69\u201379%). Cough Severity Index improved significantly (MD \u22127.37). Greatest benefit with \u22653 injections (MD \u221210.57). Adverse events minimal and self-resolving in 17.9%; serious AEs in 2%. Supports SLNB as a safe, effective office procedure for neurogenic cough refractory to medical therapy \u2014 Harvard-led synthesis from OTO-HNS."
+    },
+    {
+      "pmid": "42297729",
+      "score": 3,
+      "title": "A Prospective Multicenter Post-Market Study Evaluating the Safety and Effectiveness of Cochlear Implantation in Adults With Single-Sided Deafness",
+      "journal": "Otology & Neurotology",
+      "study_type": "Prospective Multicenter Post-Market Study",
+      "doi": "10.1097/MAO.0000000000004978",
+      "summary": "Five-center prospective FDA post-market study of cochlear implantation in 30 adults with profound unilateral SNHL (SSD). Significant improvements at 12 months in speech recognition in quiet and noise, head-shadow and binaural squelch, tinnitus severity, fatigue, QoL, and spatial hearing. Confirms CI as the gold-standard option for SSD \u2014 critical for payer authorization discussions given the recent FDA approval of CI for SSD."
+    },
+    {
+      "pmid": "42303391",
+      "score": 3,
+      "title": "Data from a UK-based Multicentre Randomised Feasibility Study Investigating the Management of Post-Traumatic Benign Paroxysmal Positional Vertigo",
+      "journal": "BMJ Open",
+      "study_type": "Randomized Feasibility Study",
+      "doi": "10.1136/bmjopen-2026-117657",
+      "summary": "Mixed-methods feasibility RCT at 3 UK major trauma centres evaluating 3 management arms for post-traumatic BPPV (repositioning manoeuvres, Brandt-Daroff exercises, advice-only). Confirms feasibility and patient acceptability of all three interventions, flags variability in site-level recruitment, and identifies design refinements for a future full-power effectiveness trial. Lays groundwork for a much-needed RCT in this under-evidenced neuro-otology scenario."
+    },
+    {
+      "pmid": "42299713",
+      "score": 3,
+      "title": "Efficacy and Safety of Dupilumab in Chinese Adult Patients With Chronic Rhinosinusitis With Nasal Polyps: A Randomized, Placebo-Controlled, Phase III Trial",
+      "journal": "Allergy",
+      "study_type": "Phase III Randomized Controlled Trial",
+      "doi": "10.1111/all.70198",
+      "summary": "Phase III RCT of dupilumab 300 mg Q2W vs. placebo for 24 weeks in Chinese adults with severe, uncontrolled CRSwNP. Primary endpoint (nasal polyp score change) and patient-reported outcomes showed significant improvement with dupilumab vs. placebo. Safety consistent with global trials. Confirms dupilumab efficacy and safety in the East Asian CRSwNP population, supporting regulatory access in China \u2014 broadens the generalizability of dupilumab data beyond Western cohorts."
+    },
+    {
+      "pmid": "42308000",
+      "score": 3,
+      "title": "Nonpharmacologic Therapy for Pediatric Posttonsillectomy Pain: A Systematic Review",
+      "journal": "Otolaryngology\u2013Head and Neck Surgery",
+      "study_type": "Systematic Review",
+      "doi": "10.1002/ohn.70299",
+      "summary": "Systematic review of nonpharmacologic interventions for pain after pediatric tonsillectomy, published in OTO-HNS. Evaluated modalities including ice pack, honey, acupuncture, and distraction/hypnosis. Honey and cold-water ingestion showed the most consistent evidence for pain reduction on standardized scales. Relevant for post-opioid practice as clinicians seek alternatives to narcotics after pediatric tonsillectomy."
+    },
+    {
+      "pmid": "42307989",
+      "score": 3,
+      "title": "Complications of Cochlear Implant Surgery in Low- and Middle-Income Countries: A Systematic Review",
+      "journal": "Otolaryngology\u2013Head and Neck Surgery",
+      "study_type": "Systematic Review",
+      "doi": "10.1002/ohn.70278",
+      "summary": "Systematic review examining CI complication rates and types in LMICs (search to May 2025). Identifies higher rates of certain complications in LMICs compared to high-income benchmarks, attributable to infrastructure gaps, delayed post-op care, and device supply chain issues. Provides a global equity perspective on CI access and identifies facilitators/barriers to safe surgery. Relevant for mission-oriented ENT surgeons and global health policy."
+    },
+    {
+      "pmid": "42311406",
+      "score": 3,
+      "title": "Betahistine for Residual Dizziness After Canalith Repositioning in Benign Paroxysmal Positional Vertigo: A Systematic Review of Randomized Controlled Trials",
+      "journal": "Frontiers in Pharmacology",
+      "study_type": "Systematic Review of RCTs",
+      "doi": "10.3389/fphar.2026.1597891",
+      "summary": "Systematic review of RCTs evaluating betahistine as adjunctive therapy for residual dizziness (RD) after successful canalith repositioning maneuvers in BPPV. Meta-analysis found evidence of benefit for betahistine in reducing RD duration and severity, but highlights heterogeneity in dosing and outcome measures across trials. Addresses a common and often frustrating clinical problem: the patient whose nystagmus resolved but dizziness persists for weeks."
+    },
+    {
+      "pmid": "42323232",
+      "score": 3,
+      "title": "Vocal Fold Atrophy: Where Are We and Where Do We Need to Go? A Systematic Review and Meta-analysis",
+      "journal": "Journal of Voice",
+      "study_type": "Systematic Review / Meta-Analysis",
+      "doi": "10.1016/j.jvoice.2026.04.021",
+      "summary": "SR/meta-analysis comparing voice therapy vs. augmentation procedures (medialization laryngoplasty, injection augmentation) for vocal fold atrophy (presbyphonia). Augmentation produced larger effect sizes on acoustic and patient-reported outcomes than voice therapy alone. Baylor-led review (Ongkasuwan senior) identifies gaps in standardized outcome reporting. Relevant for laryngologists managing the growing aging population presenting with presbyphonia."
+    },
+    {
+      "pmid": "42323235",
+      "score": 3,
+      "title": "Clinical Efficacy of Vocal Fold Steroid Injection for Benign Vocal Fold Lesions: A Systematic Review and Meta-analysis",
+      "journal": "Journal of Voice",
+      "study_type": "Systematic Review / Meta-Analysis",
+      "doi": "10.1016/j.jvoice.2026.04.018",
+      "summary": "SR/meta-analysis evaluating vocal fold steroid injection (VFSI) for benign vocal fold lesions (nodules, polyps, cysts, Reinke's edema). Pooled data show significant lesion size reduction and voice quality improvement with VFSI. Nodules and polyps respond better than cysts. VFSI emerges as a viable office-based, surgery-sparing option for patients with benign lesions, with acceptable adverse event profile. Relevant for laryngologists considering the order of interventions."
+    },
+    {
+      "pmid": "42304463",
+      "score": 3,
+      "title": "Induction Chemotherapy for Locally Advanced OPSCC: Real-World Evidence and HPV-Dependent Prognostic Value of Treatment Response",
+      "journal": "Radiation Oncology",
+      "study_type": "Retrospective Cohort (2 centers)",
+      "doi": "10.1186/s13014-026-02543-5",
+      "summary": "Two-center retrospective real-world cohort (n=496) examining induction chemotherapy (IC) before definitive radiotherapy in stage III\u2013IV OPSCC. IPTW-adjusted analysis found IC provided survival benefit in HPV-negative but not HPV-positive OPSCC. Early response to IC predicted locoregional control, suggesting response-adapted de-escalation may be feasible in HPV+ disease. Supports ongoing HPV-stratified IC trial design."
+    },
+    {
+      "pmid": "42292752",
+      "score": 2,
+      "title": "Olfactory Outcomes After Endoscopic Sinus Surgery for Chronic Rhinosinusitis With Nasal Polyposis",
+      "journal": "Laryngoscope Investigative Otolaryngology",
+      "study_type": "Prospective Single-Center Study",
+      "doi": "10.1002/lio2.70063",
+      "summary": "Small prospective study (n=36) of objective (Sniffin' Sticks) and subjective (SNOT-22 olfaction subdomain) olfactory function at 1, 3, and 6 months post-ESS for CRSwNP. Both subjective and objective olfaction improved significantly by 3 months and were sustained at 6 months. Confirms olfactory benefit of ESS in CRSwNP but limited by small n and single-center design. Useful supporting data for patient counseling."
+    }
+  ],
+  "policy_updates": [],
+  "policy_note": "CMS and HHS newsroom returned HTTP 403; AAO-HNS page lacks datestamps. Policy sources could not be scraped this run."
+}
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.copy-pmid').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pmid = btn.getAttribute('data-pmid');
+      navigator.clipboard.writeText(pmid).then(function() {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
