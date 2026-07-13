@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT/Airway/Face Digest — Monday, July 13, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF;
+    --surface: #ffffff;
+    --border: #B8C9BC;
+    --border-strong: #8FA897;
+    --border-soft: #D5DFD5;
+    --hairline: #E4EAE2;
+    --text: #131A15;
+    --text-mid: #3F4A42;
+    --text-dim: #6E7A70;
+    --text-faint: #A5AEA6;
+    --forest: #1A4730;
+    --forest-deep: #103022;
+    --forest-mid: #2F6B49;
+    --forest-soft: #57966F;
+    --forest-tint: #E4ECE3;
+    --forest-tint-strong: #D2DFD2;
+    --forest-line: #98B49E;
+    --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
+    --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
+    --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
+    --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
+    --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
+  .paper-grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%); }
+  header { position: sticky; top: 0; z-index: 50; border-bottom: 2px solid var(--forest); background: rgba(247,245,239,0.94); backdrop-filter: blur(10px); }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
+  .logo-block { display: flex; align-items: center; gap: 1rem; }
+  .logo { width: 48px; height: 48px; border-radius: 8px; background: var(--forest-deep); color: #fff; display: flex; align-items: center; justify-content: center; border: 2px solid var(--forest); }
+  .logo svg { width: 24px; height: 24px; }
+  .brand-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep); }
+  .brand-sub { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em; color: var(--forest-mid); text-transform: uppercase; margin-top: 3px; }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .status-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line); border-radius: 6px; background: var(--forest-tint); font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600; }
+  .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+  main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+  .report-head { border-bottom: 2px solid var(--forest); padding-bottom: 2.5rem; margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end; }
+  .head-status { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--forest-deep); margin-bottom: 1.25rem; padding: 0.3rem 0.75rem 0.3rem 0.55rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-radius: 999px; }
+  .head-status-text { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+  .head-title { font-family: 'Source Serif 4', serif; font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep); }
+  .head-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: var(--text-mid); font-weight: 500; }
+  .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+  .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
+  .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+  .stats { display: flex; gap: 0; border: 2px solid var(--forest); border-radius: 10px; overflow: hidden; background: var(--surface); }
+  .stat { padding: 1rem 1.5rem; text-align: right; min-width: 110px; }
+  .stat + .stat { border-left: 2px solid var(--forest); }
+  .stat-label { display: block; font-size: 0.625rem; font-weight: 700; color: var(--forest-mid); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .stat-value { font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep); }
+  .stat-value.accent { color: var(--forest); }
+  .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+  .col-must { grid-column: span 5; }
+  .col-noted { grid-column: span 7; }
+  @media (max-width: 900px) { .col-must, .col-noted { grid-column: span 12; } .head-title { font-size: 2.25rem; } .grid-12 { gap: 2rem; } }
+  .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
+  .section-label-text { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; white-space: nowrap; }
+  .section-label-text.primary { color: var(--forest-deep); }
+  .section-label-text.secondary { color: var(--forest-mid); }
+  .section-rule { height: 2px; flex: 1; background: var(--forest); }
+  .section-rule.soft { background: var(--forest-soft); }
+  .must-card { position: relative; overflow: hidden; border: 2px solid var(--forest); border-radius: 10px; background: var(--surface); padding: 1.75rem; transition: all 0.2s; margin-bottom: 1.5rem; box-shadow: 0 2px 0 var(--forest-deep); }
+  .must-card:hover { border-color: var(--forest-deep); box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25); transform: translateY(-1px); }
+  .must-card .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--forest); }
+  .must-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .must-meta-left { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--forest-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .score-box { display: inline-flex; align-items: baseline; gap: 0.375rem; padding: 0.45rem 0.75rem; border-radius: 6px; border: 2px solid; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .score-box .score-num { font-size: 1rem; line-height: 1; }
+  .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
+  .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-box[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border: 1.5px solid; }
+  .badge-type { background: #F1F2EC; border-color: var(--border); color: var(--text-mid); }
+  .badge-novel { background: var(--forest); border-color: var(--forest-deep); color: #ffffff; }
+  .badge-novel::before { content: '✦'; font-size: 0.75rem; line-height: 1; }
+  .must-title { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .must-authors { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft); }
+  .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+  .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
+  .summary-section:last-child { margin-bottom: 0; }
+  .summary-section h4 { font-family: 'Inter', sans-serif; font-size: 0.625rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
+  .must-rationale { margin-top: 1.25rem; display: flex; align-items: flex-start; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-left-width: 4px; border-radius: 6px; font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55; }
+  .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
+  .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
+  .must-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .link-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep); text-decoration: none; padding: 0.45rem 0.7rem; border: 1.5px solid var(--forest-line); border-radius: 4px; background: var(--surface); transition: all 0.15s; }
+  .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
+  .link-pill svg { width: 11px; height: 11px; }
+  .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .noted-item { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 6px; background: var(--surface); padding: 1rem 1.125rem; transition: all 0.15s; cursor: pointer; }
+  .noted-item:hover { border-left-color: var(--forest); border-color: var(--forest-line); transform: translateX(2px); }
+  .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+  .score-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 0.45rem; border-radius: 4px; border: 1.5px solid; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; }
+  .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .badge-type-mini { font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-mid); padding: 0.2rem 0.45rem; background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px; }
+  .noted-title { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 700; color: var(--forest-deep); line-height: 1.32; margin-bottom: 0.5rem; }
+  .noted-summary { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+  .noted-source { margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding-top: 0.5rem; border-top: 1px dashed var(--border-soft); }
+  footer.report-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest); display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; color: var(--forest-mid); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem; }
+  .policy-section { margin-bottom: 3rem; }
+  .policy-empty { font-size: 0.875rem; color: var(--text-dim); font-style: italic; padding: 0.5rem 0; }
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+<header>
+  <div class="container header-inner">
+    <div class="logo-block">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">ENT / Airway / Face Digest</div>
+        <div class="brand-sub">Daily Literature Brief</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:14 ET</span>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="report-head">
+      <div>
+        <div class="head-status">
+          <div class="pulse-dot"></div>
+          <span class="head-status-text">Curated by Sonnet 4.6</span>
+        </div>
+        <h1 class="head-title">Monday, July 13, 2026</h1>
+        <div class="head-meta">
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>EDAT range: July 6, 2026 – July 13, 2026</span>
+          </div>
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            <span class="scope-tag">10 PubMed queries · ENT/Airway/Face/Peds</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="stat-label">Surfaced</span><span class="stat-value">987</span></div>
+        <div class="stat"><span class="stat-label">Made Cut</span><span class="stat-value accent">20</span></div>
+        <div class="stat"><span class="stat-label">Must Read</span><span class="stat-value">5</span></div>
+      </div>
+    </div>
+
+    <section class="policy-section">
+      <div class="section-label">
+        <div class="section-rule"></div>
+        <span class="section-label-text primary">Policy &amp; Practice Updates · 0</span>
+      </div>
+      <p class="policy-empty">No new policy updates this week.</p>
+    </section>
+
+    <div class="grid-12">
+      <section class="col-must">
+        <div class="section-label">
+          <div class="section-rule"></div>
+          <span class="section-label-text primary">Must Read · 5</span>
+        </div>
+
+        <!-- MUST READ 1 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">01 · Lancet Regional Health. Europe</span>
+            <div class="score-box" data-score="5"><span class="score-num">5</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Double-Blind RCT</span>
+            <span class="badge badge-type">Multicentre (7 sites)</span>
+            <span class="badge badge-type">n=75</span>
+          </div>
+          <h3 class="must-title">Endolymphatic Duct Blockage for Ménière's Disease: A Double-Blind, Randomised Controlled Trial</h3>
+          <div class="must-authors">Schenck AA, van de Berg R, Peters TTA, Smulders YE … <span class="senior">Smulders YE (senior, Dept. Otorhinolaryngology &amp; Head and Neck Surgery, Leiden University Medical Centre, the Netherlands)</span></div>
+          <div class="summary-section"><h4>BACKGROUND</h4><p>Ménière's disease treatment remains contentious. EDB (endolymphatic duct blockage) was proposed as superior to ESD (endolymphatic sac decompression) for intractable disease, but no double-blind trial had been conducted.</p></div>
+          <div class="summary-section"><h4>METHODS</h4><p>Double-blind multi-center RCT at 2 university and 5 non-university Dutch hospitals. 75 patients with definite unilateral Ménière's refractory to ≥2 corticosteroid injections were randomized intraoperatively to EDB (n=39) or ESD (n=36); both patients and investigators blinded for 12-month follow-up. Primary outcome: vertigo attack freedom (no attacks in preceding 6 months at 12-month visit).</p></div>
+          <div class="summary-section"><h4>RESULTS</h4><p>59% EDB vs 67% ESD achieved the primary outcome (OR 0.72, 95% CI 0.28–1.84; p=0.65). No between-group differences in QOL, dizziness, tinnitus, or audiometry. Three serious AEs (one EDB, two ESD); no deaths. Higher baseline treatment expectations were the strongest predictor of success in both arms.</p></div>
+          <div class="summary-section"><h4>LIMITATIONS</h4><p>Moderate sample (n=75); neither arm included a sham-surgery control, so absolute surgical benefit above natural history is unknown. The expectation effect may mask lack of true therapeutic benefit for either procedure.</p></div>
+          <div class="summary-section"><h4>CLINICAL TAKEAWAY</h4><p>EDB offers no advantage over ESD for refractory Ménière's disease — do not preferentially adopt EDB. The strong expectation-outcome correlation raises the possibility that much perceived benefit from both procedures is non-specific; future trials should incorporate a sham arm.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 5:</strong> Double-blind, multi-center RCT in Lancet Regional — one of the few blinded surgical trials in otology. Negative primary outcome (EDB no better than ESD) is itself practice-defining and overturns enthusiasm for the newer technique.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42436934" target="_blank" rel="noopener">PMID 42436934 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1016/j.lanepe.2026.101765" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42436934" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+        <!-- MUST READ 2 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">02 · JAMA Otolaryngology – Head &amp; Neck Surgery</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Prospective Cohort</span>
+            <span class="badge badge-type">Population-Based</span>
+            <span class="badge badge-type">n=80 cCMV</span>
+          </div>
+          <h3 class="must-title">Dried Blood Spot Testing in Confirmed Congenital Cytomegalovirus Discovered by Expanded Targeted Testing</h3>
+          <div class="must-authors">Kfoury P, Reddy M, Blackstad M, McVicar SB … <span class="senior">McVicar SB (senior, Dept. Otolaryngology-Head and Neck Surgery, University of Utah School of Medicine)</span></div>
+          <div class="summary-section"><h4>BACKGROUND</h4><p>Congenital CMV (cCMV) is the most common non-genetic cause of sensorineural hearing loss. Whether dried blood spot (DBS) universal screening or expanded targeted testing is preferable for identifying affected newborns is unresolved.</p></div>
+          <div class="summary-section"><h4>METHODS</h4><p>Population-based cohort of 80 cCMV-positive newborns from 26 Utah birth hospitals identified by expanded targeted testing (2019–2024). Stored neonatal DBS samples underwent retrospective PCR (UL83 or IE gene) at the University of Minnesota, blinded to clinical status.</p></div>
+          <div class="summary-section"><h4>RESULTS</h4><p>DBS PCR sensitivity 86.3% (95% CI 77%–92%) overall; 92.7% (95% CI 80.6%–97.5%) for moderate-to-severe symptomatic cCMV; and 78.1% (95% CI 61.3%–89.0%) for mild symptomatic disease. Specificity 99.5%; PPV 100%; NPV 94.3%.</p></div>
+          <div class="summary-section"><h4>LIMITATIONS</h4><p>Sample restricted to confirmed cCMV cases — cannot model universal screening performance directly. Wide CIs due to n=80. Asymptomatic infants (at highest risk of delayed-onset hearing loss) are underrepresented.</p></div>
+          <div class="summary-section"><h4>CLINICAL TAKEAWAY</h4><p>Universal DBS screening would miss ~14% of cCMV cases overall — and ~22% of mild symptomatic cases most at risk for delayed-onset SNHL. Expanded targeted testing captures more. Pediatric otolaryngologists should note: a negative DBS does not exclude cCMV in a child with hearing loss.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Prospective cohort in JAMA Otolaryngology addressing a policy-relevant clinical question — DBS screening adequacy — with direct implications for hearing loss prevention programs in cCMV.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42424066" target="_blank" rel="noopener">PMID 42424066 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1001/jamaoto.2026.1767" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42424066" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+        <!-- MUST READ 3 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">03 · BMJ Open</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">RCT</span>
+            <span class="badge badge-type">Economic Evaluation</span>
+            <span class="badge badge-type">17 UK Centers</span>
+          </div>
+          <h3 class="must-title">Cost-Effectiveness of Immediate Septoplasty Versus Medical Management With the Option for Delayed Septoplasty: A Multicentre RCT</h3>
+          <div class="must-authors">Homer T, Carrie S, Fouweather T, Teare D … <span class="senior">Teare D (senior, Population Health Sciences Institute, Newcastle University, UK)</span></div>
+          <div class="summary-section"><h4>BACKGROUND</h4><p>Whether to proceed with immediate septoplasty or trial 6 months of medical management in patients with symptomatic deviated septum lacks high-quality economic evidence.</p></div>
+          <div class="summary-section"><h4>METHODS</h4><p>Economic evaluation alongside a 17-center, open-label UK RCT. Adults with NOSE score &gt;30 randomized to immediate septoplasty (within 12 weeks) or 6-month medical management (nasal steroid + saline spray) with option for delayed surgery. Primary economic outcome: incremental cost per QALY (SF-36); extrapolated to 24 months.</p></div>
+          <div class="summary-section"><h4>RESULTS</h4><p>Immediate septoplasty was more costly (+£1,193) and more effective (+0.044 QALYs) at 12 months. Base-case ICER: £27,114/QALY; micro-costing ICER: £16,682/QALY. At 24 months, immediate septoplasty had a 99% probability of cost-effectiveness at the UK £20,000/QALY threshold.</p></div>
+          <div class="summary-section"><h4>LIMITATIONS</h4><p>Open-label design; UK NHS costs may not generalize to US payors. Recruited 2018–2019. The 'delayed surgery' crossover option may underestimate the true cost difference between arms.</p></div>
+          <div class="summary-section"><h4>CLINICAL TAKEAWAY</h4><p>For patients with moderate-to-severe nasal obstruction from septal deviation, immediate septoplasty is highly cost-effective over 24 months — the strongest economic evidence yet for a surgery-first approach. Useful when insurers mandate medical management trials before approving septoplasty.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Multi-center RCT economic analysis across 17 UK otolaryngology sites directly addresses the 'operate now vs. trial medical therapy' rhinology decision. 99% probability cost-effective at 24 months supports surgery-first approach.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42409405" target="_blank" rel="noopener">PMID 42409405 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1136/bmjopen-2025-107402" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42409405" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+        <!-- MUST READ 4 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">04 · JAMA Dermatology</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Delphi Consensus</span>
+            <span class="badge badge-type">Multidisciplinary</span>
+            <span class="badge badge-type">n=45 Experts</span>
+          </div>
+          <h3 class="must-title">Consensus Guidelines for Staging and Surveillance Imaging in Cutaneous Squamous Cell Carcinoma</h3>
+          <div class="must-authors">Kassamali B, Schoenfeld JD, Sethi R, Bakst RL … <span class="senior">Bakst RL (senior, Brigham and Women's Hospital / Harvard Medical School)</span></div>
+          <div class="summary-section"><h4>BACKGROUND</h4><p>CSCC staging and surveillance imaging practices vary widely due to broad NCCN guidance. No multidisciplinary consensus existed for when and how to image high-risk cutaneous SCC.</p></div>
+          <div class="summary-section"><h4>METHODS</h4><p>45-expert Delphi panel (dermatology 33%, rad oncology 20%, radiology 20%, medical oncology 16%, surgery 7%, otolaryngology 4%) completed 3 iterative survey rounds (Jan–Jun 2025). Consensus ≥80%; near-consensus 70–79%.</p></div>
+          <div class="summary-section"><h4>RESULTS</h4><p>Imaging recommended for CSCC with ≥15% estimated metastasis risk: bone invasion, invasion beyond subcutaneous fat, large-caliber perineural invasion, tumor ≥4 cm, or poorly-differentiated tumors ≥2 cm with LVI or PNI. CT preferred for nodal staging (84%) and surveillance (78%). Surveillance for at least 2–3 years.</p></div>
+          <div class="summary-section"><h4>LIMITATIONS</h4><p>Expert consensus, not prospective outcome data. Risk thresholds not prospectively validated. ENT representation was 4% of panel — head/neck-specific concerns may be underweighted.</p></div>
+          <div class="summary-section"><h4>CLINICAL TAKEAWAY</h4><p>Head and neck surgeons co-managing high-risk CSCC now have clearer imaging criteria: stage with CT when tumor ≥4 cm, deeply invasive, or poorly differentiated with additional risk factors; maintain CT surveillance for 2–3 years. Standardizes a long-variable practice.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Multidisciplinary Delphi in JAMA Dermatology fills a genuine practice gap. ENT/H&amp;N surgeons who co-manage high-risk CSCC gain clear, consensus-backed criteria for CT staging and surveillance timing.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42418212" target="_blank" rel="noopener">PMID 42418212 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1001/jamadermatol.2026.2163" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42418212" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+        <!-- MUST READ 5 -->
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">05 · JAMA Oncology</span>
+            <div class="score-box" data-score="4"><span class="score-num">4</span><span class="score-of">/5</span></div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Consensus Guidelines</span>
+            <span class="badge badge-type">International Multidisciplinary</span>
+            <span class="badge badge-type">305 Studies Reviewed</span>
+          </div>
+          <h3 class="must-title">Global Consensus on the Management of Primary Localized Chordoma</h3>
+          <div class="must-authors">Radaelli S, Frezza AM, Fossati P, Baldi GG … <span class="senior">Baldi GG (senior, Global Chordoma Consensus Group)</span></div>
+          <div class="summary-section"><h4>BACKGROUND</h4><p>Chordoma is a rare malignant bone tumor affecting skull base, mobile spine, and sacrum, with 40–60% metastatic spread over the disease course. The previous consensus was published in 2015; advances in pathology, imaging, and RT modalities necessitate an update.</p></div>
+          <div class="summary-section"><h4>METHODS</h4><p>June 2025 Milan meeting of the Global Chordoma Consensus Group, including experts across skull base surgery, spinal surgery, radiation oncology, pathology, radiology, and patient advocates. Literature review of 305 articles; levels of evidence and grades of recommendation assigned per anatomical site.</p></div>
+          <div class="summary-section"><h4>RESULTS</h4><p>Core principle: treatment at experienced multidisciplinary centers is essential. Maximal safe surgery followed by high-dose, highly conformal radiotherapy (proton, carbon-ion, or photon SBRT) remains central. Site-specific guidance for skull base, mobile spine, and sacrum; updated recommendations for systemic therapy, long-term risk-adapted surveillance, and supportive/palliative care.</p></div>
+          <div class="summary-section"><h4>LIMITATIONS</h4><p>Recommendations largely expert opinion and retrospective data due to disease rarity. No Level 1 RCT evidence available. Specialized center requirement limits generalizability to community practice.</p></div>
+          <div class="summary-section"><h4>CLINICAL TAKEAWAY</h4><p>ENT/skull base surgeons encountering clival or anterior skull base chordomas should use these 2025 guidelines: refer to experienced multidisciplinary centers, target maximal safe resection, ensure high-dose conformal RT (proton preferred for skull base). The 2015 consensus is now superseded.</p></div>
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> JAMA Oncology-published international consensus supersedes the 2015 guidelines for chordoma — a skull base tumor ENT surgeons encounter at the clivus. Updated guidance on surgical approach, conformal RT, and systemic options directly affects subspecialty practice.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42424068" target="_blank" rel="noopener">PMID 42424068 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+            <a class="link-pill" href="https://doi.org/10.1001/jamaoncol.2026.2054" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42424068" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- NOTED SECTION -->
+      <section class="col-noted">
+        <div class="section-label">
+          <span class="section-label-text secondary">Noted · 15</span>
+          <div class="section-rule soft"></div>
+        </div>
+        <div class="noted-grid">
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Multi-Center RCT</span></div>
+            <div class="noted-title">Adenotonsillectomy for Children with Mild Sleep-Disordered Breathing: Who Benefits?</div>
+            <p class="noted-summary">Secondary analysis of a 12-month multi-center RCT (n=363, ages 3–13) examining which children with mild sleep-disordered breathing benefit from early adenotonsillectomy vs. watchful waiting. Identifies baseline predictors of clinically meaningful improvement, helping surgeons counsel families about which children are most likely to respond to early surgical intervention versus observation.</p>
+            <div class="noted-source">Sleep · PMID 42421252 · <button class="copy-pmid noted-copy" data-pmid="42421252" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective</span></div>
+            <div class="noted-title">Phenotypic and Polysomnographic Features of Children With Very Severe and Extreme OSA</div>
+            <p class="noted-summary">Retrospective review of 358 children comparing extreme OSA (AHI &gt;100) vs. very severe OSA (AHI 30–100). Extreme OSA was associated with higher BMI and distinct comorbidity profiles. Provides data for pre-operative risk stratification and counseling in pediatric sleep surgery, where extreme severity carries higher anesthetic and perioperative risk.</p>
+            <div class="noted-source">The Laryngoscope · PMID 42437447 · <button class="copy-pmid noted-copy" data-pmid="42437447" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Prospective 5-Year</span></div>
+            <div class="noted-title">Does Psychological Dysfunction Impact 5-Year Quality of Life Outcomes After Endoscopic Sinus Surgery?</div>
+            <p class="noted-summary">Prospective 5-year SNOT-22 study of 1,069 CRS patients undergoing ESS, stratified by baseline psychological status. Patients with preoperative psychological dysfunction had inferior long-term QOL outcomes despite surgical improvement, underscoring the importance of preoperative psychological screening and expectation-setting in rhinology practice.</p>
+            <div class="noted-source">The Laryngoscope · PMID 42420204 · <button class="copy-pmid noted-copy" data-pmid="42420204" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective</span></div>
+            <div class="noted-title">Development of Novel mRNA Classifiers to Stratify Preoperative Thyroid Tumor Risk</div>
+            <p class="noted-summary">In silico development and retrospective validation (n=451) of Clinico-TRanscriptomic (CTR) mRNA classifiers using TCGA data for thyroid carcinomas &lt;4 cm. CTR groups demonstrated superior risk stratification to ATA risk groups, potentially enabling more personalized hemithyroidectomy vs. total thyroidectomy decisions at the time of initial surgery.</p>
+            <div class="noted-source">Otolaryngology–Head &amp; Neck Surgery · PMID 42429096 · <button class="copy-pmid noted-copy" data-pmid="42429096" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Meta-Analysis</span></div>
+            <div class="noted-title">Diagnostic Accuracy of the Systemic Immune-Inflammation Index in Thyroid Cancer: A Systematic Review and Meta-Analysis</div>
+            <p class="noted-summary">Systematic review and meta-analysis of the SII (neutrophils × platelets / lymphocytes) for thyroid cancer detection and LNM prediction. SII demonstrated moderate accuracy; not yet ready for routine clinical use but may serve as an adjunct biomarker in the preoperative thyroid nodule workup, particularly in resource-limited settings where molecular testing is unavailable.</p>
+            <div class="noted-source">Frontiers in Immunology · PMID 42433361 · <button class="copy-pmid noted-copy" data-pmid="42433361" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Prospective Cohort</span></div>
+            <div class="noted-title">Psychological Well-Being, Neuroticism, and the Risk of BPPV: A Triangulation Study</div>
+            <p class="noted-summary">Large prospective cohort (n=3,842) using triangulation (cross-sectional, Mendelian randomization, longitudinal) to examine the relationship between neuroticism, psychological well-being, and BPPV risk. Neuroticism was prospectively associated with BPPV occurrence; relevant for otologists counseling patients about recurrent BPPV and its comorbid anxiety and mood symptoms.</p>
+            <div class="noted-source">Brain and Behavior · PMID 42418477 · <button class="copy-pmid noted-copy" data-pmid="42418477" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Multi-Center</span></div>
+            <div class="noted-title">Laryngeal Cancer Survival in Northern UK: A Multi-Centre Retrospective Observational Study</div>
+            <p class="noted-summary">Six-center analysis of 2,028 laryngeal SCC patients treated with curative intent across Northern UK (2015–2021). Survival outcomes have shown limited improvement despite advances in chemoradiation. Stage- and treatment-specific data provide a contemporary benchmark and highlight the continued importance of early detection and organ-preservation protocols in laryngeal oncology.</p>
+            <div class="noted-source">Clinical Otolaryngology · PMID 42421194 · <button class="copy-pmid noted-copy" data-pmid="42421194" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective</span></div>
+            <div class="noted-title">Risk Prediction Model for Adverse Outcomes During and After Cochlear Implantation in Children With Inner Ear Abnormalities</div>
+            <p class="noted-summary">Retrospective development of a risk prediction model in 609 children with inner ear malformations (LVAS, incomplete partition, cochlear hypoplasia, common cavity) undergoing CI. Age and malformation type were key predictors of intraoperative/postoperative adverse events; provides a practical stratification tool for surgical consent and CI planning in complex pediatric cases.</p>
+            <div class="noted-source">Int. J. Pediatric Otorhinolaryngology · PMID 42431075 · <button class="copy-pmid noted-copy" data-pmid="42431075" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Multi-Center</span></div>
+            <div class="noted-title">Diagnostic Accuracy of FNAC in Salivary Gland Tumors: A 1331-Patient Multicenter Analysis</div>
+            <p class="noted-summary">Multicenter analysis (n=1,331) of FNAC accuracy for salivary gland tumors, with focus on institutional variability and tumor-size-dependent pitfalls. FNAC sensitivity was moderate and highly dependent on center experience and tumor size. Provides data to guide when core biopsy or direct surgical excision should replace FNAC in the preoperative salivary gland workup.</p>
+            <div class="noted-source">Otolaryngologia Polska · PMID 42417447 · <button class="copy-pmid noted-copy" data-pmid="42417447" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">International Multi-Center</span></div>
+            <div class="noted-title">Nomograms Predictive of Recurrence in Malignant Tumors Treated With Skull Base Surgery</div>
+            <p class="noted-summary">International multicenter development (n=2,179; training/validation split) of nomograms predicting local, regional, and distant recurrence after skull base surgery for primary malignant tumors (1995–2015). Concordance-index validated models stratify recurrence risk by tumor site, histology, and treatment. Useful for postoperative counseling and determining surveillance intensity in skull base oncology.</p>
+            <div class="noted-source">Head &amp; Neck · PMID 42425927 · <button class="copy-pmid noted-copy" data-pmid="42425927" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Diagnostic Accuracy</span></div>
+            <div class="noted-title">Anthropometric Indices With High Sensitivity for Moderate-to-Severe OSA: Sex-Stratified ESADA Analysis</div>
+            <p class="noted-summary">Sex-stratified diagnostic accuracy analysis (ESADA cohort, n=916) comparing novel anthropometric indices (neck-waist ratio, waist-height ratio, neck circumference) vs. BMI for predicting moderate-to-severe OSA. Several novel indices showed superior sensitivity to BMI, with sex-specific cutoffs — potentially enabling better selection of patients for home sleep apnea testing referral in primary care.</p>
+            <div class="noted-source">Sleep Medicine · PMID 42407328 · <button class="copy-pmid noted-copy" data-pmid="42407328" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">RCT (Underpowered)</span></div>
+            <div class="noted-title">DAHANCA 31: Progressive Resistance Training During Chemoradiotherapy in Head and Neck Cancer</div>
+            <p class="noted-summary">DAHANCA 31 RCT (n=50 enrolled; n=72 planned) randomized H&amp;N cancer patients to 12-week progressive resistance training (PRT) vs. usual care during CCRT. Primary endpoint (lean soft tissue mass preservation) was not met — both groups lost ~3.4 kg LSTM equivalently. However, PRT significantly improved functional performance (chair-rise, arm curls), suggesting a benefit for quality-of-life even if mass is not preserved.</p>
+            <div class="noted-source">Acta Oncologica · PMID 42429167 · <button class="copy-pmid noted-copy" data-pmid="42429167" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Meta-Analysis</span></div>
+            <div class="noted-title">Artificial Intelligence Diagnosis of OSA Using Overnight Pulse Oximetry: Systematic Review and Bayesian Meta-Analysis</div>
+            <p class="noted-summary">Systematic review and Bayesian meta-analysis of AI models trained on overnight pulse oximetry data for OSA diagnosis. Demonstrates pooled diagnostic accuracy that may enable OSA screening in primary care and acute settings where polysomnography is inaccessible. Relevant for sleep surgeons and sleep medicine physicians evaluating low-resource OSA screening pathways and home-monitoring programs.</p>
+            <div class="noted-source">J. Medical Internet Research · PMID 42418449 · <button class="copy-pmid noted-copy" data-pmid="42418449" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Split-Face RCT</span></div>
+            <div class="noted-title">Effect of Compression Tape Application on Peri-orbital Ecchymosis After Rhinoplasty: A Prospective, Randomized, Split-Face Study</div>
+            <p class="noted-summary">Prospective split-face RCT (n=64) objectively assessing whether periorbital compression taping reduces postoperative ecchymosis after open rhinoplasty. The within-patient design provides controlled comparison; results clarify whether this widely practiced technique has objective benefit, with direct implications for routine post-rhinoplasty recovery protocols and patient counseling.</p>
+            <div class="noted-source">J. Otolaryngology – Head &amp; Neck Surgery · PMID 42426970 · <button class="copy-pmid noted-copy" data-pmid="42426970" type="button">📋 Copy</button></div>
+          </div>
+
+          <div class="noted-item">
+            <div class="noted-head"><span class="score-chip" data-score="3">3</span><span class="badge-type-mini">Retrospective</span></div>
+            <div class="noted-title">Risk Factors for Early DVT After Free-Flap Reconstruction for Head and Neck Cancer Despite Routine Heparin Prophylaxis</div>
+            <p class="noted-summary">Retrospective cohort (n=276) of H&amp;N cancer patients undergoing free-flap reconstruction at a high-volume center, identifying predictors of early DVT despite routine anticoagulation. Specific clinical factors (tumor site, flap type, operative time, comorbidities) increase DVT risk in this population, informing individualized perioperative anticoagulation strategies and shared decision-making in H&amp;N reconstructive surgery.</p>
+            <div class="noted-source">J. Oral &amp; Maxillofacial Surgery · PMID 42425495 · <button class="copy-pmid noted-copy" data-pmid="42425495" type="button">📋 Copy</button></div>
+          </div>
+
+        </div>
+
+        <footer class="report-footer">
+          <span>Run · 2026-07-13 · 06:14 ET</span>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
+          </div>
+        </footer>
+
+      </section>
+    </div>
+  </div>
+</main>
+
+<script type="application/json" id="digest-data">
+{"run_date": "2026-07-13", "surfaced": 987, "must_read_count": 5, "noted_count": 15, "per_bucket": {"otology": 125, "rhinology": 156, "laryngology": 200, "airway": 92, "sleep": 14, "oncology": 194, "facial_plastic": 200, "pediatric": 200, "crossover": 1, "policy": 9}}
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.copy-pmid').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pmid = btn.getAttribute('data-pmid');
+      navigator.clipboard.writeText(pmid).then(function() {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
