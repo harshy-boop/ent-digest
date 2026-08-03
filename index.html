@@ -3,24 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENT/Airway/Face Digest — Sunday, July 20, 2026</title>
+<title>ENT/Airway/Face Digest — Latest</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F7F5EF;
     --surface: #ffffff;
-
-    /* Forest-tinted borders */
     --border: #B8C9BC;
     --border-strong: #8FA897;
     --border-soft: #D5DFD5;
     --hairline: #E4EAE2;
-
     --text: #131A15;
     --text-mid: #3F4A42;
     --text-dim: #6E7A70;
     --text-faint: #A5AEA6;
-
     --forest: #1A4730;
     --forest-deep: #103022;
     --forest-mid: #2F6B49;
@@ -28,178 +24,61 @@
     --forest-tint: #E4ECE3;
     --forest-tint-strong: #D2DFD2;
     --forest-line: #98B49E;
-
-    /* Score: green → red, more saturated */
     --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
     --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
     --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
     --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
     --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-  }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
   .mono { font-family: 'JetBrains Mono', monospace; }
   .serif { font-family: 'Source Serif 4', Georgia, serif; }
-
-  .paper-grain {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background-image:
-      radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%);
-  }
-
-  header {
-    position: sticky; top: 0; z-index: 50;
-    border-bottom: 2px solid var(--forest);
-    background: rgba(247,245,239,0.94);
-    backdrop-filter: blur(10px);
-  }
+  .paper-grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%); }
+  header { position: sticky; top: 0; z-index: 50; border-bottom: 2px solid var(--forest); background: rgba(247,245,239,0.94); backdrop-filter: blur(10px); }
   .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
   .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
   .logo-block { display: flex; align-items: center; gap: 1rem; }
-  .logo {
-    width: 48px; height: 48px; border-radius: 8px;
-    background: var(--forest-deep); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    border: 2px solid var(--forest);
-  }
+  .logo { width: 48px; height: 48px; border-radius: 8px; background: var(--forest-deep); color: #fff; display: flex; align-items: center; justify-content: center; border: 2px solid var(--forest); }
   .logo svg { width: 24px; height: 24px; }
-  .brand-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep);
-  }
-  .brand-sub {
-    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em;
-    color: var(--forest-mid); text-transform: uppercase; margin-top: 3px;
-  }
+  .brand-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep); }
+  .brand-sub { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em; color: var(--forest-mid); text-transform: uppercase; margin-top: 3px; }
   .header-right { display: flex; align-items: center; gap: 1rem; }
-  .status-pill {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line);
-    border-radius: 6px; background: var(--forest-tint);
-    font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600;
-  }
+  .status-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line); border-radius: 6px; background: var(--forest-tint); font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600; }
   .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
-
   main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
-
-  /* Report head */
-  .report-head {
-    border-bottom: 2px solid var(--forest);
-    padding-bottom: 2.5rem; margin-bottom: 3rem;
-    display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;
-  }
-  .head-status {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    color: var(--forest-deep); margin-bottom: 1.25rem;
-    padding: 0.3rem 0.75rem 0.3rem 0.55rem;
-    background: var(--forest-tint); border: 1.5px solid var(--forest-line);
-    border-radius: 999px;
-  }
-  .head-status-text {
-    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-  .head-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em;
-    line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep);
-  }
-  .head-meta {
-    display: flex; flex-wrap: wrap; gap: 1.5rem;
-    font-size: 0.875rem; color: var(--text-mid); font-weight: 500;
-  }
+  .report-head { border-bottom: 2px solid var(--forest); padding-bottom: 2.5rem; margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end; }
+  .head-status { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--forest-deep); margin-bottom: 1.25rem; padding: 0.3rem 0.75rem 0.3rem 0.55rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-radius: 999px; }
+  .head-status-text { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+  .head-title { font-family: 'Source Serif 4', serif; font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep); }
+  .head-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: var(--text-mid); font-weight: 500; }
   .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
   .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
   .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
-
-  .stats {
-    display: flex; gap: 0;
-    border: 2px solid var(--forest);
-    border-radius: 10px; overflow: hidden;
-    background: var(--surface);
-  }
-  .stat {
-    padding: 1rem 1.5rem; text-align: right;
-    min-width: 110px;
-  }
+  .stats { display: flex; gap: 0; border: 2px solid var(--forest); border-radius: 10px; overflow: hidden; background: var(--surface); }
+  .stat { padding: 1rem 1.5rem; text-align: right; min-width: 110px; }
   .stat + .stat { border-left: 2px solid var(--forest); }
-  .stat-label {
-    display: block; font-size: 0.625rem; font-weight: 700;
-    color: var(--forest-mid); text-transform: uppercase;
-    letter-spacing: 0.2em; margin-bottom: 0.5rem;
-  }
-  .stat-value {
-    font-family: 'Source Serif 4', serif;
-    font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep);
-  }
+  .stat-label { display: block; font-size: 0.625rem; font-weight: 700; color: var(--forest-mid); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .stat-value { font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep); }
   .stat-value.accent { color: var(--forest); }
-
   .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
   .col-must { grid-column: span 5; }
   .col-noted { grid-column: span 7; }
-  @media (max-width: 900px) {
-    .col-must, .col-noted { grid-column: span 12; }
-    .head-title { font-size: 2.25rem; }
-    .grid-12 { gap: 2rem; }
-  }
-
+  @media (max-width: 900px) { .col-must, .col-noted { grid-column: span 12; } .head-title { font-size: 2.25rem; } .grid-12 { gap: 2rem; } }
   .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
-  .section-label-text {
-    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em;
-    text-transform: uppercase; white-space: nowrap;
-  }
+  .section-label-text { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; white-space: nowrap; }
   .section-label-text.primary { color: var(--forest-deep); }
   .section-label-text.secondary { color: var(--forest-mid); }
   .section-rule { height: 2px; flex: 1; background: var(--forest); }
   .section-rule.soft { background: var(--forest-soft); }
-
-  /* MUST READ cards — heavier borders */
-  .must-card {
-    position: relative; overflow: hidden;
-    border: 2px solid var(--forest);
-    border-radius: 10px;
-    background: var(--surface);
-    padding: 1.75rem;
-    transition: all 0.2s; margin-bottom: 1.5rem;
-    box-shadow: 0 2px 0 var(--forest-deep);
-  }
-  .must-card:hover {
-    border-color: var(--forest-deep);
-    box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25);
-    transform: translateY(-1px);
-  }
-  .must-card .accent-bar {
-    position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
-    background: var(--forest);
-  }
-
-  .must-meta-row {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; margin-bottom: 1rem;
-  }
-  .must-meta-left {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
-    color: var(--forest-deep); font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.08em;
-  }
-
-  /* SCORE BOX */
-  .score-box {
-    display: inline-flex; align-items: baseline; gap: 0.375rem;
-    padding: 0.45rem 0.75rem; border-radius: 6px;
-    border: 2px solid; font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
-  }
+  .must-card { position: relative; overflow: hidden; border: 2px solid var(--forest); border-radius: 10px; background: var(--surface); padding: 1.75rem; transition: all 0.2s; margin-bottom: 1.5rem; box-shadow: 0 2px 0 var(--forest-deep); }
+  .must-card:hover { border-color: var(--forest-deep); box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25); transform: translateY(-1px); }
+  .must-card .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--forest); }
+  .must-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .must-meta-left { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--forest-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .score-box { display: inline-flex; align-items: baseline; gap: 0.375rem; padding: 0.45rem 0.75rem; border-radius: 6px; border: 2px solid; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
   .score-box .score-num { font-size: 1rem; line-height: 1; }
   .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
   .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
@@ -207,178 +86,57 @@
   .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
   .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
   .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
-
-  /* Study-type badges */
   .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 0.375rem;
-    padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem;
-    font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-    border: 1.5px solid;
-  }
-  .badge-type {
-    background: #F1F2EC; border-color: var(--border); color: var(--text-mid);
-  }
-  .badge-novel {
-    background: var(--forest);
-    border-color: var(--forest-deep);
-    color: #ffffff;
-  }
-  .badge-novel::before {
-    content: '✦'; font-size: 0.75rem; line-height: 1;
-  }
-
-  .must-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep);
-    margin-bottom: 0.5rem; letter-spacing: -0.01em;
-  }
-  .must-authors {
-    font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5;
-    padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft);
-  }
+  .badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border: 1.5px solid; }
+  .badge-type { background: #F1F2EC; border-color: var(--border); color: var(--text-mid); }
+  .badge-novel { background: var(--forest); border-color: var(--forest-deep); color: #ffffff; }
+  .badge-novel::before { content: '✦'; font-size: 0.75rem; line-height: 1; }
+  .must-title { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .must-authors { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft); }
   .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
-
-  /* Structured summary sections */
   .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
   .summary-section:last-child { margin-bottom: 0; }
-  .summary-section h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.625rem; font-weight: 700;
-    color: var(--forest); text-transform: uppercase;
-    letter-spacing: 0.18em; margin-bottom: 0.35rem;
-  }
-
-  .must-rationale {
-    margin-top: 1.25rem;
-    display: flex; align-items: flex-start; gap: 0.625rem;
-    padding: 0.875rem 1rem;
-    background: var(--forest-tint);
-    border: 1.5px solid var(--forest-line);
-    border-left-width: 4px;
-    border-radius: 6px;
-    font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55;
-  }
+  .summary-section h4 { font-family: 'Inter', sans-serif; font-size: 0.625rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
+  .must-rationale { margin-top: 1.25rem; display: flex; align-items: flex-start; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-left-width: 4px; border-radius: 6px; font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55; }
   .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
   .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
-
-  .must-actions {
-    margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
-  }
-  .link-pill {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep);
-    text-decoration: none; padding: 0.45rem 0.7rem;
-    border: 1.5px solid var(--forest-line); border-radius: 4px;
-    background: var(--surface); transition: all 0.15s;
-  }
+  .must-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .link-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep); text-decoration: none; padding: 0.45rem 0.7rem; border: 1.5px solid var(--forest-line); border-radius: 4px; background: var(--surface); transition: all 0.15s; cursor: pointer; }
   .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
   .link-pill svg { width: 11px; height: 11px; }
-
-  /* NOTED — also bumped border weight */
   .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-  .noted-item {
-    border: 1.5px solid var(--border);
-    border-left: 4px solid var(--forest-soft);
-    border-radius: 6px;
-    background: var(--surface);
-    padding: 1rem 1.125rem;
-    transition: all 0.15s; cursor: pointer;
-  }
-  .noted-item:hover {
-    border-left-color: var(--forest);
-    border-color: var(--forest-line);
-    transform: translateX(2px);
-  }
+  .noted-item { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 6px; background: var(--surface); padding: 1rem 1.125rem; transition: all 0.15s; }
+  .noted-item:hover { border-left-color: var(--forest); border-color: var(--forest-line); transform: translateX(2px); }
   .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
-  .score-chip {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-width: 26px; height: 24px; padding: 0 0.45rem;
-    border-radius: 4px; border: 1.5px solid;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700;
-  }
+  .score-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 0.45rem; border-radius: 4px; border: 1.5px solid; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; }
   .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
   .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
   .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
   .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
   .score-chip[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
-  .badge-type-mini {
-    font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--text-mid); padding: 0.2rem 0.45rem;
-    background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px;
-  }
-  .noted-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1rem; font-weight: 700; color: var(--forest-deep);
-    line-height: 1.32; margin-bottom: 0.5rem;
-  }
-  .noted-summary {
-    font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6;
-  }
-  .noted-source {
-    margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace;
-    font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    padding-top: 0.5rem; border-top: 1px dashed var(--border-soft);
-  }
-
-  footer.report-footer {
-    margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest);
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.625rem; color: var(--forest-mid); font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem;
-  }
-
+  .badge-type-mini { font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-mid); padding: 0.2rem 0.45rem; background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px; }
+  .noted-title { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 700; color: var(--forest-deep); line-height: 1.32; margin-bottom: 0.5rem; }
+  .noted-summary { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+  .noted-source { margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding-top: 0.5rem; border-top: 1px dashed var(--border-soft); }
+  footer.report-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest); display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; color: var(--forest-mid); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem; }
   .policy-section { margin-bottom: 3rem; }
-  .policy-empty {
-    font-size: 0.875rem; color: var(--text-dim);
-    font-style: italic; padding: 0.5rem 0;
-  }
+  .policy-empty { font-size: 0.875rem; color: var(--text-dim); font-style: italic; padding: 0.5rem 0; }
   .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
-  .policy-card {
-    border: 1.5px solid var(--border);
-    border-left: 4px solid var(--forest-soft);
-    border-radius: 8px; background: var(--surface);
-    padding: 1.125rem 1.25rem;
-  }
-  .policy-card.policy-critical {
-    border: 2px solid var(--forest);
-    border-left: 6px solid var(--forest);
-    background: var(--forest-tint);
-  }
-  .policy-meta {
-    display: flex; align-items: center; gap: 0.625rem;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
-    margin-bottom: 0.5rem;
-  }
-  .policy-source {
-    font-weight: 700; color: var(--forest-deep);
-    padding: 0.2rem 0.45rem; background: var(--surface);
-    border: 1.5px solid var(--forest-line); border-radius: 4px;
-    letter-spacing: 0.05em;
-  }
-  .policy-tier {
-    font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid;
-  }
+  .policy-card { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 8px; background: var(--surface); padding: 1.125rem 1.25rem; }
+  .policy-card.policy-critical { border: 2px solid var(--forest); border-left: 6px solid var(--forest); background: var(--forest-tint); }
+  .policy-card.policy-notable { border-left: 4px solid var(--forest-soft); }
+  .policy-meta { display: flex; align-items: center; gap: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; margin-bottom: 0.5rem; }
+  .policy-source { font-weight: 700; color: var(--forest-deep); padding: 0.2rem 0.45rem; background: var(--surface); border: 1.5px solid var(--forest-line); border-radius: 4px; letter-spacing: 0.05em; }
+  .policy-tier { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid; }
   .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
   .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
   .policy-date { color: var(--text-dim); margin-left: auto; }
-  .policy-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep);
-    margin-bottom: 0.4rem; line-height: 1.3;
-  }
-  .policy-summary {
-    font-size: 0.875rem; color: var(--text-mid);
-    line-height: 1.55; margin-bottom: 0.75rem;
-  }
+  .policy-title { font-family: 'Source Serif 4', serif; font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 0.4rem; line-height: 1.3; }
+  .policy-summary { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.75rem; }
 </style>
 </head>
 <body>
 <div class="paper-grain"></div>
-
 <header>
   <div class="container header-inner">
     <div class="logo-block">
@@ -393,26 +151,24 @@
     <div class="header-right">
       <div class="status-pill">
         <div class="pulse-dot"></div>
-        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:05 ET</span>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:02 ET</span>
       </div>
     </div>
   </div>
 </header>
-
 <main>
   <div class="container">
-
     <div class="report-head">
       <div>
         <div class="head-status">
           <div class="pulse-dot"></div>
           <span class="head-status-text">Curated by Sonnet 4.6</span>
         </div>
-        <h1 class="head-title">Sunday, July 20, 2026</h1>
+        <h1 class="head-title">Sunday, August 3, 2026</h1>
         <div class="head-meta">
           <div class="head-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span>EDAT range: July 13, 2026 – July 20, 2026</span>
+            <span>EDAT range: July 27 – August 3</span>
           </div>
           <div class="head-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
@@ -420,11 +176,10 @@
           </div>
         </div>
       </div>
-
       <div class="stats">
         <div class="stat">
           <span class="stat-label">Surfaced</span>
-          <span class="stat-value">902</span>
+          <span class="stat-value">1213</span>
         </div>
         <div class="stat">
           <span class="stat-label">Made Cut</span>
@@ -445,15 +200,15 @@
       
         <div class="policy-grid">
           
-          <div class="policy-card policy-critical">
+          <div class="policy-card policy-notable">
             <div class="policy-meta">
               <span class="policy-source">CMS</span>
-              <span class="policy-tier policy-tier-critical">CRITICAL</span>
-              <span class="policy-date">2026-07-14</span>
+              <span class="policy-tier policy-tier-notable">NOTABLE</span>
+              <span class="policy-date">2026-07-31</span>
             </div>
-            <h3 class="policy-title">CY 2027 Medicare Physician Fee Schedule Proposed Rule (CMS-1848-P)</h3>
-            <p class="policy-summary">CMS proposes cutting the effective Medicare conversion factor by ~1.2–1.7% from CY 2026 (the temporary 2.5% statutory bump expires), and a new rule reducing payment to 50% for any E/M visit billed same-day as a 0-, 10-, or 90-day global procedure — directly hitting ENT surgeons who evaluate patients the day of FESS, septoplasty, tympanoplasty, HGNS, or other global-period cases. CMS also proposes overhauling practice expense RVU methodology. Public comments due September 14, 2026.</p>
-            <a class="link-pill" href="https://www.cms.gov/newsroom/fact-sheets/calendar-year-cy-2027-medicare-physician-fee-schedule-proposed-rule" target="_blank" rel="noopener">Source ↗</a>
+            <h3 class="policy-title">FY2027 Hospital Inpatient Prospective Payment System Final Rule Published</h3>
+            <p class="policy-summary">CMS finalized the FY2027 IPPS rule (effective October 1, 2026), updating DRG weights and base rates for all Medicare inpatient admissions — including ENT-relevant DRGs such as cochlear implantation, major H&amp;N oncology resections, complex airway procedures, and tracheal surgery. Facilities should verify ENT-applicable DRG payment changes and update internal cost benchmarking accordingly.</p>
+            <a class="link-pill" href="https://www.cms.gov/newsroom/fact-sheets/fy-2027-hospital-inpatient-prospective-payment-system-long-term-care-hospital-prospective-payment" target="_blank" rel="noopener">Source ↗</a>
           </div>
           
         </div>
@@ -461,638 +216,905 @@
     </section>
 
     <div class="grid-12">
-
-      <!-- MUST READ -->
       <section class="col-must">
         <div class="section-label">
           <div class="section-rule"></div>
           <span class="section-label-text primary">Must Read · 5</span>
         </div>
-
         
-<div class="must-card">
-  <div class="accent-bar"></div>
-  <div class="must-meta-row">
-    <span class="must-meta-left">01 · The Lancet. Oncology</span>
-    <div class="score-box" data-score="5">
-      <span class="score-num">5</span><span class="score-of">/5</span>
-    </div>
-  </div>
-  <div class="badges-row">
-    <span class="badge badge-type">Phase 3 RCT</span><span class="badge badge-type">Thyroid Oncology</span>
-    
-  </div>
-  <h3 class="must-title">Efficacy and safety of dabrafenib plus trametinib in adults with differentiated thyroid cancer: a randomised, double-blind, placebo-controlled, phase 3 trial.</h3>
-  <div class="must-authors">Gao M, Park YJ, Lin CC, Krzyzanowska MK, Li Z, et al. … <span class="senior">Wirth LJ (senior, Massachusetts General Hospital, Boston, MA)</span></div>
-  
-  <div class="summary-section">
-    <h4>BACKGROUND</h4>
-    <p>BRAF V600E mutations occur in ~40–50% of papillary thyroid cancers. Patients with locally advanced or metastatic radioactive iodine-refractory (RAI-R) BRAF-mutated differentiated thyroid cancer (DTC) have poor prognosis on standard multikinase inhibitors. Preliminary studies of the BRAF/MEK inhibitor combination dabrafenib + trametinib suggested clinical benefit warranting a definitive phase 3 trial.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>METHODS</h4>
-    <p>Global phase 3, randomized (2:1), double-blind, placebo-controlled trial (n=153). Adults ≥18 years with previously treated, locally advanced or metastatic, RAI-R BRAF V600E-mutant DTC. Dabrafenib 150 mg twice daily + trametinib 2 mg daily (n=101) vs placebo (n=52). Primary endpoint: progression-free survival (PFS). Secondary: ORR, duration of response, overall survival.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>RESULTS</h4>
-    <p>Median PFS 12.8 months (95% CI 10.2–21.2) vs 3.7 months (95% CI 2.3–7.5); HR 0.38 (95% CI 0.25–0.57), p&lt;0.0001. ORR: 57% (dabrafenib+trametinib) vs 4% (placebo); p&lt;0.0001. Interim OS analysis did not yet reach significance (HR 0.66, p=0.083). Grade ≥3 AEs included pneumonia (8%), serous retinopathy (7%), and pyrexia (48% any grade). Serious AEs in 43% of treatment arm vs 25% placebo.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>LIMITATIONS</h4>
-    <p>Population predominantly Asian (86%), limiting generalizability to Western cohorts. OS data immature. High rate of serious AEs (43%), including rare grade 5 events. Serous retinopathy requires ophthalmology monitoring. Sponsor-funded trial (Novartis).</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>CLINICAL TAKEAWAY</h4>
-    <p>Dabrafenib + trametinib significantly improves PFS and response in BRAF V600E-mutant RAI-refractory DTC and should be considered a standard option in this subgroup. Head and neck oncologists should ensure BRAF V600E mutational testing at diagnosis of advanced/metastatic DTC. Monitor for pyrexia, retinopathy, and cutaneous toxicity during therapy.</p>
-  </div>
-  
-  <div class="must-rationale">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 5:</strong> Phase 3, double-blind, placebo-controlled RCT published in The Lancet Oncology. Near-doubling of ORR (57% vs 4%) and PFS improvement (12.8 vs 3.7 months, HR 0.38) in BRAF V600E-mutant RAI-refractory thyroid cancer. Practice-defining evidence for a targetable oncogene in an otherwise difficult-to-treat metastatic subgroup. Senior author is Lori Wirth MD, MGH.</span>
-  </div>
-  <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42442381" target="_blank" rel="noopener">PMID 42442381
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
-    </a>
-    <a class="link-pill" href="https://doi.org/10.1016/S1470-2045(26)00133-6" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42442381" type="button">📋 Copy PMID</button>
-  </div>
-</div>
-
-<div class="must-card">
-  <div class="accent-bar"></div>
-  <div class="must-meta-row">
-    <span class="must-meta-left">02 · JAMA Otolaryngology–Head &amp; Neck Surgery</span>
-    <div class="score-box" data-score="4">
-      <span class="score-num">4</span><span class="score-of">/5</span>
-    </div>
-  </div>
-  <div class="badges-row">
-    <span class="badge badge-type">Retrospective Cohort</span><span class="badge badge-type">Sleep Surgery / OSA</span>
-    
-  </div>
-  <h3 class="must-title">Hypoglossal Nerve Stimulation and the Incidence of Cardiovascular Disease.</h3>
-  <div class="must-authors">Kondamuri N, Hyman MJ, Cai Y, LoSavio PS, Skolarus TA … <span class="senior">Skolarus TA (senior, University of Chicago, Chicago, IL)</span></div>
-  
-  <div class="summary-section">
-    <h4>BACKGROUND</h4>
-    <p>HGNS (hypoglossal nerve stimulation) is rapidly growing as an OSA treatment, but whether surgical treatment of OSA with HGNS reduces cardiovascular risk beyond AHI suppression was unknown. Prior CPAP trials have mixed results on CV event reduction.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>METHODS</h4>
-    <p>Retrospective cohort using Merative MarketScan commercial database. Adults undergoing HGNS 2015–2024 (n=3,786) matched on propensity scores to OSA controls meeting HGNS candidacy criteria (nonadherent to CPAP) who did not undergo implant (n=3,395). Time-varying covariate Cox model; surgery effect assumed to begin after 2 years post-implant.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>RESULTS</h4>
-    <p>After 2 years: HGNS associated with lower hazard of new-onset diabetes (HR 0.19, 95% CI 0.09–0.38) and hypertension (HR 0.49, 95% CI 0.33–0.73). Among patients with baseline CVD: HGNS paradoxically associated with higher early CV event hazard (minor HR 1.44; major HR 1.62 within 2 years), but trending protective after 2 years (minor HR 0.42; major HR 0.40). Benefits accumulated with time.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>LIMITATIONS</h4>
-    <p>Retrospective, administrative claims — no AHI, no PAP adherence data, no OSA severity metrics available for matching. The early paradox (higher CV events in first 2 years in those with baseline CVD) likely reflects selection bias or immediate peri-operative burden, not a causal harm signal.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>CLINICAL TAKEAWAY</h4>
-    <p>This is the first large cohort-level signal that HGNS may reduce new-onset cardiovascular disease after ≥2 years, supporting a longer-term metabolic benefit narrative. Counsel patients that CV risk reduction is a gradual benefit of sustained sleep treatment. RCT-level confirmation is still needed.</p>
-  </div>
-  
-  <div class="must-rationale">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> Large propensity-matched commercial insurance cohort (N=3,786 HGNS patients) in JAMA Otolaryngology with clinically important time-stratified cardiovascular outcomes data. First large evidence on whether HGNS carries downstream cardiovascular benefit, directly relevant to counseling the growing population of implant candidates.</span>
-  </div>
-  <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42461651" target="_blank" rel="noopener">PMID 42461651
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
-    </a>
-    <a class="link-pill" href="https://doi.org/10.1001/jamaoto.2026.1777" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42461651" type="button">📋 Copy PMID</button>
-  </div>
-</div>
-
-<div class="must-card">
-  <div class="accent-bar"></div>
-  <div class="must-meta-row">
-    <span class="must-meta-left">03 · Rhinology</span>
-    <div class="score-box" data-score="4">
-      <span class="score-num">4</span><span class="score-of">/5</span>
-    </div>
-  </div>
-  <div class="badges-row">
-    <span class="badge badge-type">Phase 2 RCT</span><span class="badge badge-type">Rhinology / Biologics</span>
-    
-  </div>
-  <h3 class="must-title">Dupilumab in chronic rhinosinusitis without nasal polyps: randomized phase 2 trial (ORION).</h3>
-  <div class="must-authors">Lee SE, Peters AT, Gevaert P, Han JK, Bachert C, et al. … <span class="senior">Phadke NA (senior, Sanofi, Cambridge, MA)</span></div>
-  
-  <div class="summary-section">
-    <h4>BACKGROUND</h4>
-    <p>Dupilumab (anti-IL-4Rα monoclonal antibody) is FDA-approved for CRS with nasal polyps (CRSwNP), where type 2 inflammatory mechanisms are established. Whether dupilumab benefits CRS without polyps (CRSsNP) — especially in patients with elevated eosinophils — was unknown. ORION (NCT04678856) is the first phase 2 RCT specifically designed for this question.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>METHODS</h4>
-    <p>Multicenter, double-blind, placebo-controlled phase 2 RCT. 71 adults with severe uncontrolled CRSsNP randomized 1:1 to dupilumab vs placebo for 24–52 weeks. Primary analysis: patients with serum blood eosinophil count (sBEC) ≥300 cells/μL (dupilumab n=16). Primary endpoint: change from baseline in Lund-Mackay CT score at week 24. Secondary: sTSS, UPSIT olfaction score, SNOT-22.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>RESULTS</h4>
-    <p>In the sBEC ≥300 group, dupilumab reduced LMK-CT from baseline (mean −6.63; 95% CI −8.71 to −4.54). Mean difference vs placebo: −5.95 (95% CI −8.38 to −3.51) favoring dupilumab. SNOT-22 trended toward improvement (−14.71, CI crossing zero). UPSIT (olfaction) also trended toward improvement (+5.91). Safety was balanced between arms.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>LIMITATIONS</h4>
-    <p>Small sBEC ≥300 primary analysis population (n=16 dupilumab arm). Phase 2 signal-finding study — underpowered for secondary symptom endpoints. Senior author from Sanofi (sponsor); risk of reporting bias. Larger pivotal trial needed before practice change.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>CLINICAL TAKEAWAY</h4>
-    <p>Dupilumab improves CT sinus disease in eosinophilic CRSsNP (sBEC ≥300) and warrants a full phase 3 trial. Rhinologists should phenotype CRSsNP patients with peripheral eosinophil counts — if the phase 3 ORION result is positive, this would substantially expand biologic candidacy to the non-polyp population.</p>
-  </div>
-  
-  <div class="must-rationale">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> First randomized phase 2 trial of dupilumab in CRS without nasal polyps (CRSsNP) — a population where biologic therapy has no established role. Rhinology journal, small but well-controlled; radiographic primary endpoint. Signals an eosinophilic phenotype (sBEC ≥300) that may respond, expanding biologic candidacy criteria.</span>
-  </div>
-  <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42467018" target="_blank" rel="noopener">PMID 42467018
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
-    </a>
-    <a class="link-pill" href="https://doi.org/10.4193/Rhin25.660" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42467018" type="button">📋 Copy PMID</button>
-  </div>
-</div>
-
-<div class="must-card">
-  <div class="accent-bar"></div>
-  <div class="must-meta-row">
-    <span class="must-meta-left">04 · European Archives of Oto-Rhino-Laryngology</span>
-    <div class="score-box" data-score="4">
-      <span class="score-num">4</span><span class="score-of">/5</span>
-    </div>
-  </div>
-  <div class="badges-row">
-    <span class="badge badge-type">Multicenter Cohort</span><span class="badge badge-type">Pediatric ENT / RRP</span>
-    
-  </div>
-  <h3 class="must-title">Long-term predictors of recurrence in pediatric recurrent respiratory papillomatosis.</h3>
-  <div class="must-authors">Arshad E, Arshad A, Shafique A, Iqbal J, Saadir M … <span class="senior">Younus F (senior, Wah General Hospital, Wah, Pakistan)</span></div>
-  
-  <div class="summary-section">
-    <h4>BACKGROUND</h4>
-    <p>Pediatric recurrent respiratory papillomatosis (RRP) is caused by HPV 6/11 (most common) and rarely 16/18, with high recurrence after surgical debridement. Existing risk stratification focuses on HPV type and anatomic extent; novel patient-level predictors remain poorly characterized.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>METHODS</h4>
-    <p>Multicenter prospective cohort at 5 high-volume ENT centers in Pakistan, 2014–2023. 629 pediatric patients (onset &lt;18 years) with histologically confirmed RRP. Kaplan-Meier and multivariable Cox regression for time to first recurrence requiring surgery. Inter-rater reliability kappa=0.78. Adjuvant therapy included cidofovir, interferon, and bevacizumab.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>RESULTS</h4>
-    <p>Recurrence in 65% pediatric vs 46% adult-onset (p&lt;0.001). Independent predictors: HPV types 11, 16, 18; multiple lesions; tracheal involvement; young onset age; rapid lesion growth; low SES; immunodeficiency; short prior surgery intervals. Adjuvant HR: cidofovir 0.62, interferon 0.66, bevacizumab 0.53. Surgery type did not independently predict recurrence. SQOL correlated inversely with recurrence (r=−0.52, p&lt;0.001).</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>LIMITATIONS</h4>
-    <p>Single-country (Pakistan) cohort — resource-limited setting, referral center bias, and adjuvant therapy selection not randomized. No extended HPV genotyping beyond standard 4 types. Socioeconomic stratification may not translate to other health systems.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>CLINICAL TAKEAWAY</h4>
-    <p>Risk-stratify pediatric RRP using HPV type, lesion growth velocity, tracheal involvement, and immunodeficiency status. Bevacizumab shows the strongest adjuvant association (HR 0.53) and warrants consideration in high-risk or rapidly recurring cases. Track SQOL as a clinically meaningful outcome endpoint.</p>
-  </div>
-  
-  <div class="must-rationale">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> Largest prospective multicenter cohort on pediatric RRP (n=629, 10-year follow-up). Identifies novel modifiable risk factors beyond HPV type, including lesion growth rate, SES, and immunodeficiency. Bevacizumab shows strongest adjuvant association. Provides the most comprehensive RRP recurrence risk model to date.</span>
-  </div>
-  <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42472951" target="_blank" rel="noopener">PMID 42472951
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
-    </a>
-    <a class="link-pill" href="https://doi.org/10.1007/s00405-026-10417-3" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42472951" type="button">📋 Copy PMID</button>
-  </div>
-</div>
-
-<div class="must-card">
-  <div class="accent-bar"></div>
-  <div class="must-meta-row">
-    <span class="must-meta-left">05 · International Journal of Pediatric Otorhinolaryngology</span>
-    <div class="score-box" data-score="4">
-      <span class="score-num">4</span><span class="score-of">/5</span>
-    </div>
-  </div>
-  <div class="badges-row">
-    <span class="badge badge-type">SR / Meta-Analysis</span><span class="badge badge-type">Pediatric ENT / Otology</span>
-    
-  </div>
-  <h3 class="must-title">Balloon dilation of the eustachian tube in pediatric patients: A systematic review and meta-analysis of functional, audiological, and safety outcomes.</h3>
-  <div class="must-authors">Saade R, Chkaiban Farah P, Elias L, Keyrouz E, Maalouf J … <span class="senior">Matar M (senior, Lebanese American University Medical Center, Beirut, Lebanon)</span></div>
-  
-  <div class="summary-section">
-    <h4>BACKGROUND</h4>
-    <p>Balloon dilation of the Eustachian tube (BDET) is FDA-approved for adults with ETD, but evidence in pediatric patients has been scattered across small, primarily retrospective case series. This SR/MA provides the first comprehensive pediatric-specific synthesis of functional, audiological, and safety outcomes.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>METHODS</h4>
-    <p>Systematic search of PubMed, Scopus, Web of Science (through October 2025). 20 studies included (18 retrospective, 2 prospective), 1,175 children (1,868 ears; mean age 9.1 years). Outcomes: ABG, PTA, ET scores, tubomanometry, Valsalva, tympanometry, TM findings, efficacy, and complications. Fixed- and random-effects meta-analysis.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>RESULTS</h4>
-    <p>Within-cohort: significant ABG improvement at 6 months (MD −14.84 dB; 95% CI −26.11 to −3.57) and 12 months (MD −10.60 dB). ET scores improved significantly (MD +3.78). Negative Valsalva results reduced (OR 17.21). However, comparative vs controls: no significant ABG difference (p=NS) and no significant efficacy/cure rate difference (OR 1.08; 95% CI 0.31–3.73). Pooled efficacy: 67%. Pooled complication rate: 3% (95% CI 2–4%).</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>LIMITATIONS</h4>
-    <p>18 of 20 studies retrospective; high heterogeneity; most studies of fair quality. Only 3 comparative (controlled) studies. No pediatric-specific RCT yet exists. Senior author affiliated with institution without ENT academic prominence signals.</p>
-  </div>
-  
-  <div class="summary-section">
-    <h4>CLINICAL TAKEAWAY</h4>
-    <p>BDET shows within-group audiological and functional improvements in pediatric ETD, with an acceptable 3% complication rate, but current comparative evidence does not confirm it outperforms ventilation tube insertion or watchful waiting. Consider in children with refractory ETD while awaiting pediatric RCT data. Do not routinely expand adult BDET protocols to children based on this evidence alone.</p>
-  </div>
-  
-  <div class="must-rationale">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> First SR/MA of BDET specifically in pediatric patients. 20 studies, 1,175 children (1,868 ears). Within-cohort benefits in ABG and ET scores are significant, but comparative evidence vs standard management does not yet confirm superiority. Critical synthesis for practices considering BDET expansion to pediatric populations.</span>
-  </div>
-  <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42442127" target="_blank" rel="noopener">PMID 42442127
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
-    </a>
-    <a class="link-pill" href="https://doi.org/10.1016/j.ijporl.2026.112931" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42442127" type="button">📋 Copy PMID</button>
-  </div>
-</div>
-
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">01 · Laryngoscope</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">n = 4,395</span>
+            
+          </div>
+          <h3 class="must-title">Treatment of Locally Advanced Layngohypopharyngeal Cancers: A Network Meta-Analysis.</h3>
+          <div class="must-authors">Capriotti V, Cin ED, De Stefani A, Nardone M et al. (+3) … <span class="senior">Petrelli F (Oncology Unit, ASST Bergamo Ovest, Treviglio, Italy.)</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>Locally advanced and resectable laryngeal/hypopharyngeal squamous cell carcinoma (SCC) carries high morbidity from total laryngectomy; organ-preservation strategies have proliferated but their relative efficacy has not been ranked against each other in a unified analysis.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>Bayesian random-effects network meta-analysis of 15 RCTs (n = 4,395) enrolling adults with locally advanced/resectable laryngeal/hypopharyngeal SCC. Thirteen non-surgical strategies evaluated including concurrent cisplatin CTRT, induction TPF → RT, RT ± cetuximab, altered-fractionation RT, and surgery + postop RT. Outcomes: laryngeal preservation, overall survival, locoregional control.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>For laryngeal preservation, cisplatin CTRT ranked highest (SUCRA 0.73), followed by induction TPF → RT (0.72). All non-surgical strategies outperformed surgery + postoperative RT for preservation (HR 0.34; 95% CI 0.20–0.58). For overall survival, induction PF → RT ranked best (SUCRA 0.68). For locoregional control, induction TPF → RT ranked best (SUCRA 0.94).</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Older RCTs may not reflect modern imaging, surgical technique, or systemic regimens. Heterogeneity across fractionation schedules and cisplatin dosing. No immunotherapy arms included. SUCRA rankings do not equate to statistical superiority in all pairwise comparisons.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>Cisplatin-based concurrent chemoradiation remains the standard organ-preservation strategy for resectable laryngeal/hypopharyngeal SCC. Induction TPF followed by RT is the preferred option for locoregional control. Surgery + postoperative RT should be reserved for cases where preservation fails or is not feasible; offering it upfront as the preferred organ-preservation path is not supported by the data.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Network meta-analysis of 15 RCTs provides the highest level of comparative evidence available for this treatment decision. Published in Laryngoscope (ENT flagship), directly informs the organ-preservation vs. upfront surgery debate that arises weekly in H&amp;N tumor boards.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42528018" target="_blank" rel="noopener">PMID 42528018
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1002/lary.70780" target="_blank" rel="noopener">DOI ↗</a>
+            <button class="link-pill copy-pmid" data-pmid="42528018" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">02 · Sleep &amp; Breathing</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">n = 758</span>
+            
+          </div>
+          <h3 class="must-title">Comparison of upper airway stimulation, tongue base surgeries, and continuous positive airway pressure for moderate-to-severe obstructive sleep apnea: a systematic review and network meta-analysis.</h3>
+          <div class="must-authors">Kim DH, Jang DW, Hwang SH … <span class="senior">Hwang SH (Department of Otolaryngology-Head and Neck Surgery, Bucheon )</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>Moderate-to-severe OSA resistant to CPAP is increasingly managed with upper airway stimulation (UAS/Inspire) or tongue base surgery (TORS, plasma ablation). A head-to-head comparison across all three modalities in the same framework has been lacking.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>Systematic review and Bayesian network meta-analysis of 10 studies (n = 758) comparing UAS, TORS, plasma ablation tongue base reduction (PATBR), and CPAP. Outcomes: AHI reduction, ESS, lowest SpO₂, hospital stay, surgical success (AHI &lt; 20 with ≥ 50% reduction), cure rate (AHI &lt; 5).</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>UAS delivered significantly greater AHI reduction than TORS (SMD = 1.36 [0.27–2.46]) and significantly improved lowest SpO₂ vs. TORS (SMD = 1.46 [0.30–2.62]). CPAP showed greater (non-significant) AHI improvement vs. TORS (SMD = 1.17). ESS improvement did not differ significantly across arms. CPAP (OR 3.73) and UAS (OR 5.58) had significantly higher surgical success rates vs. TORS. Hospital stay was shortest for PATBR and UAS vs. TORS.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Small total n (758) limits precision. Studies vary in patient selection — TORS patients may include those with concurrent multilevel pathology. CPAP is not a surgical option so comparison of &#34;success rates&#34; conflates different metrics. Short-term follow-up in several studies.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>For CPAP-intolerant patients with tongue base collapse, UAS outperforms TORS on objective AHI reduction, oxygenation, and success rates with shorter hospital stay. TORS alone as a single-level procedure for moderate-to-severe OSA has the weakest evidence among these options. DISE-guided patient selection for UAS remains essential.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Network meta-analysis directly addresses the most contested day-to-day decision in sleep surgery: which intervention for CPAP-intolerant patients with tongue base collapse. UAS vs. TORS is a live debate in many ENT practices; this analysis provides the most objective ranking available.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42509349" target="_blank" rel="noopener">PMID 42509349
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1007/s11325-026-03772-2" target="_blank" rel="noopener">DOI ↗</a>
+            <button class="link-pill copy-pmid" data-pmid="42509349" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">03 · Otol Neurotol</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">n = 9,119</span>
+            
+          </div>
+          <h3 class="must-title">A Systematic Review of Audiological Criteria Used to Determine the Need for MRI Screening in Patients With Suspected Vestibular Schwannoma.</h3>
+          <div class="must-authors">Awad K, Katz G, Freeman S, Lloyd S et al. (+1) … <span class="senior">Heward E (Division of Infection, Immunity and Respiratory Medicine, Sc)</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>Current guidelines vary substantially on which audiometric criteria should trigger MRI referral to screen for vestibular schwannoma (VS) in patients with asymmetric SNHL. There is no universally agreed threshold.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>PRISMA-compliant systematic review (PROSPERO CRD420251131909) across Medline, PubMed, Embase, Cochrane, and Scopus. 20 studies comprising 9,119 patients (1,169 VS cases) meeting inclusion criteria. Primary outcomes: sensitivity and specificity of audiometric criteria (pure tone audiometry thresholds, ABR, vestibular testing, audiometric configuration) vs. MRI.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>PTA threshold criteria showed an inverse sensitivity-specificity tradeoff: lower thresholds (e.g., ≥15 dB asymmetry) approached 100% sensitivity but markedly reduced specificity, increasing MRI utilization. Stricter criteria improved specificity but often reduced sensitivity below the 90% threshold considered acceptable for screening. ABR demonstrated high sensitivity (≥ 90%) across most studies. Vestibular testing data were limited.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>High clinical and methodological heterogeneity precluded formal meta-analysis; narrative synthesis only. Variable VS prevalence across studies affects predictive values. Most studies retrospective with referral bias.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>No single audiometric criterion achieves both adequate sensitivity (≥ 90%) and acceptable specificity for VS screening. ABR may offer the most reliable single-test sensitivity. Practitioners who tighten MRI thresholds to reduce imaging volume risk missing small VS with preserved hearing. A risk-stratified, shared decision-making approach incorporating patient age, hearing trajectory, and tinnitus burden is more defensible than any fixed audiometric cutoff.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Largest systematic review on VS audiometric screening (n = 9,119), directly addresses a daily clinical decision for every otologist and general ENT who manages asymmetric SNHL. In an era of cost consciousness and MRI wait times, the &#34;how tight can I draw the referral threshold&#34; question is active.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42531485" target="_blank" rel="noopener">PMID 42531485
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1097/MAO.0000000000004994" target="_blank" rel="noopener">DOI ↗</a>
+            <button class="link-pill copy-pmid" data-pmid="42531485" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">04 · Eur Arch ORL</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">n = 824</span>
+            
+          </div>
+          <h3 class="must-title">Conventional clamp-and-tie hemostasis versus energy-based hemostasis devices in total thyroidectomy: a systematic review and Bayesian network meta-analysis of randomized controlled trials.</h3>
+          <div class="must-authors">Awad B, Ashi MA, Abualjamal RY, Allahim MA et al. (+6) … <span class="senior">Halawani M (King Abdullah International Medical Research Center , Jeddah)</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>Total thyroidectomy is performed either with conventional clamp-and-tie hemostasis (CH) or with advanced energy-based hemostasis devices (HEDs) — Harmonic Scalpel (HS) or LigaSure (LS). Evidence on optimal device choice for safety and efficiency has been mixed.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>Bayesian network meta-analysis of 22 prospective RCTs (3,824 patients) published 2005–2022. Interventions: HS, LS, CH. Primary outcomes: operative time, intraoperative blood loss, transient RLN injury, transient hypocalcemia. Secondary: postoperative hematoma, drain output, hospital stay.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>Both HS and LS significantly reduced operative time by approximately 22 minutes vs. CH (HS SUCRA 0.76, LS SUCRA 0.73). HS further demonstrated additional significant advantages in intraoperative blood loss and drain output. Transient RLN injury and hypocalcemia rates did not significantly differ across devices. Postoperative hematoma was comparable across arms.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Studies span 2005–2022, with variation in technique, surgeon experience, and device generations. Permanent complications (RLN injury, hypoparathyroidism) were too rare in RCTs to power meaningful comparisons. Publication bias possible for positive trials.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>Harmonic Scalpel and LigaSure both reduce total thyroidectomy operative time by ~22 minutes without increasing RLN injury or hypocalcemia risk vs. clamp-and-tie. Harmonic Scalpel edges ahead on blood loss and drain output. For high-volume thyroid practices, energy device adoption is justified on efficiency and safety grounds — and reduces anesthesia exposure at no added complication cost.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Bayesian network meta-analysis of 22 RCTs provides the definitive head-to-head ranking of hemostasis approaches in thyroidectomy. Operative time reduction of 22 minutes has real throughput implications; the safety equivalence data will support adoption of energy devices where budget or institutional habit has been the barrier.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42543419" target="_blank" rel="noopener">PMID 42543419
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1007/s00405-026-10504-5" target="_blank" rel="noopener">DOI ↗</a>
+            <button class="link-pill copy-pmid" data-pmid="42543419" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">05 · Endocrinol Diabetes Metab</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">n = 5,260</span>
+            
+          </div>
+          <h3 class="must-title">Reassessing Radioactive Iodine Use After Thyroidectomy in Low-Risk Differentiated Thyroid Cancer: A Systematic Review and Meta-Analysis.</h3>
+          <div class="must-authors">Asif M, Nisar M, Asif A, Batool M et al. (+2) … <span class="senior">Amin MHJ (Alzaiem Alazhari University, Khartoum, Sudan.)</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>American Thyroid Association guidelines recommend against routine radioactive iodine (RAI) in low-risk differentiated thyroid cancer (DTC) post-thyroidectomy, yet RAI continues to be administered at high rates. Evidence on its net benefit in this population remains contested.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>Systematic review and meta-analysis of observational studies and RCTs comparing RAI vs. no RAI in low-risk DTC patients. Databases: MEDLINE, Scopus, Cochrane, Google Scholar (through December 2025). 10 studies (n = 5,260) included. Outcomes: recurrence, recurrence-free survival (5-year), treatment response, serum thyroglobulin, and side effects. Random-effects model; results as OR (95% CI).</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>No statistically significant difference between RAI and no-RAI groups for: recurrence (OR 0.66, 95% CI 0.41–1.08; p = 0.10), 5-year recurrence-free survival (OR 2.47, 95% CI 0.63–9.62; p = 0.19), or excellent treatment response (OR 1.00; p = 1.00). Xerostomia was significantly more common with RAI (OR 5.x, p &lt; 0.05).</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Predominantly observational studies with heterogeneous definitions of &#34;low-risk.&#34; Limited long-term follow-up (most studies &lt; 10 years). RAI dose and protocol varied across studies. Publication bias possible.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>RAI offers no measurable improvement in recurrence or survival for low-risk DTC, while adding salivary morbidity (xerostomia). This meta-analysis reinforces current ATA guideline recommendations against routine RAI in this population. Head and neck surgeons and endocrinologists should be confident in shared decision conversations declining RAI for low-risk patients, especially younger patients where lifetime salivary morbidity matters.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Meta-analysis of 10 studies (n = 5,260) addresses a genuine practice controversy — despite guidelines, RAI overuse in low-risk thyroid cancer remains common. The null efficacy + xerostomia findings provide strong ammunition for guideline adherence conversations. Directly affects post-thyroidectomy care delivered by ENT/H&amp;N surgeons.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42522170" target="_blank" rel="noopener">PMID 42522170
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1002/edm2.70293" target="_blank" rel="noopener">DOI ↗</a>
+            <button class="link-pill copy-pmid" data-pmid="42522170" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
       </section>
 
-      <!-- NOTED -->
       <section class="col-noted">
         <div class="section-label">
           <span class="section-label-text secondary">Noted · 15</span>
           <div class="section-rule soft"></div>
         </div>
-
         <div class="noted-grid">
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Review</span><span class="badge-type-mini">Sleep / OSA</span>
-  </div>
-  <div class="noted-title">Obstructive Sleep Apnea.</div>
-  <p class="noted-summary">Comprehensive clinical review in Annals of Internal Medicine covering OSA epidemiology, diagnosis via home sleep testing, and management hierarchy (weight loss, positional therapy, PAP, oral appliances, and surgical options). Emphasizes that primary care clinicians can now initiate OSA diagnosis and treatment without specialist referral using available home testing technologies. Covers BP benefit and residual cardiovascular uncertainty. Useful for interdisciplinary teams managing multimorbid sleep patients.</p>
-  <div class="noted-source">Annals of Internal Medicine · PMID 42441964 · <button class="copy-pmid noted-copy" data-pmid="42441964" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Retrospective Cohort</span><span class="badge-type-mini">Cochlear Implants / Otology</span>
-  </div>
-  <div class="noted-title">Robotic Insertion of Cochlear Implants and Vestibular Function in Children.</div>
-  <p class="noted-summary">Single-center retrospective, 80 ears: robotic-assisted CI electrode insertion (n=42) vs manual (n=38). Vestibular function assessed by cVEMP/oVEMP and video head impulse test. Robotic group showed trends toward better post-operative vestibular preservation, though clinical significance and balance outcomes need longer follow-up. Provides early evidence that robotic insertion may reduce trauma in pediatric cochlear implantation.</p>
-  <div class="noted-source">Otology &amp; Neurotology · PMID 42439110 · <button class="copy-pmid noted-copy" data-pmid="42439110" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Retrospective Cohort</span><span class="badge-type-mini">Otology / Cholesteatoma</span>
-  </div>
-  <div class="noted-title">Intact Bridge Mastoidectomy: A Hybrid Approach as a Middle-Ground Between Intact Canal Wall and Open Cavity Techniques.</div>
-  <p class="noted-summary">Retrospective series of 322 tympanomastoidectomies (ICW n=185, IBM n=61, OC n=76). Intact bridge mastoidectomy combines visualization advantages of OC with the preserved canal wall of ICW. IBM showed comparable hearing outcomes to ICW with lower cavity problem rates vs OC. May offer a practical middle-ground for challenging cholesteatoma resections where full open-cavity is undesirable.</p>
-  <div class="noted-source">Otology &amp; Neurotology · PMID 42439112 · <button class="copy-pmid noted-copy" data-pmid="42439112" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Retrospective Cohort</span><span class="badge-type-mini">Rhinology / Neurolysis</span>
-  </div>
-  <div class="noted-title">Blue-Laser Posterior Nasal Neurolysis via Dual Layer Nerve Modulation for Chronic Rhinitis.</div>
-  <p class="noted-summary">Retrospective case series of blue-laser posterior nasal nerve neurolysis using a dual-layer modulation technique for chronic rhinitis (allergic and non-allergic). Patients showed significant improvement in rhinorrhea and nasal obstruction scores. Technique is minimally invasive and endoscopic; may offer an alternative to cryoablation or conventional posterior nasal neurectomy. Larger controlled series needed to confirm durability.</p>
-  <div class="noted-source">Laryngoscope Investigative Otolaryngology · PMID 42438472 · <button class="copy-pmid noted-copy" data-pmid="42438472" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Prospective Cohort</span><span class="badge-type-mini">Cochlear Implants / Pediatric ENT</span>
-  </div>
-  <div class="noted-title">Impact of Cochlear Implantation on Listening-Related Fatigue in Children With Unilateral Hearing Loss.</div>
-  <p class="noted-summary">Prospective within-subjects crossover study across 3 academic CI centers. Children with unilateral hearing loss assessed fatigue using Vanderbilt Fatigue Scale and PedsQL during cochlear implant use vs a 3-day device-off period. CI use associated with significantly lower parent-reported listening fatigue. Provides patient-reported outcome evidence that goes beyond audiometric metrics in supporting CI for pediatric UHL.</p>
-  <div class="noted-source">Otology &amp; Neurotology · PMID 42440270 · <button class="copy-pmid noted-copy" data-pmid="42440270" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Retrospective Case Series</span><span class="badge-type-mini">Laryngology / Voice</span>
-  </div>
-  <div class="noted-title">Outcomes of Recurrent Laryngeal Nerve Reinnervation for Pediatric Unilateral Vocal Fold Paralysis.</div>
-  <p class="noted-summary">Largest single-center, single-surgeon series of RLN reinnervation for pediatric UVFP (2007–2025, tertiary children&#39;s hospital). Ansa cervicalis-to-RLN anastomosis showed high rates of voice outcome success with sustained results. Results suggest RLN reinnervation may offer superior long-term voice outcomes vs injection laryngoplasty alone in pediatric patients. Case-series design limits conclusions; prospective data needed.</p>
-  <div class="noted-source">The Laryngoscope · PMID 42443056 · <button class="copy-pmid noted-copy" data-pmid="42443056" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Conceptual Review</span><span class="badge-type-mini">Laryngology / Pediatric ENT</span>
-  </div>
-  <div class="noted-title">Toward a Functional Terminology: Reconsidering &#34;Minor Laryngeal Clefts&#34; as Interarytenoid Dysfunction.</div>
-  <p class="noted-summary">Argues that the label &#34;type 1 laryngeal cleft&#34; in children is frequently applied to cases where no true anatomic defect exists, but where aspiration responds to interarytenoid augmentation. Proposes renaming these cases &#34;interarytenoid dysfunction&#34; to reduce overdiagnosis and unnecessary surgical anxiety. Practice-relevant for pediatric laryngologists who manage aspiration in children — may reduce interarytenoid augmentation hesitancy.</p>
-  <div class="noted-source">Otolaryngology–Head &amp; Neck Surgery · PMID 42439884 · <button class="copy-pmid noted-copy" data-pmid="42439884" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Systematic Review</span><span class="badge-type-mini">Head &amp; Neck Oncology</span>
-  </div>
-  <div class="noted-title">Gene Fusions in Differential Diagnosis of Salivary Gland Neoplasms: A Systematic Review.</div>
-  <p class="noted-summary">Systematic review of characteristic genomic fusions useful for differentiating salivary gland tumor subtypes — including NTRK, EWSR1-ATF1, MAML2 (mucoepidermoid), and MYB (adenoid cystic) rearrangements. Reviews diagnostic accuracy vs IHC and implications for targeted therapy eligibility. Relevant for ENT-pathology teams encountering diagnostically ambiguous salivary gland tumors; molecular testing is increasingly accessible and actionable.</p>
-  <div class="noted-source">Ceskoslovenska Patologie · PMID 42472343 · <button class="copy-pmid noted-copy" data-pmid="42472343" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">SR / Meta-Analysis</span><span class="badge-type-mini">Rhinology / Anterior Skull Base</span>
-  </div>
-  <div class="noted-title">Outcomes of endoscopic and microscopic transsphenoidal pituitary surgery: evidence from a systematic review, meta-analysis, and institutional experience.</div>
-  <p class="noted-summary">PRISMA-based SR/MA of comparative endoscopic vs microscopic transsphenoidal pituitary surgery. Endoscopic approach showed higher gross total resection rates and lower intraoperative blood loss, CSF leak, and hospital stay. Combines international literature with an institutional cohort for triangulation. Supports ongoing institutional transition toward endoscopic-first approach for most sellar and parasellar lesions managed jointly by rhinology and neurosurgery.</p>
-  <div class="noted-source">Neurosurgical Review · PMID 42463618 · <button class="copy-pmid noted-copy" data-pmid="42463618" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Multicenter Prospective Observational</span><span class="badge-type-mini">Laryngology / Dysphagia</span>
-  </div>
-  <div class="noted-title">Unintentional Weight Loss Does Not Predict Poor Outcomes in Zenker Diverticulum.</div>
-  <p class="noted-summary">Prospective multicenter study (POUCH registry). Contrary to common teaching, unintentional weight loss at presentation did not correlate with longer symptom duration, larger pouch size, or worse outcomes after Zenker/CPMD treatment. Challenges the clinical assumption that weight loss is a severity or prognostic marker in ZD. Suggests procedural decision-making should rely on symptom severity and anatomy rather than weight loss history.</p>
-  <div class="noted-source">The Laryngoscope · PMID 42470432 · <button class="copy-pmid noted-copy" data-pmid="42470432" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">SEER Database Analysis</span><span class="badge-type-mini">Otology / Skull Base / Oncology</span>
-  </div>
-  <div class="noted-title">Treatment strategies and survival outcomes of vestibular schwannoma: a comparative study based on Surveillance, Epidemiology, and End Results (SEER) database.</div>
-  <p class="noted-summary">SEER analysis of 10,081 VS patients (2004–2020). Compared observation, stereotactic radiosurgery, and microsurgical resection for survival and complication outcomes. Tumor size and era of treatment strongly influenced modality selection. VS-specific survival was comparable across approaches. Microsurgery carried higher morbidity in this administrative dataset. Reinforces observation and SRS as first-line for small-to-medium VS where function preservation is the primary goal.</p>
-  <div class="noted-source">Translational Cancer Research · PMID 42445398 · <button class="copy-pmid noted-copy" data-pmid="42445398" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Multicenter Retrospective</span><span class="badge-type-mini">Rhinology / Anterior Skull Base</span>
-  </div>
-  <div class="noted-title">Spontaneous cerebrospinal fluid leaks and encephaloceles: multi-institutional collaborative retrospective analysis of 468 cases with special focus on recurrent cases.</div>
-  <p class="noted-summary">Multicenter retrospective series of 468 spontaneous CSF leaks/encephaloceles from high-volume skull base programs. IIH, obesity, and OSA were the dominant comorbidities. Recurrence predictors included IIH, inferior clivus repair location, and inadequate IIH treatment. Largest multicenter dataset on this topic; guides peri-operative IIH management and highlights the need for concurrent ICP control in high-risk patients to prevent recurrence.</p>
-  <div class="noted-source">European Archives of Oto-Rhino-Laryngology · PMID 42472923 · <button class="copy-pmid noted-copy" data-pmid="42472923" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Retrospective Case-Control</span><span class="badge-type-mini">Rhinology</span>
-  </div>
-  <div class="noted-title">Angular Variations of the Lateral Nasal Wall as Independent Predictors of Primary Acquired Nasolacrimal Duct Obstruction: A Computed Tomography Study.</div>
-  <p class="noted-summary">Retrospective case-control (42 PANDO patients vs 42 controls). CT-based angular measurements of the anterior medial lacrimal crest–uncinate process angle and nasal bone–lacrimal crest angle were significantly associated with primary acquired nasolacrimal duct obstruction. Identifies novel anatomic predictors on pre-existing paranasal sinus CT that may flag patients at risk for PANDO before symptomatic onset; relevant to pre-operative rhinologic and oculoplastic planning.</p>
-  <div class="noted-source">American Journal of Rhinology &amp; Allergy · PMID 42439197 · <button class="copy-pmid noted-copy" data-pmid="42439197" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">SR / Meta-Analysis</span><span class="badge-type-mini">Head &amp; Neck Oncology</span>
-  </div>
-  <div class="noted-title">Prophylactic vs. reactive percutaneous endoscopic gastrostomy (PEG) tubes in head and neck cancer: a meta-analysis of survival and supportive care outcomes.</div>
-  <p class="noted-summary">SR/MA comparing prophylactic (upfront) vs reactive (as-needed) PEG tube placement in HNC patients undergoing chemoradiation. Prophylactic PEG did not significantly reduce mortality, long-term PEG dependence, or hospitalization rates vs reactive strategy. Challenges the routine use of prophylactic PEG in all HNC patients; supports a risk-stratified rather than universal prophylactic approach.</p>
-  <div class="noted-source">Supportive Care in Cancer · PMID 42446784 · <button class="copy-pmid noted-copy" data-pmid="42446784" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Multicenter Retrospective</span><span class="badge-type-mini">Rhinology / Anterior Skull Base</span>
-  </div>
-  <div class="noted-title">Septal flip flap after endoscopic unilateral resection of sinonasal tumors: a multicenter experience of 133 patients.</div>
-  <p class="noted-summary">Multicenter series, 133 patients undergoing endoscopic unilateral sinonasal tumor resection reconstructed with septal flip flap. Overall CSF leak rate 5.3%; comparable between autologous and non-autologous graft materials. SFF is a reliable, low-morbidity reconstruction for unilateral endoscopic resection and can be safely used without free tissue or Hadad–Bassagasteguy flap in appropriate cases. Multi-institutional experience strengthens generalizability.</p>
-  <div class="noted-source">European Archives of Oto-Rhino-Laryngology · PMID 42472934 · <button class="copy-pmid noted-copy" data-pmid="42472934" type="button">📋 Copy</button></div>
-</div>
-
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">n = 887</span>
+            </div>
+            <div class="noted-title">Incidence of retropharyngeal lymph node involvement in oropharyngeal squamous cell carcinoma: a systematic review and meta-analysis.</div>
+            <p class="noted-summary">Pooled prevalence of retropharyngeal lymph node (RPN) involvement in OPSCC was 13% (95% CI 11–16%), with higher rates in HPV-negative tumors (21% vs. 11% HPV+), T4 disease (18%), node-positive disease (16%), and tonsillar vs. base-of-tongue primaries (14% vs. 8%). Among patients with RPN involvement, pooled distant metastasis rate was 16%. Findings support selective inclusion of retropharyngeal nodes in radiation target volumes for high-risk OPSCC subgroups, even when clinical imaging appears negative.</p>
+            <div class="noted-source">Oral Oncology · PMID 42531843 · <button class="copy-pmid noted-copy" data-pmid="42531843" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">n = 1,734</span>
+            </div>
+            <div class="noted-title">Comparative Meta-Analysis of Complications of Maxillomandibular Advancement for OSA versus Orthognathic Surgeries for Dentofacial Deformities.</div>
+            <p class="noted-summary">Among 18 bimaxillary (n = 1,734) and 17 MMA (n = 601) studies, MMA was associated with longer operative time (344 vs. 327 min; p = 0.021), longer hospital stay (4.2 vs. 3.3 days; p &lt; 0.0001), higher infection rate (16.3% vs. 3.6%), and higher hardware removal rate (22% vs. 4.2%) compared to bimaxillary orthognathic surgery. Neurosensory disturbance was comparable (MMA 40% vs. bimaxillary 45%). MMA surgical success was 79.6% with a 39% cure rate. Noteworthy: 12.3% of bimaxillary patients for DFDs developed postoperative OSA.</p>
+            <div class="noted-source">Otolaryngol Head Neck Surg · PMID 42529894 · <button class="copy-pmid noted-copy" data-pmid="42529894" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">n = 1,564</span>
+            </div>
+            <div class="noted-title">CHARGE Syndrome: What an Otolaryngologist Should Know-A Systematic Review and Meta-Analysis.</div>
+            <p class="noted-summary">Systematic review of 70 studies (1,564 patients) characterizing otolaryngologic manifestations in CHARGE syndrome. Bilateral choanal atresia pooled prevalence 31.5%, tracheostomy 23.6%, laryngomalacia 27.7%, cochlear hypoplasia 49.8%, cochlear nerve hypoplasia 49.1%, semicircular canal hypoplasia/aplasia 73.6%, OME 54.5%, facial palsy 35.2%, cleft lip/palate 25.6%. The high co-occurrence of hearing, airway, and craniofacial pathology makes CHARGE one of the most complex patients an ENT surgeon manages; this review provides the first meta-analytic prevalence estimates to guide systematic preoperative planning.</p>
+            <div class="noted-source">Otolaryngol Head Neck Surg · PMID 42516038 · <button class="copy-pmid noted-copy" data-pmid="42516038" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Meta-Analysis</span>
+            </div>
+            <div class="noted-title">Outcomes of anatomy based planning in cochlear implantation: a meta-analysis of advancing precision otologic medicine.</div>
+            <p class="noted-summary">Meta-analysis of 11 studies (291 post-lingually deafened adults) showed anatomy-based planning (ABP) with individualized electrode array selection significantly improved both speech (OR = 1.93, 95% CI 1.56–2.40) and auditory/music-related outcomes (OR = 2.38, 95% CI 1.98–2.86) vs. conventional planning, consistently across round window and cochleostomy approaches. ABP aligns electrode array with cochlear anatomy to optimize frequency-place match and may become standard of care as individualized CI planning tools become more accessible.</p>
+            <div class="noted-source">Eur Arch ORL · PMID 42543436 · <button class="copy-pmid noted-copy" data-pmid="42543436" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">n = 4,730</span>
+            </div>
+            <div class="noted-title">Performance of Machine Learning Models for Predicting Occult Nodal Metastasis in Oral Cavity Squamous Cell Carcinoma: A Systematic Review and Diagnostic Accuracy Meta-Analysis.</div>
+            <p class="noted-summary">Diagnostic accuracy meta-analysis of 13 retrospective studies (4,730 cN0 OCSCC patients; pooled occult metastasis prevalence 23.6%). Across 5 external validation cohorts, ML models achieved pooled sensitivity 0.79 and specificity 0.84 — outperforming conventional staging alone but with NPV too low to safely omit elective neck dissection. No single ML model was externally validated in a prospective cohort. ML tools for neck staging in OCSCC are promising but not yet ready for practice without prospective validation.</p>
+            <div class="noted-source">Cancers (MDPI) · PMID 42512336 · <button class="copy-pmid noted-copy" data-pmid="42512336" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">n = 769</span>
+            </div>
+            <div class="noted-title">Endocrine Outcomes and Complications After Endoscopic versus Microscopic Transsphenoidal Surgery for Pituitary Adenomas: A Systematic Review.</div>
+            <p class="noted-summary">Systematic review of 8 comparative studies (769 patients: 392 ETS, 377 MTS) showed endoscopic transsphenoidal surgery (ETS) significantly favored over microscopic (MTS) for composite endocrine success (remission in functioning + preserved function in non-functioning adenomas; RR 1.26, 95% CI 1.13–1.41). Although the pituitary is primarily a neurosurgical domain, ENT teams providing anterior skull base access are increasingly involved; understanding ETS&#39;s endocrine superiority supports the case for endoscopic-first approaches.</p>
+            <div class="noted-source">J Vis Exp (JoVE) · PMID 42507691 · <button class="copy-pmid noted-copy" data-pmid="42507691" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="5">5</span>
+              <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">n = 8,842</span>
+            </div>
+            <div class="noted-title">Artificial intelligence tools for the assessment and management of dysphagia: a scoping review.</div>
+            <p class="noted-summary">Scoping review of 27 AI studies (8,842 participants) identified applications across VFSS, FEES, and bedside screening for dysphagia. Most used ML/deep learning on videofluoroscopic or endoscopic swallowing studies, primarily in stroke and head &amp; neck cancer populations. Studies predominantly from the USA, South Korea, Japan, and China; heterogeneous outcome measures precluded meta-analysis. AI-assisted dysphagia assessment is at an early-adopter stage; clinical translation requires prospective validation on diverse populations before routinization.</p>
+            <div class="noted-source">BMJ Open · PMID 42538117 · <button class="copy-pmid noted-copy" data-pmid="42538117" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Study</span>
+            </div>
+            <div class="noted-title">Circulating Tumor DNA in Head and Neck Cancer: A Review From the American Head and Neck Society.</div>
+            <p class="noted-summary">Review from the American Head and Neck Society examining the current utility of ctDNA and oncogenic viral DNA (HPV and EBV) as biomarkers in head and neck cancer. ctDNA is increasingly viable for treatment response monitoring, detection of minimal residual disease (MRD), and surveillance in OPSCC (HPV+) and nasopharyngeal carcinoma (EBV+). Multiple clinical trials now incorporate ctDNA endpoints. Clinically, ctDNA clearance after therapy may eventually guide de-escalation decisions in HPV+ OPSCC — a field-shaping development still in trial phase.</p>
+            <div class="noted-source">JAMA Otolaryngol Head Neck Surg · PMID 42530947 · <button class="copy-pmid noted-copy" data-pmid="42530947" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Multicenter</span><span class="badge-type-mini">n = 615</span>
+            </div>
+            <div class="noted-title">Reconsidering surgical thresholds for stapedotomy: multicenter outcome analysis.</div>
+            <p class="noted-summary">Multicenter retrospective cohort of 615 stapedotomy patients across centers with differing preoperative audiometric thresholds. Lower preoperative thresholds (e.g., operating at &lt; 40 dB HL PTA) were not associated with worse postoperative audiometric outcomes compared to more conservative thresholds. Findings suggest current recommendations to defer surgery until hearing loss exceeds a fixed threshold may be overly restrictive — earlier intervention may be safe and preserve residual auditory function.</p>
+            <div class="noted-source">Eur Arch ORL · PMID 42543422 · <button class="copy-pmid noted-copy" data-pmid="42543422" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Retrospective</span><span class="badge-type-mini">n = 6,014</span>
+            </div>
+            <div class="noted-title">HPV Vaccination and Sexual Behaviors Among Middle-Aged United States Adults.</div>
+            <p class="noted-summary">Retrospective analysis of 6,014 U.S. adults aged 27–45 (representing ~82.8 million adults; NSFG 2022–2023). HPV vaccination rates in this group remained low despite FDA approval for catch-up vaccination through age 45. Having multiple recent sexual partners was associated with higher vaccination uptake — suggesting high-risk adults self-select but population-level coverage is inadequate. For ENT/H&amp;N surgeons counseling adult patients, proactive HPV vaccination discussion remains underutilized even for established patients.</p>
+            <div class="noted-source">Otolaryngol Head Neck Surg · PMID 42529907 · <button class="copy-pmid noted-copy" data-pmid="42529907" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Observational Study</span><span class="badge-type-mini">n = 2,058</span>
+            </div>
+            <div class="noted-title">Functional Outcomes of Dorsal Preservation Rhinoplasty: A Systematic Review and Meta-Analysis.</div>
+            <p class="noted-summary">Systematic review and meta-analysis of functional outcomes in dorsal preservation rhinoplasty (DPR) vs. structural rhinoplasty across 2,058 patients. DPR demonstrated comparable or better objective nasal airway outcomes (acoustic rhinometry, rhinomanometry) vs. structural approaches in most studies. The concern that DPR narrows the nasal airway was not substantiated in this pooled analysis. Supports DPR as both an aesthetic and functional option for dorsal reduction cases.</p>
+            <div class="noted-source">Facial Plast Surg · PMID 42532128 · <button class="copy-pmid noted-copy" data-pmid="42532128" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Observational Study</span><span class="badge-type-mini">n = 809</span>
+            </div>
+            <div class="noted-title">Lymph Node Yield as A Quality Metric in the Treatment of Oral Cavity Squamous Cell Carcinoma: The Need for Centre-Specific Thresholds.</div>
+            <p class="noted-summary">Two-center study (n = 809) showing mean lymph node yield (LNY) differed significantly between centers and between step serial sectioning (SSS) vs. inspection-and-palpation pathology technique. A universal LNY cutoff as a quality metric for oral cavity SCC neck dissections is therefore not valid — center-specific thresholds that account for institutional pathology technique are needed. Surgeons comparing their LNY to national benchmarks should be cautious unless pathology methods are standardized.</p>
+            <div class="noted-source">Head &amp; Neck · PMID 42527747 · <button class="copy-pmid noted-copy" data-pmid="42527747" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Retrospective</span><span class="badge-type-mini">n = 650</span>
+            </div>
+            <div class="noted-title">Evolution of hazard of recurrence and death after surgery for oropharyngeal cancer according to HPV status.</div>
+            <p class="noted-summary">Multicenter retrospective cohort of 650 OPSCC patients undergoing upfront surgery. HPV-positive patients had substantially lower 5-year cumulative recurrence hazard vs. HPV-negative throughout follow-up, but the hazard of recurrence did not become truly negligible until approximately 3–4 years post-surgery in HPV+ disease. Cancer-specific survival curves diverged sharply beyond 2 years, with HPV-negative disease carrying persistently elevated late recurrence risk. Findings inform surveillance interval decisions — HPV-negative OPSCC warrants extended close surveillance.</p>
+            <div class="noted-source">Oral Oncology · PMID 42526064 · <button class="copy-pmid noted-copy" data-pmid="42526064" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Cohort Study</span><span class="badge-type-mini">n = 363</span>
+            </div>
+            <div class="noted-title">Partial Parotidectomy Outcomes for Pleomorphic Adenoma: 15-Year Academic Center Experience.</div>
+            <p class="noted-summary">Single-surgeon, academic-center cohort of 363 partial parotidectomies for pleomorphic adenoma over 15 years. Local recurrence rate was 1.4% at median follow-up 8.2 years. Facial nerve dysfunction (House-Brackmann 2–3) was transient in 14.3%, permanent in 0.8%. Findings support partial parotidectomy as the procedure of choice for pleomorphic adenoma when negative margins can be achieved — total parotidectomy is not required for benign disease.</p>
+            <div class="noted-source">Laryngoscope · PMID 42541395 · <button class="copy-pmid noted-copy" data-pmid="42541395" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Prospective</span>
+            </div>
+            <div class="noted-title">Clinical effectiveness of salvage intratympanic corticosteroids for idiopathic sudden sensorineural hearing loss: a real-world observational series.</div>
+            <p class="noted-summary">Prospective observational series from a tertiary center examining salvage intratympanic corticosteroid (ITC) therapy (methylprednisolone 40 mg/mL weekly × 3 weeks) in ISSNHL patients with incomplete recovery after systemic steroids. Primary outcome: clinically meaningful PTA4 improvement (≥ 10 dB). Response rates and timing of recovery are described. Results support salvage ITC as an accessible, well-tolerated second-line option for ISSNHL nonresponders — consistent with current AAO-HNS guideline recommendations.</p>
+            <div class="noted-source">Eur Arch ORL · PMID 42543417 · <button class="copy-pmid noted-copy" data-pmid="42543417" type="button">📋 Copy</button></div>
+          </div>
+          
         </div>
 
         <footer class="report-footer">
-          <span>Run · 2026-07-20 · 06:05 ET</span>
+          <span>Run · 2026-08-03 · 06:02 ET</span>
           <div style="display:flex;gap:1.5rem;">
             <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
             <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
           </div>
         </footer>
-
       </section>
     </div>
   </div>
 </main>
-
 <script type="application/json" id="digest-data">
 {
-  "meta": {
-    "date": "2026-07-20",
-    "edat_range": [
-      "2026-07-13",
-      "2026-07-20"
-    ],
-    "surfaced": 902,
-    "made_cut": 20,
-    "must_read": 5,
-    "policy_updates": 1
-  },
+  "date": "2026-08-03",
   "must_read": [
     {
-      "pmid": "42442381",
-      "score": 5,
-      "title": "Efficacy and safety of dabrafenib plus trametinib in adults with differentiated thyroid cancer: a randomised, double-blind, placebo-controlled, phase 3 trial.",
-      "journal": "The Lancet. Oncology",
-      "study_type": "Phase 3 RCT",
-      "n": 101,
-      "doi": "10.1016/S1470-2045(26)00133-6",
-      "rationale": "Phase 3, double-blind, placebo-controlled RCT published in The Lancet Oncology. Near-doubling of ORR (57% vs 4%) and PFS improvement (12.8 vs 3.7 months, HR 0.38) in BRAF V600E-mutant RAI-refractory thyroid cancer. Practice-defining evidence for a targetable oncogene in an otherwise difficult-to-treat metastatic subgroup. Senior author is Lori Wirth MD, MGH."
+      "pmid": "42528018",
+      "score": 4,
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 4395,
+      "journal": "Laryngoscope",
+      "journal_impact_factor": null,
+      "title": "Treatment of Locally Advanced Layngohypopharyngeal Cancers: A Network Meta-Analysis.",
+      "authors_display": "Capriotti V, Cin ED, De Stefani A, Nardone M et al. (+3)",
+      "senior_author": "Petrelli F",
+      "senior_affiliation": "Oncology Unit, ASST Bergamo Ovest, Treviglio, Italy.",
+      "doi": "10.1002/lary.70780",
+      "badges": [
+        "Meta-Analysis",
+        "n = 4,395"
+      ],
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Locally advanced and resectable laryngeal/hypopharyngeal squamous cell carcinoma (SCC) carries high morbidity from total laryngectomy; organ-preservation strategies have proliferated but their relative efficacy has not been ranked against each other in a unified analysis."
+        },
+        {
+          "label": "METHODS",
+          "text": "Bayesian random-effects network meta-analysis of 15 RCTs (n = 4,395) enrolling adults with locally advanced/resectable laryngeal/hypopharyngeal SCC. Thirteen non-surgical strategies evaluated including concurrent cisplatin CTRT, induction TPF \u2192 RT, RT \u00b1 cetuximab, altered-fractionation RT, and surgery + postop RT. Outcomes: laryngeal preservation, overall survival, locoregional control."
+        },
+        {
+          "label": "RESULTS",
+          "text": "For laryngeal preservation, cisplatin CTRT ranked highest (SUCRA 0.73), followed by induction TPF \u2192 RT (0.72). All non-surgical strategies outperformed surgery + postoperative RT for preservation (HR 0.34; 95% CI 0.20\u20130.58). For overall survival, induction PF \u2192 RT ranked best (SUCRA 0.68). For locoregional control, induction TPF \u2192 RT ranked best (SUCRA 0.94)."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Older RCTs may not reflect modern imaging, surgical technique, or systemic regimens. Heterogeneity across fractionation schedules and cisplatin dosing. No immunotherapy arms included. SUCRA rankings do not equate to statistical superiority in all pairwise comparisons."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "Cisplatin-based concurrent chemoradiation remains the standard organ-preservation strategy for resectable laryngeal/hypopharyngeal SCC. Induction TPF followed by RT is the preferred option for locoregional control. Surgery + postoperative RT should be reserved for cases where preservation fails or is not feasible; offering it upfront as the preferred organ-preservation path is not supported by the data."
+        }
+      ],
+      "rationale": "Network meta-analysis of 15 RCTs provides the highest level of comparative evidence available for this treatment decision. Published in Laryngoscope (ENT flagship), directly informs the organ-preservation vs. upfront surgery debate that arises weekly in H&N tumor boards."
     },
     {
-      "pmid": "42461651",
+      "pmid": "42509349",
       "score": 4,
-      "title": "Hypoglossal Nerve Stimulation and the Incidence of Cardiovascular Disease.",
-      "journal": "JAMA Otolaryngology\u2013Head & Neck Surgery",
-      "study_type": "Retrospective Cohort",
-      "n": 3786,
-      "doi": "10.1001/jamaoto.2026.1777",
-      "rationale": "Large propensity-matched commercial insurance cohort (N=3,786 HGNS patients) in JAMA Otolaryngology with clinically important time-stratified cardiovascular outcomes data. First large evidence on whether HGNS carries downstream cardiovascular benefit, directly relevant to counseling the growing population of implant candidates."
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 758,
+      "journal": "Sleep & Breathing",
+      "journal_impact_factor": null,
+      "title": "Comparison of upper airway stimulation, tongue base surgeries, and continuous positive airway pressure for moderate-to-severe obstructive sleep apnea: a systematic review and network meta-analysis.",
+      "authors_display": "Kim DH, Jang DW, Hwang SH",
+      "senior_author": "Hwang SH",
+      "senior_affiliation": "Department of Otolaryngology-Head and Neck Surgery, Bucheon ",
+      "doi": "10.1007/s11325-026-03772-2",
+      "badges": [
+        "Meta-Analysis",
+        "n = 758"
+      ],
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Moderate-to-severe OSA resistant to CPAP is increasingly managed with upper airway stimulation (UAS/Inspire) or tongue base surgery (TORS, plasma ablation). A head-to-head comparison across all three modalities in the same framework has been lacking."
+        },
+        {
+          "label": "METHODS",
+          "text": "Systematic review and Bayesian network meta-analysis of 10 studies (n = 758) comparing UAS, TORS, plasma ablation tongue base reduction (PATBR), and CPAP. Outcomes: AHI reduction, ESS, lowest SpO\u2082, hospital stay, surgical success (AHI < 20 with \u2265 50% reduction), cure rate (AHI < 5)."
+        },
+        {
+          "label": "RESULTS",
+          "text": "UAS delivered significantly greater AHI reduction than TORS (SMD = 1.36 [0.27\u20132.46]) and significantly improved lowest SpO\u2082 vs. TORS (SMD = 1.46 [0.30\u20132.62]). CPAP showed greater (non-significant) AHI improvement vs. TORS (SMD = 1.17). ESS improvement did not differ significantly across arms. CPAP (OR 3.73) and UAS (OR 5.58) had significantly higher surgical success rates vs. TORS. Hospital stay was shortest for PATBR and UAS vs. TORS."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Small total n (758) limits precision. Studies vary in patient selection \u2014 TORS patients may include those with concurrent multilevel pathology. CPAP is not a surgical option so comparison of \"success rates\" conflates different metrics. Short-term follow-up in several studies."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "For CPAP-intolerant patients with tongue base collapse, UAS outperforms TORS on objective AHI reduction, oxygenation, and success rates with shorter hospital stay. TORS alone as a single-level procedure for moderate-to-severe OSA has the weakest evidence among these options. DISE-guided patient selection for UAS remains essential."
+        }
+      ],
+      "rationale": "Network meta-analysis directly addresses the most contested day-to-day decision in sleep surgery: which intervention for CPAP-intolerant patients with tongue base collapse. UAS vs. TORS is a live debate in many ENT practices; this analysis provides the most objective ranking available."
     },
     {
-      "pmid": "42467018",
+      "pmid": "42531485",
       "score": 4,
-      "title": "Dupilumab in chronic rhinosinusitis without nasal polyps: randomized phase 2 trial (ORION).",
-      "journal": "Rhinology",
-      "study_type": "Phase 2 RCT",
-      "n": 38,
-      "doi": "10.4193/Rhin25.660",
-      "rationale": "First randomized phase 2 trial of dupilumab in CRS without nasal polyps (CRSsNP) \u2014 a population where biologic therapy has no established role. Rhinology journal, small but well-controlled; radiographic primary endpoint. Signals an eosinophilic phenotype (sBEC \u2265300) that may respond, expanding biologic candidacy criteria."
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 9119,
+      "journal": "Otol Neurotol",
+      "journal_impact_factor": null,
+      "title": "A Systematic Review of Audiological Criteria Used to Determine the Need for MRI Screening in Patients With Suspected Vestibular Schwannoma.",
+      "authors_display": "Awad K, Katz G, Freeman S, Lloyd S et al. (+1)",
+      "senior_author": "Heward E",
+      "senior_affiliation": "Division of Infection, Immunity and Respiratory Medicine, Sc",
+      "doi": "10.1097/MAO.0000000000004994",
+      "badges": [
+        "Meta-Analysis",
+        "n = 9,119"
+      ],
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Current guidelines vary substantially on which audiometric criteria should trigger MRI referral to screen for vestibular schwannoma (VS) in patients with asymmetric SNHL. There is no universally agreed threshold."
+        },
+        {
+          "label": "METHODS",
+          "text": "PRISMA-compliant systematic review (PROSPERO CRD420251131909) across Medline, PubMed, Embase, Cochrane, and Scopus. 20 studies comprising 9,119 patients (1,169 VS cases) meeting inclusion criteria. Primary outcomes: sensitivity and specificity of audiometric criteria (pure tone audiometry thresholds, ABR, vestibular testing, audiometric configuration) vs. MRI."
+        },
+        {
+          "label": "RESULTS",
+          "text": "PTA threshold criteria showed an inverse sensitivity-specificity tradeoff: lower thresholds (e.g., \u226515 dB asymmetry) approached 100% sensitivity but markedly reduced specificity, increasing MRI utilization. Stricter criteria improved specificity but often reduced sensitivity below the 90% threshold considered acceptable for screening. ABR demonstrated high sensitivity (\u2265 90%) across most studies. Vestibular testing data were limited."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "High clinical and methodological heterogeneity precluded formal meta-analysis; narrative synthesis only. Variable VS prevalence across studies affects predictive values. Most studies retrospective with referral bias."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "No single audiometric criterion achieves both adequate sensitivity (\u2265 90%) and acceptable specificity for VS screening. ABR may offer the most reliable single-test sensitivity. Practitioners who tighten MRI thresholds to reduce imaging volume risk missing small VS with preserved hearing. A risk-stratified, shared decision-making approach incorporating patient age, hearing trajectory, and tinnitus burden is more defensible than any fixed audiometric cutoff."
+        }
+      ],
+      "rationale": "Largest systematic review on VS audiometric screening (n = 9,119), directly addresses a daily clinical decision for every otologist and general ENT who manages asymmetric SNHL. In an era of cost consciousness and MRI wait times, the \"how tight can I draw the referral threshold\" question is active."
     },
     {
-      "pmid": "42472951",
+      "pmid": "42543419",
       "score": 4,
-      "title": "Long-term predictors of recurrence in pediatric recurrent respiratory papillomatosis.",
-      "journal": "European Archives of Oto-Rhino-Laryngology",
-      "study_type": "Multicenter Prospective Cohort",
-      "n": 629,
-      "doi": "10.1007/s00405-026-10417-3",
-      "rationale": "Largest prospective multicenter cohort on pediatric RRP (n=629, 10-year follow-up). Identifies novel modifiable risk factors beyond HPV type, including lesion growth rate, SES, and immunodeficiency. Bevacizumab shows strongest adjuvant association. Provides the most comprehensive RRP recurrence risk model to date."
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 824,
+      "journal": "Eur Arch ORL",
+      "journal_impact_factor": null,
+      "title": "Conventional clamp-and-tie hemostasis versus energy-based hemostasis devices in total thyroidectomy: a systematic review and Bayesian network meta-analysis of randomized controlled trials.",
+      "authors_display": "Awad B, Ashi MA, Abualjamal RY, Allahim MA et al. (+6)",
+      "senior_author": "Halawani M",
+      "senior_affiliation": "King Abdullah International Medical Research Center , Jeddah",
+      "doi": "10.1007/s00405-026-10504-5",
+      "badges": [
+        "Meta-Analysis",
+        "n = 824"
+      ],
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Total thyroidectomy is performed either with conventional clamp-and-tie hemostasis (CH) or with advanced energy-based hemostasis devices (HEDs) \u2014 Harmonic Scalpel (HS) or LigaSure (LS). Evidence on optimal device choice for safety and efficiency has been mixed."
+        },
+        {
+          "label": "METHODS",
+          "text": "Bayesian network meta-analysis of 22 prospective RCTs (3,824 patients) published 2005\u20132022. Interventions: HS, LS, CH. Primary outcomes: operative time, intraoperative blood loss, transient RLN injury, transient hypocalcemia. Secondary: postoperative hematoma, drain output, hospital stay."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Both HS and LS significantly reduced operative time by approximately 22 minutes vs. CH (HS SUCRA 0.76, LS SUCRA 0.73). HS further demonstrated additional significant advantages in intraoperative blood loss and drain output. Transient RLN injury and hypocalcemia rates did not significantly differ across devices. Postoperative hematoma was comparable across arms."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Studies span 2005\u20132022, with variation in technique, surgeon experience, and device generations. Permanent complications (RLN injury, hypoparathyroidism) were too rare in RCTs to power meaningful comparisons. Publication bias possible for positive trials."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "Harmonic Scalpel and LigaSure both reduce total thyroidectomy operative time by ~22 minutes without increasing RLN injury or hypocalcemia risk vs. clamp-and-tie. Harmonic Scalpel edges ahead on blood loss and drain output. For high-volume thyroid practices, energy device adoption is justified on efficiency and safety grounds \u2014 and reduces anesthesia exposure at no added complication cost."
+        }
+      ],
+      "rationale": "Bayesian network meta-analysis of 22 RCTs provides the definitive head-to-head ranking of hemostasis approaches in thyroidectomy. Operative time reduction of 22 minutes has real throughput implications; the safety equivalence data will support adoption of energy devices where budget or institutional habit has been the barrier."
     },
     {
-      "pmid": "42442127",
+      "pmid": "42522170",
       "score": 4,
-      "title": "Balloon dilation of the eustachian tube in pediatric patients: A systematic review and meta-analysis of functional, audiological, and safety outcomes.",
-      "journal": "International Journal of Pediatric Otorhinolaryngology",
-      "study_type": "Systematic Review / Meta-Analysis",
-      "n": 1175,
-      "doi": "10.1016/j.ijporl.2026.112931",
-      "rationale": "First SR/MA of BDET specifically in pediatric patients. 20 studies, 1,175 children (1,868 ears). Within-cohort benefits in ABG and ET scores are significant, but comparative evidence vs standard management does not yet confirm superiority. Critical synthesis for practices considering BDET expansion to pediatric populations."
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 5260,
+      "journal": "Endocrinol Diabetes Metab",
+      "journal_impact_factor": null,
+      "title": "Reassessing Radioactive Iodine Use After Thyroidectomy in Low-Risk Differentiated Thyroid Cancer: A Systematic Review and Meta-Analysis.",
+      "authors_display": "Asif M, Nisar M, Asif A, Batool M et al. (+2)",
+      "senior_author": "Amin MHJ",
+      "senior_affiliation": "Alzaiem Alazhari University, Khartoum, Sudan.",
+      "doi": "10.1002/edm2.70293",
+      "badges": [
+        "Meta-Analysis",
+        "n = 5,260"
+      ],
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "American Thyroid Association guidelines recommend against routine radioactive iodine (RAI) in low-risk differentiated thyroid cancer (DTC) post-thyroidectomy, yet RAI continues to be administered at high rates. Evidence on its net benefit in this population remains contested."
+        },
+        {
+          "label": "METHODS",
+          "text": "Systematic review and meta-analysis of observational studies and RCTs comparing RAI vs. no RAI in low-risk DTC patients. Databases: MEDLINE, Scopus, Cochrane, Google Scholar (through December 2025). 10 studies (n = 5,260) included. Outcomes: recurrence, recurrence-free survival (5-year), treatment response, serum thyroglobulin, and side effects. Random-effects model; results as OR (95% CI)."
+        },
+        {
+          "label": "RESULTS",
+          "text": "No statistically significant difference between RAI and no-RAI groups for: recurrence (OR 0.66, 95% CI 0.41\u20131.08; p = 0.10), 5-year recurrence-free survival (OR 2.47, 95% CI 0.63\u20139.62; p = 0.19), or excellent treatment response (OR 1.00; p = 1.00). Xerostomia was significantly more common with RAI (OR 5.x, p < 0.05)."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Predominantly observational studies with heterogeneous definitions of \"low-risk.\" Limited long-term follow-up (most studies < 10 years). RAI dose and protocol varied across studies. Publication bias possible."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "RAI offers no measurable improvement in recurrence or survival for low-risk DTC, while adding salivary morbidity (xerostomia). This meta-analysis reinforces current ATA guideline recommendations against routine RAI in this population. Head and neck surgeons and endocrinologists should be confident in shared decision conversations declining RAI for low-risk patients, especially younger patients where lifetime salivary morbidity matters."
+        }
+      ],
+      "rationale": "Meta-analysis of 10 studies (n = 5,260) addresses a genuine practice controversy \u2014 despite guidelines, RAI overuse in low-risk thyroid cancer remains common. The null efficacy + xerostomia findings provide strong ammunition for guideline adherence conversations. Directly affects post-thyroidectomy care delivered by ENT/H&N surgeons."
     }
   ],
   "noted": [
     {
-      "pmid": "42441964",
-      "score": 3,
-      "title": "Obstructive Sleep Apnea.",
-      "journal": "Annals of Internal Medicine",
-      "summary": "Comprehensive clinical review in Annals of Internal Medicine covering OSA epidemiology, diagnosis via home sleep testing, and management hierarchy (weight loss, positional therapy, PAP, oral appliances, and surgical options). Emphasizes that primary care clinicians can now initiate OSA diagnosis and treatment without specialist referral using available home testing technologies. Covers BP benefit and residual cardiovascular uncertainty. Useful for interdisciplinary teams managing multimorbid sleep patients."
+      "pmid": "42531843",
+      "score": 4,
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 887,
+      "journal": "Oral Oncology",
+      "title": "Incidence of retropharyngeal lymph node involvement in oropharyngeal squamous cell carcinoma: a systematic review and meta-analysis.",
+      "doi": "10.1016/j.oraloncology.2026.108090",
+      "badges": [
+        "Meta-Analysis",
+        "n = 887"
+      ],
+      "summary": "Pooled prevalence of retropharyngeal lymph node (RPN) involvement in OPSCC was 13% (95% CI 11\u201316%), with higher rates in HPV-negative tumors (21% vs. 11% HPV+), T4 disease (18%), node-positive disease (16%), and tonsillar vs. base-of-tongue primaries (14% vs. 8%). Among patients with RPN involvement, pooled distant metastasis rate was 16%. Findings support selective inclusion of retropharyngeal nodes in radiation target volumes for high-risk OPSCC subgroups, even when clinical imaging appears negative."
     },
     {
-      "pmid": "42439110",
-      "score": 3,
-      "title": "Robotic Insertion of Cochlear Implants and Vestibular Function in Children.",
-      "journal": "Otology & Neurotology",
-      "summary": "Single-center retrospective, 80 ears: robotic-assisted CI electrode insertion (n=42) vs manual (n=38). Vestibular function assessed by cVEMP/oVEMP and video head impulse test. Robotic group showed trends toward better post-operative vestibular preservation, though clinical significance and balance outcomes need longer follow-up. Provides early evidence that robotic insertion may reduce trauma in pediatric cochlear implantation."
+      "pmid": "42529894",
+      "score": 4,
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 1734,
+      "journal": "Otolaryngol Head Neck Surg",
+      "title": "Comparative Meta-Analysis of Complications of Maxillomandibular Advancement for OSA versus Orthognathic Surgeries for Dentofacial Deformities.",
+      "doi": "10.1002/ohn.70352",
+      "badges": [
+        "Meta-Analysis",
+        "n = 1,734"
+      ],
+      "summary": "Among 18 bimaxillary (n = 1,734) and 17 MMA (n = 601) studies, MMA was associated with longer operative time (344 vs. 327 min; p = 0.021), longer hospital stay (4.2 vs. 3.3 days; p < 0.0001), higher infection rate (16.3% vs. 3.6%), and higher hardware removal rate (22% vs. 4.2%) compared to bimaxillary orthognathic surgery. Neurosensory disturbance was comparable (MMA 40% vs. bimaxillary 45%). MMA surgical success was 79.6% with a 39% cure rate. Noteworthy: 12.3% of bimaxillary patients for DFDs developed postoperative OSA."
     },
     {
-      "pmid": "42439112",
-      "score": 3,
-      "title": "Intact Bridge Mastoidectomy: A Hybrid Approach as a Middle-Ground Between Intact Canal Wall and Open Cavity Techniques.",
-      "journal": "Otology & Neurotology",
-      "summary": "Retrospective series of 322 tympanomastoidectomies (ICW n=185, IBM n=61, OC n=76). Intact bridge mastoidectomy combines visualization advantages of OC with the preserved canal wall of ICW. IBM showed comparable hearing outcomes to ICW with lower cavity problem rates vs OC. May offer a practical middle-ground for challenging cholesteatoma resections where full open-cavity is undesirable."
+      "pmid": "42516038",
+      "score": 4,
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 1564,
+      "journal": "Otolaryngol Head Neck Surg",
+      "title": "CHARGE Syndrome: What an Otolaryngologist Should Know-A Systematic Review and Meta-Analysis.",
+      "doi": "10.1002/ohn.70346",
+      "badges": [
+        "Meta-Analysis",
+        "n = 1,564"
+      ],
+      "summary": "Systematic review of 70 studies (1,564 patients) characterizing otolaryngologic manifestations in CHARGE syndrome. Bilateral choanal atresia pooled prevalence 31.5%, tracheostomy 23.6%, laryngomalacia 27.7%, cochlear hypoplasia 49.8%, cochlear nerve hypoplasia 49.1%, semicircular canal hypoplasia/aplasia 73.6%, OME 54.5%, facial palsy 35.2%, cleft lip/palate 25.6%. The high co-occurrence of hearing, airway, and craniofacial pathology makes CHARGE one of the most complex patients an ENT surgeon manages; this review provides the first meta-analytic prevalence estimates to guide systematic preoperative planning."
     },
     {
-      "pmid": "42438472",
-      "score": 3,
-      "title": "Blue-Laser Posterior Nasal Neurolysis via Dual Layer Nerve Modulation for Chronic Rhinitis.",
-      "journal": "Laryngoscope Investigative Otolaryngology",
-      "summary": "Retrospective case series of blue-laser posterior nasal nerve neurolysis using a dual-layer modulation technique for chronic rhinitis (allergic and non-allergic). Patients showed significant improvement in rhinorrhea and nasal obstruction scores. Technique is minimally invasive and endoscopic; may offer an alternative to cryoablation or conventional posterior nasal neurectomy. Larger controlled series needed to confirm durability."
+      "pmid": "42543436",
+      "score": 4,
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 0,
+      "journal": "Eur Arch ORL",
+      "title": "Outcomes of anatomy based planning in cochlear implantation: a meta-analysis of advancing precision otologic medicine.",
+      "doi": "10.1007/s00405-026-10508-1",
+      "badges": [
+        "Meta-Analysis"
+      ],
+      "summary": "Meta-analysis of 11 studies (291 post-lingually deafened adults) showed anatomy-based planning (ABP) with individualized electrode array selection significantly improved both speech (OR = 1.93, 95% CI 1.56\u20132.40) and auditory/music-related outcomes (OR = 2.38, 95% CI 1.98\u20132.86) vs. conventional planning, consistently across round window and cochleostomy approaches. ABP aligns electrode array with cochlear anatomy to optimize frequency-place match and may become standard of care as individualized CI planning tools become more accessible."
     },
     {
-      "pmid": "42440270",
-      "score": 3,
-      "title": "Impact of Cochlear Implantation on Listening-Related Fatigue in Children With Unilateral Hearing Loss.",
-      "journal": "Otology & Neurotology",
-      "summary": "Prospective within-subjects crossover study across 3 academic CI centers. Children with unilateral hearing loss assessed fatigue using Vanderbilt Fatigue Scale and PedsQL during cochlear implant use vs a 3-day device-off period. CI use associated with significantly lower parent-reported listening fatigue. Provides patient-reported outcome evidence that goes beyond audiometric metrics in supporting CI for pediatric UHL."
+      "pmid": "42512336",
+      "score": 4,
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 4730,
+      "journal": "Cancers (MDPI)",
+      "title": "Performance of Machine Learning Models for Predicting Occult Nodal Metastasis in Oral Cavity Squamous Cell Carcinoma: A Systematic Review and Diagnostic Accuracy Meta-Analysis.",
+      "doi": "10.3390/cancers18142271",
+      "badges": [
+        "Meta-Analysis",
+        "n = 4,730"
+      ],
+      "summary": "Diagnostic accuracy meta-analysis of 13 retrospective studies (4,730 cN0 OCSCC patients; pooled occult metastasis prevalence 23.6%). Across 5 external validation cohorts, ML models achieved pooled sensitivity 0.79 and specificity 0.84 \u2014 outperforming conventional staging alone but with NPV too low to safely omit elective neck dissection. No single ML model was externally validated in a prospective cohort. ML tools for neck staging in OCSCC are promising but not yet ready for practice without prospective validation."
     },
     {
-      "pmid": "42443056",
-      "score": 3,
-      "title": "Outcomes of Recurrent Laryngeal Nerve Reinnervation for Pediatric Unilateral Vocal Fold Paralysis.",
-      "journal": "The Laryngoscope",
-      "summary": "Largest single-center, single-surgeon series of RLN reinnervation for pediatric UVFP (2007\u20132025, tertiary children's hospital). Ansa cervicalis-to-RLN anastomosis showed high rates of voice outcome success with sustained results. Results suggest RLN reinnervation may offer superior long-term voice outcomes vs injection laryngoplasty alone in pediatric patients. Case-series design limits conclusions; prospective data needed."
+      "pmid": "42507691",
+      "score": 4,
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 769,
+      "journal": "J Vis Exp (JoVE)",
+      "title": "Endocrine Outcomes and Complications After Endoscopic versus Microscopic Transsphenoidal Surgery for Pituitary Adenomas: A Systematic Review.",
+      "doi": "10.3791/71012",
+      "badges": [
+        "Meta-Analysis",
+        "n = 769"
+      ],
+      "summary": "Systematic review of 8 comparative studies (769 patients: 392 ETS, 377 MTS) showed endoscopic transsphenoidal surgery (ETS) significantly favored over microscopic (MTS) for composite endocrine success (remission in functioning + preserved function in non-functioning adenomas; RR 1.26, 95% CI 1.13\u20131.41). Although the pituitary is primarily a neurosurgical domain, ENT teams providing anterior skull base access are increasingly involved; understanding ETS's endocrine superiority supports the case for endoscopic-first approaches."
     },
     {
-      "pmid": "42439884",
-      "score": 3,
-      "title": "Toward a Functional Terminology: Reconsidering \"Minor Laryngeal Clefts\" as Interarytenoid Dysfunction.",
-      "journal": "Otolaryngology\u2013Head & Neck Surgery",
-      "summary": "Argues that the label \"type 1 laryngeal cleft\" in children is frequently applied to cases where no true anatomic defect exists, but where aspiration responds to interarytenoid augmentation. Proposes renaming these cases \"interarytenoid dysfunction\" to reduce overdiagnosis and unnecessary surgical anxiety. Practice-relevant for pediatric laryngologists who manage aspiration in children \u2014 may reduce interarytenoid augmentation hesitancy."
+      "pmid": "42538117",
+      "score": 5,
+      "novel_technique": false,
+      "study_type": "Meta-Analysis",
+      "n": 8842,
+      "journal": "BMJ Open",
+      "title": "Artificial intelligence tools for the assessment and management of dysphagia: a scoping review.",
+      "doi": "10.1136/bmjopen-2026-119582",
+      "badges": [
+        "Meta-Analysis",
+        "n = 8,842"
+      ],
+      "summary": "Scoping review of 27 AI studies (8,842 participants) identified applications across VFSS, FEES, and bedside screening for dysphagia. Most used ML/deep learning on videofluoroscopic or endoscopic swallowing studies, primarily in stroke and head & neck cancer populations. Studies predominantly from the USA, South Korea, Japan, and China; heterogeneous outcome measures precluded meta-analysis. AI-assisted dysphagia assessment is at an early-adopter stage; clinical translation requires prospective validation on diverse populations before routinization."
     },
     {
-      "pmid": "42472343",
+      "pmid": "42530947",
       "score": 3,
-      "title": "Gene Fusions in Differential Diagnosis of Salivary Gland Neoplasms: A Systematic Review.",
-      "journal": "Ceskoslovenska Patologie",
-      "summary": "Systematic review of characteristic genomic fusions useful for differentiating salivary gland tumor subtypes \u2014 including NTRK, EWSR1-ATF1, MAML2 (mucoepidermoid), and MYB (adenoid cystic) rearrangements. Reviews diagnostic accuracy vs IHC and implications for targeted therapy eligibility. Relevant for ENT-pathology teams encountering diagnostically ambiguous salivary gland tumors; molecular testing is increasingly accessible and actionable."
+      "novel_technique": false,
+      "study_type": "Study",
+      "n": 0,
+      "journal": "JAMA Otolaryngol Head Neck Surg",
+      "title": "Circulating Tumor DNA in Head and Neck Cancer: A Review From the American Head and Neck Society.",
+      "doi": "10.1001/jamaoto.2026.2045",
+      "badges": [
+        "Study"
+      ],
+      "summary": "Review from the American Head and Neck Society examining the current utility of ctDNA and oncogenic viral DNA (HPV and EBV) as biomarkers in head and neck cancer. ctDNA is increasingly viable for treatment response monitoring, detection of minimal residual disease (MRD), and surveillance in OPSCC (HPV+) and nasopharyngeal carcinoma (EBV+). Multiple clinical trials now incorporate ctDNA endpoints. Clinically, ctDNA clearance after therapy may eventually guide de-escalation decisions in HPV+ OPSCC \u2014 a field-shaping development still in trial phase."
     },
     {
-      "pmid": "42463618",
+      "pmid": "42543422",
       "score": 3,
-      "title": "Outcomes of endoscopic and microscopic transsphenoidal pituitary surgery: evidence from a systematic review, meta-analysis, and institutional experience.",
-      "journal": "Neurosurgical Review",
-      "summary": "PRISMA-based SR/MA of comparative endoscopic vs microscopic transsphenoidal pituitary surgery. Endoscopic approach showed higher gross total resection rates and lower intraoperative blood loss, CSF leak, and hospital stay. Combines international literature with an institutional cohort for triangulation. Supports ongoing institutional transition toward endoscopic-first approach for most sellar and parasellar lesions managed jointly by rhinology and neurosurgery."
+      "novel_technique": false,
+      "study_type": "Multicenter Study",
+      "n": 615,
+      "journal": "Eur Arch ORL",
+      "title": "Reconsidering surgical thresholds for stapedotomy: multicenter outcome analysis.",
+      "doi": "10.1007/s00405-026-10532-1",
+      "badges": [
+        "Multicenter",
+        "n = 615"
+      ],
+      "summary": "Multicenter retrospective cohort of 615 stapedotomy patients across centers with differing preoperative audiometric thresholds. Lower preoperative thresholds (e.g., operating at < 40 dB HL PTA) were not associated with worse postoperative audiometric outcomes compared to more conservative thresholds. Findings suggest current recommendations to defer surgery until hearing loss exceeds a fixed threshold may be overly restrictive \u2014 earlier intervention may be safe and preserve residual auditory function."
     },
     {
-      "pmid": "42470432",
+      "pmid": "42529907",
       "score": 3,
-      "title": "Unintentional Weight Loss Does Not Predict Poor Outcomes in Zenker Diverticulum.",
-      "journal": "The Laryngoscope",
-      "summary": "Prospective multicenter study (POUCH registry). Contrary to common teaching, unintentional weight loss at presentation did not correlate with longer symptom duration, larger pouch size, or worse outcomes after Zenker/CPMD treatment. Challenges the clinical assumption that weight loss is a severity or prognostic marker in ZD. Suggests procedural decision-making should rely on symptom severity and anatomy rather than weight loss history."
+      "novel_technique": false,
+      "study_type": "Retrospective Study",
+      "n": 6014,
+      "journal": "Otolaryngol Head Neck Surg",
+      "title": "HPV Vaccination and Sexual Behaviors Among Middle-Aged United States Adults.",
+      "doi": "10.1002/ohn.70345",
+      "badges": [
+        "Retrospective",
+        "n = 6,014"
+      ],
+      "summary": "Retrospective analysis of 6,014 U.S. adults aged 27\u201345 (representing ~82.8 million adults; NSFG 2022\u20132023). HPV vaccination rates in this group remained low despite FDA approval for catch-up vaccination through age 45. Having multiple recent sexual partners was associated with higher vaccination uptake \u2014 suggesting high-risk adults self-select but population-level coverage is inadequate. For ENT/H&N surgeons counseling adult patients, proactive HPV vaccination discussion remains underutilized even for established patients."
     },
     {
-      "pmid": "42445398",
+      "pmid": "42532128",
       "score": 3,
-      "title": "Treatment strategies and survival outcomes of vestibular schwannoma: a comparative study based on Surveillance, Epidemiology, and End Results (SEER) database.",
-      "journal": "Translational Cancer Research",
-      "summary": "SEER analysis of 10,081 VS patients (2004\u20132020). Compared observation, stereotactic radiosurgery, and microsurgical resection for survival and complication outcomes. Tumor size and era of treatment strongly influenced modality selection. VS-specific survival was comparable across approaches. Microsurgery carried higher morbidity in this administrative dataset. Reinforces observation and SRS as first-line for small-to-medium VS where function preservation is the primary goal."
+      "novel_technique": false,
+      "study_type": "Observational Study",
+      "n": 2058,
+      "journal": "Facial Plast Surg",
+      "title": "Functional Outcomes of Dorsal Preservation Rhinoplasty: A Systematic Review and Meta-Analysis.",
+      "doi": "10.1055/a-2927-6789",
+      "badges": [
+        "Observational Study",
+        "n = 2,058"
+      ],
+      "summary": "Systematic review and meta-analysis of functional outcomes in dorsal preservation rhinoplasty (DPR) vs. structural rhinoplasty across 2,058 patients. DPR demonstrated comparable or better objective nasal airway outcomes (acoustic rhinometry, rhinomanometry) vs. structural approaches in most studies. The concern that DPR narrows the nasal airway was not substantiated in this pooled analysis. Supports DPR as both an aesthetic and functional option for dorsal reduction cases."
     },
     {
-      "pmid": "42472923",
+      "pmid": "42527747",
       "score": 3,
-      "title": "Spontaneous cerebrospinal fluid leaks and encephaloceles: multi-institutional collaborative retrospective analysis of 468 cases with special focus on recurrent cases.",
-      "journal": "European Archives of Oto-Rhino-Laryngology",
-      "summary": "Multicenter retrospective series of 468 spontaneous CSF leaks/encephaloceles from high-volume skull base programs. IIH, obesity, and OSA were the dominant comorbidities. Recurrence predictors included IIH, inferior clivus repair location, and inadequate IIH treatment. Largest multicenter dataset on this topic; guides peri-operative IIH management and highlights the need for concurrent ICP control in high-risk patients to prevent recurrence."
+      "novel_technique": false,
+      "study_type": "Observational Study",
+      "n": 809,
+      "journal": "Head & Neck",
+      "title": "Lymph Node Yield as A Quality Metric in the Treatment of Oral Cavity Squamous Cell Carcinoma: The Need for Centre-Specific Thresholds.",
+      "doi": "10.1002/hed.70411",
+      "badges": [
+        "Observational Study",
+        "n = 809"
+      ],
+      "summary": "Two-center study (n = 809) showing mean lymph node yield (LNY) differed significantly between centers and between step serial sectioning (SSS) vs. inspection-and-palpation pathology technique. A universal LNY cutoff as a quality metric for oral cavity SCC neck dissections is therefore not valid \u2014 center-specific thresholds that account for institutional pathology technique are needed. Surgeons comparing their LNY to national benchmarks should be cautious unless pathology methods are standardized."
     },
     {
-      "pmid": "42439197",
+      "pmid": "42526064",
       "score": 3,
-      "title": "Angular Variations of the Lateral Nasal Wall as Independent Predictors of Primary Acquired Nasolacrimal Duct Obstruction: A Computed Tomography Study.",
-      "journal": "American Journal of Rhinology & Allergy",
-      "summary": "Retrospective case-control (42 PANDO patients vs 42 controls). CT-based angular measurements of the anterior medial lacrimal crest\u2013uncinate process angle and nasal bone\u2013lacrimal crest angle were significantly associated with primary acquired nasolacrimal duct obstruction. Identifies novel anatomic predictors on pre-existing paranasal sinus CT that may flag patients at risk for PANDO before symptomatic onset; relevant to pre-operative rhinologic and oculoplastic planning."
+      "novel_technique": false,
+      "study_type": "Retrospective Study",
+      "n": 650,
+      "journal": "Oral Oncology",
+      "title": "Evolution of hazard of recurrence and death after surgery for oropharyngeal cancer according to HPV status.",
+      "doi": "10.1016/j.oraloncology.2026.108079",
+      "badges": [
+        "Retrospective",
+        "n = 650"
+      ],
+      "summary": "Multicenter retrospective cohort of 650 OPSCC patients undergoing upfront surgery. HPV-positive patients had substantially lower 5-year cumulative recurrence hazard vs. HPV-negative throughout follow-up, but the hazard of recurrence did not become truly negligible until approximately 3\u20134 years post-surgery in HPV+ disease. Cancer-specific survival curves diverged sharply beyond 2 years, with HPV-negative disease carrying persistently elevated late recurrence risk. Findings inform surveillance interval decisions \u2014 HPV-negative OPSCC warrants extended close surveillance."
     },
     {
-      "pmid": "42446784",
+      "pmid": "42541395",
       "score": 3,
-      "title": "Prophylactic vs. reactive percutaneous endoscopic gastrostomy (PEG) tubes in head and neck cancer: a meta-analysis of survival and supportive care outcomes.",
-      "journal": "Supportive Care in Cancer",
-      "summary": "SR/MA comparing prophylactic (upfront) vs reactive (as-needed) PEG tube placement in HNC patients undergoing chemoradiation. Prophylactic PEG did not significantly reduce mortality, long-term PEG dependence, or hospitalization rates vs reactive strategy. Challenges the routine use of prophylactic PEG in all HNC patients; supports a risk-stratified rather than universal prophylactic approach."
+      "novel_technique": false,
+      "study_type": "Cohort Study",
+      "n": 363,
+      "journal": "Laryngoscope",
+      "title": "Partial Parotidectomy Outcomes for Pleomorphic Adenoma: 15-Year Academic Center Experience.",
+      "doi": "10.1002/lary.70771",
+      "badges": [
+        "Cohort Study",
+        "n = 363"
+      ],
+      "summary": "Single-surgeon, academic-center cohort of 363 partial parotidectomies for pleomorphic adenoma over 15 years. Local recurrence rate was 1.4% at median follow-up 8.2 years. Facial nerve dysfunction (House-Brackmann 2\u20133) was transient in 14.3%, permanent in 0.8%. Findings support partial parotidectomy as the procedure of choice for pleomorphic adenoma when negative margins can be achieved \u2014 total parotidectomy is not required for benign disease."
     },
     {
-      "pmid": "42472934",
+      "pmid": "42543417",
       "score": 3,
-      "title": "Septal flip flap after endoscopic unilateral resection of sinonasal tumors: a multicenter experience of 133 patients.",
-      "journal": "European Archives of Oto-Rhino-Laryngology",
-      "summary": "Multicenter series, 133 patients undergoing endoscopic unilateral sinonasal tumor resection reconstructed with septal flip flap. Overall CSF leak rate 5.3%; comparable between autologous and non-autologous graft materials. SFF is a reliable, low-morbidity reconstruction for unilateral endoscopic resection and can be safely used without free tissue or Hadad\u2013Bassagasteguy flap in appropriate cases. Multi-institutional experience strengthens generalizability."
+      "novel_technique": false,
+      "study_type": "Prospective Study",
+      "n": 0,
+      "journal": "Eur Arch ORL",
+      "title": "Clinical effectiveness of salvage intratympanic corticosteroids for idiopathic sudden sensorineural hearing loss: a real-world observational series.",
+      "doi": "10.1007/s00405-026-10483-7",
+      "badges": [
+        "Prospective"
+      ],
+      "summary": "Prospective observational series from a tertiary center examining salvage intratympanic corticosteroid (ITC) therapy (methylprednisolone 40 mg/mL weekly \u00d7 3 weeks) in ISSNHL patients with incomplete recovery after systemic steroids. Primary outcome: clinically meaningful PTA4 improvement (\u2265 10 dB). Response rates and timing of recovery are described. Results support salvage ITC as an accessible, well-tolerated second-line option for ISSNHL nonresponders \u2014 consistent with current AAO-HNS guideline recommendations."
     }
   ],
   "policy_updates": [
     {
       "source": "CMS",
-      "tier": "CRITICAL",
-      "title": "CY 2027 Medicare Physician Fee Schedule Proposed Rule (CMS-1848-P)",
-      "summary": "CMS proposes cutting the effective Medicare conversion factor by ~1.2\u20131.7% from CY 2026 (the temporary 2.5% statutory bump expires), and a new rule reducing payment to 50% for any E/M visit billed same-day as a 0-, 10-, or 90-day global procedure \u2014 directly hitting ENT surgeons who evaluate patients the day of FESS, septoplasty, tympanoplasty, HGNS, or other global-period cases. CMS also proposes overhauling practice expense RVU methodology. Public comments due September 14, 2026.",
-      "url": "https://www.cms.gov/newsroom/fact-sheets/calendar-year-cy-2027-medicare-physician-fee-schedule-proposed-rule",
-      "date": "2026-07-14"
+      "tier": "NOTABLE",
+      "title": "FY2027 Hospital Inpatient Prospective Payment System Final Rule Published",
+      "summary": "CMS finalized the FY2027 IPPS rule (effective October 1, 2026), updating DRG weights and base rates for all Medicare inpatient admissions \u2014 including ENT-relevant DRGs such as cochlear implantation, major H&N oncology resections, complex airway procedures, and tracheal surgery. Facilities should verify ENT-applicable DRG payment changes and update internal cost benchmarking accordingly.",
+      "url": "https://www.cms.gov/newsroom/fact-sheets/fy-2027-hospital-inpatient-prospective-payment-system-long-term-care-hospital-prospective-payment",
+      "date": "2026-07-31"
     }
-  ]
+  ],
+  "per_bucket": {
+    "otology": 163,
+    "rhinology": 130,
+    "laryngology": 200,
+    "airway": 93,
+    "sleep": 19,
+    "oncology": 200,
+    "facial_plastic": 200,
+    "pediatric": 200,
+    "crossover": 2,
+    "policy": 6
+  }
 }
 </script>
 <script>
@@ -1110,14 +1132,29 @@
 })();
 </script>
 
-<section style="max-width:1280px;margin:2rem auto;padding:2rem 1.5rem 3rem;border-top:2px solid #1A4730;">
-  <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#2F6B49;margin-bottom:1.25rem;">Archive</div>
-  <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-    <a href="digests/2026-07-13.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.6875rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.7rem;border:1.5px solid #98B49E;border-radius:4px;background:#fff;font-family:'JetBrains Mono',monospace;">July 13, 2026</a>
-    <a href="digests/2026-06-15.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.6875rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.7rem;border:1.5px solid #98B49E;border-radius:4px;background:#fff;font-family:'JetBrains Mono',monospace;">June 15, 2026</a>
-    <a href="digests/2026-05-25.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.6875rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.7rem;border:1.5px solid #98B49E;border-radius:4px;background:#fff;font-family:'JetBrains Mono',monospace;">May 25, 2026</a>
-    <a href="digests/2026-05-21.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.6875rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.7rem;border:1.5px solid #98B49E;border-radius:4px;background:#fff;font-family:'JetBrains Mono',monospace;">May 21, 2026</a>
-    <a href="digests/2026-05-20.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.6875rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.7rem;border:1.5px solid #98B49E;border-radius:4px;background:#fff;font-family:'JetBrains Mono',monospace;">May 20, 2026</a>
+<section style="background:#E4ECE3;border-top:2px solid #1A4730;padding:2rem 0;margin-top:2rem;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
+    <div style="font-size:0.625rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#103022;margin-bottom:1rem;">Archive</div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.625rem;">
+      <a href="digests/2026-07-20.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.8rem;border:1.5px solid #98B49E;border-radius:4px;background:#ffffff;font-family:'JetBrains Mono',monospace;">
+        2026-07-20
+      </a>
+      <a href="digests/2026-07-13.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.8rem;border:1.5px solid #98B49E;border-radius:4px;background:#ffffff;font-family:'JetBrains Mono',monospace;">
+        2026-07-13
+      </a>
+      <a href="digests/2026-06-15.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.8rem;border:1.5px solid #98B49E;border-radius:4px;background:#ffffff;font-family:'JetBrains Mono',monospace;">
+        2026-06-15
+      </a>
+      <a href="digests/2026-05-25.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.8rem;border:1.5px solid #98B49E;border-radius:4px;background:#ffffff;font-family:'JetBrains Mono',monospace;">
+        2026-05-25
+      </a>
+      <a href="digests/2026-05-21.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.8rem;border:1.5px solid #98B49E;border-radius:4px;background:#ffffff;font-family:'JetBrains Mono',monospace;">
+        2026-05-21
+      </a>
+      <a href="digests/2026-05-20.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#103022;text-decoration:none;padding:0.45rem 0.8rem;border:1.5px solid #98B49E;border-radius:4px;background:#ffffff;font-family:'JetBrains Mono',monospace;">
+        2026-05-20
+      </a>
+    </div>
   </div>
 </section>
 </body>
