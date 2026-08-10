@@ -1,1 +1,678 @@
-/tmp/digest_b64.txt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT/Airway/Face Digest — Monday, August 10, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF;
+    --surface: #ffffff;
+    --border: #B8C9BC;
+    --border-strong: #8FA897;
+    --border-soft: #D5DFD5;
+    --hairline: #E4EAE2;
+    --text: #131A15;
+    --text-mid: #3F4A42;
+    --text-dim: #6E7A70;
+    --text-faint: #A5AEA6;
+    --forest: #1A4730;
+    --forest-deep: #103022;
+    --forest-mid: #2F6B49;
+    --forest-soft: #57966F;
+    --forest-tint: #E4ECE3;
+    --forest-tint-strong: #D2DFD2;
+    --forest-line: #98B49E;
+    --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
+    --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
+    --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
+    --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
+    --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
+  .paper-grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%); }
+  header { position: sticky; top: 0; z-index: 50; border-bottom: 2px solid var(--forest); background: rgba(247,245,239,0.94); backdrop-filter: blur(10px); }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
+  .logo-block { display: flex; align-items: center; gap: 1rem; }
+  .logo { width: 48px; height: 48px; border-radius: 8px; background: var(--forest-deep); color: #fff; display: flex; align-items: center; justify-content: center; border: 2px solid var(--forest); }
+  .logo svg { width: 24px; height: 24px; }
+  .brand-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep); }
+  .brand-sub { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em; color: var(--forest-mid); text-transform: uppercase; margin-top: 3px; }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .status-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line); border-radius: 6px; background: var(--forest-tint); font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600; }
+  .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+  main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+  .report-head { border-bottom: 2px solid var(--forest); padding-bottom: 2.5rem; margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end; }
+  .head-status { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--forest-deep); margin-bottom: 1.25rem; padding: 0.3rem 0.75rem 0.3rem 0.55rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-radius: 999px; }
+  .head-status-text { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+  .head-title { font-family: 'Source Serif 4', serif; font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep); }
+  .head-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: var(--text-mid); font-weight: 500; }
+  .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+  .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
+  .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+  .stats { display: flex; gap: 0; border: 2px solid var(--forest); border-radius: 10px; overflow: hidden; background: var(--surface); }
+  .stat { padding: 1rem 1.5rem; text-align: right; min-width: 110px; }
+  .stat + .stat { border-left: 2px solid var(--forest); }
+  .stat-label { display: block; font-size: 0.625rem; font-weight: 700; color: var(--forest-mid); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .stat-value { font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep); }
+  .stat-value.accent { color: var(--forest); }
+  .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+  .col-must { grid-column: span 5; }
+  .col-noted { grid-column: span 7; }
+  @media (max-width: 900px) { .col-must, .col-noted { grid-column: span 12; } .head-title { font-size: 2.25rem; } .grid-12 { gap: 2rem; } }
+  .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
+  .section-label-text { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; white-space: nowrap; }
+  .section-label-text.primary { color: var(--forest-deep); }
+  .section-label-text.secondary { color: var(--forest-mid); }
+  .section-rule { height: 2px; flex: 1; background: var(--forest); }
+  .section-rule.soft { background: var(--forest-soft); }
+  .must-card { position: relative; overflow: hidden; border: 2px solid var(--forest); border-radius: 10px; background: var(--surface); padding: 1.75rem; transition: all 0.2s; margin-bottom: 1.5rem; box-shadow: 0 2px 0 var(--forest-deep); }
+  .must-card:hover { border-color: var(--forest-deep); box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25); transform: translateY(-1px); }
+  .must-card .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--forest); }
+  .must-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .must-meta-left { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--forest-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .score-box { display: inline-flex; align-items: baseline; gap: 0.375rem; padding: 0.45rem 0.75rem; border-radius: 6px; border: 2px solid; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .score-box .score-num { font-size: 1rem; line-height: 1; }
+  .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
+  .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-box[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border: 1.5px solid; }
+  .badge-type { background: #F1F2EC; border-color: var(--border); color: var(--text-mid); }
+  .badge-novel { background: var(--forest); border-color: var(--forest-deep); color: #ffffff; }
+  .badge-novel::before { content: '✦'; font-size: 0.75rem; line-height: 1; }
+  .must-title { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .must-authors { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft); }
+  .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+  .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
+  .summary-section:last-child { margin-bottom: 0; }
+  .summary-section h4 { font-family: 'Inter', sans-serif; font-size: 0.625rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
+  .must-rationale { margin-top: 1.25rem; display: flex; align-items: flex-start; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-left-width: 4px; border-radius: 6px; font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55; }
+  .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
+  .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
+  .must-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .link-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep); text-decoration: none; padding: 0.45rem 0.7rem; border: 1.5px solid var(--forest-line); border-radius: 4px; background: var(--surface); transition: all 0.15s; }
+  .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
+  .link-pill svg { width: 11px; height: 11px; }
+  .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .noted-item { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 6px; background: var(--surface); padding: 1rem 1.125rem; transition: all 0.15s; }
+  .noted-item:hover { border-left-color: var(--forest); border-color: var(--forest-line); transform: translateX(2px); }
+  .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+  .score-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 0.45rem; border-radius: 4px; border: 1.5px solid; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; }
+  .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-chip[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badge-type-mini { font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-mid); padding: 0.2rem 0.45rem; background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px; }
+  .noted-title { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 700; color: var(--forest-deep); line-height: 1.32; margin-bottom: 0.5rem; }
+  .noted-summary { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+  .noted-source { margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding-top: 0.5rem; border-top: 1px dashed var(--border-soft); }
+  footer.report-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest); display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; color: var(--forest-mid); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem; }
+  .policy-section { margin-bottom: 3rem; }
+  .policy-empty { font-size: 0.875rem; color: var(--text-dim); font-style: italic; padding: 0.5rem 0; }
+  .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .policy-card { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 8px; background: var(--surface); padding: 1.125rem 1.25rem; }
+  .policy-card.policy-critical { border: 2px solid var(--forest); border-left: 6px solid var(--forest); background: var(--forest-tint); }
+  .policy-meta { display: flex; align-items: center; gap: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; margin-bottom: 0.5rem; }
+  .policy-source { font-weight: 700; color: var(--forest-deep); padding: 0.2rem 0.45rem; background: var(--surface); border: 1.5px solid var(--forest-line); border-radius: 4px; letter-spacing: 0.05em; }
+  .policy-tier { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid; }
+  .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
+  .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
+  .policy-date { color: var(--text-dim); margin-left: auto; }
+  .policy-title { font-family: 'Source Serif 4', serif; font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 0.4rem; line-height: 1.3; }
+  .policy-summary { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.75rem; }
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+<header>
+  <div class="container header-inner">
+    <div class="logo-block">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">ENT / Airway / Face Digest</div>
+        <div class="brand-sub">Daily Literature Brief</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:15 ET</span>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="report-head">
+      <div>
+        <div class="head-status">
+          <div class="pulse-dot"></div>
+          <span class="head-status-text">Curated by Sonnet 4.6</span>
+        </div>
+        <h1 class="head-title">Monday, August 10, 2026</h1>
+        <div class="head-meta">
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>EDAT range: August 3, 2026 – August 10, 2026</span>
+          </div>
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            <span class="scope-tag">10 PubMed queries · ENT/Airway/Face/Peds</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Surfaced</span>
+          <span class="stat-value">834</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Made Cut</span>
+          <span class="stat-value accent">20</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Must Read</span>
+          <span class="stat-value">5</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="policy-section">
+      <div class="section-label">
+        <div class="section-rule"></div>
+        <span class="section-label-text primary">Policy &amp; Practice Updates · 1</span>
+      </div>
+      
+        <div class="policy-grid">
+          
+          <div class="policy-card policy-notable">
+            <div class="policy-meta">
+              <span class="policy-source">CMS</span>
+              <span class="policy-tier policy-tier-notable">NOTABLE</span>
+              <span class="policy-date">2026-08-07</span>
+            </div>
+            <h3 class="policy-title">CMS Proposes Streamlined Device Coverage Pathway to Accelerate Medicare Access for Innovative Devices</h3>
+            <p class="policy-summary">CMS released a procedural notice (CMS-3487-NC) describing a faster, predictable pathway for FDA-authorized device manufacturers to obtain Medicare coverage—potentially accelerating access to ENT-relevant devices including cochlear implants, hypoglossal nerve stimulators, and sinus implants. The proposal invites public comment and does not immediately change current coverage policies.</p>
+            <a class="link-pill" href="https://www.cms.gov/newsroom" target="_blank" rel="noopener">Source ↗</a>
+          </div>
+          
+        </div>
+      
+    </section>
+
+    <div class="grid-12">
+      <section class="col-must">
+        <div class="section-label">
+          <div class="section-rule"></div>
+          <span class="section-label-text primary">Must Read · 5</span>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">01 · International journal of pediatric otorhinolaryngology</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Journal Article</span>
+            
+          </div>
+          <h3 class="must-title">The impact of corticosteroid therapy on clinical outcomes in paediatric deep neck space infections: A meta-analysis.</h3>
+          <div class="must-authors">Ho E, Fuzi J, Popovic G et al. … <span class="senior">Soma M (senior, Sydney Children&#39;s Hospital)</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>Pediatric deep neck space infections (DNSIs)—retropharyngeal and parapharyngeal abscesses—carry risks of airway obstruction, mediastinitis, and sepsis. Adjunct corticosteroid use alongside antibiotics is practiced variably, with unclear evidence for reducing surgical need.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>PRISMA-guided systematic review of 4 databases (January 1996–August 2024). Three studies comprising 2523 pediatric patients met inclusion criteria: 695 received antibiotics plus corticosteroids; 1828 received antibiotics alone. Primary outcome: surgical intervention rate. Random-effects meta-analysis.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>Children who did NOT receive corticosteroids were significantly more likely to require surgical drainage (RR 2.07, 95% CI 1.43–2.99). Moderate heterogeneity was noted (I² not specified). No major adverse events attributed to corticosteroids were reported across included studies.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Only 3 retrospective studies included; moderate heterogeneity; cannot exclude confounding by indication (more severely ill children may have been routed directly to surgery regardless of steroid use). No randomized evidence exists.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>In children with deep neck space infections managed medically with antibiotics, adjunct corticosteroids may roughly halve the likelihood of requiring surgical drainage. Clinicians should consider corticosteroid addition for appropriate DNSI patients; prospective randomized data are still needed to confirm benefit and define patient selection.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Meta-analysis of 3 studies (n=2523) showing a &gt;2-fold higher surgical intervention rate in children with deep neck space infections not receiving corticosteroids (RR 2.07, 95% CI 1.43–2.99). Large pooled N and consistent directionality support adjunct corticosteroid use, pending prospective confirmation.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42570612" target="_blank" rel="noopener">PMID 42570612
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1016/j.ijporl.2026.112972" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42570612" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">02 · European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Journal Article</span>
+            
+          </div>
+          <h3 class="must-title">Glossopharyngeal nerve block versus tonsillar fossa ropivacaine infiltration within multimodal analgesia for pediatric post-tonsillectomy pain: a randomized controlled clinical trial.</h3>
+          <div class="must-authors">Faramarzi M, Nemati M, Farbood A et al. … <span class="senior">Faramarzi A (senior, Otolaryngology Research Center)</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>Post-tonsillectomy pain is a major challenge in pediatric day-surgery, contributing to delayed recovery and poor oral intake. Peritonsillar infiltration (RI) is widely used, but glossopharyngeal nerve block (GNB) offers a broader anatomic coverage of the tonsillar fossa innervation.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>Double-blind randomized controlled trial. 90 children aged 4–10 undergoing day-case tonsillectomy at Shiraz University of Medical Sciences were randomized 1:1:1 to bilateral GNB with 0.2% ropivacaine, peritonsillar RI with 0.2% ropivacaine, or sham control. Primary outcome: PACU FLACC pain score. Secondary outcomes: pain at rest and swallowing (2–24h), time to first rescue analgesia, nausea, sleep quality, parental satisfaction.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>GNB significantly prolonged time to first rescue analgesia vs control (median 240 vs 120 min; P&lt;0.001). GNB reduced swallowing pain vs both comparators throughout 24h (P≤0.008). Post-operative nausea: 6.7% GNB vs 20% RI vs 33.3% control (P=0.036). Parental satisfaction was significantly higher in the GNB group. No major anesthetic complications (arrhythmias, bronchospasm) in any arm.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Single-center study (Iran); operator-dependent skill required for GNB; 3-arm allocation limits statistical power per pairwise comparison; follow-up limited to 24 hours; generalizability to different anesthetic protocols uncertain.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>Bilateral GNB with ropivacaine outperforms peritonsillar infiltration and sham for post-tonsillectomy pain—especially swallowing comfort—through 24 hours. ENT surgeons or anesthesiologists comfortable with the technique should consider adding GNB to multimodal analgesia protocols for pediatric day-case tonsillectomy.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Double-blind 3-arm RCT (n=90) directly comparing GNB vs peritonsillar ropivacaine infiltration vs sham for pediatric tonsillectomy pain. GNB demonstrated superior analgesia, prolonged time to first rescue analgesic, and lower nausea without significant additional risk. Directly actionable for ENT surgeons performing pediatric tonsillectomies.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42552476" target="_blank" rel="noopener">PMID 42552476
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1007/s00405-026-10522-3" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42552476" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">03 · Laryngoscope investigative otolaryngology</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Journal Article</span>
+            
+          </div>
+          <h3 class="must-title">Risk Factors, Symptom Burden, and Treatment Response in Pediatric REM-Predominant OSA: Evidence From the Childhood Adenotonsillectomy Trial.</h3>
+          <div class="must-authors">Wang C, Wang A, Wu J et al. … <span class="senior">Wang Y (senior, Department of Otorhinolaryngology)</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>REM-predominant OSA (REM-AHI/NREM-AHI ratio ≥2) may be a biologically distinct pediatric OSA subtype. Whether this distinction predicts differential response to adenotonsillectomy (AT) vs watchful waiting (WW) is unknown, as current guidelines do not differentiate management by OSA subtype.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>Post-hoc secondary analysis of the Childhood Adenotonsillectomy Trial (CHAT), a landmark multicenter RCT of 382 children aged 5–9.9 years with PSG-confirmed OSA randomized to AT or WW. REM-predominant OSA defined as REM-AHI:NREM-AHI ≥2. Primary outcome: OSA resolution at 7 months. Multivariate logistic regression used.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>55.8% of children had REM-predominant OSA; enriched in Black children and those with obesity. REM-predominant OSA was associated with greater daytime sleepiness, higher AHI, and lower oxygen saturation nadirs. Children with REM-predominant OSA randomized to WW were significantly less likely to achieve spontaneous resolution (aOR 0.52, 95% CI 0.28–0.97). In the AT arm, OSA resolution was similar between subtypes (aOR 0.75, NS).</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Post-hoc secondary analysis with associated multiplicity concerns; WW arm received sleep hygiene education which may have confounded outcomes; single 7-month follow-up point; generalizability to non-CHAT populations uncertain.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>Children with REM-predominant OSA—especially Black children and those with obesity—are significantly less likely to spontaneously improve with watchful waiting than those with non-REM-predominant OSA. Surgeons should consider this subtype identification when discussing WW vs AT, and may prioritize earlier surgical intervention for children with REM-predominant disease.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Well-powered (n=382) secondary analysis of the landmark CHAT RCT demonstrating that REM-predominant OSA—present in 55.8% of children—is associated with significantly lower spontaneous resolution with watchful waiting (aOR 0.52), while adenotonsillectomy resolves both subtypes equally. Directly informs surgical decision-making in pediatric sleep surgery.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42544299" target="_blank" rel="noopener">PMID 42544299
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1002/lio2.70524" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42544299" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">04 · The Laryngoscope</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Journal Article</span>
+            
+          </div>
+          <h3 class="must-title">Effects of NDURE on Timely Adjuvant Radiotherapy in HNSCC: Subgroup Analysis of an RCT.</h3>
+          <div class="must-authors">Hughes JM, Kistner-Griffin E, DeMass R et al. … <span class="senior">Graboyes EM (senior, Department of Otolaryngology-Head and Neck Surgery)</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>Delays in initiating postoperative radiation therapy (PORT) after surgery for locally advanced HNSCC are associated with worse oncologic outcomes and disproportionately affect underserved populations. Enhanced patient navigation programs may reduce these disparities.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>Exploratory, post-hoc subgroup analysis of a single-center RCT (NCT04030130) at MUSC. 145 adults with locally advanced HNSCC undergoing surgery + PORT randomized 1:1 to NDURE (navigation-based care coordination) vs usual care. Primary outcome: timely PORT initiation (≤6 weeks). Subgroups analyzed included age, race, partnership status, AJCC stage, reconstruction type, and surgical complications.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>NDURE improved timely PORT initiation across nearly all subgroups: age ≥65 (RD +43%, 95% CI 19–64%), Black patients (RD +46%, 95% CI 10–73%), non-partnered (RD +32%), AJCC Stage IV (RD +39%), free flap reconstruction (RD +40%), and postoperative complication (RD +39%). Only one subgroup (White patients) showed non-significant benefit.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Single-center study; exploratory post-hoc subgroup design with limited power per subgroup; MUSC patient demographics may not generalize; navigation program specifics are institution-dependent.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>The NDURE navigation intervention broadly improves timely PORT initiation in HNSCC patients across demographic and clinical risk strata—including patients at highest risk of treatment delay. Head and neck cancer programs should consider structured navigation as a standard component of post-surgical care coordination, particularly for elderly, Black, socially isolated, or medically complex patients.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Subgroup analysis of a completed RCT published in The Laryngoscope showing that the NDURE navigation intervention improved timely PORT (≤6 weeks) across nearly all demographic and clinical subgroups in locally advanced HNSCC, including populations at highest risk of treatment delays. Actionable for HNC multidisciplinary teams concerned with equity and outcomes.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42563232" target="_blank" rel="noopener">PMID 42563232
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1002/lary.70791" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42563232" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+        <div class="must-card">
+          <div class="accent-bar"></div>
+          <div class="must-meta-row">
+            <span class="must-meta-left">05 · Laryngoscope investigative otolaryngology</span>
+            <div class="score-box" data-score="4">
+              <span class="score-num">4</span><span class="score-of">/5</span>
+            </div>
+          </div>
+          <div class="badges-row">
+            <span class="badge badge-type">Journal Article</span>
+            
+          </div>
+          <h3 class="must-title">Total Parotidectomy Versus Less-Than-Total Parotidectomy for Early-Stage Low Grade Parotid Cancer: A Systematic Review and Meta-Analysis.</h3>
+          <div class="must-authors">Choi N, Lee HR, Seok J et al. … <span class="senior">Lee GJ (senior, Department of Otorhinolaryngology-Head and Neck Surgery Sungkyunkwan University )</span></div>
+          
+          <div class="summary-section">
+            <h4>BACKGROUND</h4>
+            <p>Total parotidectomy (TP) has historically been advocated for parotid malignancies to ensure tumor clearance and sampling of intraparotid lymph nodes. However, less-than-total parotidectomy (LTT) may offer comparable oncologic control with superior functional outcomes by reducing facial nerve manipulation.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>METHODS</h4>
+            <p>PRISMA-guided systematic review and meta-analysis. Four retrospective cohort studies of T1-2 low-grade parotid cancer were included. Primary outcomes: overall survival (OS) and recurrence-free survival (RFS). Pooled hazard ratios computed using random-effects models.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>RESULTS</h4>
+            <p>No significant difference in OS between LTT and TP across 3 studies. RFS was comparable across all 4 studies. Heterogeneity was negligible for both OS (I²≈0%) and RFS. No evidence of publication bias detected.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>LIMITATIONS</h4>
+            <p>Only 4 retrospective studies, all with high risk of bias; selection bias possible (lower-stage tumors may have preferentially received LTT); lacks standardized functional outcome reporting; cannot draw causal conclusions.</p>
+          </div>
+          
+          <div class="summary-section">
+            <h4>CLINICAL TAKEAWAY</h4>
+            <p>For T1-2 low-grade parotid malignancies confined to the superficial lobe, LTT appears oncologically equivalent to total parotidectomy based on current retrospective evidence. A margin-focused, function-preserving surgical approach is defensible; prospective studies with standardized functional and oncologic reporting are needed to confirm this recommendation.</p>
+          </div>
+          
+          <div class="must-rationale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Why score 4:</strong> Meta-analysis of 4 retrospective cohort studies demonstrating no significant difference in OS or RFS between total parotidectomy and less-than-total parotidectomy for T1-2 low-grade parotid cancer. Evidence supports margin-focused, function-preserving surgery as oncologically safe in this population.</span>
+          </div>
+          <div class="must-actions">
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42564699" target="_blank" rel="noopener">PMID 42564699
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            </a>
+            <a class="link-pill" href="https://doi.org/10.1002/lio2.70530" target="_blank" rel="noopener">DOI</a>
+            <button class="link-pill copy-pmid" data-pmid="42564699" type="button">📋 Copy PMID</button>
+          </div>
+        </div>
+        
+      </section>
+
+      <section class="col-noted">
+        <div class="section-label">
+          <span class="section-label-text secondary">Noted · 15</span>
+          <div class="section-rule soft"></div>
+        </div>
+        <div class="noted-grid">
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Journal Article</span>
+            </div>
+            <div class="noted-title">Effect of Case Variation on Mastoidectomy Training Using 3D-Printed Temporal Bones Models-A Prospective, Randomized Trial.</div>
+            <p class="noted-summary">Prospective RCT (n=24 novices) in Otolaryngol HNS showing variable 3D-printed temporal bone models improved end-of-training mastoidectomy scores vs identical models, but identical-model practice showed superior 3-month skill retention and lower cognitive load. Educators face a tradeoff: varied models boost initial performance, identical models build more durable automaticity. Practical implication: programs may benefit from an &#39;identical-first, varied-later&#39; curriculum design.</p>
+            <div class="noted-source">Otolaryngology–head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery · PMID 42545813 · <button class="copy-pmid noted-copy" data-pmid="42545813" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Review</span>
+            </div>
+            <div class="noted-title">The efficacy of tonsillectomy in the management of PFAPA syndrome: a systematic review and meta-analysis.</div>
+            <p class="noted-summary">Meta-analysis of 3 RCTs (n=81) demonstrating dramatically higher complete remission rates with tonsillectomy vs conservative management for PFAPA syndrome (pooled OR 42.21, 95% CI 9.34–190.74). Fever episode frequency was also significantly reduced. Fever duration data were inconclusive. Given the small number of included studies, results are hypothesis-generating but support surgical consultation for PFAPA refractory to medical management.</p>
+            <div class="noted-source">Frontiers in surgery · PMID 42548684 · <button class="copy-pmid noted-copy" data-pmid="42548684" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Meta-Analysis</span><span class="badge-type-mini">Systematic Review</span><span class="badge-type-mini">Review</span>
+            </div>
+            <div class="noted-title">High-Flow Nasal Cannula Versus Noninvasive Ventilation for Prevention of Reintubation in High-Risk Critically Ill Patients (HIGH-FLOW OXY): An Informative Systematic Review and Meta-Analysis.</div>
+            <p class="noted-summary">Meta-analysis of 15 RCTs (n=2073) comparing high-flow nasal cannula to non-invasive ventilation in high-risk ICU patients post-extubation. No significant overall difference in reintubation, ICU mortality, or infection rates. However, subgroup analyses suggest HFNC may increase reintubation risk in very high-risk patients (OR 1.63) and non-operative obese patients (OR 2.52). Airway teams managing post-operative HNSCC or complex airway patients should consider NIV preference in these high-risk subgroups.</p>
+            <div class="noted-source">Critical care explorations · PMID 42554971 · <button class="copy-pmid noted-copy" data-pmid="42554971" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Journal Article</span>
+            </div>
+            <div class="noted-title">Feedback with Education versus Digital Ototscopy for Acute Otitis Media Diagnosis and Treatment.</div>
+            <p class="noted-summary">RCT of 40 primary care pediatricians showing that performance feedback with education significantly reduced antibiotic prescribing for acute otitis media (AOM treatment rate change -12.8% vs control), whereas digital otoscopy alone did not reach significance (-7.3%). Combined intervention was also effective (-9.7%). 70% of digital otoscopy users preferred it over traditional otoscopy. Relevant for ENT–pediatrician collaboration in antibiotic stewardship programs.</p>
+            <div class="noted-source">The Journal of pediatrics · PMID 42551729 · <button class="copy-pmid noted-copy" data-pmid="42551729" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="4">4</span>
+              <span class="badge-type-mini">Journal Article</span>
+            </div>
+            <div class="noted-title">Long-Term Outcomes of Advanced Pneumatic Compression Device vs. Usual Care Therapy for Head and Neck Cancer-Related Lymphedema: A Multi-Site Randomized Clinical Trial.</div>
+            <p class="noted-summary">Multi-site RCT (n=236) at Vanderbilt comparing advanced pneumatic compression devices (APCD) vs usual care for treatment-naïve head and neck cancer lymphedema at 4 and 6 months. Both groups demonstrated sustained symptom improvement with no significant between-group differences on most measures. Select anatomic subsites marginally favored APCD. Both therapies achieve durable benefit; APCD does not appear to add meaningfully over institutional usual care at 6 months.</p>
+            <div class="noted-source">International journal of radiation oncology, biology, physics · PMID 42546804 · <button class="copy-pmid noted-copy" data-pmid="42546804" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Journal Article</span>
+            </div>
+            <div class="noted-title">Patient Characteristics Associated With Treatment Decisions in Bilateral Vocal Fold Atrophy.</div>
+            <p class="noted-summary">Retrospective cohort (n=248) in The Laryngoscope examining characteristics associated with injection augmentation vs no treatment in bilateral vocal fold atrophy. Patient-reported voice handicap, severity of atrophy on laryngoscopy, and pulmonary function were associated with treatment selection. Findings inform shared decision-making frameworks for this underrecognized laryngologic condition.</p>
+            <div class="noted-source">The Laryngoscope · PMID 42552258 · <button class="copy-pmid noted-copy" data-pmid="42552258" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Journal Article</span>
+            </div>
+            <div class="noted-title">Effect of Body Mass Index on Long-Term Outcomes After Endoscopic Sinus Surgery.</div>
+            <p class="noted-summary">Retrospective cohort (n=664) from The Laryngoscope showing obesity (elevated BMI) was associated with significantly worse long-term symptom outcomes after ESS for chronic rhinosinusitis. Higher BMI correlated with greater residual sinonasal symptoms, more revision surgeries, and reduced quality-of-life improvement at long-term follow-up. Surgeons should counsel obese CRS patients about potentially attenuated surgical outcomes and the value of weight management as part of multimodal CRS therapy.</p>
+            <div class="noted-source">The Laryngoscope · PMID 42547224 · <button class="copy-pmid noted-copy" data-pmid="42547224" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Review</span>
+            </div>
+            <div class="noted-title">Paediatric obstructive sleep apnoea and early cardiovascular risk phenotypes: an evidence review.</div>
+            <p class="noted-summary">Evidence review in European Respiratory Review summarizing emerging data linking pediatric obstructive sleep apnea to early cardiovascular risk phenotypes including elevated blood pressure, endothelial dysfunction, and autonomic dysregulation. Most evidence is cross-sectional; causal pathways remain uncertain. Provides rationale for extending the pediatric OSA care paradigm beyond neurocognition to include cardiovascular risk monitoring—especially in children with severe or untreated disease.</p>
+            <div class="noted-source">European respiratory review : an official journal of the European Respiratory Society · PMID 42556848 · <button class="copy-pmid noted-copy" data-pmid="42556848" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Journal Article</span>
+            </div>
+            <div class="noted-title">Socioeconomic and regional influences on eosinophilic inflammation in chronic rhinosinusitis with nasal polyps.</div>
+            <p class="noted-summary">Cross-sectional study (n=1047) in World Allergy Organization Journal examining concordance between peripheral blood eosinophil counts and tissue eosinophilia in CRSwNP. Socioeconomic and regional factors significantly moderated the relationship. Blood eosinophils were a reasonable but imperfect proxy for local eosinophilic inflammation; both affluence and geographic region influenced counts. Clinicians using blood eosinophils to guide biologic therapy selection in CRSwNP should interpret results in demographic context.</p>
+            <div class="noted-source">The World Allergy Organization journal · PMID 42571263 · <button class="copy-pmid noted-copy" data-pmid="42571263" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Review</span>
+            </div>
+            <div class="noted-title">Incidence and causes of unplanned acute care revisits after pediatric tonsillectomy with or without adenoidectomy: a systematic review.</div>
+            <p class="noted-summary">Systematic review from European Archives characterizing the incidence and causes of unplanned acute care revisits after pediatric tonsillectomy. Post-hemorrhage, dehydration/poor oral intake, and pain were the leading causes. Incidence estimates varied widely. Findings reinforce the importance of robust post-operative pain protocols, parent education about red flags, and standardized discharge criteria in pediatric tonsillectomy programs.</p>
+            <div class="noted-source">European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery · PMID 42552478 · <button class="copy-pmid noted-copy" data-pmid="42552478" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Review</span>
+            </div>
+            <div class="noted-title">Integrated Immune, Epithelial and Lipid Pathways in NSAID-Exacerbated Respiratory Disease.</div>
+            <p class="noted-summary">Narrative review in Clinical and Translational Allergy synthesizing the molecular pathophysiology of NSAID-exacerbated respiratory disease (N-ERD), including type 2 inflammation, eicosanoid dysregulation, and epithelial barrier disruption. Reviews evidence for biologic therapies targeting these pathways. Useful background for rhinologists managing refractory CRSwNP in NSAID-sensitive patients considering dupilumab, benralizumab, or mepolizumab.</p>
+            <div class="noted-source">Clinical and translational allergy · PMID 42545892 · <button class="copy-pmid noted-copy" data-pmid="42545892" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Journal Article</span>
+            </div>
+            <div class="noted-title">Retrospective analysis of postoperative complications and risk factors in middle ear surgery.</div>
+            <p class="noted-summary">Retrospective analysis (n=200) in Acta Oto-Laryngologica describing complication rates, types, and risk factors across middle ear procedures including tympanoplasty, mastoidectomy, and ossiculoplasty. Complication rates were low overall; active external otitis, revision surgery, and cholesteatoma were associated with higher complication risk. Findings reinforce standard preoperative optimization and patient selection principles.</p>
+            <div class="noted-source">Acta oto-laryngologica · PMID 42545211 · <button class="copy-pmid noted-copy" data-pmid="42545211" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Review</span>
+            </div>
+            <div class="noted-title">Biologic therapies targeting type 2 inflammation in NSAID-exacerbated respiratory disease.</div>
+            <p class="noted-summary">Review in Frontiers in Immunology summarizing evidence for biologics targeting type 2 inflammation in NSAID-exacerbated respiratory disease, including anti-IL-4Rα (dupilumab), anti-IL-5 agents (mepolizumab, benralizumab), and anti-IgE (omalizumab). Dupilumab shows strongest HNSCC-relevant sinonasal evidence. Provides a practical framework for biologic selection in N-ERD patients with CRSwNP who fail conventional medical therapy.</p>
+            <div class="noted-source">Frontiers in immunology · PMID 42558909 · <button class="copy-pmid noted-copy" data-pmid="42558909" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Journal Article</span>
+            </div>
+            <div class="noted-title">Simultaneous Dual Type 2 Biologic Therapy Improves Sinonasal Outcomes in Selected Patients With Chronic Rhinosinusitis With Nasal Polyps.</div>
+            <p class="noted-summary">Pilot case series (n=14, Allergy journal) describing outcomes in highly refractory CRSwNP patients with multiple type 2 comorbidities treated with simultaneous dual biologic therapy. Sinonasal outcome improvements were seen in selected cases despite prior failure of single-agent biologics. Given minimal evidence base (n=14, retrospective, no control), results are hypothesis-generating only; dual biologic use should remain restricted to centers with multidisciplinary allergy/ENT expertise.</p>
+            <div class="noted-source">Allergy · PMID 42550682 · <button class="copy-pmid noted-copy" data-pmid="42550682" type="button">📋 Copy</button></div>
+          </div>
+          
+          <div class="noted-item">
+            <div class="noted-head">
+              <span class="score-chip" data-score="3">3</span>
+              <span class="badge-type-mini">Review</span>
+            </div>
+            <div class="noted-title">Bridging the gap: modern pharyngolaryngoesophagectomy techniques and the rise of neoadjuvant/immunotherapy approaches.</div>
+            <p class="noted-summary">Narrative review in World Journal of Surgical Oncology outlining the evolving role of pharyngolaryngoesophagectomy (PLE) in hypopharyngeal and cervical esophageal cancer, including minimally invasive approaches and the impact of neoadjuvant therapy and immunotherapy on surgical selection. PLE remains necessary for organ-preservation failures and selected primary presentations; robotic-assisted techniques and free jejunal transfers are discussed. Provides a contemporary framework for complex HNC surgical oncologists.</p>
+            <div class="noted-source">World journal of surgical oncology · PMID 42547869 · <button class="copy-pmid noted-copy" data-pmid="42547869" type="button">📋 Copy</button></div>
+          </div>
+          
+        </div>
+        <footer class="report-footer">
+          <span>Run · 06:15 ET</span>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
+          </div>
+        </footer>
+      </section>
+    </div>
+  </div>
+</main>
+<script type="application/json" id="digest-data">
+{"run_date": "2026-08-10", "must_read": [{"pmid": "42570612", "score": 4, "study_type": "Meta-Analysis", "n": 2523, "title": "The impact of corticosteroid therapy on clinical outcomes in paediatric deep neck space infections: A meta-analysis.", "journal": "International journal of pediatric otorhinolaryngology", "abstract": "Deep neck space infections (DNSIs), including retropharyngeal and parapharyngeal abscesses, pose significant clinical challenges in the paediatric population. Importantly, they may be associated with risks such as airway obstruction, mediastinitis, internal jugular vein thrombosis, and sepsis. Recent trends indicate a rising incidence of DNSIs, potentially linked to increasing antibiotic-resistance. Surgical intervention is usually required when medical management fails. The role of corticosteroid use in these patients is unclear. Following PRISMA guidelines, a systematic review of four electronic databases from January 1996 to August 2024 was performed. The review focused on original studies concerning the paediatric population and the use of corticosteroids in the management of DNSIs. The primary outcome evaluated was rate of surgical intervention. A random effects meta-analysis was performed to estimate the effect of corticosteroids on the probability of surgery. Three studies comprising a total of 2523 patients met the inclusion criteria. Corticosteroids were used with antibiotics in 695 patients, whereas antibiotics were used without corticosteroids in 1828 patients (control group). The implementation of surgical intervention for DNSIs was found to be significantly higher when corticosteroids were not administered, with a relative risk (RR) of 2.07 (95% CI: 1.43 - 2.99). Moderate heterogeneity was observed between studies (I Corticosteroids usage was associated with a reduced need for surgical intervention in paediatric DNSIs. Further research is needed to establish definitive treatment protocols and to determine short and long-term side effects.", "rationale": "Meta-analysis of 3 studies (n=2523) showing a >2-fold higher surgical intervention rate in children with deep neck space infections not receiving corticosteroids (RR 2.07, 95% CI 1.43–2.99). Large pooled N and consistent directionality support adjunct corticosteroid use, pending prospective confirmation.", "summary_sections": [{"label": "BACKGROUND", "text": "Pediatric deep neck space infections (DNSIs)—retropharyngeal and parapharyngeal abscesses—carry risks of airway obstruction, mediastinitis, and sepsis. Adjunct corticosteroid use alongside antibiotics is practiced variably, with unclear evidence for reducing surgical need."}, {"label": "METHODS", "text": "PRISMA-guided systematic review of 4 databases (January 1996–August 2024). Three studies comprising 2523 pediatric patients met inclusion criteria: 695 received antibiotics plus corticosteroids; 1828 received antibiotics alone. Primary outcome: surgical intervention rate. Random-effects meta-analysis."}, {"label": "RESULTS", "text": "Children who did NOT receive corticosteroids were significantly more likely to require surgical drainage (RR 2.07, 95% CI 1.43–2.99). Moderate heterogeneity was noted (I² not specified). No major adverse events attributed to corticosteroids were reported across included studies."}, {"label": "LIMITATIONS", "text": "Only 3 retrospective studies included; moderate heterogeneity; cannot exclude confounding by indication (more severely ill children may have been routed directly to surgery regardless of steroid use). No randomized evidence exists."}, {"label": "CLINICAL TAKEAWAY", "text": "In children with deep neck space infections managed medically with antibiotics, adjunct corticosteroids may roughly halve the likelihood of requiring surgical drainage. Clinicians should consider corticosteroid addition for appropriate DNSI patients; prospective randomized data are still needed to confirm benefit and define patient selection."}]}, {"pmid": "42552476", "score": 4, "study_type": "RCT", "n": 90, "title": "Glossopharyngeal nerve block versus tonsillar fossa ropivacaine infiltration within multimodal analgesia for pediatric post-tonsillectomy pain: a randomized controlled clinical trial.", "journal": "European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery", "abstract": "Pediatric tonsillectomy is associated with substantial postoperative pain. We compared glossopharyngeal nerve block (GNB) with peritonsillar ropivacaine infiltration (RI) within multimodal analgesia. In this double-blind randomized trial, 90 children (4-10 years) undergoing day-case tonsillectomy were randomly allocated in a 1:1:1 ratio (30 per group) to receive bilateral GNB with 0.2% ropivacaine, RI with 0.2% ropivacaine, or sham control. The primary outcome was post-anesthesia care unit (PACU) pain measured by the Face, Legs, Activity, Cry, Consolability (FLACC) scale; secondary outcomes included pain at rest and during swallowing measured by the Wong-Baker FACES Pain Rating Scale (FACES) at rest and during swallowing (2-24 h), time to first analgesic request, nausea, sleep quality, parental satisfaction, and adverse events. Time to first analgesic request was significantly longer in the GNB group than in the control group (median 240 vs. 120 min; P < 0.001). Pain at rest was lower with GNB than control from 2 to 12 h and lower than RI at 6 h, and swallowing pain was lower with GNB than both comparators from 2 to 24 h (all P ≤ 0.008) . Nausea was less frequent with GNB (6.7%) than RI (20%) or control (33.3%) (P = 0.036), and sleep quality and parental satisfaction were higher with GNB (P = 0.010 and P < 0.001). PACU FLACC and sedation scores were similar, and no serious anesthetic-related arrhythmias or bronchospasm were observed. Within the studied multimodal analgesic regimen, bilateral GNB with 0.2% ropivacaine was associated with lower postoperative pain scores, improved swallowing comfort, longer time to first rescue analgesia, and better caregiver-reported outcomes in this randomized cohort, without increased sedation or observed major anesthetic-related complications.", "rationale": "Double-blind 3-arm RCT (n=90) directly comparing GNB vs peritonsillar ropivacaine infiltration vs sham for pediatric tonsillectomy pain. GNB demonstrated superior analgesia, prolonged time to first rescue analgesic, and lower nausea without significant additional risk. Directly actionable for ENT surgeons performing pediatric tonsillectomies.", "summary_sections": [{"label": "BACKGROUND", "text": "Post-tonsillectomy pain is a major challenge in pediatric day-surgery, contributing to delayed recovery and poor oral intake. Peritonsillar infiltration (RI) is widely used, but glossopharyngeal nerve block (GNB) offers a broader anatomic coverage of the tonsillar fossa innervation."}, {"label": "METHODS", "text": "Double-blind randomized controlled trial. 90 children aged 4–10 undergoing day-case tonsillectomy at Shiraz University of Medical Sciences were randomized 1:1:1 to bilateral GNB with 0.2% ropivacaine, peritonsillar RI with 0.2% ropivacaine, or sham control. Primary outcome: PACU FLACC pain score. Secondary outcomes: pain at rest and swallowing (2–24h), time to first rescue analgesia, nausea, sleep quality, parental satisfaction."}, {"label": "RESULTS", "text": "GNB significantly prolonged time to first rescue analgesia vs control (median 240 vs 120 min; P<0.001). GNB reduced swallowing pain vs both comparators throughout 24h (P≤0.008). Post-operative nausea: 6.7% GNB vs 20% RI vs 33.3% control (P=0.036). Parental satisfaction was significantly higher in the GNB group. No major anesthetic complications (arrhythmias, bronchospasm) in any arm."}, {"label": "LIMITATIONS", "text": "Single-center study (Iran); operator-dependent skill required for GNB; 3-arm allocation limits statistical power per pairwise comparison; follow-up limited to 24 hours; generalizability to different anesthetic protocols uncertain."}, {"label": "CLINICAL TAKEAWAY", "text": "Bilateral GNB with ropivacaine outperforms peritonsillar infiltration and sham for post-tonsillectomy pain—especially swallowing comfort—through 24 hours. ENT surgeons or anesthesiologists comfortable with the technique should consider adding GNB to multimodal analgesia protocols for pediatric day-case tonsillectomy."}]}, {"pmid": "42544299", "score": 4, "study_type": "Secondary RCT Analysis", "n": 382, "title": "Risk Factors, Symptom Burden, and Treatment Response in Pediatric REM-Predominant OSA: Evidence From the Childhood Adenotonsillectomy Trial.", "journal": "Laryngoscope investigative otolaryngology", "abstract": "To evaluate whether children with rapid eye movement (REM)-predominant obstructive sleep apnea (OSA) are less likely to achieve disease resolution following different management strategies compared with those with non-REM-predominant OSA. We performed a secondary analysis of the Childhood Adenotonsillectomy Trial. Children aged 5.0-9.9 years with OSA were randomized to adenotonsillectomy (AT) or watchful waiting. REM-predominant OSA was defined as a REM-AHI to NREM-AHI ratio of ≥ 2. The primary outcome was OSA resolution at 7-month follow-up. Among 382 children (48.2% male; median age 6.75 years), 55.8% had REM-predominant OSA. Black race and obesity were associated with a higher prevalence of this subtype. REM-predominant OSA group exhibited increased daytime sleepiness (difference, 10%; 95% CI, 1%-17%), higher AHI (difference, 1.37; 95% CI, 0.67-2.22), and lower oxygen saturation nadirs (difference, -2.00; 95% CI, -3.00 to -2.00) compared with the non-REM-predominant OSA group. However, PSQ-defined symptom burden (difference, -1%; 95% CI, -9% to 7%) and OSA-18-defined quality-of-life impairment (difference, 3%; 95% CI, -6% to 12%) did not differ significantly between groups. At the 7-month follow-up, children in the REM-predominant OSA group who underwent watchful waiting were significantly less likely to experience spontaneous resolution than those in the non-REM-predominant OSA group (aOR, 0.52; 95% CI, 0.28-0.97). However, no significant difference was observed in the OSA resolution rate between the two groups who underwent AT (aOR, 0.75; 95% CI, 0.34-1.66). REM-predominant OSA was associated with greater daytime sleepiness and PSG severity but was not associated with significantly greater parent-reported symptom burden or worse disease-specific quality of life. Children with REM-predominant OSA were less likely to experience spontaneous resolution after watchful waiting, underscoring the prioritization of AT. 3.", "rationale": "Well-powered (n=382) secondary analysis of the landmark CHAT RCT demonstrating that REM-predominant OSA—present in 55.8% of children—is associated with significantly lower spontaneous resolution with watchful waiting (aOR 0.52), while adenotonsillectomy resolves both subtypes equally. Directly informs surgical decision-making in pediatric sleep surgery.", "summary_sections": [{"label": "BACKGROUND", "text": "REM-predominant OSA (REM-AHI/NREM-AHI ratio ≥2) may be a biologically distinct pediatric OSA subtype. Whether this distinction predicts differential response to adenotonsillectomy (AT) vs watchful waiting (WW) is unknown, as current guidelines do not differentiate management by OSA subtype."}, {"label": "METHODS", "text": "Post-hoc secondary analysis of the Childhood Adenotonsillectomy Trial (CHAT), a landmark multicenter RCT of 382 children aged 5–9.9 years with PSG-confirmed OSA randomized to AT or WW. REM-predominant OSA defined as REM-AHI:NREM-AHI ≥2. Primary outcome: OSA resolution at 7 months. Multivariate logistic regression used."}, {"label": "RESULTS", "text": "55.8% of children had REM-predominant OSA; enriched in Black children and those with obesity. REM-predominant OSA was associated with greater daytime sleepiness, higher AHI, and lower oxygen saturation nadirs. Children with REM-predominant OSA randomized to WW were significantly less likely to achieve spontaneous resolution (aOR 0.52, 95% CI 0.28–0.97). In the AT arm, OSA resolution was similar between subtypes (aOR 0.75, NS)."}, {"label": "LIMITATIONS", "text": "Post-hoc secondary analysis with associated multiplicity concerns; WW arm received sleep hygiene education which may have confounded outcomes; single 7-month follow-up point; generalizability to non-CHAT populations uncertain."}, {"label": "CLINICAL TAKEAWAY", "text": "Children with REM-predominant OSA—especially Black children and those with obesity—are significantly less likely to spontaneously improve with watchful waiting than those with non-REM-predominant OSA. Surgeons should consider this subtype identification when discussing WW vs AT, and may prioritize earlier surgical intervention for children with REM-predominant disease."}]}, {"pmid": "42563232", "score": 4, "study_type": "RCT Subgroup Analysis", "n": 145, "title": "Effects of NDURE on Timely Adjuvant Radiotherapy in HNSCC: Subgroup Analysis of an RCT.", "journal": "The Laryngoscope", "abstract": "Delays in initiating postoperative radiation therapy (PORT) are common, disproportionately burden medically underserved populations, and contribute to worse oncologic outcomes. NDURE is an enhanced navigation-based intervention that improved initiation of timely PORT relative to usual care (UC) within a randomized clinical trial (RCT). This study evaluates the effect of NDURE on timely PORT across demographic and clinical subgroups. In this exploratory, post hoc subgroup analysis from a single-center RCT, adults with locally advanced HNSCC undergoing surgery and PORT were randomized 1:1 to NDURE or UC. The primary outcome was initiation of timely PORT (≤ 6 weeks of surgery). The effect of NDURE relative to UC was assessed across demographic and clinical subgroups, modeling the primary outcome using a generalized linear model. Among 145 evaluable patients (NDURE, n = 67; UC, n = 78), NDURE improved timely PORT relative to UC across nearly all demographic subgroups, including age ≥ 65 years (RD = 43%, 95% CI, 19% to 64%), Black race (RD = 46%, 95% CI, 10% to 73%), and non-partnered status (RD = 32%, 95% CI, 8% to 53%). NDURE improved timely PORT relative to UC across nearly all clinical subgroups including AJCC stage IV (RD = 39%, 95% CI, 21% to 55%), free flap reconstruction (RD = 40%, 95% CI, 21% to 56%), and patients experiencing a postoperative complication (RD = 39%, 95% CI, 14% to 61%). NDURE is a broadly effective strategy to improve delivery of timely PORT with potential to attenuate disparities for those at greatest risk. ClinicalTrials.gov identifier: NCT04030130.", "rationale": "Subgroup analysis of a completed RCT published in The Laryngoscope showing that the NDURE navigation intervention improved timely PORT (≤6 weeks) across nearly all demographic and clinical subgroups in locally advanced HNSCC, including populations at highest risk of treatment delays. Actionable for HNC multidisciplinary teams concerned with equity and outcomes.", "summary_sections": [{"label": "BACKGROUND", "text": "Delays in initiating postoperative radiation therapy (PORT) after surgery for locally advanced HNSCC are associated with worse oncologic outcomes and disproportionately affect underserved populations. Enhanced patient navigation programs may reduce these disparities."}, {"label": "METHODS", "text": "Exploratory, post-hoc subgroup analysis of a single-center RCT (NCT04030130) at MUSC. 145 adults with locally advanced HNSCC undergoing surgery + PORT randomized 1:1 to NDURE (navigation-based care coordination) vs usual care. Primary outcome: timely PORT initiation (≤6 weeks). Subgroups analyzed included age, race, partnership status, AJCC stage, reconstruction type, and surgical complications."}, {"label": "RESULTS", "text": "NDURE improved timely PORT initiation across nearly all subgroups: age ≥65 (RD +43%, 95% CI 19–64%), Black patients (RD +46%, 95% CI 10–73%), non-partnered (RD +32%), AJCC Stage IV (RD +39%), free flap reconstruction (RD +40%), and postoperative complication (RD +39%). Only one subgroup (White patients) showed non-significant benefit."}, {"label": "LIMITATIONS", "text": "Single-center study; exploratory post-hoc subgroup design with limited power per subgroup; MUSC patient demographics may not generalize; navigation program specifics are institution-dependent."}, {"label": "CLINICAL TAKEAWAY", "text": "The NDURE navigation intervention broadly improves timely PORT initiation in HNSCC patients across demographic and clinical risk strata—including patients at highest risk of treatment delay. Head and neck cancer programs should consider structured navigation as a standard component of post-surgical care coordination, particularly for elderly, Black, socially isolated, or medically complex patients."}]}, {"pmid": "42564699", "score": 4, "study_type": "Systematic Review & Meta-Analysis", "n": null, "title": "Total Parotidectomy Versus Less-Than-Total Parotidectomy for Early-Stage Low Grade Parotid Cancer: A Systematic Review and Meta-Analysis.", "journal": "Laryngoscope investigative otolaryngology", "abstract": "Total parotidectomy (TP) has been advocated to ensure complete tumor clearance and removal of intraparotid lymph nodes; however, less-than-total parotidectomy (LTT) may offer comparable oncologic control with superior functional outcomes. In this systematic review and meta-analysis, we compared oncologic and functional outcomes between LTT and TP for patients with T1-2 low-grade parotid malignancies. A systematic literature search was conducted according to the Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines. Four retrospective cohort studies of T1-2 low-grade parotid cancer were included. Patients underwent either LTT or TP. Primary outcomes were overall survival (OS) and recurrence-free survival (RFS). Pooled hazard ratios with 95% confidence intervals were calculated using random-effects models. Heterogeneity was assessed using  The pooled analysis demonstrated no significant difference in OS between LTT and TP based on three studies. Across the four studies, RFS was comparable between the two surgical approaches, and statistical heterogeneity was negligible for both OS and RFS. No evidence of publication bias was detected. In selected patients with T1-2 low-grade parotid malignancies confined to the superficial lobe, LTT showed no statistically significant disadvantage in OS or RFS compared with TP based on the available retrospective evidence. However, the high risk of bias across included studies limits causal interprettion. Surgical strategy should therefore be individualized and should prioritize negative margins and functional preservation when oncologically appropriate. Prospective studies with standardized oncologic and functional outcome reporting are warranted. 3.", "rationale": "Meta-analysis of 4 retrospective cohort studies demonstrating no significant difference in OS or RFS between total parotidectomy and less-than-total parotidectomy for T1-2 low-grade parotid cancer. Evidence supports margin-focused, function-preserving surgery as oncologically safe in this population.", "summary_sections": [{"label": "BACKGROUND", "text": "Total parotidectomy (TP) has historically been advocated for parotid malignancies to ensure tumor clearance and sampling of intraparotid lymph nodes. However, less-than-total parotidectomy (LTT) may offer comparable oncologic control with superior functional outcomes by reducing facial nerve manipulation."}, {"label": "METHODS", "text": "PRISMA-guided systematic review and meta-analysis. Four retrospective cohort studies of T1-2 low-grade parotid cancer were included. Primary outcomes: overall survival (OS) and recurrence-free survival (RFS). Pooled hazard ratios computed using random-effects models."}, {"label": "RESULTS", "text": "No significant difference in OS between LTT and TP across 3 studies. RFS was comparable across all 4 studies. Heterogeneity was negligible for both OS (I²≈0%) and RFS. No evidence of publication bias detected."}, {"label": "LIMITATIONS", "text": "Only 4 retrospective studies, all with high risk of bias; selection bias possible (lower-stage tumors may have preferentially received LTT); lacks standardized functional outcome reporting; cannot draw causal conclusions."}, {"label": "CLINICAL TAKEAWAY", "text": "For T1-2 low-grade parotid malignancies confined to the superficial lobe, LTT appears oncologically equivalent to total parotidectomy based on current retrospective evidence. A margin-focused, function-preserving surgical approach is defensible; prospective studies with standardized functional and oncologic reporting are needed to confirm this recommendation."}]}], "noted": [{"pmid": "42545813", "score": 4, "study_type": "RCT", "title": "Effect of Case Variation on Mastoidectomy Training Using 3D-Printed Temporal Bones Models-A Prospective, Randomized Trial.", "journal": "Otolaryngology–head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery", "summary": "Prospective RCT (n=24 novices) in Otolaryngol HNS showing variable 3D-printed temporal bone models improved end-of-training mastoidectomy scores vs identical models, but identical-model practice showed superior 3-month skill retention and lower cognitive load. Educators face a tradeoff: varied models boost initial performance, identical models build more durable automaticity. Practical implication: programs may benefit from an 'identical-first, varied-later' curriculum design."}, {"pmid": "42548684", "score": 4, "study_type": "Meta-Analysis of RCTs", "title": "The efficacy of tonsillectomy in the management of PFAPA syndrome: a systematic review and meta-analysis.", "journal": "Frontiers in surgery", "summary": "Meta-analysis of 3 RCTs (n=81) demonstrating dramatically higher complete remission rates with tonsillectomy vs conservative management for PFAPA syndrome (pooled OR 42.21, 95% CI 9.34–190.74). Fever episode frequency was also significantly reduced. Fever duration data were inconclusive. Given the small number of included studies, results are hypothesis-generating but support surgical consultation for PFAPA refractory to medical management."}, {"pmid": "42554971", "score": 4, "study_type": "Systematic Review & Meta-Analysis", "title": "High-Flow Nasal Cannula Versus Noninvasive Ventilation for Prevention of Reintubation in High-Risk Critically Ill Patients (HIGH-FLOW OXY): An Informative Systematic Review and Meta-Analysis.", "journal": "Critical care explorations", "summary": "Meta-analysis of 15 RCTs (n=2073) comparing high-flow nasal cannula to non-invasive ventilation in high-risk ICU patients post-extubation. No significant overall difference in reintubation, ICU mortality, or infection rates. However, subgroup analyses suggest HFNC may increase reintubation risk in very high-risk patients (OR 1.63) and non-operative obese patients (OR 2.52). Airway teams managing post-operative HNSCC or complex airway patients should consider NIV preference in these high-risk subgroups."}, {"pmid": "42551729", "score": 4, "study_type": "RCT", "title": "Feedback with Education versus Digital Ototscopy for Acute Otitis Media Diagnosis and Treatment.", "journal": "The Journal of pediatrics", "summary": "RCT of 40 primary care pediatricians showing that performance feedback with education significantly reduced antibiotic prescribing for acute otitis media (AOM treatment rate change -12.8% vs control), whereas digital otoscopy alone did not reach significance (-7.3%). Combined intervention was also effective (-9.7%). 70% of digital otoscopy users preferred it over traditional otoscopy. Relevant for ENT–pediatrician collaboration in antibiotic stewardship programs."}, {"pmid": "42546804", "score": 4, "study_type": "RCT", "title": "Long-Term Outcomes of Advanced Pneumatic Compression Device vs. Usual Care Therapy for Head and Neck Cancer-Related Lymphedema: A Multi-Site Randomized Clinical Trial.", "journal": "International journal of radiation oncology, biology, physics", "summary": "Multi-site RCT (n=236) at Vanderbilt comparing advanced pneumatic compression devices (APCD) vs usual care for treatment-naïve head and neck cancer lymphedema at 4 and 6 months. Both groups demonstrated sustained symptom improvement with no significant between-group differences on most measures. Select anatomic subsites marginally favored APCD. Both therapies achieve durable benefit; APCD does not appear to add meaningfully over institutional usual care at 6 months."}, {"pmid": "42552258", "score": 3, "study_type": "Retrospective Cohort", "title": "Patient Characteristics Associated With Treatment Decisions in Bilateral Vocal Fold Atrophy.", "journal": "The Laryngoscope", "summary": "Retrospective cohort (n=248) in The Laryngoscope examining characteristics associated with injection augmentation vs no treatment in bilateral vocal fold atrophy. Patient-reported voice handicap, severity of atrophy on laryngoscopy, and pulmonary function were associated with treatment selection. Findings inform shared decision-making frameworks for this underrecognized laryngologic condition."}, {"pmid": "42547224", "score": 3, "study_type": "Retrospective Cohort", "title": "Effect of Body Mass Index on Long-Term Outcomes After Endoscopic Sinus Surgery.", "journal": "The Laryngoscope", "summary": "Retrospective cohort (n=664) from The Laryngoscope showing obesity (elevated BMI) was associated with significantly worse long-term symptom outcomes after ESS for chronic rhinosinusitis. Higher BMI correlated with greater residual sinonasal symptoms, more revision surgeries, and reduced quality-of-life improvement at long-term follow-up. Surgeons should counsel obese CRS patients about potentially attenuated surgical outcomes and the value of weight management as part of multimodal CRS therapy."}, {"pmid": "42556848", "score": 3, "study_type": "Narrative Review", "title": "Paediatric obstructive sleep apnoea and early cardiovascular risk phenotypes: an evidence review.", "journal": "European respiratory review : an official journal of the European Respiratory Society", "summary": "Evidence review in European Respiratory Review summarizing emerging data linking pediatric obstructive sleep apnea to early cardiovascular risk phenotypes including elevated blood pressure, endothelial dysfunction, and autonomic dysregulation. Most evidence is cross-sectional; causal pathways remain uncertain. Provides rationale for extending the pediatric OSA care paradigm beyond neurocognition to include cardiovascular risk monitoring—especially in children with severe or untreated disease."}, {"pmid": "42571263", "score": 3, "study_type": "Cross-Sectional Study", "title": "Socioeconomic and regional influences on eosinophilic inflammation in chronic rhinosinusitis with nasal polyps.", "journal": "The World Allergy Organization journal", "summary": "Cross-sectional study (n=1047) in World Allergy Organization Journal examining concordance between peripheral blood eosinophil counts and tissue eosinophilia in CRSwNP. Socioeconomic and regional factors significantly moderated the relationship. Blood eosinophils were a reasonable but imperfect proxy for local eosinophilic inflammation; both affluence and geographic region influenced counts. Clinicians using blood eosinophils to guide biologic therapy selection in CRSwNP should interpret results in demographic context."}, {"pmid": "42552478", "score": 3, "study_type": "Systematic Review", "title": "Incidence and causes of unplanned acute care revisits after pediatric tonsillectomy with or without adenoidectomy: a systematic review.", "journal": "European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery", "summary": "Systematic review from European Archives characterizing the incidence and causes of unplanned acute care revisits after pediatric tonsillectomy. Post-hemorrhage, dehydration/poor oral intake, and pain were the leading causes. Incidence estimates varied widely. Findings reinforce the importance of robust post-operative pain protocols, parent education about red flags, and standardized discharge criteria in pediatric tonsillectomy programs."}, {"pmid": "42545892", "score": 3, "study_type": "Review", "title": "Integrated Immune, Epithelial and Lipid Pathways in NSAID-Exacerbated Respiratory Disease.", "journal": "Clinical and translational allergy", "summary": "Narrative review in Clinical and Translational Allergy synthesizing the molecular pathophysiology of NSAID-exacerbated respiratory disease (N-ERD), including type 2 inflammation, eicosanoid dysregulation, and epithelial barrier disruption. Reviews evidence for biologic therapies targeting these pathways. Useful background for rhinologists managing refractory CRSwNP in NSAID-sensitive patients considering dupilumab, benralizumab, or mepolizumab."}, {"pmid": "42545211", "score": 3, "study_type": "Retrospective Cohort", "title": "Retrospective analysis of postoperative complications and risk factors in middle ear surgery.", "journal": "Acta oto-laryngologica", "summary": "Retrospective analysis (n=200) in Acta Oto-Laryngologica describing complication rates, types, and risk factors across middle ear procedures including tympanoplasty, mastoidectomy, and ossiculoplasty. Complication rates were low overall; active external otitis, revision surgery, and cholesteatoma were associated with higher complication risk. Findings reinforce standard preoperative optimization and patient selection principles."}, {"pmid": "42558909", "score": 3, "study_type": "Review", "title": "Biologic therapies targeting type 2 inflammation in NSAID-exacerbated respiratory disease.", "journal": "Frontiers in immunology", "summary": "Review in Frontiers in Immunology summarizing evidence for biologics targeting type 2 inflammation in NSAID-exacerbated respiratory disease, including anti-IL-4Rα (dupilumab), anti-IL-5 agents (mepolizumab, benralizumab), and anti-IgE (omalizumab). Dupilumab shows strongest HNSCC-relevant sinonasal evidence. Provides a practical framework for biologic selection in N-ERD patients with CRSwNP who fail conventional medical therapy."}, {"pmid": "42550682", "score": 3, "study_type": "Case Series", "title": "Simultaneous Dual Type 2 Biologic Therapy Improves Sinonasal Outcomes in Selected Patients With Chronic Rhinosinusitis With Nasal Polyps.", "journal": "Allergy", "summary": "Pilot case series (n=14, Allergy journal) describing outcomes in highly refractory CRSwNP patients with multiple type 2 comorbidities treated with simultaneous dual biologic therapy. Sinonasal outcome improvements were seen in selected cases despite prior failure of single-agent biologics. Given minimal evidence base (n=14, retrospective, no control), results are hypothesis-generating only; dual biologic use should remain restricted to centers with multidisciplinary allergy/ENT expertise."}, {"pmid": "42547869", "score": 3, "study_type": "Review", "title": "Bridging the gap: modern pharyngolaryngoesophagectomy techniques and the rise of neoadjuvant/immunotherapy approaches.", "journal": "World journal of surgical oncology", "summary": "Narrative review in World Journal of Surgical Oncology outlining the evolving role of pharyngolaryngoesophagectomy (PLE) in hypopharyngeal and cervical esophageal cancer, including minimally invasive approaches and the impact of neoadjuvant therapy and immunotherapy on surgical selection. PLE remains necessary for organ-preservation failures and selected primary presentations; robotic-assisted techniques and free jejunal transfers are discussed. Provides a contemporary framework for complex HNC surgical oncologists."}]}
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.copy-pmid').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pmid = btn.getAttribute('data-pmid');
+      navigator.clipboard.writeText(pmid).then(function() {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
