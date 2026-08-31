@@ -1,1 +1,1238 @@
-PLACEHOLDER_INDEX
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT/Airway/Face Digest — May 15, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF;
+    --surface: #ffffff;
+
+    /* Forest-tinted borders */
+    --border: #B8C9BC;
+    --border-strong: #8FA897;
+    --border-soft: #D5DFD5;
+    --hairline: #E4EAE2;
+
+    --text: #131A15;
+    --text-mid: #3F4A42;
+    --text-dim: #6E7A70;
+    --text-faint: #A5AEA6;
+
+    --forest: #1A4730;
+    --forest-deep: #103022;
+    --forest-mid: #2F6B49;
+    --forest-soft: #57966F;
+    --forest-tint: #E4ECE3;
+    --forest-tint-strong: #D2DFD2;
+    --forest-line: #98B49E;
+
+    /* Score: green → red, more saturated */
+    --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
+    --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
+    --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
+    --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
+    --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
+
+  .paper-grain {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%);
+  }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    border-bottom: 2px solid var(--forest);
+    background: rgba(247,245,239,0.94);
+    backdrop-filter: blur(10px);
+  }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
+  .logo-block { display: flex; align-items: center; gap: 1rem; }
+  .logo {
+    width: 48px; height: 48px; border-radius: 8px;
+    background: var(--forest-deep); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--forest);
+  }
+  .logo svg { width: 24px; height: 24px; }
+  .brand-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep);
+  }
+  .brand-sub {
+    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em;
+    color: var(--forest-mid); text-transform: uppercase; margin-top: 3px;
+  }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .status-pill {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line);
+    border-radius: 6px; background: var(--forest-tint);
+    font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600;
+  }
+  .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+
+  main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+
+  /* Report head */
+  .report-head {
+    border-bottom: 2px solid var(--forest);
+    padding-bottom: 2.5rem; margin-bottom: 3rem;
+    display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;
+  }
+  .head-status {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--forest-deep); margin-bottom: 1.25rem;
+    padding: 0.3rem 0.75rem 0.3rem 0.55rem;
+    background: var(--forest-tint); border: 1.5px solid var(--forest-line);
+    border-radius: 999px;
+  }
+  .head-status-text {
+    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .head-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em;
+    line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep);
+  }
+  .head-meta {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    font-size: 0.875rem; color: var(--text-mid); font-weight: 500;
+  }
+  .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+  .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
+  .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+
+  .stats {
+    display: flex; gap: 0;
+    border: 2px solid var(--forest);
+    border-radius: 10px; overflow: hidden;
+    background: var(--surface);
+  }
+  .stat {
+    padding: 1rem 1.5rem; text-align: right;
+    min-width: 110px;
+  }
+  .stat + .stat { border-left: 2px solid var(--forest); }
+  .stat-label {
+    display: block; font-size: 0.625rem; font-weight: 700;
+    color: var(--forest-mid); text-transform: uppercase;
+    letter-spacing: 0.2em; margin-bottom: 0.5rem;
+  }
+  .stat-value {
+    font-family: 'Source Serif 4', serif;
+    font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep);
+  }
+  .stat-value.accent { color: var(--forest); }
+
+  .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+  .col-must { grid-column: span 5; }
+  .col-noted { grid-column: span 7; }
+  @media (max-width: 900px) {
+    .col-must, .col-noted { grid-column: span 12; }
+    .head-title { font-size: 2.25rem; }
+    .grid-12 { gap: 2rem; }
+  }
+
+  .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
+  .section-label-text {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .section-label-text.primary { color: var(--forest-deep); }
+  .section-label-text.secondary { color: var(--forest-mid); }
+  .section-rule { height: 2px; flex: 1; background: var(--forest); }
+  .section-rule.soft { background: var(--forest-soft); }
+
+  /* MUST READ cards — heavier borders */
+  .must-card {
+    position: relative; overflow: hidden;
+    border: 2px solid var(--forest);
+    border-radius: 10px;
+    background: var(--surface);
+    padding: 1.75rem;
+    transition: all 0.2s; margin-bottom: 1.5rem;
+    box-shadow: 0 2px 0 var(--forest-deep);
+  }
+  .must-card:hover {
+    border-color: var(--forest-deep);
+    box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25);
+    transform: translateY(-1px);
+  }
+  .must-card .accent-bar {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+    background: var(--forest);
+  }
+
+  .must-meta-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; margin-bottom: 1rem;
+  }
+  .must-meta-left {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+    color: var(--forest-deep); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  /* SCORE BOX */
+  .score-box {
+    display: inline-flex; align-items: baseline; gap: 0.375rem;
+    padding: 0.45rem 0.75rem; border-radius: 6px;
+    border: 2px solid; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .score-box .score-num { font-size: 1rem; line-height: 1; }
+  .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
+  .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-box[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+
+  /* Study-type badges */
+  .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    border: 1.5px solid;
+  }
+  .badge-type {
+    background: #F1F2EC; border-color: var(--border); color: var(--text-mid);
+  }
+  .badge-novel {
+    background: var(--forest);
+    border-color: var(--forest-deep);
+    color: #ffffff;
+  }
+  .badge-novel::before {
+    content: '✦'; font-size: 0.75rem; line-height: 1;
+  }
+
+  .must-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep);
+    margin-bottom: 0.5rem; letter-spacing: -0.01em;
+  }
+  .must-authors {
+    font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5;
+    padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft);
+  }
+  .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+
+  /* Structured summary sections */
+  .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
+  .summary-section:last-child { margin-bottom: 0; }
+  .summary-section h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.625rem; font-weight: 700;
+    color: var(--forest); text-transform: uppercase;
+    letter-spacing: 0.18em; margin-bottom: 0.35rem;
+  }
+
+  .must-rationale {
+    margin-top: 1.25rem;
+    display: flex; align-items: flex-start; gap: 0.625rem;
+    padding: 0.875rem 1rem;
+    background: var(--forest-tint);
+    border: 1.5px solid var(--forest-line);
+    border-left-width: 4px;
+    border-radius: 6px;
+    font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55;
+  }
+  .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
+  .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
+
+  .must-actions {
+    margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .link-pill {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep);
+    text-decoration: none; padding: 0.45rem 0.7rem;
+    border: 1.5px solid var(--forest-line); border-radius: 4px;
+    background: var(--surface); transition: all 0.15s;
+  }
+  .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
+  .link-pill svg { width: 11px; height: 11px; }
+
+  /* NOTED — also bumped border weight */
+  .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .noted-item {
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--forest-soft);
+    border-radius: 6px;
+    background: var(--surface);
+    padding: 1rem 1.125rem;
+    transition: all 0.15s; cursor: pointer;
+  }
+  .noted-item:hover {
+    border-left-color: var(--forest);
+    border-color: var(--forest-line);
+    transform: translateX(2px);
+  }
+  .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+  .score-chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 26px; height: 24px; padding: 0 0.45rem;
+    border-radius: 4px; border: 1.5px solid;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700;
+  }
+  .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-chip[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badge-type-mini {
+    font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-mid); padding: 0.2rem 0.45rem;
+    background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px;
+  }
+  .noted-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem; font-weight: 700; color: var(--forest-deep);
+    line-height: 1.32; margin-bottom: 0.5rem;
+  }
+  .noted-summary {
+    font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6;
+  }
+  .noted-source {
+    margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    padding-top: 0.5rem; border-top: 1px dashed var(--border-soft);
+  }
+
+  footer.report-footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.625rem; color: var(--forest-mid); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem;
+  }
+
+  .policy-section { margin-bottom: 3rem; }
+  .policy-empty {
+    font-size: 0.875rem; color: var(--text-dim);
+    font-style: italic; padding: 0.5rem 0;
+  }
+  .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .policy-card {
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--forest-soft);
+    border-radius: 8px; background: var(--surface);
+    padding: 1.125rem 1.25rem;
+  }
+  .policy-card.policy-critical {
+    border: 2px solid var(--forest);
+    border-left: 6px solid var(--forest);
+    background: var(--forest-tint);
+  }
+  .policy-meta {
+    display: flex; align-items: center; gap: 0.625rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+    margin-bottom: 0.5rem;
+  }
+  .policy-source {
+    font-weight: 700; color: var(--forest-deep);
+    padding: 0.2rem 0.45rem; background: var(--surface);
+    border: 1.5px solid var(--forest-line); border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .policy-tier {
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid;
+  }
+  .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
+  .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
+  .policy-date { color: var(--text-dim); margin-left: auto; }
+  .policy-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep);
+    margin-bottom: 0.4rem; line-height: 1.3;
+  }
+  .policy-summary {
+    font-size: 0.875rem; color: var(--text-mid);
+    line-height: 1.55; margin-bottom: 0.75rem;
+  }
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo-block">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">ENT / Airway / Face Digest</div>
+        <div class="brand-sub">Daily Literature Brief</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:03 ET</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="report-head">
+      <div>
+        <div class="head-status">
+          <div class="pulse-dot"></div>
+          <span class="head-status-text">Curated by Sonnet 4.6</span>
+        </div>
+        <h1 class="head-title">Sunday, August 31, 2026</h1>
+        <div class="head-meta">
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>EDAT range: August 24, 2026 – August 31, 2026</span>
+          </div>
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            <span class="scope-tag">10 PubMed queries · ENT/Airway/Face/Peds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Surfaced</span>
+          <span class="stat-value">1153</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Made Cut</span>
+          <span class="stat-value accent">20</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Must Read</span>
+          <span class="stat-value">5</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="policy-section">
+      <div class="section-label">
+        <div class="section-rule"></div>
+        <span class="section-label-text primary">Policy &amp; Practice Updates · 0</span>
+      </div>
+      
+        <p class="policy-empty">No new policy updates this week.</p>
+      
+    </section>
+
+    <div class="grid-12">
+
+      <!-- MUST READ -->
+      <section class="col-must">
+        <div class="section-label">
+          <div class="section-rule"></div>
+          <span class="section-label-text primary">Must Read · 5</span>
+        </div>
+
+        
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">01 · Cochrane Database of Systematic Reviews</span>
+    <div class="score-box" data-score="5">
+      <span class="score-num">5</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Cochrane SR+MA</span><span class="badge badge-type">Updated 2026</span>
+    
+  </div>
+  <h3 class="must-title">Hearing aids for mild to moderate hearing loss in adults</h3>
+  <div class="must-authors">Ferguson MA, Sarant JZ, Bennett RJ … <span class="senior">Bothe E (senior, Curtin University, Perth, Australia)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Hearing aids are the mainstay treatment for mild-to-moderate hearing loss in adults. This 2026 update of the 2017 Cochrane review incorporates new RCTs and expands outcomes to include mental health and cognition.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Cochrane Information Specialists searched CENTRAL, Cochrane ENT registry, MEDLINE, Embase, Web of Science, ClinicalTrials.gov, and ICTRP for published and unpublished RCTs. 2,261 participants across eligible trials were included. Risk of bias was assessed using Cochrane RoB 2 tool.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Hearing aids improved speech intelligibility, self-reported hearing handicap, and hearing-related quality of life versus no hearing aid (moderate-certainty evidence). New 2026 data show modest benefits on mental health measures and preliminary signals for cognitive benefit in adults with untreated mild-moderate hearing loss.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Moderate certainty evidence overall; heterogeneity in hearing aid type, fitting protocols, and follow-up duration; cognitive outcomes remain preliminary with short follow-up periods in most RCTs.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>This Cochrane update reinforces that hearing aid prescription should be the standard of care for adults with mild-to-moderate hearing loss — including for mental health and possible cognitive benefits. ENT providers should counsel patients proactively on these broader benefits beyond speech clarity.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 5:</strong> Updated Cochrane SR+MA (n=2,261, multiple RCTs) of the primary intervention for mild-to-moderate hearing loss, adding new outcomes (mental health, cognition). Cochrane methodology, landmark database update, and direct practice relevance earn a 5.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42644645" target="_blank" rel="noopener">PMID 42644645
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1002/14651858.CD012023.pub3" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42644645" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">02 · American Journal of Rhinology &amp; Allergy</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">n=859</span>
+    
+  </div>
+  <h3 class="must-title">Radiofrequency Ablation Versus Cryoablation of the Posterior Nasal Nerve for Chronic Rhinitis: A Meta-Analysis and Systematic Review</h3>
+  <div class="must-authors">Mose TA, Patel PC, Gelfond JAL … <span class="senior">Chen PG (senior, University of Texas at San Antonio)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Posterior nasal nerve (PNN) ablation — by radiofrequency ablation (RFA) or cryoablation (CA) — is increasingly used for chronic rhinitis. Head-to-head comparisons have been limited.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>12 studies totaling 859 patients identified across 5 health science databases (January 2026). Meta-regression computed change in Total Nasal Symptom Score (TNSS), TNSS subscores, and RQLQ. Fisher&#39;s exact test compared adverse event (AE) rates.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Both modalities produced TNSS reductions surpassing the minimal clinically important difference (MCID). RFA and CA showed comparable overall efficacy on TNSS and RQLQ. No statistically significant difference in overall AE rates; RFA had higher minor procedural discomfort rates while CA showed a marginally higher rate of crusting in some analyses.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Indirect (not head-to-head) comparison; heterogeneity across study populations, rhinitis phenotypes, and PNN ablation techniques; no blinded RCT comparing the two directly.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>RFA and cryoablation of the PNN are similarly efficacious for chronic rhinitis. Procedure selection can be guided by office setup, cost, and surgeon familiarity rather than expected efficacy differential. Both are appropriate options for patients with refractory rhinitis.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Meta-analysis (12 studies, n=859) in a specialty flagship journal comparing two widely used office procedures for chronic rhinitis. Results cross the MCID for TNSS and directly inform procedure selection for rhinologists.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42658221" target="_blank" rel="noopener">PMID 42658221
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1177/19458924261480410" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42658221" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">03 · International Journal of Pediatric Otorhinolaryngology</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Systematic Review</span><span class="badge badge-type">Pediatric OSA</span>
+    
+  </div>
+  <h3 class="must-title">Intracapsular tonsillectomy/tonsillotomy for severe pediatric obstructive sleep apnea: A PRISMA-based systematic review and exploratory meta-analytic synthesis</h3>
+  <div class="must-authors">Torretta S, De Lucia G, Cozzi A … <span class="senior">Battilocchi L (senior, Fondazione IRCCS Ca&#39; Granda Ospedale Maggiore Policlinico, Milan, Italy)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Intracapsular tonsillectomy/tonsillotomy (IT) combined with adenoidectomy reduces postoperative morbidity compared to total tonsillectomy, but its role in severe pediatric OSA (AHI ≥10) has been debated due to concerns about residual disease and revision surgery rates.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>PRISMA 2020 compliant, PICO-based systematic review. 36 records identified; final cohort focused on polysomnographic improvement, residual disease (AHI normalization rates), need for additional treatment, revision/completion tonsillectomy rates, nocturnal ventilation, and postoperative complications.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>IT achieved significant PSG improvement in severe pediatric OSA across included studies. While residual OSA rates were higher than in mild-moderate cases, revision/completion tonsillectomy rates were acceptable and complication profiles favorable. Pooled data support IT as an effective first approach even in severe pediatric OSA when adenoidectomy is combined.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>High heterogeneity in OSA severity thresholds, surgical technique definitions, and follow-up periods; most included studies are retrospective; no direct RCT comparing IT vs. total tonsillectomy specifically in severe OSA.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Intracapsular tonsillectomy with adenoidectomy is a viable approach for severe pediatric OSA, offering a better postoperative pain and complication profile without unacceptable residual disease rates. Pediatric ENT surgeons can justify IT for severe OSA rather than defaulting to total tonsillectomy, with appropriate PSG follow-up.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Addresses a genuinely contested question — whether intracapsular tonsillectomy is safe and effective even for severe pediatric OSA. Multi-center IRCCS-based group, PRISMA-guided, focuses on polysomnographic outcomes and re-operation rates.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42641450" target="_blank" rel="noopener">PMID 42641450
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1016/j.ijporl.2026.112991" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42641450" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">04 · Otolaryngology — Head and Neck Surgery</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Practice Review</span><span class="badge badge-type">Management Algorithm</span>
+    
+  </div>
+  <h3 class="must-title">Evaluation and Management of Laryngopharyngeal Reflux Disease: An Updated State of the Art Review</h3>
+  <div class="must-authors">Lechien JR, Johnston N, Savarino E … <span class="senior">Carroll TL (senior, Harvard Medical School, Boston, MA)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Laryngopharyngeal reflux disease (LPRD) is among the most common conditions presenting to otolaryngologists, yet its pathophysiology, optimal diagnostic workup, and treatment protocols remain debated.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Four authors conducted a PRISMA-guided literature review of PubMed, Cochrane Library, and Scopus (last 5 years). Critical analysis yielded an evidence-based management algorithm for clinical practice.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>New data emphasize the gaseous and alkaline profile of LPRD on 24-hour hypopharyngeal-esophageal impedance-pH monitoring, and document alkaline-activated enzymes (pepsin, bile acids) in upper aerodigestive tract mucosa. Three international consensuses inform the new algorithm: empirical PPI trial is still first-line, but impedance-pH monitoring is now prioritized for non-responders before escalating therapy. Alginate-based and dietary interventions have emerging evidence.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Predominantly narrative review with variable-quality primary evidence; diagnostic gold standard (hypopharyngeal impedance-pH) remains underutilized due to cost and access.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>For patients with LPRD not responding to an empiric PPI trial, the updated algorithm recommends hypopharyngeal-esophageal impedance-pH monitoring before further escalation. Alkaline/gaseous reflux — not captured by pH-only monitoring — may explain PPI non-response. Consider alginates and dietary alkaline modification as adjuncts.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Comprehensive PRISMA-guided review from a Harvard laryngology group, published in the AAO-HNS official journal. Delivers an updated management algorithm incorporating new impedance-pH monitoring data and consensus statements. High clinical utility score.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42647076" target="_blank" rel="noopener">PMID 42647076
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1002/ohn.70413" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42647076" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">05 · Journal of Voice</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Systematic Review</span><span class="badge badge-type">Pediatric RRP</span><span class="badge badge-type">n=74</span>
+    
+  </div>
+  <h3 class="must-title">Efficacy and Safety of Systemic Bevacizumab in Children with Recurrent Respiratory Papillomatosis: A Systematic Review</h3>
+  <div class="must-authors">Gierlotka A, Bielecki I … <span class="senior">Bielecki I (senior, Medical University of Silesia, Katowice, Poland)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Juvenile-onset recurrent respiratory papillomatosis (JoRRP) is driven by HPV-6/11 and causes progressive airway obstruction requiring repeated surgical debridement. Systemic bevacizumab (anti-VEGF) has emerged as an adjuvant to reduce disease burden.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>PRISMA 2020 systematic review. MEDLINE, Embase, ScienceDirect, and Cochrane Library searched from inception to June 30, 2026. Included: pediatric patients (&lt;18 years) with JoRRP treated with intravenous bevacizumab. Outcomes: disease burden, inter-surgical interval, complete remission, and adverse events.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>22 studies, 74 pediatric patients. Systemic bevacizumab consistently reduced disease burden, prolonged inter-surgical intervals, and decreased the frequency of operative interventions. Complete clinical remission was documented in a subset of patients. The adverse event profile was manageable, with hypertension and proteinuria as the most reported toxicities.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Small total sample (74 patients), predominantly case series/reports; no RCT; heterogeneous dosing protocols and outcome measures; publication bias likely given favorable cases more likely reported.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>For pediatric patients with aggressive JoRRP requiring frequent surgical intervention, systemic bevacizumab merits discussion as an adjuvant therapy to prolong inter-surgical intervals and reduce disease burden. Referral to a center with RRP expertise and multidisciplinary oversight (pediatric laryngology + oncology) is advisable before initiating systemic anti-VEGF therapy.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Juvenile-onset RRP is a challenging HPV-driven condition with no curative medical therapy. This PRISMA 2020 SR (22 studies, 74 pediatric patients) consolidates evidence on systemic bevacizumab — a treatment gaining traction as an adjunct. Practice-influencing for laryngologists managing severe JoRRP.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42637636" target="_blank" rel="noopener">PMID 42637636
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1016/j.jvoice.2026.08.008" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42637636" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+      </section>
+
+      <!-- NOTED -->
+      <section class="col-noted">
+        <div class="section-label">
+          <span class="section-label-text secondary">Noted · 15</span>
+          <div class="section-rule soft"></div>
+        </div>
+
+        <div class="noted-grid">
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">RCT</span><span class="badge-type-mini">Pediatric Airway</span>
+  </div>
+  <div class="noted-title">Bilevel Positive Airway Pressure and Continuous Albuterol for Pediatric Asthma Exacerbations: A Randomized Clinical Trial</div>
+  <p class="noted-summary">Double-blind RCT (University of Colorado, JAMA Network Open) evaluating early BPAP in pediatric ED patients with moderate-severe acute asthma on continuous albuterol. Examines whether BPAP reduces critical care management time. Results speak to ED management protocols affecting pediatric airway providers.</p>
+  <div class="noted-source">JAMA Network Open · PMID 42646841 · <button class="copy-pmid noted-copy" data-pmid="42646841" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Scoping Review</span><span class="badge-type-mini">n=3715</span>
+  </div>
+  <div class="noted-title">The Burden of Airway Disease in Mucopolysaccharidoses: Evidence Across Subtypes</div>
+  <p class="noted-summary">PRISMA-ScR scoping review of 65 case series (n=3,715) synthesizing airway manifestations across MPS subtypes (I–IX). Adenotonsillar hypertrophy, subglottic stenosis, and tracheomalacia prevalences are pooled by subtype. Valuable reference for ENT and pediatric airway surgeons managing MPS patients.</p>
+  <div class="noted-source">The Laryngoscope · PMID 42665430 · <button class="copy-pmid noted-copy" data-pmid="42665430" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Network Meta-Analysis</span>
+  </div>
+  <div class="noted-title">Evidence Synthesis of Probiotic Supplementation for Allergic Rhinitis in Adults: A Systematic Review and Network Meta-Analysis</div>
+  <p class="noted-summary">Bayesian NMA evaluating strain-specific probiotic effects on immunological markers and clinical outcomes in adult allergic rhinitis. Provides ranking of probiotic strains by efficacy. Relevant for rhinologists counseling patients on adjunctive options for allergic rhinitis.</p>
+  <div class="noted-source">American Journal of Rhinology &amp; Allergy · PMID 42658561 · <button class="copy-pmid noted-copy" data-pmid="42658561" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Scoping Review</span><span class="badge-type-mini">n=945</span>
+  </div>
+  <div class="noted-title">Cognitive Dysfunction in Chronic Rhinosinusitis: A Scoping Review</div>
+  <p class="noted-summary">University of Washington scoping review (n=945 across included studies) characterizing cognitive dysfunction as an extra-nasal manifestation of CRS. Covers cognitive measures, treatment response, and incident dementia risk. Raises the importance of counseling CRS patients about neurocognitive impacts.</p>
+  <div class="noted-source">International Forum of Allergy &amp; Rhinology · PMID 42667649 · <button class="copy-pmid noted-copy" data-pmid="42667649" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Critical Review</span>
+  </div>
+  <div class="noted-title">Innovation, cost, and evidence: a critical appraisal of robotic surgery in head and neck and endocrine surgery</div>
+  <p class="noted-summary">Structured critical review from AIIMS New Delhi evaluating evidence quality for robotic platforms (TORS, remote-access thyroid/parathyroid) versus open/endoscopic approaches. Finds evidence often driven by hospital branding rather than rigorous trials, with equity concerns in LMICs. Balanced reading for surgical oncologists considering robotic platform expansion.</p>
+  <div class="noted-source">Journal of Robotic Surgery · PMID 42640389 · <button class="copy-pmid noted-copy" data-pmid="42640389" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR+MA</span><span class="badge-type-mini">GRADE</span>
+  </div>
+  <div class="noted-title">Xylitol-Containing Nasal Irrigation or Nebulization in Postoperative Sinonasal Care: A Systematic Review and Meta-Analysis With GRADE Assessment</div>
+  <p class="noted-summary">8-study SR+MA with GRADE assessment comparing xylitol-containing nasal irrigations vs. saline after ESS/septoplasty/turbinate surgery. SNOT-20/22 and endoscopic healing outcomes pooled. Xylitol shows no clear advantage over saline (SMD −0.49, 95% CI −1.12 to 0.14). Low-certainty evidence; standard saline remains appropriate.</p>
+  <div class="noted-source">Clinical Otolaryngology · PMID 42649534 · <button class="copy-pmid noted-copy" data-pmid="42649534" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR+MA</span><span class="badge-type-mini">n=1270</span>
+  </div>
+  <div class="noted-title">Machine learning for functional outcome prediction after vestibular schwannoma surgery: a systematic review and diagnostic test accuracy meta-analysis</div>
+  <p class="noted-summary">Systematic review and DTA meta-analysis (n=1,270) from National Hospital for Neurology and Neurosurgery, London, evaluating ML models predicting facial nerve dysfunction and hearing preservation after VS surgery. Pooled AUC favorable but methodological readiness remains low (PROBAST-based). Useful for skull base surgeons evaluating AI decision-support tools.</p>
+  <div class="noted-source">Journal of Neuro-Oncology · PMID 42637963 · <button class="copy-pmid noted-copy" data-pmid="42637963" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">RCT</span><span class="badge-type-mini">Pediatric OSA</span>
+  </div>
+  <div class="noted-title">Dentofacial Orthopedic Treatment vs. Adenotonsillectomy in Children with Mild to Moderate OSA and Mandibular Retrognathia: A Randomized Controlled Trial</div>
+  <p class="noted-summary">Shanghai/Fudan RCT comparing mandibular advancement via dentofacial orthopedics to adenotonsillectomy in children with mild-moderate OSA and retrognathia. Addresses the subset where skeletal anatomy may drive airway obstruction. Relevant for pediatric ENT surgeons coordinating with orthodontic colleagues.</p>
+  <div class="noted-source">Dentistry Journal · PMID 42645485 · <button class="copy-pmid noted-copy" data-pmid="42645485" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Systematic Review</span>
+  </div>
+  <div class="noted-title">The role of elective neck dissection in parotid acinic cell carcinoma: a systematic review</div>
+  <p class="noted-summary">PRISMA 2020 SR (13 retrospective cohort studies, 2,646 AciCC cases) from Royal Brisbane examining elective neck dissection for clinically node-negative parotid acinic cell carcinoma. Occult lymph node metastasis rate: 77/788 (9.8%). High inter-study heterogeneity; evidence insufficient to mandate routine END but OLNM risk supports selective use.</p>
+  <div class="noted-source">Oral and Maxillofacial Surgery · PMID 42642545 · <button class="copy-pmid noted-copy" data-pmid="42642545" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Systematic Review</span>
+  </div>
+  <div class="noted-title">Classification of videolaryngoscopy: a systematic review</div>
+  <p class="noted-summary">SR of 13 studies evaluating classification tools for videolaryngoscopy findings (accuracy, inter-rater reliability). No single classification system demonstrated superior performance. Relevant for anesthesiologists and airway specialists establishing institutional airway documentation standards.</p>
+  <div class="noted-source">Anaesthesia · PMID 42643116 · <button class="copy-pmid noted-copy" data-pmid="42643116" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Systematic Review</span>
+  </div>
+  <div class="noted-title">Multisensory dysfunction across sleep disorders: A systematic review of 31 human modalities</div>
+  <p class="noted-summary">Comprehensive SR (377 studies, 25,777 records screened, 31 sensory modalities) mapping multisensory dysfunction — including audition, olfaction, vestibular-proprioceptive, and interoception — across sleep disorders. ENT-relevant for sleep surgeons recognizing that OSA and other sleep disorders affect a far broader sensory phenotype than AHI alone.</p>
+  <div class="noted-source">Sleep Medicine Reviews · PMID 42664585 · <button class="copy-pmid noted-copy" data-pmid="42664585" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Scoping Review</span>
+  </div>
+  <div class="noted-title">Rhinosinusitis in Adults Receiving Tumor Necrosis Factor Alpha Inhibitors and Anti-CD20 Therapy: A Scoping Review</div>
+  <p class="noted-summary">West Virginia University scoping review mapping rhinosinusitis incidence and severity in patients on TNF-α inhibitors or anti-CD20 agents for rheumatologic/oncologic conditions. Finds rhinosinusitis is underreported and potentially underrecognized in this immunosuppressed population. Clinically relevant as biologics use expands.</p>
+  <div class="noted-source">International Forum of Allergy &amp; Rhinology · PMID 42667644 · <button class="copy-pmid noted-copy" data-pmid="42667644" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR+MA</span>
+  </div>
+  <div class="noted-title">Incidence and Risk Factors of Cochlear Implant Complications: A Systematic Review and Meta-Analysis</div>
+  <p class="noted-summary">SR+MA from King Fahad Central Hospital pooling cochlear implant complication rates and risk factors. Covers device, infectious, and surgical complications. Provides benchmarks for complication rates that CI centers can use for patient counseling and quality improvement.</p>
+  <div class="noted-source">Audiology Research · PMID 42645121 · <button class="copy-pmid noted-copy" data-pmid="42645121" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR+MA</span><span class="badge-type-mini">n=255</span>
+  </div>
+  <div class="noted-title">Association Between Diaphragm Ultrasound Measures and Extubation Outcomes in Neonates: A Systematic Review and Meta-Analysis</div>
+  <p class="noted-summary">University of Toronto SR+MA (n=255 neonates) examining diaphragm ultrasound (DUS) measures — thickness, thickening fraction, excursion — as predictors of extubation failure in mechanically ventilated neonates. DUS shows prognostic value; relevant for neonatologists and pediatric airway providers managing extubation decisions.</p>
+  <div class="noted-source">Pediatric Pulmonology · PMID 42639700 · <button class="copy-pmid noted-copy" data-pmid="42639700" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">SR+MA</span><span class="badge-type-mini">Tonsillectomy</span>
+  </div>
+  <div class="noted-title">Age-Specific Efficacy of Platelet-Rich Plasma in Tonsillectomy: A Systematic Review and Meta-Analysis</div>
+  <p class="noted-summary">Bucheon St. Mary&#39;s Hospital SR+MA evaluating PRP application during tonsillectomy for pain reduction and wound healing by age group (pediatric vs. adult). Age-stratified analysis reveals differential PRP efficacy. Relevant for surgeons seeking evidence-based hemostatic adjuncts in tonsillectomy.</p>
+  <div class="noted-source">Journal of Clinical Medicine · PMID 42652586 · <button class="copy-pmid noted-copy" data-pmid="42652586" type="button">📋 Copy</button></div>
+</div>
+
+        </div>
+
+        <footer class="report-footer">
+          <span>Run · 2026-05-15 · 06:03 ET</span>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
+          </div>
+        </footer>
+
+      </section>
+    </div>
+  </div>
+</main>
+
+<script type="application/json" id="digest-data">
+{
+  "run_date": "2026-08-31",
+  "edat_window": {
+    "from": "2026-08-24",
+    "to": "2026-08-31"
+  },
+  "buckets": {
+    "otology": 127,
+    "rhinology": 114,
+    "laryngology": 200,
+    "airway": 82,
+    "sleep": 16,
+    "oncology": 200,
+    "facial_plastic": 200,
+    "pediatric": 200,
+    "crossover": 7,
+    "policy": 7
+  },
+  "surfaced": 1153,
+  "new_after_dedup": 921,
+  "must_read": [
+    {
+      "pmid": "42644645",
+      "score": 5,
+      "title": "Hearing aids for mild to moderate hearing loss in adults",
+      "journal": "Cochrane Database of Systematic Reviews",
+      "doi": "10.1002/14651858.CD012023.pub3",
+      "study_type": "Cochrane Systematic Review & Meta-Analysis",
+      "n": 2261,
+      "rationale": "Updated Cochrane SR+MA (n=2,261, multiple RCTs) of the primary intervention for mild-to-moderate hearing loss, adding new outcomes (mental health, cognition). Cochrane methodology, landmark database update, and direct practice relevance earn a 5.",
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Hearing aids are the mainstay treatment for mild-to-moderate hearing loss in adults. This 2026 update of the 2017 Cochrane review incorporates new RCTs and expands outcomes to include mental health and cognition."
+        },
+        {
+          "label": "METHODS",
+          "text": "Cochrane Information Specialists searched CENTRAL, Cochrane ENT registry, MEDLINE, Embase, Web of Science, ClinicalTrials.gov, and ICTRP for published and unpublished RCTs. 2,261 participants across eligible trials were included. Risk of bias was assessed using Cochrane RoB 2 tool."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Hearing aids improved speech intelligibility, self-reported hearing handicap, and hearing-related quality of life versus no hearing aid (moderate-certainty evidence). New 2026 data show modest benefits on mental health measures and preliminary signals for cognitive benefit in adults with untreated mild-moderate hearing loss."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Moderate certainty evidence overall; heterogeneity in hearing aid type, fitting protocols, and follow-up duration; cognitive outcomes remain preliminary with short follow-up periods in most RCTs."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "This Cochrane update reinforces that hearing aid prescription should be the standard of care for adults with mild-to-moderate hearing loss \u2014 including for mental health and possible cognitive benefits. ENT providers should counsel patients proactively on these broader benefits beyond speech clarity."
+        }
+      ]
+    },
+    {
+      "pmid": "42658221",
+      "score": 4,
+      "title": "Radiofrequency Ablation Versus Cryoablation of the Posterior Nasal Nerve for Chronic Rhinitis: A Meta-Analysis and Systematic Review",
+      "journal": "American Journal of Rhinology & Allergy",
+      "doi": "10.1177/19458924261480410",
+      "study_type": "Meta-Analysis & Systematic Review",
+      "n": 859,
+      "rationale": "Meta-analysis (12 studies, n=859) in a specialty flagship journal comparing two widely used office procedures for chronic rhinitis. Results cross the MCID for TNSS and directly inform procedure selection for rhinologists.",
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Posterior nasal nerve (PNN) ablation \u2014 by radiofrequency ablation (RFA) or cryoablation (CA) \u2014 is increasingly used for chronic rhinitis. Head-to-head comparisons have been limited."
+        },
+        {
+          "label": "METHODS",
+          "text": "12 studies totaling 859 patients identified across 5 health science databases (January 2026). Meta-regression computed change in Total Nasal Symptom Score (TNSS), TNSS subscores, and RQLQ. Fisher's exact test compared adverse event (AE) rates."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Both modalities produced TNSS reductions surpassing the minimal clinically important difference (MCID). RFA and CA showed comparable overall efficacy on TNSS and RQLQ. No statistically significant difference in overall AE rates; RFA had higher minor procedural discomfort rates while CA showed a marginally higher rate of crusting in some analyses."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Indirect (not head-to-head) comparison; heterogeneity across study populations, rhinitis phenotypes, and PNN ablation techniques; no blinded RCT comparing the two directly."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "RFA and cryoablation of the PNN are similarly efficacious for chronic rhinitis. Procedure selection can be guided by office setup, cost, and surgeon familiarity rather than expected efficacy differential. Both are appropriate options for patients with refractory rhinitis."
+        }
+      ]
+    },
+    {
+      "pmid": "42641450",
+      "score": 4,
+      "title": "Intracapsular tonsillectomy/tonsillotomy for severe pediatric obstructive sleep apnea: A PRISMA-based systematic review and exploratory meta-analytic synthesis",
+      "journal": "International Journal of Pediatric Otorhinolaryngology",
+      "doi": "10.1016/j.ijporl.2026.112991",
+      "study_type": "PRISMA Systematic Review with Meta-Analytic Synthesis",
+      "n": null,
+      "rationale": "Addresses a genuinely contested question \u2014 whether intracapsular tonsillectomy is safe and effective even for severe pediatric OSA. Multi-center IRCCS-based group, PRISMA-guided, focuses on polysomnographic outcomes and re-operation rates.",
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Intracapsular tonsillectomy/tonsillotomy (IT) combined with adenoidectomy reduces postoperative morbidity compared to total tonsillectomy, but its role in severe pediatric OSA (AHI \u226510) has been debated due to concerns about residual disease and revision surgery rates."
+        },
+        {
+          "label": "METHODS",
+          "text": "PRISMA 2020 compliant, PICO-based systematic review. 36 records identified; final cohort focused on polysomnographic improvement, residual disease (AHI normalization rates), need for additional treatment, revision/completion tonsillectomy rates, nocturnal ventilation, and postoperative complications."
+        },
+        {
+          "label": "RESULTS",
+          "text": "IT achieved significant PSG improvement in severe pediatric OSA across included studies. While residual OSA rates were higher than in mild-moderate cases, revision/completion tonsillectomy rates were acceptable and complication profiles favorable. Pooled data support IT as an effective first approach even in severe pediatric OSA when adenoidectomy is combined."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "High heterogeneity in OSA severity thresholds, surgical technique definitions, and follow-up periods; most included studies are retrospective; no direct RCT comparing IT vs. total tonsillectomy specifically in severe OSA."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "Intracapsular tonsillectomy with adenoidectomy is a viable approach for severe pediatric OSA, offering a better postoperative pain and complication profile without unacceptable residual disease rates. Pediatric ENT surgeons can justify IT for severe OSA rather than defaulting to total tonsillectomy, with appropriate PSG follow-up."
+        }
+      ]
+    },
+    {
+      "pmid": "42647076",
+      "score": 4,
+      "title": "Evaluation and Management of Laryngopharyngeal Reflux Disease: An Updated State of the Art Review",
+      "journal": "Otolaryngology \u2014 Head and Neck Surgery",
+      "doi": "10.1002/ohn.70413",
+      "study_type": "Updated State-of-the-Art Review",
+      "n": null,
+      "rationale": "Comprehensive PRISMA-guided review from a Harvard laryngology group, published in the AAO-HNS official journal. Delivers an updated management algorithm incorporating new impedance-pH monitoring data and consensus statements. High clinical utility score.",
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Laryngopharyngeal reflux disease (LPRD) is among the most common conditions presenting to otolaryngologists, yet its pathophysiology, optimal diagnostic workup, and treatment protocols remain debated."
+        },
+        {
+          "label": "METHODS",
+          "text": "Four authors conducted a PRISMA-guided literature review of PubMed, Cochrane Library, and Scopus (last 5 years). Critical analysis yielded an evidence-based management algorithm for clinical practice."
+        },
+        {
+          "label": "RESULTS",
+          "text": "New data emphasize the gaseous and alkaline profile of LPRD on 24-hour hypopharyngeal-esophageal impedance-pH monitoring, and document alkaline-activated enzymes (pepsin, bile acids) in upper aerodigestive tract mucosa. Three international consensuses inform the new algorithm: empirical PPI trial is still first-line, but impedance-pH monitoring is now prioritized for non-responders before escalating therapy. Alginate-based and dietary interventions have emerging evidence."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Predominantly narrative review with variable-quality primary evidence; diagnostic gold standard (hypopharyngeal impedance-pH) remains underutilized due to cost and access."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "For patients with LPRD not responding to an empiric PPI trial, the updated algorithm recommends hypopharyngeal-esophageal impedance-pH monitoring before further escalation. Alkaline/gaseous reflux \u2014 not captured by pH-only monitoring \u2014 may explain PPI non-response. Consider alginates and dietary alkaline modification as adjuncts."
+        }
+      ]
+    },
+    {
+      "pmid": "42637636",
+      "score": 4,
+      "title": "Efficacy and Safety of Systemic Bevacizumab in Children with Recurrent Respiratory Papillomatosis: A Systematic Review",
+      "journal": "Journal of Voice",
+      "doi": "10.1016/j.jvoice.2026.08.008",
+      "study_type": "Systematic Review",
+      "n": 74,
+      "rationale": "Juvenile-onset RRP is a challenging HPV-driven condition with no curative medical therapy. This PRISMA 2020 SR (22 studies, 74 pediatric patients) consolidates evidence on systemic bevacizumab \u2014 a treatment gaining traction as an adjunct. Practice-influencing for laryngologists managing severe JoRRP.",
+      "summary_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Juvenile-onset recurrent respiratory papillomatosis (JoRRP) is driven by HPV-6/11 and causes progressive airway obstruction requiring repeated surgical debridement. Systemic bevacizumab (anti-VEGF) has emerged as an adjuvant to reduce disease burden."
+        },
+        {
+          "label": "METHODS",
+          "text": "PRISMA 2020 systematic review. MEDLINE, Embase, ScienceDirect, and Cochrane Library searched from inception to June 30, 2026. Included: pediatric patients (<18 years) with JoRRP treated with intravenous bevacizumab. Outcomes: disease burden, inter-surgical interval, complete remission, and adverse events."
+        },
+        {
+          "label": "RESULTS",
+          "text": "22 studies, 74 pediatric patients. Systemic bevacizumab consistently reduced disease burden, prolonged inter-surgical intervals, and decreased the frequency of operative interventions. Complete clinical remission was documented in a subset of patients. The adverse event profile was manageable, with hypertension and proteinuria as the most reported toxicities."
+        },
+        {
+          "label": "LIMITATIONS",
+          "text": "Small total sample (74 patients), predominantly case series/reports; no RCT; heterogeneous dosing protocols and outcome measures; publication bias likely given favorable cases more likely reported."
+        },
+        {
+          "label": "CLINICAL TAKEAWAY",
+          "text": "For pediatric patients with aggressive JoRRP requiring frequent surgical intervention, systemic bevacizumab merits discussion as an adjuvant therapy to prolong inter-surgical intervals and reduce disease burden. Referral to a center with RRP expertise and multidisciplinary oversight (pediatric laryngology + oncology) is advisable before initiating systemic anti-VEGF therapy."
+        }
+      ]
+    }
+  ],
+  "noted": [
+    {
+      "pmid": "42646841",
+      "score": 3,
+      "title": "Bilevel Positive Airway Pressure and Continuous Albuterol for Pediatric Asthma Exacerbations: A Randomized Clinical Trial",
+      "journal": "JAMA Network Open",
+      "doi": "10.1001/jamanetworkopen.2026.30627",
+      "summary": "Double-blind RCT (University of Colorado, JAMA Network Open) evaluating early BPAP in pediatric ED patients with moderate-severe acute asthma on continuous albuterol. Examines whether BPAP reduces critical care management time. Results speak to ED management protocols affecting pediatric airway providers."
+    },
+    {
+      "pmid": "42665430",
+      "score": 3,
+      "title": "The Burden of Airway Disease in Mucopolysaccharidoses: Evidence Across Subtypes",
+      "journal": "The Laryngoscope",
+      "doi": "10.1002/lary.70868",
+      "summary": "PRISMA-ScR scoping review of 65 case series (n=3,715) synthesizing airway manifestations across MPS subtypes (I\u2013IX). Adenotonsillar hypertrophy, subglottic stenosis, and tracheomalacia prevalences are pooled by subtype. Valuable reference for ENT and pediatric airway surgeons managing MPS patients."
+    },
+    {
+      "pmid": "42658561",
+      "score": 3,
+      "title": "Evidence Synthesis of Probiotic Supplementation for Allergic Rhinitis in Adults: A Systematic Review and Network Meta-Analysis",
+      "journal": "American Journal of Rhinology & Allergy",
+      "doi": "10.1177/19458924261461323",
+      "summary": "Bayesian NMA evaluating strain-specific probiotic effects on immunological markers and clinical outcomes in adult allergic rhinitis. Provides ranking of probiotic strains by efficacy. Relevant for rhinologists counseling patients on adjunctive options for allergic rhinitis."
+    },
+    {
+      "pmid": "42667649",
+      "score": 3,
+      "title": "Cognitive Dysfunction in Chronic Rhinosinusitis: A Scoping Review",
+      "journal": "International Forum of Allergy & Rhinology",
+      "doi": "10.1002/alr.70262",
+      "summary": "University of Washington scoping review (n=945 across included studies) characterizing cognitive dysfunction as an extra-nasal manifestation of CRS. Covers cognitive measures, treatment response, and incident dementia risk. Raises the importance of counseling CRS patients about neurocognitive impacts."
+    },
+    {
+      "pmid": "42640389",
+      "score": 3,
+      "title": "Innovation, cost, and evidence: a critical appraisal of robotic surgery in head and neck and endocrine surgery",
+      "journal": "Journal of Robotic Surgery",
+      "doi": "10.1007/s11701-026-03802-x",
+      "summary": "Structured critical review from AIIMS New Delhi evaluating evidence quality for robotic platforms (TORS, remote-access thyroid/parathyroid) versus open/endoscopic approaches. Finds evidence often driven by hospital branding rather than rigorous trials, with equity concerns in LMICs. Balanced reading for surgical oncologists considering robotic platform expansion."
+    },
+    {
+      "pmid": "42649534",
+      "score": 3,
+      "title": "Xylitol-Containing Nasal Irrigation or Nebulization in Postoperative Sinonasal Care: A Systematic Review and Meta-Analysis With GRADE Assessment",
+      "journal": "Clinical Otolaryngology",
+      "doi": "10.1111/coa.70155",
+      "summary": "8-study SR+MA with GRADE assessment comparing xylitol-containing nasal irrigations vs. saline after ESS/septoplasty/turbinate surgery. SNOT-20/22 and endoscopic healing outcomes pooled. Xylitol shows no clear advantage over saline (SMD \u22120.49, 95% CI \u22121.12 to 0.14). Low-certainty evidence; standard saline remains appropriate."
+    },
+    {
+      "pmid": "42637963",
+      "score": 3,
+      "title": "Machine learning for functional outcome prediction after vestibular schwannoma surgery: a systematic review and diagnostic test accuracy meta-analysis",
+      "journal": "Journal of Neuro-Oncology",
+      "doi": "10.1007/s11060-026-05747-5",
+      "summary": "Systematic review and DTA meta-analysis (n=1,270) from National Hospital for Neurology and Neurosurgery, London, evaluating ML models predicting facial nerve dysfunction and hearing preservation after VS surgery. Pooled AUC favorable but methodological readiness remains low (PROBAST-based). Useful for skull base surgeons evaluating AI decision-support tools."
+    },
+    {
+      "pmid": "42645485",
+      "score": 3,
+      "title": "Dentofacial Orthopedic Treatment vs. Adenotonsillectomy in Children with Mild to Moderate OSA and Mandibular Retrognathia: A Randomized Controlled Trial",
+      "journal": "Dentistry Journal",
+      "doi": "10.3390/dj14080511",
+      "summary": "Shanghai/Fudan RCT comparing mandibular advancement via dentofacial orthopedics to adenotonsillectomy in children with mild-moderate OSA and retrognathia. Addresses the subset where skeletal anatomy may drive airway obstruction. Relevant for pediatric ENT surgeons coordinating with orthodontic colleagues."
+    },
+    {
+      "pmid": "42642545",
+      "score": 3,
+      "title": "The role of elective neck dissection in parotid acinic cell carcinoma: a systematic review",
+      "journal": "Oral and Maxillofacial Surgery",
+      "doi": "10.1007/s10006-026-01633-6",
+      "summary": "PRISMA 2020 SR (13 retrospective cohort studies, 2,646 AciCC cases) from Royal Brisbane examining elective neck dissection for clinically node-negative parotid acinic cell carcinoma. Occult lymph node metastasis rate: 77/788 (9.8%). High inter-study heterogeneity; evidence insufficient to mandate routine END but OLNM risk supports selective use."
+    },
+    {
+      "pmid": "42643116",
+      "score": 3,
+      "title": "Classification of videolaryngoscopy: a systematic review",
+      "journal": "Anaesthesia",
+      "doi": "10.1111/anae.70358",
+      "summary": "SR of 13 studies evaluating classification tools for videolaryngoscopy findings (accuracy, inter-rater reliability). No single classification system demonstrated superior performance. Relevant for anesthesiologists and airway specialists establishing institutional airway documentation standards."
+    },
+    {
+      "pmid": "42664585",
+      "score": 3,
+      "title": "Multisensory dysfunction across sleep disorders: A systematic review of 31 human modalities",
+      "journal": "Sleep Medicine Reviews",
+      "doi": "10.1016/j.smrv.2026.102363",
+      "summary": "Comprehensive SR (377 studies, 25,777 records screened, 31 sensory modalities) mapping multisensory dysfunction \u2014 including audition, olfaction, vestibular-proprioceptive, and interoception \u2014 across sleep disorders. ENT-relevant for sleep surgeons recognizing that OSA and other sleep disorders affect a far broader sensory phenotype than AHI alone."
+    },
+    {
+      "pmid": "42667644",
+      "score": 3,
+      "title": "Rhinosinusitis in Adults Receiving Tumor Necrosis Factor Alpha Inhibitors and Anti-CD20 Therapy: A Scoping Review",
+      "journal": "International Forum of Allergy & Rhinology",
+      "doi": "10.1002/alr.70259",
+      "summary": "West Virginia University scoping review mapping rhinosinusitis incidence and severity in patients on TNF-\u03b1 inhibitors or anti-CD20 agents for rheumatologic/oncologic conditions. Finds rhinosinusitis is underreported and potentially underrecognized in this immunosuppressed population. Clinically relevant as biologics use expands."
+    },
+    {
+      "pmid": "42645121",
+      "score": 3,
+      "title": "Incidence and Risk Factors of Cochlear Implant Complications: A Systematic Review and Meta-Analysis",
+      "journal": "Audiology Research",
+      "doi": "10.3390/audiolres16040110",
+      "summary": "SR+MA from King Fahad Central Hospital pooling cochlear implant complication rates and risk factors. Covers device, infectious, and surgical complications. Provides benchmarks for complication rates that CI centers can use for patient counseling and quality improvement."
+    },
+    {
+      "pmid": "42639700",
+      "score": 3,
+      "title": "Association Between Diaphragm Ultrasound Measures and Extubation Outcomes in Neonates: A Systematic Review and Meta-Analysis",
+      "journal": "Pediatric Pulmonology",
+      "doi": "10.1002/ppul.71807",
+      "summary": "University of Toronto SR+MA (n=255 neonates) examining diaphragm ultrasound (DUS) measures \u2014 thickness, thickening fraction, excursion \u2014 as predictors of extubation failure in mechanically ventilated neonates. DUS shows prognostic value; relevant for neonatologists and pediatric airway providers managing extubation decisions."
+    },
+    {
+      "pmid": "42652586",
+      "score": 3,
+      "title": "Age-Specific Efficacy of Platelet-Rich Plasma in Tonsillectomy: A Systematic Review and Meta-Analysis",
+      "journal": "Journal of Clinical Medicine",
+      "doi": "10.3390/jcm15166182",
+      "summary": "Bucheon St. Mary's Hospital SR+MA evaluating PRP application during tonsillectomy for pain reduction and wound healing by age group (pediatric vs. adult). Age-stratified analysis reveals differential PRP efficacy. Relevant for surgeons seeking evidence-based hemostatic adjuncts in tonsillectomy."
+    }
+  ],
+  "policy_updates": []
+}
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.copy-pmid').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pmid = btn.getAttribute('data-pmid');
+      navigator.clipboard.writeText(pmid).then(function() {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+
+<section style="max-width:1280px;margin:2rem auto;padding:1.5rem;border-top:2px solid var(--forest);">
+  <h2 style="font-family:'Source Serif 4',serif;font-size:1.25rem;color:var(--forest-deep);margin-bottom:1rem;">Past Digests</h2>
+  <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:0.75rem 1.5rem;">
+<li><a href="digests/2026-08-10.html" style="color:var(--forest);font-weight:600;">2026-08-10</a></li>
+<li><a href="digests/2026-08-03.html" style="color:var(--forest);font-weight:600;">2026-08-03</a></li>
+<li><a href="digests/2026-07-20.html" style="color:var(--forest);font-weight:600;">2026-07-20</a></li>
+<li><a href="digests/2026-07-13.html" style="color:var(--forest);font-weight:600;">2026-07-13</a></li>
+<li><a href="digests/2026-06-15.html" style="color:var(--forest);font-weight:600;">2026-06-15</a></li>
+<li><a href="digests/2026-05-25.html" style="color:var(--forest);font-weight:600;">2026-05-25</a></li>
+<li><a href="digests/2026-05-21.html" style="color:var(--forest);font-weight:600;">2026-05-21</a></li>
+<li><a href="digests/2026-05-20.html" style="color:var(--forest);font-weight:600;">2026-05-20</a></li>
+  </ul>
+</section>
+</body>
+</html>
