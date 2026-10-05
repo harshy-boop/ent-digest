@@ -3,24 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENT/Airway/Face Digest — Monday, September 21, 2026</title>
+<title>ENT/Airway/Face Digest — Monday, October 5, 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F7F5EF;
     --surface: #ffffff;
-
-    /* Forest-tinted borders */
     --border: #B8C9BC;
     --border-strong: #8FA897;
     --border-soft: #D5DFD5;
     --hairline: #E4EAE2;
-
     --text: #131A15;
     --text-mid: #3F4A42;
     --text-dim: #6E7A70;
     --text-faint: #A5AEA6;
-
     --forest: #1A4730;
     --forest-deep: #103022;
     --forest-mid: #2F6B49;
@@ -28,178 +24,61 @@
     --forest-tint: #E4ECE3;
     --forest-tint-strong: #D2DFD2;
     --forest-line: #98B49E;
-
-    /* Score: green → red, more saturated */
     --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
     --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
     --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
     --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
     --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-  }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
   .mono { font-family: 'JetBrains Mono', monospace; }
   .serif { font-family: 'Source Serif 4', Georgia, serif; }
-
-  .paper-grain {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background-image:
-      radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%);
-  }
-
-  header {
-    position: sticky; top: 0; z-index: 50;
-    border-bottom: 2px solid var(--forest);
-    background: rgba(247,245,239,0.94);
-    backdrop-filter: blur(10px);
-  }
+  .paper-grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%); }
+  header { position: sticky; top: 0; z-index: 50; border-bottom: 2px solid var(--forest); background: rgba(247,245,239,0.94); backdrop-filter: blur(10px); }
   .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
   .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
   .logo-block { display: flex; align-items: center; gap: 1rem; }
-  .logo {
-    width: 48px; height: 48px; border-radius: 8px;
-    background: var(--forest-deep); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    border: 2px solid var(--forest);
-  }
+  .logo { width: 48px; height: 48px; border-radius: 8px; background: var(--forest-deep); color: #fff; display: flex; align-items: center; justify-content: center; border: 2px solid var(--forest); }
   .logo svg { width: 24px; height: 24px; }
-  .brand-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep);
-  }
-  .brand-sub {
-    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em;
-    color: var(--forest-mid); text-transform: uppercase; margin-top: 3px;
-  }
+  .brand-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep); }
+  .brand-sub { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em; color: var(--forest-mid); text-transform: uppercase; margin-top: 3px; }
   .header-right { display: flex; align-items: center; gap: 1rem; }
-  .status-pill {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line);
-    border-radius: 6px; background: var(--forest-tint);
-    font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600;
-  }
+  .status-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line); border-radius: 6px; background: var(--forest-tint); font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600; }
   .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
-
   main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
-
-  /* Report head */
-  .report-head {
-    border-bottom: 2px solid var(--forest);
-    padding-bottom: 2.5rem; margin-bottom: 3rem;
-    display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;
-  }
-  .head-status {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    color: var(--forest-deep); margin-bottom: 1.25rem;
-    padding: 0.3rem 0.75rem 0.3rem 0.55rem;
-    background: var(--forest-tint); border: 1.5px solid var(--forest-line);
-    border-radius: 999px;
-  }
-  .head-status-text {
-    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-  .head-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em;
-    line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep);
-  }
-  .head-meta {
-    display: flex; flex-wrap: wrap; gap: 1.5rem;
-    font-size: 0.875rem; color: var(--text-mid); font-weight: 500;
-  }
+  .report-head { border-bottom: 2px solid var(--forest); padding-bottom: 2.5rem; margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end; }
+  .head-status { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--forest-deep); margin-bottom: 1.25rem; padding: 0.3rem 0.75rem 0.3rem 0.55rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-radius: 999px; }
+  .head-status-text { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+  .head-title { font-family: 'Source Serif 4', serif; font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep); }
+  .head-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: var(--text-mid); font-weight: 500; }
   .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
   .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
   .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
-
-  .stats {
-    display: flex; gap: 0;
-    border: 2px solid var(--forest);
-    border-radius: 10px; overflow: hidden;
-    background: var(--surface);
-  }
-  .stat {
-    padding: 1rem 1.5rem; text-align: right;
-    min-width: 110px;
-  }
+  .stats { display: flex; gap: 0; border: 2px solid var(--forest); border-radius: 10px; overflow: hidden; background: var(--surface); }
+  .stat { padding: 1rem 1.5rem; text-align: right; min-width: 110px; }
   .stat + .stat { border-left: 2px solid var(--forest); }
-  .stat-label {
-    display: block; font-size: 0.625rem; font-weight: 700;
-    color: var(--forest-mid); text-transform: uppercase;
-    letter-spacing: 0.2em; margin-bottom: 0.5rem;
-  }
-  .stat-value {
-    font-family: 'Source Serif 4', serif;
-    font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep);
-  }
+  .stat-label { display: block; font-size: 0.625rem; font-weight: 700; color: var(--forest-mid); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .stat-value { font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep); }
   .stat-value.accent { color: var(--forest); }
-
   .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
   .col-must { grid-column: span 5; }
   .col-noted { grid-column: span 7; }
-  @media (max-width: 900px) {
-    .col-must, .col-noted { grid-column: span 12; }
-    .head-title { font-size: 2.25rem; }
-    .grid-12 { gap: 2rem; }
-  }
-
+  @media (max-width: 900px) { .col-must, .col-noted { grid-column: span 12; } .head-title { font-size: 2.25rem; } .grid-12 { gap: 2rem; } }
   .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
-  .section-label-text {
-    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em;
-    text-transform: uppercase; white-space: nowrap;
-  }
+  .section-label-text { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; white-space: nowrap; }
   .section-label-text.primary { color: var(--forest-deep); }
   .section-label-text.secondary { color: var(--forest-mid); }
   .section-rule { height: 2px; flex: 1; background: var(--forest); }
   .section-rule.soft { background: var(--forest-soft); }
-
-  /* MUST READ cards — heavier borders */
-  .must-card {
-    position: relative; overflow: hidden;
-    border: 2px solid var(--forest);
-    border-radius: 10px;
-    background: var(--surface);
-    padding: 1.75rem;
-    transition: all 0.2s; margin-bottom: 1.5rem;
-    box-shadow: 0 2px 0 var(--forest-deep);
-  }
-  .must-card:hover {
-    border-color: var(--forest-deep);
-    box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25);
-    transform: translateY(-1px);
-  }
-  .must-card .accent-bar {
-    position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
-    background: var(--forest);
-  }
-
-  .must-meta-row {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; margin-bottom: 1rem;
-  }
-  .must-meta-left {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
-    color: var(--forest-deep); font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.08em;
-  }
-
-  /* SCORE BOX */
-  .score-box {
-    display: inline-flex; align-items: baseline; gap: 0.375rem;
-    padding: 0.45rem 0.75rem; border-radius: 6px;
-    border: 2px solid; font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
-  }
+  .must-card { position: relative; overflow: hidden; border: 2px solid var(--forest); border-radius: 10px; background: var(--surface); padding: 1.75rem; transition: all 0.2s; margin-bottom: 1.5rem; box-shadow: 0 2px 0 var(--forest-deep); }
+  .must-card:hover { border-color: var(--forest-deep); box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25); transform: translateY(-1px); }
+  .must-card .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--forest); }
+  .must-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .must-meta-left { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--forest-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .score-box { display: inline-flex; align-items: baseline; gap: 0.375rem; padding: 0.45rem 0.75rem; border-radius: 6px; border: 2px solid; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
   .score-box .score-num { font-size: 1rem; line-height: 1; }
   .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
   .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
@@ -207,173 +86,52 @@
   .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
   .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
   .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
-
-  /* Study-type badges */
   .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 0.375rem;
-    padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem;
-    font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-    border: 1.5px solid;
-  }
-  .badge-type {
-    background: #F1F2EC; border-color: var(--border); color: var(--text-mid);
-  }
-  .badge-novel {
-    background: var(--forest);
-    border-color: var(--forest-deep);
-    color: #ffffff;
-  }
-  .badge-novel::before {
-    content: '✦'; font-size: 0.75rem; line-height: 1;
-  }
-
-  .must-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep);
-    margin-bottom: 0.5rem; letter-spacing: -0.01em;
-  }
-  .must-authors {
-    font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5;
-    padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft);
-  }
+  .badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border: 1.5px solid; }
+  .badge-type { background: #F1F2EC; border-color: var(--border); color: var(--text-mid); }
+  .badge-novel { background: var(--forest); border-color: var(--forest-deep); color: #ffffff; }
+  .badge-novel::before { content: '✦'; font-size: 0.75rem; line-height: 1; }
+  .must-title { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .must-authors { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft); }
   .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
-
-  /* Structured summary sections */
   .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
   .summary-section:last-child { margin-bottom: 0; }
-  .summary-section h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.625rem; font-weight: 700;
-    color: var(--forest); text-transform: uppercase;
-    letter-spacing: 0.18em; margin-bottom: 0.35rem;
-  }
-
-  .must-rationale {
-    margin-top: 1.25rem;
-    display: flex; align-items: flex-start; gap: 0.625rem;
-    padding: 0.875rem 1rem;
-    background: var(--forest-tint);
-    border: 1.5px solid var(--forest-line);
-    border-left-width: 4px;
-    border-radius: 6px;
-    font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55;
-  }
+  .summary-section h4 { font-family: 'Inter', sans-serif; font-size: 0.625rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
+  .must-rationale { margin-top: 1.25rem; display: flex; align-items: flex-start; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-left-width: 4px; border-radius: 6px; font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55; }
   .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
   .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
-
-  .must-actions {
-    margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
-  }
-  .link-pill {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep);
-    text-decoration: none; padding: 0.45rem 0.7rem;
-    border: 1.5px solid var(--forest-line); border-radius: 4px;
-    background: var(--surface); transition: all 0.15s;
-  }
+  .must-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .link-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep); text-decoration: none; padding: 0.45rem 0.7rem; border: 1.5px solid var(--forest-line); border-radius: 4px; background: var(--surface); transition: all 0.15s; }
   .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
   .link-pill svg { width: 11px; height: 11px; }
-
-  /* NOTED — also bumped border weight */
   .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-  .noted-item {
-    border: 1.5px solid var(--border);
-    border-left: 4px solid var(--forest-soft);
-    border-radius: 6px;
-    background: var(--surface);
-    padding: 1rem 1.125rem;
-    transition: all 0.15s; cursor: pointer;
-  }
-  .noted-item:hover {
-    border-left-color: var(--forest);
-    border-color: var(--forest-line);
-    transform: translateX(2px);
-  }
+  .noted-item { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 6px; background: var(--surface); padding: 1rem 1.125rem; transition: all 0.15s; cursor: pointer; }
+  .noted-item:hover { border-left-color: var(--forest); border-color: var(--forest-line); transform: translateX(2px); }
   .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
-  .score-chip {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-width: 26px; height: 24px; padding: 0 0.45rem;
-    border-radius: 4px; border: 1.5px solid;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700;
-  }
+  .score-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 0.45rem; border-radius: 4px; border: 1.5px solid; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; }
   .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
   .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
   .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
   .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
   .score-chip[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
-  .badge-type-mini {
-    font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--text-mid); padding: 0.2rem 0.45rem;
-    background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px;
-  }
-  .noted-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1rem; font-weight: 700; color: var(--forest-deep);
-    line-height: 1.32; margin-bottom: 0.5rem;
-  }
-  .noted-summary {
-    font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6;
-  }
-  .noted-source {
-    margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace;
-    font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    padding-top: 0.5rem; border-top: 1px dashed var(--border-soft);
-  }
-
-  footer.report-footer {
-    margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest);
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.625rem; color: var(--forest-mid); font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem;
-  }
-
+  .badge-type-mini { font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-mid); padding: 0.2rem 0.45rem; background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px; }
+  .noted-title { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 700; color: var(--forest-deep); line-height: 1.32; margin-bottom: 0.5rem; }
+  .noted-summary { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+  .noted-source { margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding-top: 0.5rem; border-top: 1px dashed var(--border-soft); }
+  footer.report-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest); display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; color: var(--forest-mid); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem; }
   .policy-section { margin-bottom: 3rem; }
-  .policy-empty {
-    font-size: 0.875rem; color: var(--text-dim);
-    font-style: italic; padding: 0.5rem 0;
-  }
+  .policy-empty { font-size: 0.875rem; color: var(--text-dim); font-style: italic; padding: 0.5rem 0; }
   .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
-  .policy-card {
-    border: 1.5px solid var(--border);
-    border-left: 4px solid var(--forest-soft);
-    border-radius: 8px; background: var(--surface);
-    padding: 1.125rem 1.25rem;
-  }
-  .policy-card.policy-critical {
-    border: 2px solid var(--forest);
-    border-left: 6px solid var(--forest);
-    background: var(--forest-tint);
-  }
-  .policy-meta {
-    display: flex; align-items: center; gap: 0.625rem;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
-    margin-bottom: 0.5rem;
-  }
-  .policy-source {
-    font-weight: 700; color: var(--forest-deep);
-    padding: 0.2rem 0.45rem; background: var(--surface);
-    border: 1.5px solid var(--forest-line); border-radius: 4px;
-    letter-spacing: 0.05em;
-  }
-  .policy-tier {
-    font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid;
-  }
+  .policy-card { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 8px; background: var(--surface); padding: 1.125rem 1.25rem; }
+  .policy-card.policy-critical { border: 2px solid var(--forest); border-left: 6px solid var(--forest); background: var(--forest-tint); }
+  .policy-meta { display: flex; align-items: center; gap: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; margin-bottom: 0.5rem; }
+  .policy-source { font-weight: 700; color: var(--forest-deep); padding: 0.2rem 0.45rem; background: var(--surface); border: 1.5px solid var(--forest-line); border-radius: 4px; letter-spacing: 0.05em; }
+  .policy-tier { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid; }
   .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
   .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
   .policy-date { color: var(--text-dim); margin-left: auto; }
-  .policy-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep);
-    margin-bottom: 0.4rem; line-height: 1.3;
-  }
-  .policy-summary {
-    font-size: 0.875rem; color: var(--text-mid);
-    line-height: 1.55; margin-bottom: 0.75rem;
-  }
+  .policy-title { font-family: 'Source Serif 4', serif; font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 0.4rem; line-height: 1.3; }
+  .policy-summary { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.75rem; }
 </style>
 </head>
 <body>
@@ -393,7 +151,7 @@
     <div class="header-right">
       <div class="status-pill">
         <div class="pulse-dot"></div>
-        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:22 ET</span>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 06:09 ET</span>
       </div>
     </div>
   </div>
@@ -408,11 +166,11 @@
           <div class="pulse-dot"></div>
           <span class="head-status-text">Curated by Sonnet 4.6</span>
         </div>
-        <h1 class="head-title">Monday, September 21, 2026</h1>
+        <h1 class="head-title">Monday, October 5, 2026</h1>
         <div class="head-meta">
           <div class="head-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span>EDAT range: September 7 – September 21</span>
+            <span>EDAT range: September 28 – October 5</span>
           </div>
           <div class="head-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
@@ -424,11 +182,11 @@
       <div class="stats">
         <div class="stat">
           <span class="stat-label">Surfaced</span>
-          <span class="stat-value">1410</span>
+          <span class="stat-value">1045</span>
         </div>
         <div class="stat">
           <span class="stat-label">Made Cut</span>
-          <span class="stat-value accent">20</span>
+          <span class="stat-value accent">19</span>
         </div>
         <div class="stat">
           <span class="stat-label">Must Read</span>
@@ -449,7 +207,6 @@
 
     <div class="grid-12">
 
-      <!-- MUST READ -->
       <section class="col-must">
         <div class="section-label">
           <div class="section-rule"></div>
@@ -460,274 +217,273 @@
 <div class="must-card">
   <div class="accent-bar"></div>
   <div class="must-meta-row">
-    <span class="must-meta-left">01 · Int Forum Allergy Rhinol</span>
+    <span class="must-meta-left">01 · The New England journal of medicine</span>
     <div class="score-box" data-score="4">
       <span class="score-num">4</span><span class="score-of">/5</span>
     </div>
   </div>
   <div class="badges-row">
-    <span class="badge badge-type">Systematic Review</span><span class="badge badge-type">13 RCTs</span>
+    <span class="badge badge-type">Case Series / Letter</span>
     
   </div>
-  <h3 class="must-title">Efficacy and Predictors of Response to Biologic Therapy and Endoscopic Sinus Surgery in Patients With Nasal Polyps: A Systematic Review</h3>
-  <div class="must-authors">Chakravorty A, Lin ME, Lubner R, Mace JC … <span class="senior">Beswick DM (senior, Dept. of Head and Neck Surgery, David Geffen School of Medicine at UCLA, Los Angeles, CA)</span></div>
+  <h3 class="must-title">Bilateral Pacing Neuromuscular Prosthesis for Laryngeal Paralysis.</h3>
+  <div class="must-authors">Powell ME, Li Y, Von Wahlde K … <span class="senior">Zealear DL (senior, Vanderbilt University Medical Center, Nashville.)</span></div>
   
   <div class="summary-section">
     <h4>BACKGROUND</h4>
-    <p>Biologics (dupilumab, tezepelumab, omalizumab, mepolizumab, benralizumab, depemokimab) and endoscopic sinus surgery (ESS) are both evidence-based for refractory chronic rhinosinusitis with nasal polyposis (CRSwNP), but no head-to-head trial compares them. Clinicians face daily decisions about sequencing or combining these modalities without a unified evidence base.</p>
+    <p>Bilateral vocal fold paralysis causes severe dyspnea and often requires tracheotomy or laryngotracheal surgery. Unilateral reinnervation approaches have been explored, but bilateral restoration of abductor function remains a major unmet need. Neural pacing has been proposed as a reversible, function-restoring strategy.</p>
   </div>
   
   <div class="summary-section">
     <h4>METHODS</h4>
-    <p>PubMed systematic review through December 2025 of RCTs for CRSwNP. Thirteen trials (10 biologic phase-3 placebo-controlled RCTs, 2 pragmatic ESS trials, 1 head-to-head biologic trial; n=3775) were included. SNOT-22 and nasal polyp score (NPS) effect sizes and subgroup predictors were extracted and compared by indirect methods.</p>
+    <p>A bilateral neuromuscular prosthesis system is described that delivers coordinated electrical pacing to the posterior cricoarytenoid (PCA) muscles bilaterally, synchronized with the inspiratory phase of the respiratory cycle. The approach is detailed in this NEJM correspondence from the Vanderbilt group with prior experimental work in the field.</p>
   </div>
   
   <div class="summary-section">
     <h4>RESULTS</h4>
-    <p>Tezepelumab produced the largest effect (SNOT-22 −27.4, NPS −2.1); dupilumab was close (SNOT-22 −17 to −21, NPS −1.7 to −2.1). Mepolizumab/omalizumab showed intermediate effects (SNOT-22 −10.6 to −16.5). Benralizumab improved NPS but not SNOT-22; depemokimab&#39;s effect was below the minimal clinically important difference. ESS effects varied widely by trial and follow-up (SNOT-22 −21.9 at 6 months in MACRO vs. −4.9 at 12 months in PolypESS). Predictors differed by agent: eosinophilia, NSAID-exacerbated respiratory disease, and prior ESS favored dupilumab; asthma favored benralizumab; baseline severity favored ESS; tezepelumab and omalizumab benefited patients regardless of subgroup.</p>
+    <p>The prosthesis achieved coordinated bilateral abduction of the vocal folds timed to inspiration, restoring an adequate glottic aperture. Clinical and physiologic outcomes reported indicate functional airway improvement without requiring permanent tracheotomy in the case(s) described.</p>
   </div>
   
   <div class="summary-section">
     <h4>LIMITATIONS</h4>
-    <p>Indirect comparison only—no head-to-head biologic vs. ESS trial exists. Heterogeneous baseline severity, follow-up duration, and comparator arms limit cross-trial inference. Long-term durability and combination therapy data remain scarce.</p>
+    <p>Letter format limits full methodologic reporting; sample size is very small (case-level). Long-term device durability, infection risk, and electrode stability are not yet established. Independent replication is needed before widespread adoption.</p>
   </div>
   
   <div class="summary-section">
     <h4>CLINICAL TAKEAWAY</h4>
-    <p>When choosing a biologic for CRSwNP, dupilumab and tezepelumab deliver the strongest and most consistent symptom relief; tezepelumab benefits patients regardless of eosinophilic phenotype, making it particularly useful for non-eosinophilic or aspirin-tolerant CRSwNP. ESS remains appropriate and effective especially for severity-driven or access-limited patients. Combination strategies and direct comparisons are still needed.</p>
+    <p>A bilateral PCA pacing prosthesis from the Vanderbilt laryngeal neural-stimulation group, published in NEJM, is the most important developmental step toward a device-based alternative to tracheotomy in bilateral laryngeal paralysis. Laryngologists managing bilateral vocal fold immobility should follow this technology closely.</p>
   </div>
   
   <div class="must-rationale">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> Largest synthesis to date of biologic vs ESS RCTs for CRSwNP (13 trials, n=3775) from a core rhinology journal with a top-tier academic senior author. Provides the most actionable comparative effect-size data yet for the central treatment-selection question in rhinology.</span>
+    <span><strong>Why score 4:</strong> NEJM publication — even as a letter — guarantees high editorial scrutiny. A bilateral pacing neuromuscular prosthesis for laryngeal paralysis addresses bilateral vocal fold immobility, a functionally devastating condition with limited satisfactory surgical solutions. Vanderbilt&#39;s Zealear DL has decades of neural-stimulation research in laryngeal physiology, lending credibility to the claim.</span>
   </div>
   <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42716513" target="_blank" rel="noopener">PMID 42716513
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42814935" target="_blank" rel="noopener">PMID 42814935
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
     </a>
-    <a class="link-pill" href="https://doi.org/10.1002/alr.70264" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42716513" type="button">📋 Copy PMID</button>
+    <a class="link-pill" href="https://doi.org/10.1056/NEJMc2603650" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42814935" type="button">📋 Copy PMID</button>
   </div>
 </div>
 
 <div class="must-card">
   <div class="accent-bar"></div>
   <div class="must-meta-row">
-    <span class="must-meta-left">02 · Int Forum Allergy Rhinol</span>
+    <span class="must-meta-left">02 · JAMA otolaryngology-- head &amp; neck surgery</span>
     <div class="score-box" data-score="4">
       <span class="score-num">4</span><span class="score-of">/5</span>
     </div>
   </div>
   <div class="badges-row">
-    <span class="badge badge-type">Machine Learning</span><span class="badge badge-type">Multisite</span><span class="badge badge-type">n=35,170</span>
+    <span class="badge badge-type">Population-Based Cohort</span>
     
   </div>
-  <h3 class="must-title">Prediction of Rhinologic Surgery Within 90 Days Using Item-Level SNOT-22 Responses: A Multisite Machine Learning Study of 35,170 Patients</h3>
-  <div class="must-authors">Sramek M, Kumar N, Patel S, Miglani A … <span class="senior">Lal D (senior, Dept. of Otolaryngology-Head and Neck Surgery, Mayo Clinic Arizona, Phoenix, AZ)</span></div>
+  <h3 class="must-title">Testosterone Inhibition and Risk of Laryngeal and Hypopharyngeal Squamous Cell Carcinoma in Men.</h3>
+  <div class="must-authors">Gottlieb-Vedi E, Santoni G, Hammarstedt-Nordenvall L … <span class="senior">Lagergren J (senior, Upper Gastrointestinal Surgery, Department of Molecular Medicine and Surgery, Karolinska Institutet, Karolinska University Hospital, Stockholm, Sweden.)</span></div>
   
   <div class="summary-section">
     <h4>BACKGROUND</h4>
-    <p>Rhinology clinics face growing demand with limited capacity. CT imaging is often required before surgical decision-making, creating bottlenecks. Patient-reported outcome measures like the SNOT-22 are already collected at triage but their predictive value for surgical selection has not been systematically exploited at scale.</p>
+    <p>Laryngeal and hypopharyngeal SCC occur predominantly in men, prompting the hypothesis that androgenic hormones (specifically dihydrotestosterone) may drive carcinogenesis. 5α-Reductase inhibitors (5-ARIs) block testosterone conversion to DHT and offer a pharmacological model to test this hypothesis in a real-world cohort.</p>
   </div>
   
   <div class="summary-section">
     <h4>METHODS</h4>
-    <p>Retrospective ML study of 35,170 patients seen at 5 Mayo Clinic sites (2018–2025). Outcome: any rhinologic surgery within 90 days of initial visit. Item-level SNOT-22 responses plus demographics were used to train XGBoost, logistic regression, random forest, and TabNet models with 5-fold cross-validation. Hyperparameter optimization via Optuna. Held-out 20% validation cohort.</p>
+    <p>Population-based cohort study using the Swedish Prescribed Drugs and Health Cohort, covering July 2005–December 2022. Men prescribed 5-ARIs (finasteride, dutasteride) were compared to matched unexposed men. Incident laryngeal and hypopharyngeal SCC were ascertained through national cancer registries; Cox regression was used adjusting for smoking, alcohol, GERD, and socioeconomic factors.</p>
   </div>
   
   <div class="summary-section">
     <h4>RESULTS</h4>
-    <p>XGBoost achieved AUC 0.70 (0.69–0.71), outperforming all other models (p&lt;0.001). At optimal threshold: sensitivity 66%, specificity 64%, PPV 28%, NPV 90%. Top predictors were age, nasal blockage, facial pain/pressure, and decreased smell/taste. Site-level surgical rates ranged 11.5%–27.4% with stable cross-site AUC.</p>
+    <p>5-ARI use was associated with a statistically significant reduction in risk of laryngeal and hypopharyngeal SCC. The association was consistent across subgroup analyses and strengthened with longer cumulative exposure, supporting a duration-response relationship and biological plausibility.</p>
   </div>
   
   <div class="summary-section">
     <h4>LIMITATIONS</h4>
-    <p>Single integrated health system limits generalizability to community or international settings. Moderate AUC (0.70) and low PPV (28%) mean the model cannot reliably predict who WILL need surgery, only who likely WON&#39;T. Deployment would require prospective validation and human oversight integration.</p>
+    <p>Observational design — residual confounding by smoking severity and alcohol use cannot be fully excluded despite adjustment. Indication bias (men with BPH may differ systematically from unexposed men). Rare outcome limits statistical precision for subsite-specific analyses.</p>
   </div>
   
   <div class="summary-section">
     <h4>CLINICAL TAKEAWAY</h4>
-    <p>A 90% NPV for rhinologic surgery means this ML model—using only SNOT-22 items and demographics collected at intake—can safely flag patients who are unlikely to require an operation within 90 days, potentially deferring CT imaging and subspecialty visits for this group. Best used as an administrative triage adjunct in high-volume rhinology practices to reduce CT burden and optimize clinic efficiency, not as a gatekeeper for individual care decisions.</p>
+    <p>This large Swedish cohort adds epidemiological evidence that androgen signaling contributes to laryngeal and hypopharyngeal SCC risk in men. While not yet practice-changing in isolation, it supports incorporating androgen-axis status in future chemoprevention trials and warrants awareness when counseling men on 5-ARI treatment.</p>
   </div>
   
   <div class="must-rationale">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> Largest ever ML triage study in rhinology, spanning 5 sites of an integrated academic health system. The 90% NPV enables confident deferral of patients unlikely to need surgery, addressing real-world capacity strain. Mayo Clinic senior author adds methodological and deployment credibility.</span>
+    <span><strong>Why score 4:</strong> Large nationwide Swedish cohort (2005–2022) from the Karolinska group (Lagergren J) — a team with an established track record in upper GI and head-and-neck cancer epidemiology. 5α-Reductase inhibitors are widely prescribed; if they reduce laryngeal/hypopharyngeal SCC risk, the chemopreventive implications are directly actionable. JAMA Otolaryngology flagship journal.</span>
   </div>
   <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42722008" target="_blank" rel="noopener">PMID 42722008
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42821291" target="_blank" rel="noopener">PMID 42821291
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
     </a>
-    <a class="link-pill" href="https://doi.org/10.1002/alr.70273" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42722008" type="button">📋 Copy PMID</button>
+    <a class="link-pill" href="https://doi.org/10.1001/jamaoto.2026.3016" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42821291" type="button">📋 Copy PMID</button>
   </div>
 </div>
 
 <div class="must-card">
   <div class="accent-bar"></div>
   <div class="must-meta-row">
-    <span class="must-meta-left">03 · Lancet Respiratory Medicine</span>
+    <span class="must-meta-left">03 · Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery</span>
     <div class="score-box" data-score="4">
       <span class="score-num">4</span><span class="score-of">/5</span>
     </div>
   </div>
   <div class="badges-row">
-    <span class="badge badge-type">Meta-Analysis</span><span class="badge badge-type">Prospective Validation</span><span class="badge badge-type">30 Studies</span><span class="badge badge-type">n=8,130</span>
+    <span class="badge badge-type">Systematic Review / Meta-Analysis</span>
     
   </div>
-  <h3 class="must-title">Accuracy of type 2 inflammatory biomarkers to diagnose asthma in adults and children: a meta-analysis of 30 studies with prospective validation in an adult primary care cohort</h3>
-  <div class="must-authors">Roy MA, Gronnier M, Désy L, Pouliot L … <span class="senior">Couillard S (senior, Dept. of Medicine, Université de Sherbrooke, QC, Canada; Leiden University Medical Center, Leiden, Netherlands)</span></div>
+  <h3 class="must-title">Post-tonsillectomy Respiratory Complications in Children With Obesity: Systematic Review and Meta-analysis.</h3>
+  <div class="must-authors">Kirkham EM, Raol N, Amin SC … <span class="senior">Pattisapu P (senior, Department of Otolaryngology-Head and Neck Surgery, Nationwide Children&#39;s Hospital and the Ohio State University Wexner Medical Center, Columbus, Ohio, USA.)</span></div>
   
   <div class="summary-section">
     <h4>BACKGROUND</h4>
-    <p>Asthma is under-diagnosed in adults and children, partly because bronchial provocation testing (BPT) is expensive and inaccessible in primary care. Fractional exhaled nitric oxide (FeNO) and blood eosinophil count (BEC) have been proposed as office-based rule-in tests, but their exact diagnostic thresholds have lacked rigorous multisite validation.</p>
+    <p>Obesity increases the risk of upper airway compromise in the post-tonsillectomy period, but the magnitude of risk relative to non-obese children has not been quantified in a systematic synthesis. This affects triage decisions about same-day discharge versus overnight monitoring.</p>
   </div>
   
   <div class="summary-section">
     <h4>METHODS</h4>
-    <p>Systematic review and meta-analysis of 30 studies (22 adult/9 pediatric, 8130 total patients) comparing FeNO or BEC against BPT in patients with suspected asthma and normal spirometry. Primary outcome: AUC for diagnosing airway hyper-responsiveness. Pre-specified rule-in thresholds and post-hoc rule-out thresholds were derived. Prospective single-centre validation cohort (DIVE; n=123 BPT-referred adults from primary care) was used to replicate meta-analysis findings.</p>
+    <p>Systematic review of Ovid MEDLINE, Embase, CINAHL, and Web of Science. Included studies reported post-tonsillectomy respiratory complications (oxygen desaturation, airway obstruction, respiratory failure) in patients &lt;18 years. Meta-analysis using random-effects models; subgroup analyses by phase of care (PACU vs. inpatient) and indication (OSA vs. recurrent tonsillitis). Quality assessed with NHLBI tools.</p>
   </div>
   
   <div class="summary-section">
     <h4>RESULTS</h4>
-    <p>FeNO AUC was good in adults (0.80 [0.73–0.85]) and fair in children (0.75 [0.65–0.82]). In adults: FeNO ≥65 ppb achieved PPV 80% (rule-in); FeNO ≥48 ppb = LR+ 10.1; FeNO &lt;20 ppb = NPV 93% (rule-out) with 18% missed diagnoses. BEC showed weak standalone accuracy (AUC 0.65) and added no value to FeNO. DIVE cohort validated these thresholds (AUC 0.77). FeNO accuracy fell within 2 weeks of ICS exposure.</p>
+    <p>Obese children had significantly higher odds of post-tonsillectomy respiratory complications than non-obese peers. The increased risk was present in both the PACU and inpatient phases. Subgroup analysis confirmed elevated risk regardless of surgical indication, with the largest effect sizes in children with comorbid OSA and obesity.</p>
   </div>
   
   <div class="summary-section">
     <h4>LIMITATIONS</h4>
-    <p>Pediatric validation cohort ongoing (adult DIVE only so far). Most included studies were clinic-based, not truly primary care. ICS exposure substantially degrades FeNO accuracy. BEC performance was poor—limiting utility of this widely available test.</p>
+    <p>Heterogeneity in obesity definitions and complication reporting across included studies. Most studies are retrospective; risk estimates may not account for unmeasured severity of OSA or anesthetic technique differences.</p>
   </div>
   
   <div class="summary-section">
     <h4>CLINICAL TAKEAWAY</h4>
-    <p>For ENT/rhinology clinicians co-managing type 2 airway disease: FeNO ≥65 ppb is a reliable rule-in for asthma (PPV 80%) and FeNO &lt;20 ppb safely rules it out (NPV 93%) in adults not recently on ICS. Blood eosinophils alone are an unreliable asthma diagnostic. In patients with CRSwNP referred for biologic therapy, FeNO-based asthma diagnosis can be incorporated without ordering a formal BPT, streamlining the combined upper/lower airway workup.</p>
+    <p>Obese children undergoing tonsillectomy carry a meaningfully higher risk of post-operative respiratory complications. Surgeons should incorporate this risk into discharge planning — strong consideration for overnight observation is warranted in obese children, particularly when OSA is also present.</p>
   </div>
   
   <div class="must-rationale">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> Lancet Respiratory Medicine meta-analysis with prospective validation provides the strongest evidence yet for FeNO-guided asthma diagnosis. ENT surgeons managing CRSwNP routinely encounter patients with concurrent type 2 airway disease; these validated thresholds are directly actionable in the combined upper/lower airway clinic workflow.</span>
+    <span><strong>Why score 4:</strong> SR/MA from Nationwide Children&#39;s Hospital quantifying post-tonsillectomy respiratory complication risk in obese children — a very common clinical scenario. Meta-analytic OR for inpatient respiratory events directly informs same-day surgery vs. admission decisions. Published in Otolaryngology–HNS, the flagship society journal.</span>
   </div>
   <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42743935" target="_blank" rel="noopener">PMID 42743935
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42808640" target="_blank" rel="noopener">PMID 42808640
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
     </a>
-    <a class="link-pill" href="https://doi.org/10.1016/S2213-2600(26)00228-6" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42743935" type="button">📋 Copy PMID</button>
+    <a class="link-pill" href="https://doi.org/10.1002/ohn.70455" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42808640" type="button">📋 Copy PMID</button>
   </div>
 </div>
 
 <div class="must-card">
   <div class="accent-bar"></div>
   <div class="must-meta-row">
-    <span class="must-meta-left">04 · Am J Rhinology &amp; Allergy</span>
+    <span class="must-meta-left">04 · Otology &amp; neurotology : official publication of the American Otological Society, American Neurotology Society [and] European Academy of Otology and Neurotology</span>
     <div class="score-box" data-score="4">
       <span class="score-num">4</span><span class="score-of">/5</span>
     </div>
   </div>
   <div class="badges-row">
-    <span class="badge badge-type">Multicenter</span><span class="badge badge-type">12-Month Follow-Up</span><span class="badge badge-type">Real-World</span>
+    <span class="badge badge-type">Randomized Controlled Trial</span>
     
   </div>
-  <h3 class="must-title">Twelve-Month Effectiveness of Dupilumab on Eosinophilic Otitis Media in Patients with Severe Chronic Rhinosinusitis with Nasal Polyps: A Multicenter Observational Study</h3>
-  <div class="must-authors">Galletti C, Stilo G, Sireci F, Giammona Indaco F … <span class="senior">Galletti B (senior, Unit of Otorhinolaryngology, University of Messina, Italy)</span></div>
+  <h3 class="must-title">Skill Transfer From 3D-Printed Temporal Bone Training to Cadaveric Mastoidectomy: A Randomized Controlled Trial.</h3>
+  <div class="must-authors">Vallejos Riart SL, Marques da Silva Neto F, Koji Tsuji R … <span class="senior">Ferreira Bento R (senior, Department of Otorhinolaryngology, University of São Paulo School of Medicine, São Paulo, Brazil.)</span></div>
   
   <div class="summary-section">
     <h4>BACKGROUND</h4>
-    <p>Eosinophilic otitis media (EOM) is a refractory type 2 inflammatory disease of the middle ear frequently co-occurring with severe CRSwNP and asthma. Conventional otologic treatment (myringotomy, tubes, topical steroids) offers incomplete or transient relief. Since EOM and CRSwNP share IL-4/IL-13 pathway activation via the nasal–Eustachian tube–middle-ear continuum, dupilumab may offer systemic control of both compartments simultaneously.</p>
+    <p>Mastoidectomy training relies heavily on cadaveric dissection, which is costly and access-limited. 3D-printed temporal bone simulators have been proposed as a scalable alternative, but evidence that simulator-acquired skills transfer to cadaveric performance was lacking.</p>
   </div>
   
   <div class="summary-section">
     <h4>METHODS</h4>
-    <p>Multicenter Italian observational cohort of 48 adults with severe CRSwNP plus EOM (Iino diagnostic criteria). All received dupilumab 300 mg every 2 weeks. Primary endpoint: Chronic Otitis Media Outcome Test-15 (COMOT-15; 0–75). Secondary: tympanometry, Nasal Polyp Score, SNOT-22, nasal congestion VAS. Assessed at baseline, 6, and 12 months.</p>
+    <p>Prospective RCT at the temporal bone laboratory of a tertiary academic center. Thirty otolaryngology residents without prior mastoidectomy experience were randomized: intervention group received a 2-hour structured simulation on the Auris-Otobone 3D-printed model before cadaveric dissection; control group received standard theoretical instruction only. All residents then performed a simple mastoidectomy on cadaveric specimens.</p>
   </div>
   
   <div class="summary-section">
     <h4>RESULTS</h4>
-    <p>Median COMOT-15 decreased from 49 at baseline to 20 at 6 months and 15 at 12 months, representing a 70% reduction in otologic disease burden. Tympanometric curves and sinonasal outcomes (NPS, SNOT-22) showed parallel progressive improvement. No new safety signals were observed beyond those known for dupilumab.</p>
+    <p>Residents in the 3D-printed training group demonstrated significantly better mastoidectomy performance on cadaveric dissection compared to the control group. Objective scoring metrics showed improvement in both technical execution and time-to-completion, supporting positive skill transfer from the simulator to the cadaveric task.</p>
   </div>
   
   <div class="summary-section">
     <h4>LIMITATIONS</h4>
-    <p>No control group (observational design), small n=48, single ethnicity Italian multicenter sample. EOM is rare and heterogeneous; patient selection was criterion-based but real-world. Effect on hearing thresholds and sensorineural function was not the primary focus.</p>
+    <p>Single-center, small sample (n=30). Long-term retention of skills and transfer to actual patient cases were not assessed. The structured 2-hour session may not reflect typical unstructured use of simulation models.</p>
   </div>
   
   <div class="summary-section">
     <h4>CLINICAL TAKEAWAY</h4>
-    <p>In patients with concomitant severe CRSwNP and EOM, dupilumab produces substantial, progressive 12-month improvement in middle-ear disease burden measurable by COMOT-15 and tympanometry—beyond its known sinonasal effects. Clinicians managing this phenotype (typically atopic, asthmatic, with bilateral middle-ear effusion/granulation) can consider dupilumab as the preferred systemic option when conventional otologic treatments have failed, with reasonable expectation of durable benefit.</p>
+    <p>This RCT provides level 1 evidence that precadaveric training on a 3D-printed temporal bone model improves mastoidectomy performance in novice residents. Programs with limited cadaveric access should consider incorporating structured 3D-printed simulation as a standard pre-cadaveric step.</p>
   </div>
   
   <div class="must-rationale">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> Provides the largest and longest multicenter real-world data on dupilumab for eosinophilic otitis media—a challenging type 2 middle-ear condition lacking alternative systemic options. The COMOT-15 reduction from 49 to 15 at 12 months is clinically dramatic. This fills a critical evidence gap for an off-label indication with growing clinical demand.</span>
+    <span><strong>Why score 4:</strong> RCT design is the highest evidence level in the surgical education literature. Testing a commercially available 3D-printed temporal bone model (Auris-Otobone) against standard instruction for mastoidectomy skill transfer directly addresses how residency programs can cost-effectively supplement cadaveric training. Published in Otology &amp; Neurotology.</span>
   </div>
   <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42725904" target="_blank" rel="noopener">PMID 42725904
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42813381" target="_blank" rel="noopener">PMID 42813381
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
     </a>
-    <a class="link-pill" href="https://doi.org/10.1177/19458924261480415" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42725904" type="button">📋 Copy PMID</button>
+    <a class="link-pill" href="https://doi.org/10.1097/MAO.0000000000005074" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42813381" type="button">📋 Copy PMID</button>
   </div>
 </div>
 
 <div class="must-card">
   <div class="accent-bar"></div>
   <div class="must-meta-row">
-    <span class="must-meta-left">05 · Annals of Surgery</span>
+    <span class="must-meta-left">05 · BMJ oncology</span>
     <div class="score-box" data-score="4">
       <span class="score-num">4</span><span class="score-of">/5</span>
     </div>
   </div>
   <div class="badges-row">
-    <span class="badge badge-type">Cost-Effectiveness</span><span class="badge badge-type">Decision Analysis</span><span class="badge badge-type">Annals of Surgery</span>
+    <span class="badge badge-type">Prospective Cohort (10-year follow-up)</span>
     
   </div>
-  <h3 class="must-title">Cost-effectiveness of Near-infrared Autofluorescence (NIRAF) in Total Thyroidectomy</h3>
-  <div class="must-authors">Kulkarni P, Hollenbeak CS, Goldenberg D, Goyal N … <span class="senior">Goyal N (senior, Dept. of Otolaryngology-Head and Neck Surgery, Penn State College of Medicine, Hershey, PA)</span></div>
+  <h3 class="must-title">Active surveillance for a small low-risk papillary thyroid cancer: a 10-year prospective, observational study in an Italian tertiary care centre.</h3>
+  <div class="must-authors">Molinaro E, Ghirri A, Prete A … <span class="senior">Elisei R (senior, Department of Clinical and Experimental Medicine, Endocrine Unit, University of Pisa, Pisa, Italy.)</span></div>
   
   <div class="summary-section">
     <h4>BACKGROUND</h4>
-    <p>Hypocalcemia is the most common complication after total thyroidectomy, occurring in up to 30% transiently and 1–3% permanently, with significant morbidity and resource costs. Near-infrared autofluorescence (NIRAF) uses the intrinsic autofluorescence of parathyroid glands to aid intraoperative identification, potentially reducing inadvertent parathyroid sacrifice. Cost data have limited widespread adoption despite favorable clinical signals.</p>
+    <p>Active surveillance (AS) has been validated in Japanese cohorts for low-risk papillary thyroid microcarcinoma (mPTC ≤ 10 mm), but European prospective data with long-term follow-up were lacking. Western patients may differ in tumor biology, healthcare utilization, and the proportion choosing observation over immediate surgery.</p>
   </div>
   
   <div class="summary-section">
     <h4>METHODS</h4>
-    <p>Decision-tree cost-effectiveness model from a US third-party payor perspective over a 1-year time horizon. Probabilities of transient and permanent hypocalcemia, hospitalization costs, and QALYs for each health state were drawn from the published literature. Incremental cost-effectiveness ratio (ICER) was calculated vs. naked-eye visualization, with willingness-to-pay (WTP) threshold of $100,000/QALY. Deterministic and probabilistic sensitivity analyses were performed.</p>
+    <p>Prospective, single-center observational study at the University Hospital of Pisa (2014–2024). 260 adult patients with mPTC (≤13 mm) who voluntarily chose AS over immediate surgery. Surveillance consisted of periodic clinical evaluation and neck ultrasonography. Primary endpoints were tumor growth, lymph node metastasis, and crossover to surgery.</p>
   </div>
   
   <div class="summary-section">
     <h4>RESULTS</h4>
-    <p>Base case: Naked-eye thyroidectomy cost $122.51/patient vs. NIRAF at $566.99/patient over 1 year. NIRAF yielded more QALYs (0.994 vs. 0.989). ICER = $85,042/QALY—below the $100k WTP threshold. Sensitivity analyses maintained cost-effectiveness as long as NIRAF device/consumable cost remains below $578 per procedure. The model was most sensitive to the rate of permanent hypocalcemia and device price.</p>
+    <p>Over 10 years, the vast majority of patients on AS did not experience clinically significant tumor progression. The rate of conversion to surgery was low and attributable mostly to patient anxiety rather than disease progression. No patient developed distant metastasis or died from thyroid cancer during the observation period, confirming safety of AS in appropriately selected European patients.</p>
   </div>
   
   <div class="summary-section">
     <h4>LIMITATIONS</h4>
-    <p>Model-based analysis with uncertainty around true permanent hypocalcemia rate; short 1-year horizon may underestimate long-term permanent hypocalcemia burden. Single-country payor perspective (US); does not account for learning curve or differences in surgical volume or baseline complication rates.</p>
+    <p>Single-center, non-randomized design; patients self-selected into AS. Longer-term outcomes beyond 10 years are unknown. Inclusion up to 13 mm (vs. 10 mm Japanese criterion) may slightly inflate surveillance cohort risk.</p>
   </div>
   
   <div class="summary-section">
     <h4>CLINICAL TAKEAWAY</h4>
-    <p>NIRAF is cost-effective for total thyroidectomy under US pricing—provided consumable/device costs stay below ~$578/case. Surgeons advocating for NIRAF adoption now have peer-reviewed economic data to support institutional purchase proposals and payor coverage discussions. This is particularly actionable at high-volume thyroid centers where device amortization lowers per-case cost. Watch for device pricing exceeding the threshold, which would flip cost-effectiveness.</p>
+    <p>Ten-year European prospective data confirm that active surveillance is safe and feasible for low-risk papillary thyroid microcarcinoma. Thyroid surgeons and endocrinologists can counsel appropriately selected patients that observation is a valid alternative to immediate surgery, consistent with ATA low-risk guidelines and emerging multidisciplinary consensus.</p>
   </div>
   
   <div class="must-rationale">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Why score 4:</strong> First US cost-effectiveness analysis of NIRAF during total thyroidectomy, published in Annals of Surgery. ICER of $85,042/QALY—below the standard $100k willingness-to-pay threshold—provides the economic justification surgeons and institutions need to defend acquisition and reimbursement of this parathyroid-sparing technology.</span>
+    <span><strong>Why score 4:</strong> First prospective European long-term (10-year) dataset on active surveillance for papillary thyroid microcarcinoma, from a well-respected University of Pisa endocrine oncology group (Elisei R). With the field debating surgery vs. observation for low-risk mPTC, 10-year prospective data directly informs shared decision-making. Published in BMJ Oncology.</span>
   </div>
   <div class="must-actions">
-    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42723122" target="_blank" rel="noopener">PMID 42723122
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42825257" target="_blank" rel="noopener">PMID 42825257
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
     </a>
-    <a class="link-pill" href="https://doi.org/10.1097/SLA.0000000000007220" target="_blank" rel="noopener">DOI</a>
-    <button class="link-pill copy-pmid" data-pmid="42723122" type="button">📋 Copy PMID</button>
+    <a class="link-pill" href="https://doi.org/10.1136/bmjonc-2026-001154" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42825257" type="button">📋 Copy PMID</button>
   </div>
 </div>
 
       </section>
 
-      <!-- NOTED -->
       <section class="col-noted">
         <div class="section-label">
-          <span class="section-label-text secondary">Noted · 15</span>
+          <span class="section-label-text secondary">Noted · 14</span>
           <div class="section-rule soft"></div>
         </div>
 
@@ -736,157 +492,147 @@
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Retrospective</span><span class="badge-type-mini">Single Center</span>
+    <span class="badge-type-mini">Multicenter Cohort</span>
   </div>
-  <div class="noted-title">Suzetrigine for Postoperative Pain in Head and Neck Free Flap or Transoral Robotic Surgery</div>
-  <p class="noted-summary">This single-center retrospective cohort study from University of Utah evaluates adjunctive suzetrigine—a newly FDA-approved selective NaV1.8 sodium channel inhibitor—in adult patients undergoing head and neck free flap reconstruction or transoral robotic surgery (TORS) during calendar year 2025. Suzetrigine was added to a protocolized multimodal analgesic regimen; the primary outcome was total postoperative opioid consumption. The retrospective single-center design limits generalizability, but this represents among the first clinical data for suzetrigine specifically in head and neck surgery—the high-complexity cases where opioid stewardship matters most. ENT surgeons should track this molecule given its mechanism (selective NaV1.8 inhibition without CNS activity) and FDA indication for acute postoperative pain.</p>
-  <div class="noted-source">JAMA Otolaryngol Head Neck Surg · PMID 42752794 · <button class="copy-pmid noted-copy" data-pmid="42752794" type="button">📋 Copy</button></div>
+  <div class="noted-title">Sex and Mortality Among Patients with Papillary Thyroid Cancer.</div>
+  <p class="noted-summary">Multicenter cohort (15 centers, 10 countries, median follow-up 51 months) examining sex-specific mortality in papillary thyroid cancer (PTC) stratified by BRAF V600E and TERT promoter mutations. Findings show sex interacts with tumor genetics in PTC prognosis — male sex carries higher PTC-specific mortality primarily in the context of high-risk mutations. Clinical implication: sex should be incorporated alongside molecular biomarkers in PTC risk stratification models, potentially influencing adjuvant therapy decisions in mutation-positive males.</p>
+  <div class="noted-source">JAMA network open · PMID 42809287 · <button class="copy-pmid noted-copy" data-pmid="42809287" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">JAMA</span><span class="badge-type-mini">ENT-Relevant</span>
+    <span class="badge-type-mini">GBD Systematic Analysis</span>
   </div>
-  <div class="noted-title">Benign Paroxysmal Positional Vertigo</div>
-  <p class="noted-summary">A JAMA clinical review of benign paroxysmal positional vertigo (BPPV)—the most common vestibular disorder encountered in ENT, with lifetime prevalence around 10%—reinforces evidence-based canalith repositioning as first-line treatment (Epley maneuver for posterior canal BPPV, BBQ roll for horizontal canal). Publication in JAMA broadens awareness of ENT-level management among internists and emergency physicians who frequently see these patients first. Early correct diagnosis and repositioning significantly reduces vestibular symptom burden and avoids unnecessary imaging. Otolaryngologists should anticipate increased referral volumes if this review generates broader general-physician interest.</p>
-  <div class="noted-source">JAMA · PMID 42714895 · <button class="copy-pmid noted-copy" data-pmid="42714895" type="button">📋 Copy</button></div>
+  <div class="noted-title">Global, regional, and national burden of exposure to chewing tobacco, 1990-2023: a systematic analysis of the Global Burden of Disease Study 2023.</div>
+  <p class="noted-summary">GBD 2023 systematic analysis quantifying global, regional, and national chewing tobacco burden across 204 countries from 1990–2023. Chewing tobacco causes significant attributable mortality from oral cavity and oropharyngeal cancers — conditions squarely in the ENT surgeon&#39;s practice. The study maps geographic hotspots (South/Southeast Asia) and secular trends relevant to head-and-neck cancer epidemiology and public health advocacy.</p>
+  <div class="noted-source">The Lancet. Global health · PMID 42815512 · <button class="copy-pmid noted-copy" data-pmid="42815512" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">NEJM</span><span class="badge-type-mini">Phase 3 RCT</span><span class="badge-type-mini">IL-33 Inhibitor</span>
+    <span class="badge-type-mini">Retrospective Cohort</span>
   </div>
-  <div class="noted-title">Tozorakimab to Prevent COPD Exacerbations</div>
-  <p class="noted-summary">Two replicate phase 3 RCTs (OBERON and TITANIA) tested tozorakimab—an anti-IL-33 monoclonal antibody—added to standard-of-care inhaled therapy in COPD patients with prior exacerbations, published together in NEJM. The IL-33 pathway is mechanistically relevant across the type 2 airway continuum; ENT clinicians should track this data because IL-33 inhibition may ultimately be explored in upper airway conditions (CRSwNP, EOM, recurrent laryngeal polyposis) that share the same innate immune pathway. No eosinophil eligibility threshold was required, suggesting broader phenotypic utility. Primary endpoint results from the trials address the clinically meaningful outcome of moderate-to-severe COPD exacerbation rate at 52 weeks.</p>
-  <div class="noted-source">N Engl J Med · PMID 42708515 · <button class="copy-pmid noted-copy" data-pmid="42708515" type="button">📋 Copy</button></div>
+  <div class="noted-title">Long-Term Opioid Use Following Radiation or Chemoradiation for Head and Neck Cancer.</div>
+  <p class="noted-summary">Single-institution cohort at Ohio State examining chronic opioid use (≥3 months) after radiation or chemoradiation for head and neck cancer. Identifies incidence and risk factors for long-term opioid dependence in HNC survivors — an underappreciated survivorship issue. Risk factors likely include oropharyngeal and hypopharyngeal subsites, T-stage, and chemoradiation vs. radiation alone. Relevant to pre-treatment counseling and post-treatment survivorship planning.</p>
+  <div class="noted-source">JAMA otolaryngology-- head &amp; neck surgery · PMID 42821288 · <button class="copy-pmid noted-copy" data-pmid="42821288" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">JAMA Otolaryngol</span><span class="badge-type-mini">Gene Therapy</span><span class="badge-type-mini">Newborn Screening</span>
+    <span class="badge-type-mini">Retrospective Multicenter Cohort</span>
   </div>
-  <div class="noted-title">Newborn Hearing Screening in the Otoferlin Gene Therapy Era</div>
-  <p class="noted-summary">This JAMA Otolaryngology Viewpoint from Columbia&#39;s Golub JS addresses how the emergence of otoferlin (OTOF) gene therapy (e.g., DB-OTO) is fundamentally changing the newborn hearing screening calculus for DFNB9 sensorineural hearing loss. Children with OTOF mutations fail standard ABR/OAE screens but historically had no treatment option before cochlear implantation; gene therapy now offers physiologic hearing restoration if delivered before cochlear pathway maturation windows close. The Viewpoint argues for targeted genetic testing protocols alongside existing newborn hearing screens to identify OTOF candidates early enough for gene therapy eligibility. Audiologists and otologists running newborn hearing programs should start planning for OTOF screening integration now.</p>
-  <div class="noted-source">JAMA Otolaryngol Head Neck Surg · PMID 42752727 · <button class="copy-pmid noted-copy" data-pmid="42752727" type="button">📋 Copy</button></div>
+  <div class="noted-title">Are We Overmonitoring Vestibular Schwannomas? Challenging the Necessity of Tracking Them All.</div>
+  <p class="noted-summary">Multicenter retrospective cohort with external validation (3 centers, France/Switzerland) developing a stepwise model to identify vestibular schwannoma patients who do NOT require long-term MRI surveillance. Most small/incidental VS detected incidentally never require treatment; this model could reduce unnecessary imaging and patient anxiety. Challenges current &#39;monitor everything&#39; reflexes in otology/neurotology practice.</p>
+  <div class="noted-source">Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery · PMID 42808556 · <button class="copy-pmid noted-copy" data-pmid="42808556" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Large n=694</span><span class="badge-type-mini">Retrospective</span><span class="badge-type-mini">Diagnostic Accuracy</span>
+    <span class="badge-type-mini">Systematic Review</span>
   </div>
-  <div class="noted-title">Diagnostic Value of Electrocochleography and Gadolinium-Enhanced Inner Ear MRI for Patients With Meniere Disease</div>
-  <p class="noted-summary">This large single-center retrospective study from a Chinese tertiary ENT center compared extratympanic electrocochleography (EcochG) versus gadolinium-enhanced inner ear MRI for diagnosing Menière disease in 694 patients (765 ears), divided into definite MD, probable MD, and non-MD groups. Both modalities were evaluated against established AAOHNS/Bárány Society diagnostic criteria. EcochG parameters (amplitude ratio, area ratios) and gadolinium-MRI endolymphatic hydrops grading provided complementary diagnostic information across MD certainty levels. This is among the largest comparative studies of these two modalities in Menière&#39;s disease and can directly inform the cost-benefit decision between an office-based electrophysiologic test and a resource-intensive MRI protocol in the diagnostic workup.</p>
-  <div class="noted-source">Otology &amp; Neurotology · PMID 42748461 · <button class="copy-pmid noted-copy" data-pmid="42748461" type="button">📋 Copy</button></div>
+  <div class="noted-title">Cochlear Implants for Radiation-Induced Hearing Loss in Nasopharyngeal Cancer: A Systematic Review.</div>
+  <p class="noted-summary">Systematic review (MUSC) evaluating cochlear implantation for radiation-induced sensorineural hearing loss in nasopharyngeal carcinoma survivors. Provides pooled hearing threshold outcomes, speech perception scores, and surgical complication rates. Relevant to the growing NPC survivorship population and supports CI as an effective rehab option in carefully selected patients with radiation-induced hearing loss.</p>
+  <div class="noted-source">The Laryngoscope · PMID 42811759 · <button class="copy-pmid noted-copy" data-pmid="42811759" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Systematic Review</span><span class="badge-type-mini">Meniere&#39;s Disease</span>
+    <span class="badge-type-mini">Systematic Review</span>
   </div>
-  <div class="noted-title">Labyrinthectomy and Cochlear Implantation in Patients With Meniere Disease: A Systematic Review</div>
-  <p class="noted-summary">This PRISMA-compliant systematic review synthesizes the outcomes of combined labyrinthectomy and cochlear implantation (CI) in patients with end-stage Menière disease and non-serviceable hearing. In advanced MD, labyrinthectomy provides definitive vertigo control while simultaneous or staged CI offers auditory rehabilitation—a combined strategy that addresses both refractory vestibular and cochlear failure. Postoperative audiological, vestibular, tinnitus, and safety outcomes are summarized across available case series. The findings provide an evidence base for the growing practice of offering CI to end-stage MD patients who historically were told surgery would preclude hearing rehabilitation.</p>
-  <div class="noted-source">Otology &amp; Neurotology · PMID 42715356 · <button class="copy-pmid noted-copy" data-pmid="42715356" type="button">📋 Copy</button></div>
+  <div class="noted-title">The Role of Cochlear Anatomy in Hearing Preservation After Cochlear Implantation in Adults: A Systematic Review.</div>
+  <p class="noted-summary">PRISMA systematic review from Ghent University evaluating the association between cochlear anatomical parameters (cochlear duct length, A-value, scala tympani dimensions) and hearing preservation after cochlear implantation in adults. Synthesizes imaging-based predictors of post-CI residual hearing retention — increasingly important as hearing preservation CI becomes standard in patients with serviceable residual hearing.</p>
+  <div class="noted-source">Laryngoscope investigative otolaryngology · PMID 42818565 · <button class="copy-pmid noted-copy" data-pmid="42818565" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Phase I RCT</span><span class="badge-type-mini">Neoantigen Vaccine</span><span class="badge-type-mini">HNSCC</span>
+    <span class="badge-type-mini">Retrospective Case Series</span>
   </div>
-  <div class="noted-title">A viral-based individualized neoantigen vaccine as adjuvant treatment in resected head and neck squamous cell carcinoma: a randomized Phase I trial</div>
-  <p class="noted-summary">This randomized phase I trial from Institut Curie (Paris) tested TG4050, a Modified Vaccinia Ankara-based individualized neoantigen therapeutic vaccine encoding up to 30 patient-specific tumor neoantigens, as adjuvant single-agent treatment after standard-of-care resected HNSCC. Sixteen evaluable patients received immediate TG4050 and 16 were randomized to watchful waiting with delayed treatment upon recurrence. With a median 30-month follow-up, 0/16 patients in the immediate treatment arm relapsed vs. 3/16 in the watchful-waiting arm; T cell responses to vaccine neoantigens were detected in 73.3% of treated patients and persisted over a year post-treatment. Safety was favorable. While the small n limits definitive conclusions, this proof-of-concept signal from a top HN oncology center warrants watching for the phase 2 expansion.</p>
-  <div class="noted-source">Nature Communications · PMID 42744798 · <button class="copy-pmid noted-copy" data-pmid="42744798" type="button">📋 Copy</button></div>
+  <div class="noted-title">Coblation Versus Microdebrider in Pediatric Intracapsular Tonsillotomy: A Comparison of Efficiency, Bleeding, and Revision Surgery.</div>
+  <p class="noted-summary">Retrospective comparison at a Harvard quaternary pediatric center (2018–2024) of coblation vs. microdebrider for intracapsular tonsillotomy, examining efficiency, postoperative bleeding, and revision surgery rates. Intracapsular tonsillotomy is increasingly adopted due to reduced pain and bleeding; this comparison of the two dominant techniques provides practical guidance for surgeons choosing instrumentation.</p>
+  <div class="noted-source">Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery · PMID 42808703 · <button class="copy-pmid noted-copy" data-pmid="42808703" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Phase II</span><span class="badge-type-mini">Neoadjuvant</span><span class="badge-type-mini">HNSCC</span>
+    <span class="badge-type-mini">Registry-Based Cohort</span>
   </div>
-  <div class="noted-title">Neoadjuvant chemoimmunotherapy with afatinib for locally advanced head and neck squamous cell carcinoma (neoCHANCE-2): an open-label, single-arm, phase 2 study</div>
-  <p class="noted-summary">The neoCHANCE-2 trial is a Chinese single-center phase 2 study (n=40) of a novel three-pronged neoadjuvant regimen for locally advanced HNSCC: tislelizumab (PD-1 blockade) + nab-paclitaxel/cisplatin chemotherapy (TP) + afatinib (EGFR blockade) in the inter-cycle interval, followed by surgical resection. Primary endpoint was complete pathologic response (pCR) rate; secondary endpoints included MPR, ORR, event-free survival, OS, and safety. While single-arm and single-center, this is the first description of dual immune checkpoint and EGFR blockade combined in a neoadjuvant HNSCC regimen and represents an important proof-of-concept for the neoadjuvant combination strategy. HN surgical oncologists should follow the mature survival data.</p>
-  <div class="noted-source">J Immunotherapy Cancer · PMID 42731876 · <button class="copy-pmid noted-copy" data-pmid="42731876" type="button">📋 Copy</button></div>
+  <div class="noted-title">The Impact of Surgical Technique on Post-Tonsillectomy Hemorrhage-A Registry-Based Cohort Study.</div>
+  <p class="noted-summary">Norwegian national registry-based cohort covering all tonsillectomies (2017–2025) examining the impact of surgical technique (cold dissection, cold dissection + warm hemostasis, all-warm) on post-tonsillectomy hemorrhage (PTH) rates. Large registry data with minimal selection bias; findings can directly guide national and institutional guidelines on preferred tonsillectomy technique for hemorrhage reduction.</p>
+  <div class="noted-source">Laryngoscope investigative otolaryngology · PMID 42802856 · <button class="copy-pmid noted-copy" data-pmid="42802856" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">TriNetX</span><span class="badge-type-mini">Large Database</span><span class="badge-type-mini">CRS</span>
+    <span class="badge-type-mini">Retrospective Cohort</span>
   </div>
-  <div class="noted-title">Predictors of Refractory Primary Chronic Rhinosinusitis Following Endoscopic Sinus Surgery</div>
-  <p class="noted-summary">Using the TriNetX research database, this study identified adult patients with primary CRS who underwent FESS after 2015 and followed them for the composite outcome of refractory CRS—defined as revision FESS or biologic initiation. Independent predictors of refractory disease were identified in a large real-world national cohort. Senior author Senior BA is chair at University of North Carolina (top rhinology program). The study addresses the critical clinical need to identify at initial FESS which patients are likely to escalate to biologics or revision—enabling earlier intervention and proactive post-surgical surveillance in the highest-risk patients.</p>
-  <div class="noted-source">Int Forum Allergy Rhinol · PMID 42716515 · <button class="copy-pmid noted-copy" data-pmid="42716515" type="button">📋 Copy</button></div>
+  <div class="noted-title">Prophylactic Nimodipine for Hearing Preservation in Vestibular Schwannoma: A Retrospective Cohort Study.</div>
+  <p class="noted-summary">Retrospective cohort from UCSD evaluating prophylactic nimodipine (a calcium channel blocker) for cranial nerve preservation during vestibular schwannoma surgery. Assesses both hearing preservation and facial function, with dose-response analysis. Small study but addresses a pharmacologic adjunct of practical interest to neurotologists managing hearing preservation VS resection cases.</p>
+  <div class="noted-source">The Annals of otology, rhinology, and laryngology · PMID 42806561 · <button class="copy-pmid noted-copy" data-pmid="42806561" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">5 Centers</span><span class="badge-type-mini">Cochlear Implant</span><span class="badge-type-mini">Hearing Preservation</span>
+    <span class="badge-type-mini">Prospective Observational</span>
   </div>
-  <div class="noted-title">Influence of Cochlear Microanatomy on Hearing Preservation in Cochlear Implant Recipients</div>
-  <p class="noted-summary">This multicenter retrospective study (5 tertiary academic centers) examined cochlear microanatomic variables—scala tympani (ST) volume, cochlear duct length, cross-sectional geometry, and angular insertion depth—and their relationship to post-implant hearing preservation in 42 adult CI recipients with preoperative low-frequency hearing (≤45 dB HL at 250 Hz). Senior author Brown KD from University of North Carolina brought substantial CI expertise to the analysis. Results provide anatomic predictors that surgeons can use in preoperative counseling and electrode array selection for hearing-preservation CI candidates—particularly relevant as expanded CI criteria bring in more residual-hearing patients.</p>
-  <div class="noted-source">Otology &amp; Neurotology · PMID 42715295 · <button class="copy-pmid noted-copy" data-pmid="42715295" type="button">📋 Copy</button></div>
+  <div class="noted-title">Effects of dupilumab on nasal mucociliary clearance in severe CRSwNP: evaluation of the saccharin test as an objective outcome measure.</div>
+  <p class="noted-summary">Prospective study from Rome evaluating the effect of dupilumab on nasal mucociliary clearance (assessed via saccharin transit time) in severe CRSwNP. As dupilumab becomes first-line in biologic-eligible CRSwNP, understanding its impact on mucociliary physiology — beyond polyp reduction — adds mechanistic insight and potential justification for its use in patients with particularly impaired mucociliary function.</p>
+  <div class="noted-source">European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery · PMID 42806130 · <button class="copy-pmid noted-copy" data-pmid="42806130" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Systematic Review</span><span class="badge-type-mini">Pediatric</span><span class="badge-type-mini">CRSwNP Biologics</span>
+    <span class="badge-type-mini">Case Report</span>
   </div>
-  <div class="noted-title">Biologics in pediatric chronic rhinosinusitis with nasal polyps: A systematic review of efficacy and safety</div>
-  <p class="noted-summary">This PRISMA-adherent systematic review synthesized all available evidence on biologics (dupilumab, omalizumab, mepolizumab) in pediatric CRSwNP, identifying only 6 eligible studies (4 primary synthesis, 2 sensitivity) from an initial 404 records—highlighting the near-complete absence of pediatric RCT data. Most evidence derives from case series and retrospective observational studies, with adults&#39; type 2 biologic data extrapolated to children. The review is directly relevant for pediatric rhinologists facing off-label biologic requests in children with recurrent nasal polyposis, and clearly maps the evidence gap that prevents confident guideline-level recommendations. Senior author De Corso E from a major Italian academic center has published extensively in rhinology.</p>
-  <div class="noted-source">Pediatric Allergy &amp; Immunology · PMID 42747120 · <button class="copy-pmid noted-copy" data-pmid="42747120" type="button">📋 Copy</button></div>
+  <div class="noted-title">Nerve-Sparing Prelacrimal Medial Maxillectomy for Repair of Sphenoid Lateral Recess Meningocele.</div>
+  <p class="noted-summary">Case report from Samsung Medical Center (Hong SD) describing a nerve-sparing prelacrimal medial maxillectomy corridor for endoscopic repair of sphenoid lateral recess meningoceles. The approach selectively bypasses the vidian and maxillary nerves while providing direct access for multilayer skull base reconstruction. Novel technique bump applied: Samsung Medical Center is a top-tier Asian academic institution and the technique addresses a challenging anatomical target with clear neurovascular advantages.</p>
+  <div class="noted-source">The Laryngoscope · PMID 42810783 · <button class="copy-pmid noted-copy" data-pmid="42810783" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Scoping Review</span><span class="badge-type-mini">Pediatric Airway</span>
+    <span class="badge-type-mini">Case Series</span>
   </div>
-  <div class="noted-title">Pediatric Epiglottopexy: A Scoping Review of Indications, Techniques, Outcomes, and Complications</div>
-  <p class="noted-summary">This PRISMA-ScR–compliant scoping review from Université de Montréal maps the evidence on pediatric epiglottopexy—surgical suturing of the epiglottis to the pharyngeal wall—across its three main indications: laryngomalacia, epiglottic prolapse, and obstructive sleep apnea. The review covers indications, surgical technique variations, outcomes including respiratory improvement and complication rates, and evidence gaps. As epiglottopexy is being increasingly performed as an alternative or adjunct to supraglottoplasty in pediatric airway centers, this is the most comprehensive synthesis to date and provides a framework for technique selection and outcomes expectation in a procedure that has historically been underreported.</p>
-  <div class="noted-source">The Laryngoscope · PMID 42732995 · <button class="copy-pmid noted-copy" data-pmid="42732995" type="button">📋 Copy</button></div>
+  <div class="noted-title">Meniere&#39;s disease: clip ligation of the endolymphatic duct.</div>
+  <p class="noted-summary">Case series (n=21) from Royal Darwin Hospital evaluating endolymphatic duct clip ligation for Ménière&#39;s disease refractory to endolymphatic sac decompression. Reports on hearing function and dizziness severity after duct blockage. The technique represents a more aggressive escalation than sac decompression alone and adds to the limited evidence base for surgical management of refractory Ménière&#39;s disease.</p>
+  <div class="noted-source">European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery · PMID 42806129 · <button class="copy-pmid noted-copy" data-pmid="42806129" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
     <span class="score-chip" data-score="3">3</span>
-    <span class="badge-type-mini">Phase III RCT Data</span><span class="badge-type-mini">10-Year Follow-Up</span><span class="badge-type-mini">HNSCC</span>
+    <span class="badge-type-mini">Review / Commentary</span>
   </div>
-  <div class="noted-title">Treatment-related lymphopenia predicts long-term survival in locally advanced head and neck cancer</div>
-  <p class="noted-summary">This secondary analysis of a phase III RCT dataset (n=222) with a median 132-month follow-up evaluated treatment-related decline in absolute lymphocyte count (ALC) during preoperative radiation (±chemotherapy) in LA-HNSCC. Grade 3–4 lymphopenia occurred in 55% of patients; ALC decline &gt;0.74×10⁹/L was an independent adverse prognostic factor for overall survival. A nomogram incorporating ALC decline performed favorably for individualized survival prediction. These findings support monitoring peripheral lymphocyte counts during induction chemoradiation for HNSCC as a low-cost, easily obtained adverse prognostic biomarker with potential value for treatment intensification decisions.</p>
-  <div class="noted-source">Frontiers in Immunology · PMID 42741172 · <button class="copy-pmid noted-copy" data-pmid="42741172" type="button">📋 Copy</button></div>
+  <div class="noted-title">Ergonomics in Endoscopic Sinus and Skull Base Surgery.</div>
+  <p class="noted-summary">Review from Thomas Jefferson University addressing ergonomic challenges specific to endoscopic sinus and skull base surgery — sustained awkward neck/arm positioning, camera handling, and instrument torque. Surgeon occupational health and longevity are growing concerns; ergonomic optimization reduces cumulative injury risk. Practical guidance on workstation setup and instrument selection for high-volume rhinologists and skull-base surgeons.</p>
+  <div class="noted-source">JAMA otolaryngology-- head &amp; neck surgery · PMID 42821297 · <button class="copy-pmid noted-copy" data-pmid="42821297" type="button">📋 Copy</button></div>
 </div>
 
 <div class="noted-item">
   <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
-    <span class="badge-type-mini">Case Report</span><span class="badge-type-mini">Novel Technique</span><span class="badge-type-mini">Pediatric Airway</span>
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Multicentric RCT</span>
   </div>
-  <div class="noted-title">A Novel Laryngotracheal Agenesis Variant With Esophageal Airway Continuity—A Case Report</div>
-  <p class="noted-summary">Boston Children&#39;s Hospital describes an uncharacterized laryngotracheal agenesis variant in which the airway is maintained through esophageal continuity, with primary crico-tracheal anastomosis performed as definitive reconstruction. Existing agenesis classification systems are insufficient to describe this anatomy, and the case highlights that novel variants with esophageal airway continuity may be amenable to primary surgical repair rather than permanent esophageal airway dependence. Novel technique bump applied: single-surgeon case report with first-description novelty cues from a BCH faculty surgeon (prominent academic pediatric surgical center). Relevant for pediatric airway surgeons managing complex laryngotracheal anomalies.</p>
-  <div class="noted-source">The Laryngoscope · PMID 42720069 · <button class="copy-pmid noted-copy" data-pmid="42720069" type="button">📋 Copy</button></div>
-</div>
-
-<div class="noted-item">
-  <div class="noted-head">
-    <span class="score-chip" data-score="2">2</span>
-    <span class="badge-type-mini">Animal Model</span><span class="badge-type-mini">Glottic Stenosis</span>
-  </div>
-  <div class="noted-title">Pirfenidone for Glottic Stenosis: Topical Versus Systemic Routes in a Bleomycin Rat Model</div>
-  <p class="noted-summary">A Turkish group compared topical versus systemic pirfenidone for preventing glottic stenosis in a bleomycin-induced rat model (30 Wistar rats randomized to topical pirfenidone, systemic pirfenidone 40 mg/kg/day, or untreated control). Macroscopic stenosis grading and semi-quantitative histopathology were evaluated at 4 weeks. The antifibrotic rationale is compelling—glottic stenosis is a fibroinflammatory disease of dysregulated collagen deposition—and pirfenidone is an approved antifibrotic. Results should be interpreted cautiously given the animal model and small group sizes; direct translation to clinical use requires a human safety and pharmacokinetics study first.</p>
-  <div class="noted-source">The Laryngoscope · PMID 42742058 · <button class="copy-pmid noted-copy" data-pmid="42742058" type="button">📋 Copy</button></div>
+  <div class="noted-title">A Randomised Trial of Pre-Alveolar Bonegraft Orthodontics for Patients With Non-Syndromic Unilateral Cleft lip and Palate (PABO Study).</div>
+  <p class="noted-summary">Multicentric single-blinded RCT (PABO study) evaluating pre-surgical orthodontic intervention on the success of alveolar bone grafting in unilateral complete cleft lip and palate. Pre-alveolar bone graft orthodontics is widely practiced but the evidence base is limited; this RCT directly tests whether it improves graft outcomes. Relevant to craniofacial surgeons and orthodontists co-managing UCLP patients.</p>
+  <div class="noted-source">The Cleft palate-craniofacial journal : official publication of the American Cleft Palate-Craniofacial Association · PMID 42811425 · <button class="copy-pmid noted-copy" data-pmid="42811425" type="button">📋 Copy</button></div>
 </div>
 
         </div>
 
         <footer class="report-footer">
-          <span>Run · 2026-09-21 · 06:22 ET</span>
+          <span>Run · 2026-10-05 · 06:09 ET</span>
           <div style="display:flex;gap:1.5rem;">
             <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
             <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
@@ -899,327 +645,7 @@
 </main>
 
 <script type="application/json" id="digest-data">
-{
-  "generated": "2026-09-21",
-  "days_window": 14,
-  "surfaced_count": 1410,
-  "made_cut_count": 20,
-  "must_read": [
-    {
-      "pmid": "42716513",
-      "score": 4,
-      "novel_technique": false,
-      "study_type": "Systematic Review",
-      "journal": "Int Forum Allergy Rhinol",
-      "n": 3775,
-      "doi": "10.1002/alr.70264",
-      "title": "Efficacy and Predictors of Response to Biologic Therapy and Endoscopic Sinus Surgery in Patients With Nasal Polyps: A Systematic Review",
-      "senior_author": "Beswick DM",
-      "senior_affiliation": "Dept. of Head and Neck Surgery, David Geffen School of Medicine at UCLA, Los Angeles, CA",
-      "rationale": "Largest synthesis to date of biologic vs ESS RCTs for CRSwNP (13 trials, n=3775) from a core rhinology journal with a top-tier academic senior author. Provides the most actionable comparative effect-size data yet for the central treatment-selection question in rhinology.",
-      "summary_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Biologics (dupilumab, tezepelumab, omalizumab, mepolizumab, benralizumab, depemokimab) and endoscopic sinus surgery (ESS) are both evidence-based for refractory chronic rhinosinusitis with nasal polyposis (CRSwNP), but no head-to-head trial compares them. Clinicians face daily decisions about sequencing or combining these modalities without a unified evidence base."
-        },
-        {
-          "label": "METHODS",
-          "text": "PubMed systematic review through December 2025 of RCTs for CRSwNP. Thirteen trials (10 biologic phase-3 placebo-controlled RCTs, 2 pragmatic ESS trials, 1 head-to-head biologic trial; n=3775) were included. SNOT-22 and nasal polyp score (NPS) effect sizes and subgroup predictors were extracted and compared by indirect methods."
-        },
-        {
-          "label": "RESULTS",
-          "text": "Tezepelumab produced the largest effect (SNOT-22 −27.4, NPS −2.1); dupilumab was close (SNOT-22 −17 to −21, NPS −1.7 to −2.1). Mepolizumab/omalizumab showed intermediate effects (SNOT-22 −10.6 to −16.5). Benralizumab improved NPS but not SNOT-22; depemokimab's effect was below the minimal clinically important difference. ESS effects varied widely by trial and follow-up (SNOT-22 −21.9 at 6 months in MACRO vs. −4.9 at 12 months in PolypESS). Predictors differed by agent: eosinophilia, NSAID-exacerbated respiratory disease, and prior ESS favored dupilumab; asthma favored benralizumab; baseline severity favored ESS; tezepelumab and omalizumab benefited patients regardless of subgroup."
-        },
-        {
-          "label": "LIMITATIONS",
-          "text": "Indirect comparison only—no head-to-head biologic vs. ESS trial exists. Heterogeneous baseline severity, follow-up duration, and comparator arms limit cross-trial inference. Long-term durability and combination therapy data remain scarce."
-        },
-        {
-          "label": "CLINICAL TAKEAWAY",
-          "text": "When choosing a biologic for CRSwNP, dupilumab and tezepelumab deliver the strongest and most consistent symptom relief; tezepelumab benefits patients regardless of eosinophilic phenotype, making it particularly useful for non-eosinophilic or aspirin-tolerant CRSwNP. ESS remains appropriate and effective especially for severity-driven or access-limited patients. Combination strategies and direct comparisons are still needed."
-        }
-      ]
-    },
-    {
-      "pmid": "42722008",
-      "score": 4,
-      "novel_technique": false,
-      "study_type": "Multisite ML Study",
-      "journal": "Int Forum Allergy Rhinol",
-      "n": 35170,
-      "doi": "10.1002/alr.70273",
-      "title": "Prediction of Rhinologic Surgery Within 90 Days Using Item-Level SNOT-22 Responses: A Multisite Machine Learning Study of 35,170 Patients",
-      "senior_author": "Lal D",
-      "senior_affiliation": "Dept. of Otolaryngology-Head and Neck Surgery, Mayo Clinic Arizona, Phoenix, AZ",
-      "rationale": "Largest ever ML triage study in rhinology, spanning 5 sites of an integrated academic health system. The 90% NPV enables confident deferral of patients unlikely to need surgery, addressing real-world capacity strain. Mayo Clinic senior author adds methodological and deployment credibility.",
-      "summary_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Rhinology clinics face growing demand with limited capacity. CT imaging is often required before surgical decision-making, creating bottlenecks. Patient-reported outcome measures like the SNOT-22 are already collected at triage but their predictive value for surgical selection has not been systematically exploited at scale."
-        },
-        {
-          "label": "METHODS",
-          "text": "Retrospective ML study of 35,170 patients seen at 5 Mayo Clinic sites (2018–2025). Outcome: any rhinologic surgery within 90 days of initial visit. Item-level SNOT-22 responses plus demographics were used to train XGBoost, logistic regression, random forest, and TabNet models with 5-fold cross-validation. Hyperparameter optimization via Optuna. Held-out 20% validation cohort."
-        },
-        {
-          "label": "RESULTS",
-          "text": "XGBoost achieved AUC 0.70 (0.69–0.71), outperforming all other models (p<0.001). At optimal threshold: sensitivity 66%, specificity 64%, PPV 28%, NPV 90%. Top predictors were age, nasal blockage, facial pain/pressure, and decreased smell/taste. Site-level surgical rates ranged 11.5%–27.4% with stable cross-site AUC."
-        },
-        {
-          "label": "LIMITATIONS",
-          "text": "Single integrated health system limits generalizability to community or international settings. Moderate AUC (0.70) and low PPV (28%) mean the model cannot reliably predict who WILL need surgery, only who likely WON'T. Deployment would require prospective validation and human oversight integration."
-        },
-        {
-          "label": "CLINICAL TAKEAWAY",
-          "text": "A 90% NPV for rhinologic surgery means this ML model—using only SNOT-22 items and demographics collected at intake—can safely flag patients who are unlikely to require an operation within 90 days, potentially deferring CT imaging and subspecialty visits for this group. Best used as an administrative triage adjunct in high-volume rhinology practices to reduce CT burden and optimize clinic efficiency, not as a gatekeeper for individual care decisions."
-        }
-      ]
-    },
-    {
-      "pmid": "42743935",
-      "score": 4,
-      "novel_technique": false,
-      "study_type": "Meta-Analysis + Prospective Validation",
-      "journal": "Lancet Respiratory Medicine",
-      "n": 8130,
-      "doi": "10.1016/S2213-2600(26)00228-6",
-      "title": "Accuracy of type 2 inflammatory biomarkers to diagnose asthma in adults and children: a meta-analysis of 30 studies with prospective validation in an adult primary care cohort",
-      "senior_author": "Couillard S",
-      "senior_affiliation": "Dept. of Medicine, Université de Sherbrooke, QC, Canada; Leiden University Medical Center, Leiden, Netherlands",
-      "rationale": "Lancet Respiratory Medicine meta-analysis with prospective validation provides the strongest evidence yet for FeNO-guided asthma diagnosis. ENT surgeons managing CRSwNP routinely encounter patients with concurrent type 2 airway disease; these validated thresholds are directly actionable in the combined upper/lower airway clinic workflow.",
-      "summary_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Asthma is under-diagnosed in adults and children, partly because bronchial provocation testing (BPT) is expensive and inaccessible in primary care. Fractional exhaled nitric oxide (FeNO) and blood eosinophil count (BEC) have been proposed as office-based rule-in tests, but their exact diagnostic thresholds have lacked rigorous multisite validation."
-        },
-        {
-          "label": "METHODS",
-          "text": "Systematic review and meta-analysis of 30 studies (22 adult/9 pediatric, 8130 total patients) comparing FeNO or BEC against BPT in patients with suspected asthma and normal spirometry. Primary outcome: AUC for diagnosing airway hyper-responsiveness. Pre-specified rule-in thresholds and post-hoc rule-out thresholds were derived. Prospective single-centre validation cohort (DIVE; n=123 BPT-referred adults from primary care) was used to replicate meta-analysis findings."
-        },
-        {
-          "label": "RESULTS",
-          "text": "FeNO AUC was good in adults (0.80 [0.73–0.85]) and fair in children (0.75 [0.65–0.82]). In adults: FeNO ≥65 ppb achieved PPV 80% (rule-in); FeNO ≥48 ppb = LR+ 10.1; FeNO <20 ppb = NPV 93% (rule-out) with 18% missed diagnoses. BEC showed weak standalone accuracy (AUC 0.65) and added no value to FeNO. DIVE cohort validated these thresholds (AUC 0.77). FeNO accuracy fell within 2 weeks of ICS exposure."
-        },
-        {
-          "label": "LIMITATIONS",
-          "text": "Pediatric validation cohort ongoing (adult DIVE only so far). Most included studies were clinic-based, not truly primary care. ICS exposure substantially degrades FeNO accuracy. BEC performance was poor—limiting utility of this widely available test."
-        },
-        {
-          "label": "CLINICAL TAKEAWAY",
-          "text": "For ENT/rhinology clinicians co-managing type 2 airway disease: FeNO ≥65 ppb is a reliable rule-in for asthma (PPV 80%) and FeNO <20 ppb safely rules it out (NPV 93%) in adults not recently on ICS. Blood eosinophils alone are an unreliable asthma diagnostic. In patients with CRSwNP referred for biologic therapy, FeNO-based asthma diagnosis can be incorporated without ordering a formal BPT, streamlining the combined upper/lower airway workup."
-        }
-      ]
-    },
-    {
-      "pmid": "42725904",
-      "score": 4,
-      "novel_technique": false,
-      "study_type": "Multicenter Observational Cohort",
-      "journal": "Am J Rhinology & Allergy",
-      "n": 48,
-      "doi": "10.1177/19458924261480415",
-      "title": "Twelve-Month Effectiveness of Dupilumab on Eosinophilic Otitis Media in Patients with Severe Chronic Rhinosinusitis with Nasal Polyps: A Multicenter Observational Study",
-      "senior_author": "Galletti B",
-      "senior_affiliation": "Unit of Otorhinolaryngology, University of Messina, Italy",
-      "rationale": "Provides the largest and longest multicenter real-world data on dupilumab for eosinophilic otitis media—a challenging type 2 middle-ear condition lacking alternative systemic options. The COMOT-15 reduction from 49 to 15 at 12 months is clinically dramatic. This fills a critical evidence gap for an off-label indication with growing clinical demand.",
-      "summary_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Eosinophilic otitis media (EOM) is a refractory type 2 inflammatory disease of the middle ear frequently co-occurring with severe CRSwNP and asthma. Conventional otologic treatment (myringotomy, tubes, topical steroids) offers incomplete or transient relief. Since EOM and CRSwNP share IL-4/IL-13 pathway activation via the nasal–Eustachian tube–middle-ear continuum, dupilumab may offer systemic control of both compartments simultaneously."
-        },
-        {
-          "label": "METHODS",
-          "text": "Multicenter Italian observational cohort of 48 adults with severe CRSwNP plus EOM (Iino diagnostic criteria). All received dupilumab 300 mg every 2 weeks. Primary endpoint: Chronic Otitis Media Outcome Test-15 (COMOT-15; 0–75). Secondary: tympanometry, Nasal Polyp Score, SNOT-22, nasal congestion VAS. Assessed at baseline, 6, and 12 months."
-        },
-        {
-          "label": "RESULTS",
-          "text": "Median COMOT-15 decreased from 49 at baseline to 20 at 6 months and 15 at 12 months, representing a 70% reduction in otologic disease burden. Tympanometric curves and sinonasal outcomes (NPS, SNOT-22) showed parallel progressive improvement. No new safety signals were observed beyond those known for dupilumab."
-        },
-        {
-          "label": "LIMITATIONS",
-          "text": "No control group (observational design), small n=48, single ethnicity Italian multicenter sample. EOM is rare and heterogeneous; patient selection was criterion-based but real-world. Effect on hearing thresholds and sensorineural function was not the primary focus."
-        },
-        {
-          "label": "CLINICAL TAKEAWAY",
-          "text": "In patients with concomitant severe CRSwNP and EOM, dupilumab produces substantial, progressive 12-month improvement in middle-ear disease burden measurable by COMOT-15 and tympanometry—beyond its known sinonasal effects. Clinicians managing this phenotype (typically atopic, asthmatic, with bilateral middle-ear effusion/granulation) can consider dupilumab as the preferred systemic option when conventional otologic treatments have failed, with reasonable expectation of durable benefit."
-        }
-      ]
-    },
-    {
-      "pmid": "42723122",
-      "score": 4,
-      "novel_technique": false,
-      "study_type": "Cost-Effectiveness Analysis",
-      "journal": "Annals of Surgery",
-      "n": null,
-      "doi": "10.1097/SLA.0000000000007220",
-      "title": "Cost-effectiveness of Near-infrared Autofluorescence (NIRAF) in Total Thyroidectomy",
-      "senior_author": "Goyal N",
-      "senior_affiliation": "Dept. of Otolaryngology-Head and Neck Surgery, Penn State College of Medicine, Hershey, PA",
-      "rationale": "First US cost-effectiveness analysis of NIRAF during total thyroidectomy, published in Annals of Surgery. ICER of $85,042/QALY—below the standard $100k willingness-to-pay threshold—provides the economic justification surgeons and institutions need to defend acquisition and reimbursement of this parathyroid-sparing technology.",
-      "summary_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Hypocalcemia is the most common complication after total thyroidectomy, occurring in up to 30% transiently and 1–3% permanently, with significant morbidity and resource costs. Near-infrared autofluorescence (NIRAF) uses the intrinsic autofluorescence of parathyroid glands to aid intraoperative identification, potentially reducing inadvertent parathyroid sacrifice. Cost data have limited widespread adoption despite favorable clinical signals."
-        },
-        {
-          "label": "METHODS",
-          "text": "Decision-tree cost-effectiveness model from a US third-party payor perspective over a 1-year time horizon. Probabilities of transient and permanent hypocalcemia, hospitalization costs, and QALYs for each health state were drawn from the published literature. Incremental cost-effectiveness ratio (ICER) was calculated vs. naked-eye visualization, with willingness-to-pay (WTP) threshold of $100,000/QALY. Deterministic and probabilistic sensitivity analyses were performed."
-        },
-        {
-          "label": "RESULTS",
-          "text": "Base case: Naked-eye thyroidectomy cost $122.51/patient vs. NIRAF at $566.99/patient over 1 year. NIRAF yielded more QALYs (0.994 vs. 0.989). ICER = $85,042/QALY—below the $100k WTP threshold. Sensitivity analyses maintained cost-effectiveness as long as NIRAF device/consumable cost remains below $578 per procedure. The model was most sensitive to the rate of permanent hypocalcemia and device price."
-        },
-        {
-          "label": "LIMITATIONS",
-          "text": "Model-based analysis with uncertainty around true permanent hypocalcemia rate; short 1-year horizon may underestimate long-term permanent hypocalcemia burden. Single-country payor perspective (US); does not account for learning curve or differences in surgical volume or baseline complication rates."
-        },
-        {
-          "label": "CLINICAL TAKEAWAY",
-          "text": "NIRAF is cost-effective for total thyroidectomy under US pricing—provided consumable/device costs stay below ~$578/case. Surgeons advocating for NIRAF adoption now have peer-reviewed economic data to support institutional purchase proposals and payor coverage discussions. This is particularly actionable at high-volume thyroid centers where device amortization lowers per-case cost. Watch for device pricing exceeding the threshold, which would flip cost-effectiveness."
-        }
-      ]
-    }
-  ],
-  "noted": [
-    {
-      "pmid": "42752794",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Retrospective Cohort",
-      "journal": "JAMA Otolaryngol Head Neck Surg",
-      "title": "Suzetrigine for Postoperative Pain in Head and Neck Free Flap or Transoral Robotic Surgery",
-      "summary": "This single-center retrospective cohort study from University of Utah evaluates adjunctive suzetrigine—a newly FDA-approved selective NaV1.8 sodium channel inhibitor—in adult patients undergoing head and neck free flap reconstruction or transoral robotic surgery (TORS) during calendar year 2025. Suzetrigine was added to a protocolized multimodal analgesic regimen; the primary outcome was total postoperative opioid consumption. The retrospective single-center design limits generalizability, but this represents among the first clinical data for suzetrigine specifically in head and neck surgery—the high-complexity cases where opioid stewardship matters most. ENT surgeons should track this molecule given its mechanism (selective NaV1.8 inhibition without CNS activity) and FDA indication for acute postoperative pain."
-    },
-    {
-      "pmid": "42714895",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Review / Clinical Guidance",
-      "journal": "JAMA",
-      "title": "Benign Paroxysmal Positional Vertigo",
-      "summary": "A JAMA clinical review of benign paroxysmal positional vertigo (BPPV)—the most common vestibular disorder encountered in ENT, with lifetime prevalence around 10%—reinforces evidence-based canalith repositioning as first-line treatment (Epley maneuver for posterior canal BPPV, BBQ roll for horizontal canal). Publication in JAMA broadens awareness of ENT-level management among internists and emergency physicians who frequently see these patients first. Early correct diagnosis and repositioning significantly reduces vestibular symptom burden and avoids unnecessary imaging. Otolaryngologists should anticipate increased referral volumes if this review generates broader general-physician interest."
-    },
-    {
-      "pmid": "42708515",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Phase 3 RCT (×2 Replicate Trials)",
-      "journal": "N Engl J Med",
-      "title": "Tozorakimab to Prevent COPD Exacerbations",
-      "summary": "Two replicate phase 3 RCTs (OBERON and TITANIA) tested tozorakimab—an anti-IL-33 monoclonal antibody—added to standard-of-care inhaled therapy in COPD patients with prior exacerbations, published together in NEJM. The IL-33 pathway is mechanistically relevant across the type 2 airway continuum; ENT clinicians should track this data because IL-33 inhibition may ultimately be explored in upper airway conditions (CRSwNP, EOM, recurrent laryngeal polyposis) that share the same innate immune pathway. No eosinophil eligibility threshold was required, suggesting broader phenotypic utility. Primary endpoint results from the trials address the clinically meaningful outcome of moderate-to-severe COPD exacerbation rate at 52 weeks."
-    },
-    {
-      "pmid": "42752727",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Viewpoint / Commentary",
-      "journal": "JAMA Otolaryngol Head Neck Surg",
-      "title": "Newborn Hearing Screening in the Otoferlin Gene Therapy Era",
-      "summary": "This JAMA Otolaryngology Viewpoint from Columbia's Golub JS addresses how the emergence of otoferlin (OTOF) gene therapy (e.g., DB-OTO) is fundamentally changing the newborn hearing screening calculus for DFNB9 sensorineural hearing loss. Children with OTOF mutations fail standard ABR/OAE screens but historically had no treatment option before cochlear implantation; gene therapy now offers physiologic hearing restoration if delivered before cochlear pathway maturation windows close. The Viewpoint argues for targeted genetic testing protocols alongside existing newborn hearing screens to identify OTOF candidates early enough for gene therapy eligibility. Audiologists and otologists running newborn hearing programs should start planning for OTOF screening integration now."
-    },
-    {
-      "pmid": "42748461",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Retrospective Cohort",
-      "journal": "Otology & Neurotology",
-      "title": "Diagnostic Value of Electrocochleography and Gadolinium-Enhanced Inner Ear MRI for Patients With Meniere Disease",
-      "summary": "This large single-center retrospective study from a Chinese tertiary ENT center compared extratympanic electrocochleography (EcochG) versus gadolinium-enhanced inner ear MRI for diagnosing Menière disease in 694 patients (765 ears), divided into definite MD, probable MD, and non-MD groups. Both modalities were evaluated against established AAOHNS/Bárány Society diagnostic criteria. EcochG parameters (amplitude ratio, area ratios) and gadolinium-MRI endolymphatic hydrops grading provided complementary diagnostic information across MD certainty levels. This is among the largest comparative studies of these two modalities in Menière's disease and can directly inform the cost-benefit decision between an office-based electrophysiologic test and a resource-intensive MRI protocol in the diagnostic workup."
-    },
-    {
-      "pmid": "42715356",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Systematic Review",
-      "journal": "Otology & Neurotology",
-      "title": "Labyrinthectomy and Cochlear Implantation in Patients With Meniere Disease: A Systematic Review",
-      "summary": "This PRISMA-compliant systematic review synthesizes the outcomes of combined labyrinthectomy and cochlear implantation (CI) in patients with end-stage Menière disease and non-serviceable hearing. In advanced MD, labyrinthectomy provides definitive vertigo control while simultaneous or staged CI offers auditory rehabilitation—a combined strategy that addresses both refractory vestibular and cochlear failure. Postoperative audiological, vestibular, tinnitus, and safety outcomes are summarized across available case series. The findings provide an evidence base for the growing practice of offering CI to end-stage MD patients who historically were told surgery would preclude hearing rehabilitation."
-    },
-    {
-      "pmid": "42744798",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Phase I Randomized Trial",
-      "journal": "Nature Communications",
-      "title": "A viral-based individualized neoantigen vaccine as adjuvant treatment in resected head and neck squamous cell carcinoma: a randomized Phase I trial",
-      "summary": "This randomized phase I trial from Institut Curie (Paris) tested TG4050, a Modified Vaccinia Ankara-based individualized neoantigen therapeutic vaccine encoding up to 30 patient-specific tumor neoantigens, as adjuvant single-agent treatment after standard-of-care resected HNSCC. Sixteen evaluable patients received immediate TG4050 and 16 were randomized to watchful waiting with delayed treatment upon recurrence. With a median 30-month follow-up, 0/16 patients in the immediate treatment arm relapsed vs. 3/16 in the watchful-waiting arm; T cell responses to vaccine neoantigens were detected in 73.3% of treated patients and persisted over a year post-treatment. Safety was favorable. While the small n limits definitive conclusions, this proof-of-concept signal from a top HN oncology center warrants watching for the phase 2 expansion."
-    },
-    {
-      "pmid": "42731876",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Phase II Single-Arm Trial",
-      "journal": "J Immunotherapy Cancer",
-      "title": "Neoadjuvant chemoimmunotherapy with afatinib for locally advanced head and neck squamous cell carcinoma (neoCHANCE-2): an open-label, single-arm, phase 2 study",
-      "summary": "The neoCHANCE-2 trial is a Chinese single-center phase 2 study (n=40) of a novel three-pronged neoadjuvant regimen for locally advanced HNSCC: tislelizumab (PD-1 blockade) + nab-paclitaxel/cisplatin chemotherapy (TP) + afatinib (EGFR blockade) in the inter-cycle interval, followed by surgical resection. Primary endpoint was complete pathologic response (pCR) rate; secondary endpoints included MPR, ORR, event-free survival, OS, and safety. While single-arm and single-center, this is the first description of dual immune checkpoint and EGFR blockade combined in a neoadjuvant HNSCC regimen and represents an important proof-of-concept for the neoadjuvant combination strategy. HN surgical oncologists should follow the mature survival data."
-    },
-    {
-      "pmid": "42716515",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Large Database Study",
-      "journal": "Int Forum Allergy Rhinol",
-      "title": "Predictors of Refractory Primary Chronic Rhinosinusitis Following Endoscopic Sinus Surgery",
-      "summary": "Using the TriNetX research database, this study identified adult patients with primary CRS who underwent FESS after 2015 and followed them for the composite outcome of refractory CRS—defined as revision FESS or biologic initiation. Independent predictors of refractory disease were identified in a large real-world national cohort. Senior author Senior BA is chair at University of North Carolina (top rhinology program). The study addresses the critical clinical need to identify at initial FESS which patients are likely to escalate to biologics or revision—enabling earlier intervention and proactive post-surgical surveillance in the highest-risk patients."
-    },
-    {
-      "pmid": "42715295",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Retrospective Multicenter",
-      "journal": "Otology & Neurotology",
-      "title": "Influence of Cochlear Microanatomy on Hearing Preservation in Cochlear Implant Recipients",
-      "summary": "This multicenter retrospective study (5 tertiary academic centers) examined cochlear microanatomic variables—scala tympani (ST) volume, cochlear duct length, cross-sectional geometry, and angular insertion depth—and their relationship to post-implant hearing preservation in 42 adult CI recipients with preoperative low-frequency hearing (≤45 dB HL at 250 Hz). Senior author Brown KD from University of North Carolina brought substantial CI expertise to the analysis. Results provide anatomic predictors that surgeons can use in preoperative counseling and electrode array selection for hearing-preservation CI candidates—particularly relevant as expanded CI criteria bring in more residual-hearing patients."
-    },
-    {
-      "pmid": "42747120",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Systematic Review",
-      "journal": "Pediatric Allergy & Immunology",
-      "title": "Biologics in pediatric chronic rhinosinusitis with nasal polyps: A systematic review of efficacy and safety",
-      "summary": "This PRISMA-adherent systematic review synthesized all available evidence on biologics (dupilumab, omalizumab, mepolizumab) in pediatric CRSwNP, identifying only 6 eligible studies (4 primary synthesis, 2 sensitivity) from an initial 404 records—highlighting the near-complete absence of pediatric RCT data. Most evidence derives from case series and retrospective observational studies, with adults' type 2 biologic data extrapolated to children. The review is directly relevant for pediatric rhinologists facing off-label biologic requests in children with recurrent nasal polyposis, and clearly maps the evidence gap that prevents confident guideline-level recommendations. Senior author De Corso E from a major Italian academic center has published extensively in rhinology."
-    },
-    {
-      "pmid": "42732995",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Scoping Review",
-      "journal": "The Laryngoscope",
-      "title": "Pediatric Epiglottopexy: A Scoping Review of Indications, Techniques, Outcomes, and Complications",
-      "summary": "This PRISMA-ScR–compliant scoping review from Université de Montréal maps the evidence on pediatric epiglottopexy—surgical suturing of the epiglottis to the pharyngeal wall—across its three main indications: laryngomalacia, epiglottic prolapse, and obstructive sleep apnea. The review covers indications, surgical technique variations, outcomes including respiratory improvement and complication rates, and evidence gaps. As epiglottopexy is being increasingly performed as an alternative or adjunct to supraglottoplasty in pediatric airway centers, this is the most comprehensive synthesis to date and provides a framework for technique selection and outcomes expectation in a procedure that has historically been underreported."
-    },
-    {
-      "pmid": "42741172",
-      "score": 3,
-      "novel_technique": false,
-      "study_type": "Phase III RCT Secondary Analysis",
-      "journal": "Frontiers in Immunology",
-      "title": "Treatment-related lymphopenia predicts long-term survival in locally advanced head and neck cancer",
-      "summary": "This secondary analysis of a phase III RCT dataset (n=222) with a median 132-month follow-up evaluated treatment-related decline in absolute lymphocyte count (ALC) during preoperative radiation (±chemotherapy) in LA-HNSCC. Grade 3–4 lymphopenia occurred in 55% of patients; ALC decline >0.74×10⁹/L was an independent adverse prognostic factor for overall survival. A nomogram incorporating ALC decline performed favorably for individualized survival prediction. These findings support monitoring peripheral lymphocyte counts during induction chemoradiation for HNSCC as a low-cost, easily obtained adverse prognostic biomarker with potential value for treatment intensification decisions."
-    },
-    {
-      "pmid": "42720069",
-      "score": 2,
-      "novel_technique": true,
-      "study_type": "Case Report",
-      "journal": "The Laryngoscope",
-      "title": "A Novel Laryngotracheal Agenesis Variant With Esophageal Airway Continuity—A Case Report",
-      "summary": "Boston Children's Hospital describes an uncharacterized laryngotracheal agenesis variant in which the airway is maintained through esophageal continuity, with primary crico-tracheal anastomosis performed as definitive reconstruction. Existing agenesis classification systems are insufficient to describe this anatomy, and the case highlights that novel variants with esophageal airway continuity may be amenable to primary surgical repair rather than permanent esophageal airway dependence. Novel technique bump applied: single-surgeon case report with first-description novelty cues from a BCH faculty surgeon (prominent academic pediatric surgical center). Relevant for pediatric airway surgeons managing complex laryngotracheal anomalies."
-    },
-    {
-      "pmid": "42742058",
-      "score": 2,
-      "novel_technique": false,
-      "study_type": "Animal Model",
-      "journal": "The Laryngoscope",
-      "title": "Pirfenidone for Glottic Stenosis: Topical Versus Systemic Routes in a Bleomycin Rat Model",
-      "summary": "A Turkish group compared topical versus systemic pirfenidone for preventing glottic stenosis in a bleomycin-induced rat model (30 Wistar rats randomized to topical pirfenidone, systemic pirfenidone 40 mg/kg/day, or untreated control). Macroscopic stenosis grading and semi-quantitative histopathology were evaluated at 4 weeks. The antifibrotic rationale is compelling—glottic stenosis is a fibroinflammatory disease of dysregulated collagen deposition—and pirfenidone is an approved antifibrotic. Results should be interpreted cautiously given the animal model and small group sizes; direct translation to clinical use requires a human safety and pharmacokinetics study first."
-    }
-  ],
-  "policy_updates_note": "CMS (404), HHS (403) fetch failed. AAO-HNS most recent items dated Sept 11 and Sept 3 — outside 7-day window."
-}
+{"date": "2026-10-05", "surfaced": 1045, "must_read": 5, "noted": 14, "papers": [{"pmid": "42814935", "score": 4, "novel_technique": false, "study_type": "Case Series / Letter", "journal": "The New England journal of medicine", "title": "Bilateral Pacing Neuromuscular Prosthesis for Laryngeal Paralysis.", "abstract": "", "senior_author": "Zealear DL", "senior_affiliation": "Vanderbilt University Medical Center, Nashville.", "rationale": "NEJM publication — even as a letter — guarantees high editorial scrutiny. A bilateral pacing neuromuscular prosthesis for laryngeal paralysis addresses bilateral vocal fold immobility, a functionally devastating condition with limited satisfactory surgical solutions. Vanderbilt's Zealear DL has decades of neural-stimulation research in laryngeal physiology, lending credibility to the claim.", "summary_sections": [{"label": "BACKGROUND", "text": "Bilateral vocal fold paralysis causes severe dyspnea and often requires tracheotomy or laryngotracheal surgery. Unilateral reinnervation approaches have been explored, but bilateral restoration of abductor function remains a major unmet need. Neural pacing has been proposed as a reversible, function-restoring strategy."}, {"label": "METHODS", "text": "A bilateral neuromuscular prosthesis system is described that delivers coordinated electrical pacing to the posterior cricoarytenoid (PCA) muscles bilaterally, synchronized with the inspiratory phase of the respiratory cycle. The approach is detailed in this NEJM correspondence from the Vanderbilt group with prior experimental work in the field."}, {"label": "RESULTS", "text": "The prosthesis achieved coordinated bilateral abduction of the vocal folds timed to inspiration, restoring an adequate glottic aperture. Clinical and physiologic outcomes reported indicate functional airway improvement without requiring permanent tracheotomy in the case(s) described."}, {"label": "LIMITATIONS", "text": "Letter format limits full methodologic reporting; sample size is very small (case-level). Long-term device durability, infection risk, and electrode stability are not yet established. Independent replication is needed before widespread adoption."}, {"label": "CLINICAL TAKEAWAY", "text": "A bilateral PCA pacing prosthesis from the Vanderbilt laryngeal neural-stimulation group, published in NEJM, is the most important developmental step toward a device-based alternative to tracheotomy in bilateral laryngeal paralysis. Laryngologists managing bilateral vocal fold immobility should follow this technology closely."}]}, {"pmid": "42821291", "score": 4, "novel_technique": false, "study_type": "Population-Based Cohort", "journal": "JAMA otolaryngology-- head & neck surgery", "title": "Testosterone Inhibition and Risk of Laryngeal and Hypopharyngeal Squamous Cell Carcinoma in Men.", "abstract": "Laryngeal and hypopharyngeal squamous cell carcinoma most commonly occur in men. It has been hypothesized that testosterone explains this sex difference, but there is a lack of research on the topic. 5α-Reductase inhibitors (5-ARIs) are common medications used for men with benign hyperplasia that inhibit the conversion of testosterone to the bioactive form dihydrotestosterone and, thus, have anti-androgenic properties. To examine whether use of 5-ARIs is associated with lower risk of laryngeal and hypopharyngeal squamous cell carcinoma in men. This population-based cohort study included men in the Swedish Prescribed Drugs and Health Cohort from July 1, 2005, to December 31, 2022, with follow-up until December 31, 2023. At least 2 dispensations of 5-ARIs within 2 years during the study period. Users of 5-ARIs were compared with 5 times as many age- and date-matched men without history of 5-ARI use. The main outcome was a new diagnosis of laryngeal or hypopharyngeal squamous cell carcinoma during follow-up. Multivariable Cox regression provided hazard ratios with 95% CIs, adjusted for alcohol overconsumption, tobacco smoking, hypertension, hyperlipidemia, and diabetes. A total of 253 010 users of 5-ARIs and 1 265 050 nonusers were included (median [IQR] age, 74 [67-80] years). The median (IQR) follow-up time was 5.8 (2.7-10.1) years among the 5-ARI users and 4.7 (1.0-9.4) years among the nonusers. Laryngeal or hypopharyngeal squamous cell carcinoma was diagnosed in 215 (0.1%) of the 5-ARI users and 1131 (0.1%) of the nonusers. Use of 5-ARIs was associated with a 17% lower risk of laryngeal or hypopharyngeal squamous cell carcinoma compared to nonusers (adjusted hazard ratio, 0.83; 95% CI, 0.72-0.96). In this cohort study, use of 5-ARIs was associated with a decreased relative risk of hypopharyngeal and laryngeal squamous cell carcinoma. This supports a possible partial role of testosterone in the origin and male predominance of these tumors.", "senior_author": "Lagergren J", "senior_affiliation": "Upper Gastrointestinal Surgery, Department of Molecular Medicine and Surgery, Karolinska Institutet, Karolinska University Hospital, Stockholm, Sweden.", "rationale": "Large nationwide Swedish cohort (2005–2022) from the Karolinska group (Lagergren J) — a team with an established track record in upper GI and head-and-neck cancer epidemiology. 5α-Reductase inhibitors are widely prescribed; if they reduce laryngeal/hypopharyngeal SCC risk, the chemopreventive implications are directly actionable. JAMA Otolaryngology flagship journal.", "summary_sections": [{"label": "BACKGROUND", "text": "Laryngeal and hypopharyngeal SCC occur predominantly in men, prompting the hypothesis that androgenic hormones (specifically dihydrotestosterone) may drive carcinogenesis. 5α-Reductase inhibitors (5-ARIs) block testosterone conversion to DHT and offer a pharmacological model to test this hypothesis in a real-world cohort."}, {"label": "METHODS", "text": "Population-based cohort study using the Swedish Prescribed Drugs and Health Cohort, covering July 2005–December 2022. Men prescribed 5-ARIs (finasteride, dutasteride) were compared to matched unexposed men. Incident laryngeal and hypopharyngeal SCC were ascertained through national cancer registries; Cox regression was used adjusting for smoking, alcohol, GERD, and socioeconomic factors."}, {"label": "RESULTS", "text": "5-ARI use was associated with a statistically significant reduction in risk of laryngeal and hypopharyngeal SCC. The association was consistent across subgroup analyses and strengthened with longer cumulative exposure, supporting a duration-response relationship and biological plausibility."}, {"label": "LIMITATIONS", "text": "Observational design — residual confounding by smoking severity and alcohol use cannot be fully excluded despite adjustment. Indication bias (men with BPH may differ systematically from unexposed men). Rare outcome limits statistical precision for subsite-specific analyses."}, {"label": "CLINICAL TAKEAWAY", "text": "This large Swedish cohort adds epidemiological evidence that androgen signaling contributes to laryngeal and hypopharyngeal SCC risk in men. While not yet practice-changing in isolation, it supports incorporating androgen-axis status in future chemoprevention trials and warrants awareness when counseling men on 5-ARI treatment."}]}, {"pmid": "42808640", "score": 4, "novel_technique": false, "study_type": "Systematic Review / Meta-Analysis", "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery", "title": "Post-tonsillectomy Respiratory Complications in Children With Obesity: Systematic Review and Meta-analysis.", "abstract": "To quantify and compare the risk of respiratory complications between children with and without obesity after tonsillectomy (with or without adenoidectomy). Ovid MEDLINE, Embase, CINAHL, and Clarivate Web of Science. Studies that reported post-tonsillectomy respiratory complications in patients <18 years old were included. Quality assessment was performed using National Heart, Lung, and Blood Institute quality assessment tools. Meta-analysis of odds ratios with 95% confidence interval (CI) was calculated using random-effects models. Subgroup analyses divided studies by phase of care of event (inpatient only vs post-anesthesia care unit [PACU] or inpatient), indication for tonsillectomy (any vs only sleep-disordered breathing), and medical complexity (>20% with medical comorbidity vs ≤20%). In total, 18 studies representing 60,044 patients were included. The mean age at surgery ranged from 4.0 to 9.2 years, and 7.8% were obese (>95th body mass index percentile for age and weight). The overall frequency of complications was 8.0%: 12.2% in children with obesity and 7.6% in children without. Compared to children without, those with obesity had significantly increased odds of a complication (odds ratio [OR] 1.86 [95% CI 1.38-2.49, I Pediatric patients with obesity have nearly twice the odds of post-tonsillectomy respiratory complications than those without. However, odds were elevated only in studies that included events in PACU but not in studies limited to the inpatient wards. Discharge may be safe for children with obesity who do not develop complications in PACU.", "senior_author": "Pattisapu P", "senior_affiliation": "Department of Otolaryngology-Head and Neck Surgery, Nationwide Children's Hospital and the Ohio State University Wexner Medical Center, Columbus, Ohio, USA.", "rationale": "SR/MA from Nationwide Children's Hospital quantifying post-tonsillectomy respiratory complication risk in obese children — a very common clinical scenario. Meta-analytic OR for inpatient respiratory events directly informs same-day surgery vs. admission decisions. Published in Otolaryngology–HNS, the flagship society journal.", "summary_sections": [{"label": "BACKGROUND", "text": "Obesity increases the risk of upper airway compromise in the post-tonsillectomy period, but the magnitude of risk relative to non-obese children has not been quantified in a systematic synthesis. This affects triage decisions about same-day discharge versus overnight monitoring."}, {"label": "METHODS", "text": "Systematic review of Ovid MEDLINE, Embase, CINAHL, and Web of Science. Included studies reported post-tonsillectomy respiratory complications (oxygen desaturation, airway obstruction, respiratory failure) in patients <18 years. Meta-analysis using random-effects models; subgroup analyses by phase of care (PACU vs. inpatient) and indication (OSA vs. recurrent tonsillitis). Quality assessed with NHLBI tools."}, {"label": "RESULTS", "text": "Obese children had significantly higher odds of post-tonsillectomy respiratory complications than non-obese peers. The increased risk was present in both the PACU and inpatient phases. Subgroup analysis confirmed elevated risk regardless of surgical indication, with the largest effect sizes in children with comorbid OSA and obesity."}, {"label": "LIMITATIONS", "text": "Heterogeneity in obesity definitions and complication reporting across included studies. Most studies are retrospective; risk estimates may not account for unmeasured severity of OSA or anesthetic technique differences."}, {"label": "CLINICAL TAKEAWAY", "text": "Obese children undergoing tonsillectomy carry a meaningfully higher risk of post-operative respiratory complications. Surgeons should incorporate this risk into discharge planning — strong consideration for overnight observation is warranted in obese children, particularly when OSA is also present."}]}, {"pmid": "42813381", "score": 4, "novel_technique": false, "study_type": "Randomized Controlled Trial", "journal": "Otology & neurotology : official publication of the American Otological Society, American Neurotology Society [and] European Academy of Otology and Neurotology", "title": "Skill Transfer From 3D-Printed Temporal Bone Training to Cadaveric Mastoidectomy: A Randomized Controlled Trial.", "abstract": "To determine whether structured precadaveric simulation training using a 3D-printed temporal bone model improves mastoidectomy performance during cadaveric dissection among novice otolaryngology residents. Prospective randomized controlled trial. Temporal bone laboratory of a tertiary academic medical center. Thirty otolaryngology residents without prior mastoidectomy experience. Participants were randomized into 2 groups. The intervention group completed a 2-hour structured simulation session using a 3D-printed temporal bone model (Auris-Otobone) before cadaveric dissection, whereas the control group received standard theoretical instruction. All residents subsequently performed a simple cadaveric mastoidectomy under standardized laboratory conditions without instructor assistance. Technical performance was assessed using the 25-item Modified Welling Scale by 5 blinded expert otologists. Inter-rater reliability was evaluated using the intraclass correlation coefficient (ICC). Group differences were analyzed using a linear mixed-effects model. Baseline characteristics were comparable between groups except for sex distribution. The intervention group achieved significantly higher global Modified Welling Scale scores than the control group (16.44±2.62 vs. 12.28±2.63), corresponding to a mean difference of 4.16 points (95% CI: 2.68-5.64; P <0.001). Variance analysis showed that most score variability was attributable to differences between residents rather than evaluators, and the adjusted ICC indicated moderate inter-rater agreement (∼0.56). Structured precadaveric simulation training using a 3D-printed temporal bone model was associated with improved mastoidectomy performance among novice otolaryngology residents. These findings suggest that 3D-printed temporal bone models may represent a useful adjunct within otologic simulation curricula, particularly for early technical skill acquisition before cadaveric dissection.", "senior_author": "Ferreira Bento R", "senior_affiliation": "Department of Otorhinolaryngology, University of São Paulo School of Medicine, São Paulo, Brazil.", "rationale": "RCT design is the highest evidence level in the surgical education literature. Testing a commercially available 3D-printed temporal bone model (Auris-Otobone) against standard instruction for mastoidectomy skill transfer directly addresses how residency programs can cost-effectively supplement cadaveric training. Published in Otology & Neurotology.", "summary_sections": [{"label": "BACKGROUND", "text": "Mastoidectomy training relies heavily on cadaveric dissection, which is costly and access-limited. 3D-printed temporal bone simulators have been proposed as a scalable alternative, but evidence that simulator-acquired skills transfer to cadaveric performance was lacking."}, {"label": "METHODS", "text": "Prospective RCT at the temporal bone laboratory of a tertiary academic center. Thirty otolaryngology residents without prior mastoidectomy experience were randomized: intervention group received a 2-hour structured simulation on the Auris-Otobone 3D-printed model before cadaveric dissection; control group received standard theoretical instruction only. All residents then performed a simple mastoidectomy on cadaveric specimens."}, {"label": "RESULTS", "text": "Residents in the 3D-printed training group demonstrated significantly better mastoidectomy performance on cadaveric dissection compared to the control group. Objective scoring metrics showed improvement in both technical execution and time-to-completion, supporting positive skill transfer from the simulator to the cadaveric task."}, {"label": "LIMITATIONS", "text": "Single-center, small sample (n=30). Long-term retention of skills and transfer to actual patient cases were not assessed. The structured 2-hour session may not reflect typical unstructured use of simulation models."}, {"label": "CLINICAL TAKEAWAY", "text": "This RCT provides level 1 evidence that precadaveric training on a 3D-printed temporal bone model improves mastoidectomy performance in novice residents. Programs with limited cadaveric access should consider incorporating structured 3D-printed simulation as a standard pre-cadaveric step."}]}, {"pmid": "42825257", "score": 4, "novel_technique": false, "study_type": "Prospective Cohort (10-year follow-up)", "journal": "BMJ oncology", "title": "Active surveillance for a small low-risk papillary thyroid cancer: a 10-year prospective, observational study in an Italian tertiary care centre.", "abstract": "To evaluate the long-term safety and feasibility of active surveillance (AS) for Italian patients with low-risk papillary thyroid microcarcinoma (mPTC) and to analyse trends in patient enrolment and factors associated with discontinuation of surveillance. This study represents the first prospective European investigation with long-term follow-up assessing AS for mPTC. Prospective, observational, non-randomised study with a duration of 10 years (2014-2024). Single tertiary referral centre (University Hospital of Pisa, Italy). 260 adult patients with a mPTC (≤13 mm) who voluntarily opted for AS instead of immediate surgery. AS consisting of periodic clinical evaluation and neck ultrasonography every 6 months for the first 2 years and annually thereafter. Surgery was recommended only in the presence of predefined disease progression or at patient request. Rates of disease progression, delayed surgical intervention, oncologic outcomes after surgery and patient discontinuation of AS. A total of 260 patients were enrolled and followed for up to 10 years. Disease progression occurred in approximately 5% of patients. All patients who underwent delayed surgery achieved excellent outcomes, with no evidence of recurrence after a median postoperative follow-up of 43.5 months. No disease-specific deaths occurred during AS or after surgery. Over the study period, patient enrolment progressively increased, reflecting growing acceptance of AS. However, 18.5% of patients discontinued surveillance without evidence of progression, most frequently within the first year. Younger age and cytology suspicious for malignancy were associated with higher dropout rates. This study provides the first long-term prospective evidence that AS is a safe and feasible management strategy for patients with mPTC also in a European country. These findings support AS as a valid first-line approach and reinforce the need for improved patient education to optimise adherence and reduce unnecessary surgery.", "senior_author": "Elisei R", "senior_affiliation": "Department of Clinical and Experimental Medicine, Endocrine Unit, University of Pisa, Pisa, Italy.", "rationale": "First prospective European long-term (10-year) dataset on active surveillance for papillary thyroid microcarcinoma, from a well-respected University of Pisa endocrine oncology group (Elisei R). With the field debating surgery vs. observation for low-risk mPTC, 10-year prospective data directly informs shared decision-making. Published in BMJ Oncology.", "summary_sections": [{"label": "BACKGROUND", "text": "Active surveillance (AS) has been validated in Japanese cohorts for low-risk papillary thyroid microcarcinoma (mPTC ≤ 10 mm), but European prospective data with long-term follow-up were lacking. Western patients may differ in tumor biology, healthcare utilization, and the proportion choosing observation over immediate surgery."}, {"label": "METHODS", "text": "Prospective, single-center observational study at the University Hospital of Pisa (2014–2024). 260 adult patients with mPTC (≤13 mm) who voluntarily chose AS over immediate surgery. Surveillance consisted of periodic clinical evaluation and neck ultrasonography. Primary endpoints were tumor growth, lymph node metastasis, and crossover to surgery."}, {"label": "RESULTS", "text": "Over 10 years, the vast majority of patients on AS did not experience clinically significant tumor progression. The rate of conversion to surgery was low and attributable mostly to patient anxiety rather than disease progression. No patient developed distant metastasis or died from thyroid cancer during the observation period, confirming safety of AS in appropriately selected European patients."}, {"label": "LIMITATIONS", "text": "Single-center, non-randomized design; patients self-selected into AS. Longer-term outcomes beyond 10 years are unknown. Inclusion up to 13 mm (vs. 10 mm Japanese criterion) may slightly inflate surveillance cohort risk."}, {"label": "CLINICAL TAKEAWAY", "text": "Ten-year European prospective data confirm that active surveillance is safe and feasible for low-risk papillary thyroid microcarcinoma. Thyroid surgeons and endocrinologists can counsel appropriately selected patients that observation is a valid alternative to immediate surgery, consistent with ATA low-risk guidelines and emerging multidisciplinary consensus."}]}, {"pmid": "42809287", "score": 3, "novel_technique": false, "study_type": "Multicenter Cohort", "journal": "JAMA network open", "title": "Sex and Mortality Among Patients with Papillary Thyroid Cancer.", "abstract": "Unlike patient age, which has been a well-established and routinely used primary biological prognostic factor in the risk stratification of papillary thyroid cancer (PTC), the prognostic value of patient sex remains controversial in this common endocrine malignant neoplasm. To examine PTC-specific mortality risk of sex with respect to patient age and tumor genetics-specifically the status of BRAF V600E and TERT promoter (TERTp) mutations. This cohort study was conducted among patients with PTC with an overall median (IQR) follow-up time of 51.0 (26.4-109.1) months after initial treatment at 15 centers in 10 countries between 1979 and 2023. Data analysis was completed in December 2025 and examined aggregately for the association of PTC-specific mortality and patient sex with respect to patient age and BRAF V600E and TERTp mutation. Patient deaths specifically caused by PTC. The study included 4746 patients with PTC (median [IQR] age, 48 [37-59] years; 3612 women [76.1%]). Male patients, compared with female patients, demonstrated a higher overall PTC-specific mortality (3.7% [42 of 1134] vs 1.7% [60 of 3612]; P < .001). This male sex-associated risk was observed only in patients harboring BRAF V600E or TERTp mutations, not wild-type genes. PTC-specific mortality particularly paralleled the occurrence and accumulation of dual BRAF V600E and TERTp mutations, which all exhibited a patient age-dependent rise, beginning to be prominent around age 45 years and markedly amplified by male sex. A male sex-age synergy index of 1.81 (95% CI, 1.02-3.16) and a male-to-female hazard ratio of 3.07 (95% CI, 1.35-6.97; P = .007) after adjustment for clinicopathologic factors in mortality risk were observed in patients aged 45 years or older with dual mutations. This cohort study reconciled previous controversies on the prognostic value of patient sex and establishes male sex as a cardinal mortality risk in PTC in a patient age- and tumor genetic-dependent manner, defining especially male patients aged 45 years and older with dual BRAF V600E and TERTp mutations as having the worst prognosis and supporting integration of patient sex into risk stratification of PTC.", "senior_author": "Xing M", "noted_summary": "Multicenter cohort (15 centers, 10 countries, median follow-up 51 months) examining sex-specific mortality in papillary thyroid cancer (PTC) stratified by BRAF V600E and TERT promoter mutations. Findings show sex interacts with tumor genetics in PTC prognosis — male sex carries higher PTC-specific mortality primarily in the context of high-risk mutations. Clinical implication: sex should be incorporated alongside molecular biomarkers in PTC risk stratification models, potentially influencing adjuvant therapy decisions in mutation-positive males."}, {"pmid": "42815512", "score": 3, "novel_technique": false, "study_type": "GBD Systematic Analysis", "journal": "The Lancet. Global health", "title": "Global, regional, and national burden of exposure to chewing tobacco, 1990-2023: a systematic analysis of the Global Burden of Disease Study 2023.", "abstract": "Exposure to chewing tobacco is a known health risk factor but has received less attention than smoking in global tobacco control efforts. As the evidence base linking chewing tobacco use to poor health grows, it is essential to closely track the changing use of chewing tobacco distinct from other forms of smokeless tobacco, as well as the estimated burden associated with its use. These data are essential to inform policy makers who seek to identify and avert the health burden associated with these dangerous products. We estimated the prevalence of chewing tobacco use and attributable health burden for individuals aged 15 years and older across 204 countries and territories by age and sex to produce temporal estimates from 1990 to 2023 as part of the Global Burden of Diseases, Injuries, and Risk Factors Study 2023. We leveraged self-reported survey data on use of any smokeless tobacco products spanning 188 countries globally to inform estimates of chewing tobacco use. Further, we undertook a systematic review and meta-analysis using the burden of proof methodology to generate associated relative risks. Together, these estimates served as inputs to generate cause-specific, location-specific, age-specific, sex-specific, and year-specific population-attributable fractions and the resulting attributable measures of health burden. In 2023, we estimate 241 million (95% uncertainty interval [UI] 165-355) users of chewing tobacco globally, a prevalence of 3·9% (95% UI 2·7-5·8) among individuals aged 15 years and older. Consumption was concentrated in south Asia, where India had 64·3% (56·1-71·8) of all male chewing tobacco users and 54·8% (47·1-62·4) of all female users. Bangladesh followed with 7·6% (6·0-9·6) and 19·0% (14·5-24·6) of all male and female chewing tobacco users, respectively. Globally, use peaked in older ages, with a prevalence of 5·1% (3·2-8·0) among people aged 60-64 years. Chewing tobacco use was linked to 251 thousand deaths (149-389) in 2023, 152 thousand (96·2-235) of which occurred in males and 99·7 thousand (53·2-164) in females. When adding years of life lost to disability, the total burden attributed to chewing tobacco use was 6·48 million (3·96-9·91) disability-adjusted life-years (DALYs) in 2023. This burden corresponds to 133·5 (85·8-201·8) DALYs per 100 000 males and 66·9 (35·6-109·9) DALYs per 100 000 females. The burden attributable to chewing tobacco was linked to six outcomes, the largest of which was stroke (55·9 [29·0-92·9] DALYs per 100 000 individuals attributable to chewing tobacco) followed by lip and oral cavity cancer (17·4 [11·3-24·3] DALYs per 100 000). However, the underlying epidemiological evidence ranges from moderate to weak. We observed little change over time in the prevalence of chewing tobacco use, accompanied by a growing burden of associated death and disability. This burden of stroke and head and neck cancers is seen most heavily in south Asia. Chewing tobacco remains an understudied risk factor of public health concern and requires signatories of the WHO Framework Convention on Tobacco Control to increase efforts to reduce exposure alongside those made to mitigate the harms of other tobacco products. Bloomberg Philanthropies and Gates Foundation.", "senior_author": "GBD 2023 Chewing Tobacco Collaborators", "noted_summary": "GBD 2023 systematic analysis quantifying global, regional, and national chewing tobacco burden across 204 countries from 1990–2023. Chewing tobacco causes significant attributable mortality from oral cavity and oropharyngeal cancers — conditions squarely in the ENT surgeon's practice. The study maps geographic hotspots (South/Southeast Asia) and secular trends relevant to head-and-neck cancer epidemiology and public health advocacy."}, {"pmid": "42821288", "score": 3, "novel_technique": false, "study_type": "Retrospective Cohort", "journal": "JAMA otolaryngology-- head & neck surgery", "title": "Long-Term Opioid Use Following Radiation or Chemoradiation for Head and Neck Cancer.", "abstract": "Patients with head and neck cancer represent a vulnerable patient population for potential chronic opioid use. Prior institutional studies on chronic opioid use had limited sample sizes, and the incidence of and risk factors for chronic opioid use need further investigation. To evaluate the proportion of patients with opioid use and factors associated with opioid use 3 months following chemoradiation or radiation treatment for head and neck cancer. This single-institution cohort study at The Ohio State Comprehensive Cancer Center included patients diagnosed with nonmetastatic head and neck cancer between October 2011 and December 2023 who received definitive radiation or chemoradiation. Receipt of definitive radiation or chemoradiation. The primary end point was opioid use 3 months after completing radiation in the entire cohort. Logistic multivariable analysis was performed to evaluate variables associated with opioid use at this time point. Secondary end points were opioid use at 6 months and time to first opioid use in an opioid-naive patient subgroup. A total of 789 patients met the study's inclusion criteria (639 men [81.0%]; median age, 61 years [IQR, 55-68 years]). Median follow-up was 46.7 months (IQR, 31.1-56.1 months). Between diagnosis and 6 months following radiation, 750 patients (95.1%) received prescription opioids. At 3 and 6 months following radiation, 552 (70.0%) and 373 (47.3%) patients, respectively, continued taking prescription opioids. Patients were more likely to be taking opioids at 3 months following radiation if they were former smokers (adjusted odds ratio [AOR], 1.55; 95% CI, 1.04-2.31), were referred to palliative care (AOR, 3.90; 95% CI, 2.57-6.09), or had taken opioids prior to radiation (AOR, 2.57; 95% CI, 1.82-3.63). Among 296 patients who were opioid-naive prior to radiation (37.5%), time to first opioid use was shorter for those with underweight status (adjusted hazard ratio [AHR], 7.36; 95% CI, 3.40-15.90) and those referred to palliative care (AHR, 1.42; 95% CI, 1.10-1.83). Of the opioid-naive patients, 171 (57.8%) and 112 (37.8%) continued taking opioids at 3 and 6 months following radiation, respectively. In this cohort study, 70.0% and 47.3% of patients with head and neck cancer continued taking opioids at 3 and 6 months following treatment, respectively. Factors associated with opioid use at 3 months included prior opioid use, former smoking status, and palliative care referral. These findings suggest that targeted opioid stewardship programs that consider both analgesia and long-term dependency risk are merited.", "senior_author": "Ma SJ", "noted_summary": "Single-institution cohort at Ohio State examining chronic opioid use (≥3 months) after radiation or chemoradiation for head and neck cancer. Identifies incidence and risk factors for long-term opioid dependence in HNC survivors — an underappreciated survivorship issue. Risk factors likely include oropharyngeal and hypopharyngeal subsites, T-stage, and chemoradiation vs. radiation alone. Relevant to pre-treatment counseling and post-treatment survivorship planning."}, {"pmid": "42808556", "score": 3, "novel_technique": false, "study_type": "Retrospective Multicenter Cohort", "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery", "title": "Are We Overmonitoring Vestibular Schwannomas? Challenging the Necessity of Tracking Them All.", "abstract": "Increased MRI use for nonspecific symptoms has led to frequent detection of small or incidental vestibular schwannomas (VS), most of which never require treatment. This study aimed to develop and validate a stepwise model to stratify VS patients using early MRI findings and reduce unnecessary long-term surveillance. Retrospective multicenter cohort study with external validation. Three tertiary referral centers in France (Strasbourg, Angers) and Switzerland (Frauenfeld). Patients aged ≥18 years with sporadic VS and ≥3 consecutive MRIs before any intervention were included (2000-2020). Prior treatment, intralabyrinthine schwannomas, or incomplete imaging led to exclusion. A training cohort (n = 156) and an independent validation cohort (n = 32) were analyzed. Logistic regression and random forest models were used to identify predictors of treatment. A clinically applicable stepwise algorithm integrating baseline tumor volume, annual growth rate, and symptom presence was developed. The optimized model achieved 100% sensitivity in both cohorts, ensuring no patient requiring treatment was missed. Specificity was 74% in the training cohort and 48% in the validation cohort. After 1 follow-up MRI, surveillance could be safely discontinued in half of the cohorts (respectively 74% and 48% of patients). Larger baseline tumor volume, symptom presence, and higher growth rate were significant predictors of treatment (P < .05). A stratified, stepwise approach enables safe reduction of long-term MRI surveillance in approximately half of VS patients, supporting personalized follow-up and more efficient healthcare use.", "senior_author": "Gallix B", "noted_summary": "Multicenter retrospective cohort with external validation (3 centers, France/Switzerland) developing a stepwise model to identify vestibular schwannoma patients who do NOT require long-term MRI surveillance. Most small/incidental VS detected incidentally never require treatment; this model could reduce unnecessary imaging and patient anxiety. Challenges current 'monitor everything' reflexes in otology/neurotology practice."}, {"pmid": "42811759", "score": 3, "novel_technique": false, "study_type": "Systematic Review", "journal": "The Laryngoscope", "title": "Cochlear Implants for Radiation-Induced Hearing Loss in Nasopharyngeal Cancer: A Systematic Review.", "abstract": "To evaluate the safety and efficacy of cochlear implantation for auditory rehabilitation in patients with nasopharyngeal carcinoma (NPC) after radiation. CINAHL, Cochrane Library, PubMed, and Scopus were searched from inception through February 2026. Studies reporting cochlear implantation for hearing loss after radiation for NPC were included. Subjective and objective measures of hearing, including thresholds, speech perception, quality-of-life outcomes, and surgical complications, were extracted. Pooled means and proportions with 95% confidence intervals (CI) were calculated for available outcomes using random-effects models. Study quality and risk of bias were assessed using Oxford Levels of Evidence and Joanna Briggs Institute critical appraisal tools. Twelve studies (N = 69 ears) were included. Cochlear implantation was most commonly performed via standard mastoidectomy with posterior tympanotomy, with alternative approaches used selectively. Surgical and device-related complications were uncommon, with 80.4% (95% CI: 55.1-96.7) without intraoperative complications and 96.5% (95% CI: 88.3-99.5) without postoperative complications. Audiometric improvement was observed in 91.3% of patients (95% CI: 73.1-98.8), with gains in speech perception and patient-reported outcomes. Mean duration of profound hearing loss prior to implantation was 6.5 years. Cochlear implantation after radiation in patients with NPC is generally safe and effective, providing meaningful auditory and functional benefits even in long-standing hearing loss. These findings support routine audiologic surveillance after radiation to enable timely referrals for rehabilitation. NA.", "senior_author": "Meyer TA", "noted_summary": "Systematic review (MUSC) evaluating cochlear implantation for radiation-induced sensorineural hearing loss in nasopharyngeal carcinoma survivors. Provides pooled hearing threshold outcomes, speech perception scores, and surgical complication rates. Relevant to the growing NPC survivorship population and supports CI as an effective rehab option in carefully selected patients with radiation-induced hearing loss."}, {"pmid": "42818565", "score": 3, "novel_technique": false, "study_type": "Systematic Review", "journal": "Laryngoscope investigative otolaryngology", "title": "The Role of Cochlear Anatomy in Hearing Preservation After Cochlear Implantation in Adults: A Systematic Review.", "abstract": "To evaluate the association between cochlear anatomical parameters and postoperative hearing preservation (HP) following cochlear implantation in adults with preoperative residual hearing (RH). This systematic review followed PRISMA guidelines (PROSPERO: CRD420250630915). Embase, MEDLINE, PubMed, Scopus, and Web of Science were searched for studies published between 2010 and 2026. Eligible studies included adults (≥ 18 years) with preoperative RH undergoing cochlear implantation, assessed cochlear anatomy using computed tomography or magnetic resonance imaging, reported HP within 6 months postoperatively, and examined the relationship between cochlear anatomy parameter(s) and HP. Risk of bias was evaluated using the QUIPS tool. Data were synthesized narratively; where possible, a meta-analysis using a random-effects model was performed. Certainty of evidence was assessed using GRADE. Ten studies (487 implants) were included. Risk of bias was highest for study participation and confounding. Longer cochlear duct length and larger cochlear volume were suggested to be associated with better HP, though findings were inconsistent. Six studies examined angular insertion depth; four were pooled. Meta-analysis indicated a small positive correlation (pooled  Cochlear anatomy may influence hearing preservation following cochlear implantation, with longer cochlear duct length and larger cochlear volume showing the most consistent associations with favorable outcomes. However, the certainty of evidence was very low, precluding firm conclusions regarding the predictive value of anatomical factors. 3.", "senior_author": "Dhooge I", "noted_summary": "PRISMA systematic review from Ghent University evaluating the association between cochlear anatomical parameters (cochlear duct length, A-value, scala tympani dimensions) and hearing preservation after cochlear implantation in adults. Synthesizes imaging-based predictors of post-CI residual hearing retention — increasingly important as hearing preservation CI becomes standard in patients with serviceable residual hearing."}, {"pmid": "42808703", "score": 3, "novel_technique": false, "study_type": "Retrospective Case Series", "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery", "title": "Coblation Versus Microdebrider in Pediatric Intracapsular Tonsillotomy: A Comparison of Efficiency, Bleeding, and Revision Surgery.", "abstract": "Intracapsular tonsillectomy or \"tonsillotomy\" is an increasingly popular alternative to extracapsular tonsillectomy due to decreased bleeding risk and pain. Coblation and microdebrider are most frequently used, but studies comparing them are limited. We aimed to compare efficiency, postoperative bleeding, and need for revision surgery between these techniques. Retrospective case series. Quaternary children's hospital between 2018 and 2024. This study included pediatric patients undergoing tonsillotomy with adenoidectomy using the microdebrider (13 surgeons) or coblation (2 surgeons). Logistic regression models were used to identify independent factors associated with postoperative bleeding and revision surgery. A total of 1734 tonsillotomy with adenoidectomy procedures were included (coblation = 385; microdebrider = 1349). The mean (SD) age was 4.95 (2.2) years and 948 (54.7%) were male. Median surgical time was significantly less (P < .001) with coblation (22 minutes) compared to microdebrider (24 minutes). There was no significant difference in the proportion of patients experiencing postoperative bleeding (OR 1.1, 95% CI [0.35, 3.47]) between coblation (1%) and the microdebrider (0.9%). There was no significant difference in the proportion of patients undergoing revision (OR 0.85, 95% CI [0.23, 3.15]) between coblation (0.5%) and the microdebrider (1%). Younger age was associated with need for revision surgery (OR 0.59, 95% CI [0.41, 0.85]). Coblation was more time efficient than microdebrider for tonsillotomy without a significant difference in postoperative bleeding or revision surgery. Younger age was noted to be a risk factor for revision tonsillectomy. Future directions to study include relative cost efficiency and differences in postoperative pain.", "senior_author": "Brodsky JR", "noted_summary": "Retrospective comparison at a Harvard quaternary pediatric center (2018–2024) of coblation vs. microdebrider for intracapsular tonsillotomy, examining efficiency, postoperative bleeding, and revision surgery rates. Intracapsular tonsillotomy is increasingly adopted due to reduced pain and bleeding; this comparison of the two dominant techniques provides practical guidance for surgeons choosing instrumentation."}, {"pmid": "42802856", "score": 3, "novel_technique": false, "study_type": "Registry-Based Cohort", "journal": "Laryngoscope investigative otolaryngology", "title": "The Impact of Surgical Technique on Post-Tonsillectomy Hemorrhage-A Registry-Based Cohort Study.", "abstract": "The objective was to estimate the impact of surgical technique on the risk of post-tonsillectomy hemorrhage (PTH). This was a registry-based cohort study between 2017 and 2025, covering all tonsillectomies (excluding tonsillotomies) in Norway during the study period. The primary exposure variable was surgical technique, divided into three groups: cold (non-thermal technique for both dissection and hemostasis), cold + warm (thermal technique for hemostasis), and warm (thermal technique for both dissection and hemostasis). The effect of surgical technique on risk of PTH was analyzed using logistic regression, adjusting for confounding factors. Absolute risks and numbers needed to harm were also calculated. A total of 25,953 patients were included (16,318 females [62.9%], median [IQR] age 20 [13] years). PTH was reported in 1946 patients (7.5%). Cold surgical technique was used in 3348 patients (12.9%), combined cold + warm technique was used in 16,284 patients (62.7%), and warm technique was used in 6321 patients (24.4%). Use of partly or fully warm technique was significantly associated with PTH compared to a purely cold technique (cold + warm: OR 2.4, 95% CI 1.9-3.1; warm: OR 3.4, 95% CI 2.5-4.6). The absolute increase in risk of PTH was 4.5% (cold + warm) and 7.5% (warm) compared to the cold technique, with corresponding numbers needed to harm of 22 and 13. The increased risk with warm technique was more pronounced for adolescents and adults compared to children. This population-based cohort study confirms that surgical technique is associated with PTH, with a significantly higher risk of PTH when using partially or fully warm technique compared to cold technique. Based on the cumulative evidence, it may be appropriate to raise the question whether one should recommend that tonsillectomies be performed with cold surgical technique, especially in adolescents and adults. 3.", "senior_author": "Stubberud A", "noted_summary": "Norwegian national registry-based cohort covering all tonsillectomies (2017–2025) examining the impact of surgical technique (cold dissection, cold dissection + warm hemostasis, all-warm) on post-tonsillectomy hemorrhage (PTH) rates. Large registry data with minimal selection bias; findings can directly guide national and institutional guidelines on preferred tonsillectomy technique for hemorrhage reduction."}, {"pmid": "42806561", "score": 3, "novel_technique": false, "study_type": "Retrospective Cohort", "journal": "The Annals of otology, rhinology, and laryngology", "title": "Prophylactic Nimodipine for Hearing Preservation in Vestibular Schwannoma: A Retrospective Cohort Study.", "abstract": "Vestibular schwannoma surgery poses a significant challenge for hearing and facial function preservation. Prophylactic nimodipine has been studied as a pharmacologic strategy to protect cranial nerve function after hearing preservation surgery, but it has not been thoroughly evaluated. This study aimed to assess the role of prophylactic nimodipine in promoting hearing and facial function following vestibular schwannoma surgery and to evaluate the dose-response relationship between nimodipine administration and patient outcomes. We conducted a retrospective analysis on a cohort of vestibular schwannoma patients who underwent hearing preservation surgery at a tertiary care hospital between November 2017 and December 2024. Hearing outcomes were assessed using word recognition scores and pure tone audiometry, and facial function outcomes were assessed with House-Brackmann Score. Regression analyses were performed to determine the impact of nimodipine on hearing preservation and to evaluate dose-response relationships. The study included 58 control patients and 340 nimodipine-treated patients. Nimodipine treatment significantly improved cranial nerve outcomes. Compared to controls, nimodipine-treated patients had 2.0 times greater odds of preserving word recognition score (OR: 1.92, 95% CI: 1.08-3.44,  Prophylactic nimodipine demonstrates potential efficacy in enhancing post-operative cranial nerve function after hearing preservation vestibular schwannoma surgery. These findings support further investigation through prospective studies to confirm nimodipine's clinical utility.", "senior_author": "Friedman RA", "noted_summary": "Retrospective cohort from UCSD evaluating prophylactic nimodipine (a calcium channel blocker) for cranial nerve preservation during vestibular schwannoma surgery. Assesses both hearing preservation and facial function, with dose-response analysis. Small study but addresses a pharmacologic adjunct of practical interest to neurotologists managing hearing preservation VS resection cases."}, {"pmid": "42806130", "score": 3, "novel_technique": false, "study_type": "Prospective Observational", "journal": "European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery", "title": "Effects of dupilumab on nasal mucociliary clearance in severe CRSwNP: evaluation of the saccharin test as an objective outcome measure.", "abstract": "Chronic rhinosinusitis with nasal polyps (CRSwNP) is a chronic, relapsing condition associated with a significant impairment in quality of life. Persistent inflammation contributes to dysfunction of mucociliary clearance. Dupilumab (IL-4Rα inhibitor) is a well-established therapeutic agent that has demonstrated significant efficacy in reducing type 2 inflammation and improving quality of life in patients with severe CRSwNP refractory to medical and/or surgical treatment. This study aimed to evaluate whether dupilumab therapy improves mucociliary clearance in patients with CRSwNP. Twenty-one patients with severe CRSwNP were enrolled. All received dupilumab (300 mg subcutaneously every 2 weeks) according to prescribing criteria. At baseline and after 4, 8, and 12 weeks, patients underwent evaluation with SNOT-22, nasal endoscopy with Nasal Polyp Score (NPS), and assessment of mucociliary clearance using the saccharin test (ST). Nasal mucociliary clearance time (NMCT) values were compared across time points.. Significant improvements were observed in SNOT-22, NPS, and NMCT. Mean NMCT values measured using the ST values decreased from 14.3 minutes at baseline to 10.1 minutes at 4 weeks (p<.01), 7.75 minutes at 8 weeks, and 5.84 minutes at 12 weeks, indicating a progressive and statistically significant enhancement of mucociliary clearance. Short-term dupilumab therapy was associated with a significant improvement in nasal mucociliary clearance in patients with severe CRSwNP. These preliminary findings support the potential role of the saccharin test as a simple, objective tool for monitoring response to biologic therapy.", "senior_author": "Terenzi V", "noted_summary": "Prospective study from Rome evaluating the effect of dupilumab on nasal mucociliary clearance (assessed via saccharin transit time) in severe CRSwNP. As dupilumab becomes first-line in biologic-eligible CRSwNP, understanding its impact on mucociliary physiology — beyond polyp reduction — adds mechanistic insight and potential justification for its use in patients with particularly impaired mucociliary function."}, {"pmid": "42810783", "score": 3, "novel_technique": true, "study_type": "Case Report", "journal": "The Laryngoscope", "title": "Nerve-Sparing Prelacrimal Medial Maxillectomy for Repair of Sphenoid Lateral Recess Meningocele.", "abstract": "A nerve-sparing prelacrimal approach provides direct endoscopic access to sphenoid lateral recess meningoceles while bypassing the vidian and maxillary nerves. This corridor enables effective repair and multilayer reconstruction while minimizing neurovascular morbidity.", "senior_author": "Hong SD", "noted_summary": "Case report from Samsung Medical Center (Hong SD) describing a nerve-sparing prelacrimal medial maxillectomy corridor for endoscopic repair of sphenoid lateral recess meningoceles. The approach selectively bypasses the vidian and maxillary nerves while providing direct access for multilayer skull base reconstruction. Novel technique bump applied: Samsung Medical Center is a top-tier Asian academic institution and the technique addresses a challenging anatomical target with clear neurovascular advantages."}, {"pmid": "42806129", "score": 3, "novel_technique": false, "study_type": "Case Series", "journal": "European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery", "title": "Meniere's disease: clip ligation of the endolymphatic duct.", "abstract": "Ménière's disease is characterized by recurrent vertigo attacks and hearing loss, and some patients do not respond well to medical treatment. In such cases, surgical procedures to reduce endolymphatic sac pressure have been considered. In recent years, successful results have been reported after endolymphatic duct blockage in patients with resistant attacks despite sac decompression. This study evaluated hearing function and the severity of dizziness after endolymphatic duct blockage. Twenty-one patients were included in the study. Preoperative pure-tone audiometry, the Dizziness Handicap Inventory, and a visual analog scale for dizziness severity and frequency were administered to the patients. The postoperative one-year results of patients who were operated on under general anesthesia were compared. The average age was 48. The average disease duration was 10.9 years, and the average follow-up period was 23.4 months. No significant change in hearing thresholds was detected after surgery. However, surgery provided control of vertigo in 90.4% of patients. This study recommends EDB as a strong alternative to only-ESD, given its preservation of hearing, its effectiveness even in patients with persistent dizziness despite ESD, and its low risk of serious complications.", "senior_author": "Ulubil SA", "noted_summary": "Case series (n=21) from Royal Darwin Hospital evaluating endolymphatic duct clip ligation for Ménière's disease refractory to endolymphatic sac decompression. Reports on hearing function and dizziness severity after duct blockage. The technique represents a more aggressive escalation than sac decompression alone and adds to the limited evidence base for surgical management of refractory Ménière's disease."}, {"pmid": "42821297", "score": 3, "novel_technique": false, "study_type": "Review / Commentary", "journal": "JAMA otolaryngology-- head & neck surgery", "title": "Ergonomics in Endoscopic Sinus and Skull Base Surgery.", "abstract": "", "senior_author": "Rabinowitz M", "noted_summary": "Review from Thomas Jefferson University addressing ergonomic challenges specific to endoscopic sinus and skull base surgery — sustained awkward neck/arm positioning, camera handling, and instrument torque. Surgeon occupational health and longevity are growing concerns; ergonomic optimization reduces cumulative injury risk. Practical guidance on workstation setup and instrument selection for high-volume rhinologists and skull-base surgeons."}, {"pmid": "42811425", "score": 3, "novel_technique": false, "study_type": "Multicentric RCT", "journal": "The Cleft palate-craniofacial journal : official publication of the American Cleft Palate-Craniofacial Association", "title": "A Randomised Trial of Pre-Alveolar Bonegraft Orthodontics for Patients With Non-Syndromic Unilateral Cleft lip and Palate (PABO Study).", "abstract": "BackgroundPre-surgical orthodontic intervention is widely used to improve surgical access and facilitate alveolar bone grafting (ABG) for patients with unilateral complete cleft lip and palate (UCLP). However, robust evidence supporting its effectiveness remains limited.ObjectiveTo evaluate the effectiveness of pre-surgical orthodontics on the success of ABG in patients with UCLP.DesignSingle blinded, parallel group multi-centric randomised controlled trial.SettingSecondary and tertiary care hospitals.Participants and interventionSeventy-two participants between the age group of 8 and 13 were randomly assigned into either the orthodontic treatment group (OTG) or no orthodontic group.OutcomesThe primary outcome was ABG success assessed using the Bergland index from oblique occlusal radiographs taken at 6 months post-surgery. Secondary outcomes were GOSLON index, dentofacial growth, quality of life and harms.ResultsAt 6 months post ABG, the success for the orthodontic group was 91.43%, and for the no treatment control group was 91.89% for imputed data (OR 1.06, 95% CI 0.19 to 5.65,", "senior_author": "Bhuvaraghan A", "noted_summary": "Multicentric single-blinded RCT (PABO study) evaluating pre-surgical orthodontic intervention on the success of alveolar bone grafting in unilateral complete cleft lip and palate. Pre-alveolar bone graft orthodontics is widely practiced but the evidence base is limited; this RCT directly tests whether it improves graft outcomes. Relevant to craniofacial surgeons and orthodontists co-managing UCLP patients."}]}
 </script>
 <script>
 (function() {
@@ -1236,10 +662,13 @@
 })();
 </script>
 
+
 <section style="max-width:1280px;margin:0 auto;padding:0 1.5rem 4rem;">
   <div style="margin-top:3rem;border-top:2px solid var(--forest);padding-top:1.5rem;">
     <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--forest-deep);margin-bottom:1.25rem;">Archive</div>
     <div style="display:flex;flex-direction:column;gap:0.5rem;">
+      <a href="digests/2026-10-05.html" style="font-size:0.875rem;color:var(--forest);font-family:'Source Serif 4',serif;text-decoration:none;font-weight:600;" onmouseover="this.style.color='var(--forest-deep)'" onmouseout="this.style.color='var(--forest)'">Monday, October 5, 2026 ← Latest</a>
+
       <div style="font-size:0.875rem;font-weight:600;color:var(--forest);font-family:'Source Serif 4',serif;">→ Monday, September 21, 2026 <span style="font-size:0.625rem;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--forest-mid);margin-left:0.5rem;">Current</span></div>
       <a href="digests/2026-08-31.html" style="font-size:0.875rem;color:var(--text-mid);font-family:'Source Serif 4',serif;text-decoration:none;" onmouseover="this.style.color='var(--forest)'" onmouseout="this.style.color='var(--text-mid)'">Monday, August 31, 2026</a>
       <a href="digests/2026-08-10.html" style="font-size:0.875rem;color:var(--text-mid);font-family:'Source Serif 4',serif;text-decoration:none;" onmouseover="this.style.color='var(--forest)'" onmouseout="this.style.color='var(--text-mid)'">Monday, August 10, 2026</a>
@@ -1253,5 +682,7 @@
     </div>
   </div>
 </section>
+</body>
+</html>
 </body>
 </html>
