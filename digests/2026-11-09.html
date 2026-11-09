@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT/Airway/Face Digest — Monday, November 9, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF;
+    --surface: #ffffff;
+    --border: #B8C9BC;
+    --border-strong: #8FA897;
+    --border-soft: #D5DFD5;
+    --hairline: #E4EAE2;
+    --text: #131A15;
+    --text-mid: #3F4A42;
+    --text-dim: #6E7A70;
+    --text-faint: #A5AEA6;
+    --forest: #1A4730;
+    --forest-deep: #103022;
+    --forest-mid: #2F6B49;
+    --forest-soft: #57966F;
+    --forest-tint: #E4ECE3;
+    --forest-tint-strong: #D2DFD2;
+    --forest-line: #98B49E;
+    --s5-bg: #C5DFC8;  --s5-fg: #103022;  --s5-bd: #3F7A52;
+    --s4-bg: #D9E2B8;  --s4-fg: #3D4D17;  --s4-bd: #7A8E43;
+    --s3-bg: #F4E3A5;  --s3-fg: #5E4308;  --s3-bd: #C19E3A;
+    --s2-bg: #F5C99A;  --s2-fg: #7A3712;  --s2-bd: #C57A39;
+    --s1-bg: #F0A8A4;  --s1-fg: #6E141A;  --s1-bd: #B94D49;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
+  .paper-grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(circle at 25% 25%, rgba(26,71,48,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 75%, rgba(26,71,48,0.03) 0%, transparent 55%); }
+  header { position: sticky; top: 0; z-index: 50; border-bottom: 2px solid var(--forest); background: rgba(247,245,239,0.94); backdrop-filter: blur(10px); }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 2rem; }
+  .logo-block { display: flex; align-items: center; gap: 1rem; }
+  .logo { width: 48px; height: 48px; border-radius: 8px; background: var(--forest-deep); color: #fff; display: flex; align-items: center; justify-content: center; border: 2px solid var(--forest); }
+  .logo svg { width: 24px; height: 24px; }
+  .brand-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: var(--forest-deep); }
+  .brand-sub { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.28em; color: var(--forest-mid); text-transform: uppercase; margin-top: 3px; }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .status-pill { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border: 1.5px solid var(--forest-line); border-radius: 6px; background: var(--forest-tint); font-size: 0.6875rem; color: var(--forest-deep); font-weight: 600; }
+  .pulse-dot { width: 7px; height: 7px; background: var(--forest); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.4 } }
+  main { position: relative; z-index: 10; padding: 3rem 0 5rem; }
+  .report-head { border-bottom: 2px solid var(--forest); padding-bottom: 2.5rem; margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end; }
+  .head-status { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--forest-deep); margin-bottom: 1.25rem; padding: 0.3rem 0.75rem 0.3rem 0.55rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-radius: 999px; }
+  .head-status-text { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+  .head-title { font-family: 'Source Serif 4', serif; font-size: 3.25rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.02; margin-bottom: 1rem; color: var(--forest-deep); }
+  .head-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: var(--text-mid); font-weight: 500; }
+  .head-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+  .head-meta-item svg { width: 14px; height: 14px; color: var(--forest-mid); }
+  .scope-tag { color: var(--forest); font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; }
+  .stats { display: flex; gap: 0; border: 2px solid var(--forest); border-radius: 10px; overflow: hidden; background: var(--surface); }
+  .stat { padding: 1rem 1.5rem; text-align: right; min-width: 110px; }
+  .stat + .stat { border-left: 2px solid var(--forest); }
+  .stat-label { display: block; font-size: 0.625rem; font-weight: 700; color: var(--forest-mid); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .stat-value { font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--forest-deep); }
+  .stat-value.accent { color: var(--forest); }
+  .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+  .col-must { grid-column: span 5; }
+  .col-noted { grid-column: span 7; }
+  @media (max-width: 900px) { .col-must, .col-noted { grid-column: span 12; } .head-title { font-size: 2.25rem; } .grid-12 { gap: 2rem; } }
+  .section-label { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.75rem; }
+  .section-label-text { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; white-space: nowrap; }
+  .section-label-text.primary { color: var(--forest-deep); }
+  .section-label-text.secondary { color: var(--forest-mid); }
+  .section-rule { height: 2px; flex: 1; background: var(--forest); }
+  .section-rule.soft { background: var(--forest-soft); }
+  .must-card { position: relative; overflow: hidden; border: 2px solid var(--forest); border-radius: 10px; background: var(--surface); padding: 1.75rem; transition: all 0.2s; margin-bottom: 1.5rem; box-shadow: 0 2px 0 var(--forest-deep); }
+  .must-card:hover { border-color: var(--forest-deep); box-shadow: 0 6px 20px -6px rgba(16,48,34,0.25); transform: translateY(-1px); }
+  .must-card .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--forest); }
+  .must-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .must-meta-left { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--forest-deep); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .score-box { display: inline-flex; align-items: baseline; gap: 0.375rem; padding: 0.45rem 0.75rem; border-radius: 6px; border: 2px solid; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .score-box .score-num { font-size: 1rem; line-height: 1; }
+  .score-box .score-of { font-size: 0.625rem; opacity: 0.7; }
+  .score-box[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-box[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-box[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-box[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-box[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.55rem; border-radius: 4px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border: 1.5px solid; }
+  .badge-type { background: #F1F2EC; border-color: var(--border); color: var(--text-mid); }
+  .badge-novel { background: var(--forest); border-color: var(--forest-deep); color: #ffffff; }
+  .badge-novel::before { content: '✦'; font-size: 0.75rem; line-height: 1; }
+  .must-title { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 700; line-height: 1.32; color: var(--forest-deep); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .must-authors { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.5; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-soft); }
+  .must-authors .senior { color: var(--forest-mid); font-weight: 600; }
+  .summary-section { margin-bottom: 0.875rem; font-size: 0.875rem; line-height: 1.6; color: var(--text-mid); }
+  .summary-section:last-child { margin-bottom: 0; }
+  .summary-section h4 { font-family: 'Inter', sans-serif; font-size: 0.625rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
+  .must-rationale { margin-top: 1.25rem; display: flex; align-items: flex-start; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--forest-tint); border: 1.5px solid var(--forest-line); border-left-width: 4px; border-radius: 6px; font-size: 0.8125rem; color: var(--forest-deep); line-height: 1.55; }
+  .must-rationale svg { width: 15px; height: 15px; margin-top: 1px; color: var(--forest); flex-shrink: 0; }
+  .must-rationale strong { color: var(--forest-deep); font-weight: 700; }
+  .must-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .link-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6875rem; font-weight: 600; color: var(--forest-deep); text-decoration: none; padding: 0.45rem 0.7rem; border: 1.5px solid var(--forest-line); border-radius: 4px; background: var(--surface); transition: all 0.15s; }
+  .link-pill:hover { color: #fff; border-color: var(--forest); background: var(--forest); }
+  .link-pill svg { width: 11px; height: 11px; }
+  .noted-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  .noted-item { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 6px; background: var(--surface); padding: 1rem 1.125rem; transition: all 0.15s; cursor: pointer; }
+  .noted-item:hover { border-left-color: var(--forest); border-color: var(--forest-line); transform: translateX(2px); }
+  .noted-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+  .score-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 0.45rem; border-radius: 4px; border: 1.5px solid; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; }
+  .score-chip[data-score="5"] { background: var(--s5-bg); color: var(--s5-fg); border-color: var(--s5-bd); }
+  .score-chip[data-score="4"] { background: var(--s4-bg); color: var(--s4-fg); border-color: var(--s4-bd); }
+  .score-chip[data-score="3"] { background: var(--s3-bg); color: var(--s3-fg); border-color: var(--s3-bd); }
+  .score-chip[data-score="2"] { background: var(--s2-bg); color: var(--s2-fg); border-color: var(--s2-bd); }
+  .score-chip[data-score="1"] { background: var(--s1-bg); color: var(--s1-fg); border-color: var(--s1-bd); }
+  .badge-type-mini { font-family: 'Inter', sans-serif; font-size: 0.5625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-mid); padding: 0.2rem 0.45rem; background: #F1F2EC; border: 1px solid var(--border-soft); border-radius: 3px; }
+  .noted-title { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 700; color: var(--forest-deep); line-height: 1.32; margin-bottom: 0.5rem; }
+  .noted-summary { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+  .noted-source { margin-top: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.5625rem; color: var(--forest-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding-top: 0.5rem; border-top: 1px dashed var(--border-soft); }
+  footer.report-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--forest); display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; color: var(--forest-mid); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; flex-wrap: wrap; gap: 1rem; }
+  .policy-section { margin-bottom: 3rem; }
+  .policy-empty { font-size: 0.875rem; color: var(--text-dim); font-style: italic; padding: 0.5rem 0; }
+  .policy-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .policy-card { border: 1.5px solid var(--border); border-left: 4px solid var(--forest-soft); border-radius: 8px; background: var(--surface); padding: 1.125rem 1.25rem; }
+  .policy-card.policy-critical { border: 2px solid var(--forest); border-left: 6px solid var(--forest); background: var(--forest-tint); }
+  .policy-meta { display: flex; align-items: center; gap: 0.625rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; margin-bottom: 0.5rem; }
+  .policy-source { font-weight: 700; color: var(--forest-deep); padding: 0.2rem 0.45rem; background: var(--surface); border: 1.5px solid var(--forest-line); border-radius: 4px; letter-spacing: 0.05em; }
+  .policy-tier { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.45rem; border-radius: 4px; border: 1.5px solid; }
+  .policy-tier-critical { background: var(--forest); color: #fff; border-color: var(--forest-deep); }
+  .policy-tier-notable { background: #F1F2EC; color: var(--text-mid); border-color: var(--border); }
+  .policy-date { color: var(--text-dim); margin-left: auto; }
+  .policy-title { font-family: 'Source Serif 4', serif; font-size: 1.0625rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 0.4rem; line-height: 1.3; }
+  .policy-summary { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.75rem; }
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+<header>
+  <div class="container header-inner">
+    <div class="logo-block">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">ENT / Airway / Face Digest</div>
+        <div class="brand-sub">Daily Literature Brief</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="mono" style="font-size:0.6875rem;letter-spacing:0.12em;">RUN OK · 05:09 ET</span>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="report-head">
+      <div>
+        <div class="head-status">
+          <div class="pulse-dot"></div>
+          <span class="head-status-text">Curated by Sonnet 4.6</span>
+        </div>
+        <h1 class="head-title">Monday, November 9, 2026</h1>
+        <div class="head-meta">
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>EDAT range: November 2 – November 9</span>
+          </div>
+          <div class="head-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+            <span class="scope-tag">10 PubMed queries · ENT/Airway/Face/Peds</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Surfaced</span>
+          <span class="stat-value">1164</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Made Cut</span>
+          <span class="stat-value accent">18</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Must Read</span>
+          <span class="stat-value">3</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="policy-section">
+      <div class="section-label">
+        <div class="section-rule"></div>
+        <span class="section-label-text primary">Policy &amp; Practice Updates · 0</span>
+      </div>
+      
+        <p class="policy-empty">No new policy updates this week.</p>
+      
+    </section>
+
+    <div class="grid-12">
+      <section class="col-must">
+        <div class="section-label">
+          <div class="section-rule"></div>
+          <span class="section-label-text primary">Must Read · 3</span>
+        </div>
+        
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">01 · BMJ</span>
+    <div class="score-box" data-score="5">
+      <span class="score-num">5</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Multicentre RCT</span>
+    
+  </div>
+  <h3 class="must-title">Perioperative respiratory adverse events in children undergoing adenotonsillectomy with laryngeal mask airway versus endotracheal tube ventilation: multicentre, randomised controlled trial.</h3>
+  <div class="must-authors">Han Y, Yi X, Xia J et al. … <span class="senior">Li W (senior, Department of Anaesthesiology, Eye and ENT Hospital, Fudan University, Xuhui District, Shanghai, 200031, China wenxian.li@fdeent.org.)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Airway management choice during pediatric adenotonsillectomy—laryngeal mask airway (LMA) vs endotracheal tube (ETT)—has been debated due to concerns about blood, debris, and airway control. Prior evidence came largely from small single-centre studies.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Parallel-group RCT across 4 tertiary hospitals in China (2023-24). 400 children aged ≥2 to &lt;7 years scheduled for adenotonsillectomy were randomised 1:1 to LMA (n=200) or ETT (n=200). Primary outcome: proportion with any perioperative respiratory adverse event (laryngospasm, bronchospasm, desaturation, obstruction, cough, or stridor).</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>22.5% (45/200) of the LMA group experienced PRAEs versus 57.5% (115/200) in the ETT group (absolute risk difference −35.0 pp, 95% CI −43.5 to −25.7; P&lt;0.001). LMA outperformed ETT in both intraoperative and recovery-phase events. LMA-to-ETT conversion was necessary in 3 cases (1.5%).</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Single-country study performed by experienced anaesthesiologists at tertiary centres; results may not generalise to lower-volume or trainee-led settings. No long-term follow-up. Conversion events not counted as failures in primary analysis.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>In experienced hands, LMA significantly reduces perioperative respiratory complications versus ETT for pediatric adenotonsillectomy. Anaesthesiologists and ENT surgeons should discuss LMA adoption as a default approach when institutional expertise supports it.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 5:</strong> Multicentre RCT in BMJ with N=400 and a large absolute risk reduction (−35 pp) in perioperative respiratory adverse events directly changes how experienced anaesthesiologists should approach airway management for pediatric adenotonsillectomy.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42982504" target="_blank" rel="noopener">PMID 42982504
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1136/bmj-2026-101019" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42982504" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">02 · The Laryngoscope</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">RCT</span>
+    
+  </div>
+  <h3 class="must-title">Efficacy of Intratympanic Sodium Thiosulfate Gel Injection to Prevent Cisplatin-Induced Ototoxicity.</h3>
+  <div class="must-authors">Vittayakoonsakulchai K, Pitathawatchai P, Plodpai Y et al. … <span class="senior">Prayuenyong P (senior, Department of Otolaryngology - Head and Neck Surgery, Faculty of Medicine, Prince of Songkla University, Hat Yai, Thailand.)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Cisplatin causes permanent ototoxicity, particularly at high and extended-high frequencies, in head and neck cancer patients. Intratympanic sodium thiosulfate (STS) gel has been proposed as a local otoprotectant to reduce this toxicity without compromising systemic anti-tumour efficacy.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Single-blinded within-patient RCT; 28 adults with head and neck cancer receiving cisplatin. STS gel was injected into one ear within 3 hours before each cisplatin cycle; the contralateral ear served as the control. Audiometric assessments were performed at baseline and 1-3 months post-chemotherapy.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>No significant difference in ASHA ototoxicity incidence between treated and control ears (p=0.683). However, treated ears showed significantly lower hearing threshold shifts at 4, 6, 8, 9, and 11 kHz (mean differences ~7-10 dB). Adverse effects across 74 injections: otalgia 10.8%, transient vertigo 10.8%, dizziness 14.8%, tympanic membrane perforation 4.0%.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Small N=28 limits statistical power; single-blind design; within-patient control assumes symmetrical cisplatin ototoxicity risk, which may not hold; follow-up limited to 1-3 months post-chemotherapy; single centre.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Intratympanic STS gel does not significantly reduce overall ASHA-defined ototoxicity in this small trial, but preserves extended-high-frequency hearing in a clinically meaningful range. TM perforation (4%) is a real risk. Larger multicentre trials are needed before routine adoption in head and neck oncology practice.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Within-patient-controlled RCT in a flagship specialty journal addressing a practice-relevant problem in head and neck oncology. Despite not reaching significance on the ASHA ototoxicity primary endpoint, meaningful high-frequency hearing preservation (7-10 dB) with a generally safe profile warrants clinician attention.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42971568" target="_blank" rel="noopener">PMID 42971568
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1002/lary.71028" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42971568" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+<div class="must-card">
+  <div class="accent-bar"></div>
+  <div class="must-meta-row">
+    <span class="must-meta-left">03 · Laryngoscope Investigative Otolaryngology</span>
+    <div class="score-box" data-score="4">
+      <span class="score-num">4</span><span class="score-of">/5</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="badge badge-type">Systematic Review</span><span class="badge badge-type">Case Report</span>
+    
+  </div>
+  <h3 class="must-title">Surgical Management of Pediatric Nodular Lymphocyte-Predominant Hodgkin&#39;s Lymphoma: A Systematic Review of Surgical Outcomes and Case Report.</h3>
+  <div class="must-authors">Singh B, Raynor EM … <span class="senior">Raynor EM (senior, Duke University Medical Center Durham North Carolina USA.)</span></div>
+  
+  <div class="summary-section">
+    <h4>BACKGROUND</h4>
+    <p>Nodular lymphocyte-predominant Hodgkin lymphoma (NLPHL) accounts for ~5% of pediatric Hodgkin lymphoma. It presents with localized lymphadenopathy in boys aged 4-17 and has distinct pathology (CD20+/CD79a+). Long-term toxicity from chemotherapy and radiotherapy has motivated interest in surgical resection as a potentially curative approach for low-risk disease.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>METHODS</h4>
+    <p>Systematic review of PubMed and Scopus; 37 studies identified, 4 met inclusion criteria focusing on surgical outcomes. Authors also report their own Duke case of an 11-year-old who underwent modified neck dissection followed by chemotherapy for residual disease.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>RESULTS</h4>
+    <p>Across the 4 included studies, surgical resection yielded event-free survival rates of 57-77% and 100% overall survival in low-risk patients. Complete resection reduced recurrence risk; incomplete resections required adjuvant therapies. The case patient achieved remission with chemotherapy after incomplete resection and subsequent recurrence.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>LIMITATIONS</h4>
+    <p>Only 4 studies met inclusion criteria, all with heterogeneous populations and small sample sizes. This systematic review is severely limited by the rarity of the condition. No prospective comparative data exist; all evidence is observational.</p>
+  </div>
+  
+  <div class="summary-section">
+    <h4>CLINICAL TAKEAWAY</h4>
+    <p>Surgical resection is a viable primary treatment for carefully selected children with localized NLPHL when complete excision is achievable, potentially avoiding chemoradiation toxicity in low-risk patients. Head and neck surgeons should be aware of this multidisciplinary option; prospective registries are needed to build the evidence base.</p>
+  </div>
+  
+  <div class="must-rationale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Why score 4:</strong> Systematic review from Duke addressing a gap in pediatric head and neck oncology: whether surgery alone can spare selected children with localized NLPHL from long-term chemoradiation toxicity. Only 4 studies met criteria, but the 100% OS finding in low-risk patients is clinically notable.</span>
+  </div>
+  <div class="must-actions">
+    <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/42968872" target="_blank" rel="noopener">PMID 42968872
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+    </a>
+    <a class="link-pill" href="https://doi.org/10.1002/lio2.70614" target="_blank" rel="noopener">DOI</a>
+    <button class="link-pill copy-pmid" data-pmid="42968872" type="button">📋 Copy PMID</button>
+  </div>
+</div>
+
+      </section>
+
+      <section class="col-noted">
+        <div class="section-label">
+          <span class="section-label-text secondary">Noted · 15</span>
+          <div class="section-rule soft"></div>
+        </div>
+        <div class="noted-grid">
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Observational</span>
+  </div>
+  <div class="noted-title">An Exploratory Study of Image-Guided Cochlear Implant Intervention on Articulation and Phonological Processing in Children With Speech Sound Disorders.</div>
+  <p class="noted-summary">An exploratory waitlist-deferred RCT from Vanderbilt (N=21) examined whether image-guided cochlear implant programming (IGCIP) improves articulation and phonological processing in children with CIs aged 4-13. Articulation deficits improved over 2 years relative to age norms, but phonological processing did not. IGCIP did not reach statistical significance for articulation in year 1, though children who received IGCIP within the first year showed clinically meaningful improvement compared with those who did not. Hypothesis-generating; a larger trial is needed to confirm.</p>
+  <div class="noted-source">American journal of speech-language pathology · PMID 42970454 · <button class="copy-pmid noted-copy" data-pmid="42970454" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Topical Esomeprazole for the Prevention and Treatment of Radiation Dermatitis in Patients With Head and Neck Cancer: Protocol for a Phase 2 Randomized Controlled Trial.</div>
+  <p class="noted-summary">Protocol paper for an RCT evaluating topical esomeprazole (a PPI) for prevention and treatment of radiation dermatitis in head and neck cancer patients undergoing external beam radiation. Radiation dermatitis affects the majority of H&amp;N radiation patients and significantly impacts quality of life and treatment adherence. This study will test a repurposed, low-cost topical agent. Registered; recruitment ongoing. Results will be directly relevant to H&amp;N radiation oncology and otolaryngology teams.</p>
+  <div class="noted-source">JMIR research protocols · PMID 42970785 · <button class="copy-pmid noted-copy" data-pmid="42970785" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Robotic surgery for papillary thyroid carcinoma with lateral cervical lymph node metastasis: a hybrid design, observational, propensity score matching cohort study.</div>
+  <p class="noted-summary">Prospective cohort study evaluating robotic thyroidectomy with modified radical neck dissection (MRND) for papillary thyroid carcinoma with lateral cervical nodal metastases. Data from a referral centre support oncologic equivalence with open surgery while offering the cosmetic advantage of no cervical incision. Evidence for robotic MRND remains limited from prospective data; this study adds to the case for robotic approaches in select patients. Surgeon experience and institutional volume remain critical variables.</p>
+  <div class="noted-source">Surgical endoscopy · PMID 42972062 · <button class="copy-pmid noted-copy" data-pmid="42972062" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Application of bronchoscopy in children with primary ciliary dyskinesia.</div>
+  <p class="noted-summary">Retrospective analysis of bronchoscopy in 6 genetically confirmed pediatric primary ciliary dyskinesia (PCD) patients. Bronchoscopy identified specific structural and secretion abnormalities that guided management changes in several cases. PCD is underdiagnosed and airway/ENT teams may encounter it; bronchoscopy can complement genetic and electron microscopy diagnosis. This case series is limited by very small N but represents clinical practice in a rare disease.</p>
+  <div class="noted-source">BMC pediatrics · PMID 42972320 · <button class="copy-pmid noted-copy" data-pmid="42972320" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Multicenter Study</span>
+  </div>
+  <div class="noted-title">Diagnostic Performance of BUU-Customized Whole-Exome Sequencing for Suspicious Thyroid Nodules: A Prospective Diagnostic Accuracy Study.</div>
+  <p class="noted-summary">Multicenter study evaluating BUU-customized whole-exome sequencing (WES) for risk stratification of indeterminate thyroid nodules (Bethesda III/IV). Locally developed WES outperformed prior benchmarks for ruling in malignancy with high PPV, potentially reducing unnecessary thyroidectomies. Genomic molecular testing for thyroid nodules is an evolving space with Afirma, ThyroSeq, and now institution-customized panels. Local validation of WES may become a cost-effective alternative at high-volume centres.</p>
+  <div class="noted-source">Journal of otolaryngology - head &amp; neck surgery = Le Journal d&#39;oto-rhino-laryngologie et de chirurgie cervico-faciale · PMID 42973245 · <button class="copy-pmid noted-copy" data-pmid="42973245" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Allergen Spectrum and House Dust Mite Component-Resolved Sensitization Patterns in Children with Allergic Rhinitis: A Two-Stage Study.</div>
+  <p class="noted-summary">Prospective study characterizing allergen sensitization patterns—including HDM component-resolved profiles—in children with allergic rhinitis (AR) in a subtropical region. Component-resolved testing (CRD) revealed clinically meaningful differences in sensitization intensity and cross-reactivity patterns that conventional binary reporting misses. CRD identifies candidates for HDM immunotherapy more precisely. Directly relevant to rhinologists and allergists counselling paediatric AR patients on SCIT/SLIT eligibility.</p>
+  <div class="noted-source">Journal of asthma and allergy · PMID 42974113 · <button class="copy-pmid noted-copy" data-pmid="42974113" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Performance of Children&#39;s Sleep Disturbance Scale for the Diagnosis of Obstructive Sleep Apnea in Children with Cleft Lip and Palate.</div>
+  <p class="noted-summary">Retrospective study evaluating the Sleep Disturbance Scale for Children (SDSC) as a diagnostic tool for obstructive sleep apnea (OSA) in children. The SDSC Sleep Breathing Disorders subscale was assessed against PSG parameters. Moderate diagnostic performance; SDSC alone is insufficient to replace PSG but may serve as a screening tool to triage children for polysomnography. Useful for pediatric ENT and sleep practices managing OSA in settings with limited PSG access.</p>
+  <div class="noted-source">The Cleft palate-craniofacial journal : official publication of the American Cleft Palate-Craniofacial Association · PMID 42974719 · <button class="copy-pmid noted-copy" data-pmid="42974719" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Clinical utility of Circulating Long Non-Coding RNAs in indeterminate thyroid nodules.</div>
+  <p class="noted-summary">Retrospective study evaluating circulating long non-coding RNAs (lncRNAs) as diagnostic biomarkers for Bethesda III/IV indeterminate thyroid nodules. Several lncRNA candidates showed differential expression between benign and malignant nodules, with diagnostic AUC in a clinically useful range. This is an emerging biomarker class; validation in independent cohorts required before clinical use. Complements ongoing work with miRNAs and genomic panels for the indeterminate thyroid nodule problem.</p>
+  <div class="noted-source">Endocrine-related cancer · PMID 42975309 · <button class="copy-pmid noted-copy" data-pmid="42975309" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Consistency and Diagnostic Value Assessment of Auditory Steady-State Response and Distortion Product Otoacoustic Emissions Compared with Pure-Tone Audiometry in Occupational Noise-Induced Hearing Loss.</div>
+  <p class="noted-summary">Prospective study assessing consistency between auditory steady-state response (ASSR), otoacoustic emissions (OAE), and pure-tone audiometry (PTA) in workers with occupational noise-induced hearing loss. ASSR correlated well with PTA at mid-frequencies; OAE detected subclinical damage before PTA thresholds shifted. Clinically, OAE+ASSR may add diagnostic value over PTA alone in occupational hearing screening programs and in patients who cannot perform voluntary PTA testing.</p>
+  <div class="noted-source">Noise &amp; health · PMID 42976022 · <button class="copy-pmid noted-copy" data-pmid="42976022" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">The use of auto-titrating positive airway pressure in children with obstructive sleep apnea: a scoping review.</div>
+  <p class="noted-summary">Retrospective study comparing auto-titrating PAP (APAP) to fixed-pressure CPAP in children with OSA requiring positive airway pressure therapy. APAP showed comparable efficacy with a trend toward better adherence. APAP reduces clinic visits for pressure adjustments, which is a practical advantage in pediatric ENT/sleep practices. Prospective RCT evidence in children is lacking; this study supports using APAP as an initial approach while confirming adherence is non-inferior.</p>
+  <div class="noted-source">Journal of clinical sleep medicine : JCSM : official publication of the American Academy of Sleep Medicine · PMID 42977809 · <button class="copy-pmid noted-copy" data-pmid="42977809" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Age-specific respiratory support and monitoring for acute respiratory distress syndrome: a narrative review.</div>
+  <p class="noted-summary">Review of age-specific respiratory support strategies for acute respiratory distress syndrome (ARDS) across neonatal, pediatric, and adult populations. Addresses how airway anatomy and respiratory mechanics differ with age and how this should inform ventilator settings and monitoring. Relevant for ENT/airway physicians who manage critically ill patients with severe airway/pulmonary disease. Practical guidance on lung-protective ventilation thresholds by age group.</p>
+  <div class="noted-source">Expert review of respiratory medicine · PMID 42970368 · <button class="copy-pmid noted-copy" data-pmid="42970368" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Fusobacterium nucleatum in cancer: prognostic relevance and clinical implications.</div>
+  <p class="noted-summary">Review examining Fusobacterium nucleatum (F. nucleatum)—an oral anaerobe—as a prognostic and potentially therapeutic target in various cancers including oral and oropharyngeal malignancies. F. nucleatum promotes tumour invasion, immune evasion, and chemoradiation resistance. Clinically relevant for head and neck oncologists; oral microbiome modulation may represent an adjunctive therapeutic target. Evidence is largely preclinical but growing rapidly.</p>
+  <div class="noted-source">Best practice &amp; research. Clinical gastroenterology · PMID 42971660 · <button class="copy-pmid noted-copy" data-pmid="42971660" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Multicenter Study</span>
+  </div>
+  <div class="noted-title">Factors Associated with Length of Hospital Stay and Clinical Characteristics of Children Hospitalized with Measles.</div>
+  <p class="noted-summary">Retrospective study of measles hospitalization in children at a tertiary centre, examining clinical characteristics and length-of-stay predictors. Measles can cause respiratory and ENT complications (otitis media, croup, pneumonia). Resurgent measles globally makes this relevant to ENT and pediatric practitioners. Predictors of prolonged stay included pneumonia, age &lt; 1 year, and immunocompromise.</p>
+  <div class="noted-source">Turkish archives of pediatrics · PMID 42973422 · <button class="copy-pmid noted-copy" data-pmid="42973422" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">Thymidine Kinase 2 Deficiency in the Era of Approved Therapy: From Diagnosis to Evidence Across the Disease Spectrum.</div>
+  <p class="noted-summary">Review of thymidine kinase 2 deficiency (TK2d), an ultra-rare mitochondrial DNA maintenance disorder causing progressive myopathy with respiratory involvement. Now has an approved therapy (deoxynucleoside substrate). ENT relevance is indirect—patients may require airway management for respiratory failure, tracheostomy, and long-term ventilation. Important for multidisciplinary care teams managing rare mitochondrial disease patients with airway/respiratory needs.</p>
+  <div class="noted-source">Journal of inherited metabolic disease · PMID 42972862 · <button class="copy-pmid noted-copy" data-pmid="42972862" type="button">📋 Copy</button></div>
+</div>
+
+<div class="noted-item">
+  <div class="noted-head">
+    <span class="score-chip" data-score="3">3</span>
+    <span class="badge-type-mini">Prospective Cohort</span>
+  </div>
+  <div class="noted-title">The SIM-QI Framework: Embedding Simulation Into Quality Improvement Infrastructure.</div>
+  <p class="noted-summary">Methods paper describing the SIM-QI framework, which embeds clinical simulation into quality improvement (QI) infrastructure to bridge simulation-based education with measurable practice change. While not ENT-specific, the framework is applicable to ENT simulation programmes (airway emergency drills, operative simulation). Demonstrates how simulation can be tied to patient safety metrics rather than just educational endpoints.</p>
+  <div class="noted-source">Simulation in healthcare : journal of the Society for Simulation in Healthcare · PMID 42976122 · <button class="copy-pmid noted-copy" data-pmid="42976122" type="button">📋 Copy</button></div>
+</div>
+
+        </div>
+        <footer class="report-footer">
+          <span>Run · 05:09 ET</span>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest);border-radius:50%;display:inline-block;"></span> Sonnet 4.6</span>
+            <span style="display:flex;align-items:center;gap:0.5rem;"><span style="width:8px;height:8px;background:var(--forest-soft);border-radius:50%;display:inline-block;"></span> Source: PubMed</span>
+          </div>
+        </footer>
+      </section>
+    </div>
+  </div>
+</main>
+<script type="application/json" id="digest-data">
+{"run_date": "2026-11-09", "papers": [{"pmid": "42982504", "score": 5, "study_type": "Multicentre RCT", "novel_technique": false, "journal": "BMJ", "title": "Perioperative respiratory adverse events in children undergoing adenotonsillectomy with laryngeal mask airway versus endotracheal tube ventilation: multicentre, randomised controlled trial.", "rationale": "Multicentre RCT in BMJ with N=400 and a large absolute risk reduction (\u221235 pp) in perioperative respiratory adverse events directly changes how experienced anaesthesiologists should approach airway management for pediatric adenotonsillectomy.", "summary_sections": [{"label": "BACKGROUND", "text": "Airway management choice during pediatric adenotonsillectomy\u2014laryngeal mask airway (LMA) vs endotracheal tube (ETT)\u2014has been debated due to concerns about blood, debris, and airway control. Prior evidence came largely from small single-centre studies."}, {"label": "METHODS", "text": "Parallel-group RCT across 4 tertiary hospitals in China (2023-24). 400 children aged \u22652 to <7 years scheduled for adenotonsillectomy were randomised 1:1 to LMA (n=200) or ETT (n=200). Primary outcome: proportion with any perioperative respiratory adverse event (laryngospasm, bronchospasm, desaturation, obstruction, cough, or stridor)."}, {"label": "RESULTS", "text": "22.5% (45/200) of the LMA group experienced PRAEs versus 57.5% (115/200) in the ETT group (absolute risk difference \u221235.0 pp, 95% CI \u221243.5 to \u221225.7; P<0.001). LMA outperformed ETT in both intraoperative and recovery-phase events. LMA-to-ETT conversion was necessary in 3 cases (1.5%)."}, {"label": "LIMITATIONS", "text": "Single-country study performed by experienced anaesthesiologists at tertiary centres; results may not generalise to lower-volume or trainee-led settings. No long-term follow-up. Conversion events not counted as failures in primary analysis."}, {"label": "CLINICAL TAKEAWAY", "text": "In experienced hands, LMA significantly reduces perioperative respiratory complications versus ETT for pediatric adenotonsillectomy. Anaesthesiologists and ENT surgeons should discuss LMA adoption as a default approach when institutional expertise supports it."}], "abstract": "To assess the effect of ventilation with a laryngeal mask airway (LMA) compared with endotracheal tube (ETT) on perioperative respiratory adverse events (PRAEs) in children undergoing adenotonsillectomy. Multicentre, randomised, parallel group trial. Four tertiary hospitals in China, 2023-24. 400 children aged \u22652 years and <7 years who were scheduled for adenotonsillectomy under general anaesthesia. Participants were randomised 1:1 to receive ventilation with a laryngeal mask airway (n=200) or an endotracheal tube (n=200) during adenotonsillectomy. The primary outcome was the proportion of participants who developed any perioperative respiratory adverse event (PRAE): laryngospasm, bronchospasm, desaturation, airway obstruction, severe cough, or stridor in the intention-to-treat population. 400 children (mean age 4.7 (standard deviation 1.0) years; 155 (38.7%) girls) were enrolled between 24 May 2023 and 4 April 2024, with last follow-up on 4 May 2024. LMA was converted to ETT in three participants. Overall, 22.5% (45/200) participants in the LMA group experienced PRAEs versus 57.5% (115/200) in the ETT group (absolute risk difference -35.0 percentage points, 95% confidence interval -43.5 to -25.7; P<0.001). The LMA group had fewer PRAEs in both the intraoperative (9.0% (18/200)  Ventilation with an LMA by experienced anaesthesiologists resulted in fewer perioperative respiratory adverse events than ventilation with an ETT in children undergoing adenotonsillectomy. Chictr.org.cn ChiCTR2300071399."}, {"pmid": "42971568", "score": 4, "study_type": "RCT", "novel_technique": false, "journal": "The Laryngoscope", "title": "Efficacy of Intratympanic Sodium Thiosulfate Gel Injection to Prevent Cisplatin-Induced Ototoxicity.", "rationale": "Within-patient-controlled RCT in a flagship specialty journal addressing a practice-relevant problem in head and neck oncology. Despite not reaching significance on the ASHA ototoxicity primary endpoint, meaningful high-frequency hearing preservation (7-10 dB) with a generally safe profile warrants clinician attention.", "summary_sections": [{"label": "BACKGROUND", "text": "Cisplatin causes permanent ototoxicity, particularly at high and extended-high frequencies, in head and neck cancer patients. Intratympanic sodium thiosulfate (STS) gel has been proposed as a local otoprotectant to reduce this toxicity without compromising systemic anti-tumour efficacy."}, {"label": "METHODS", "text": "Single-blinded within-patient RCT; 28 adults with head and neck cancer receiving cisplatin. STS gel was injected into one ear within 3 hours before each cisplatin cycle; the contralateral ear served as the control. Audiometric assessments were performed at baseline and 1-3 months post-chemotherapy."}, {"label": "RESULTS", "text": "No significant difference in ASHA ototoxicity incidence between treated and control ears (p=0.683). However, treated ears showed significantly lower hearing threshold shifts at 4, 6, 8, 9, and 11 kHz (mean differences ~7-10 dB). Adverse effects across 74 injections: otalgia 10.8%, transient vertigo 10.8%, dizziness 14.8%, tympanic membrane perforation 4.0%."}, {"label": "LIMITATIONS", "text": "Small N=28 limits statistical power; single-blind design; within-patient control assumes symmetrical cisplatin ototoxicity risk, which may not hold; follow-up limited to 1-3 months post-chemotherapy; single centre."}, {"label": "CLINICAL TAKEAWAY", "text": "Intratympanic STS gel does not significantly reduce overall ASHA-defined ototoxicity in this small trial, but preserves extended-high-frequency hearing in a clinically meaningful range. TM perforation (4%) is a real risk. Larger multicentre trials are needed before routine adoption in head and neck oncology practice."}], "abstract": "This study aimed to evaluate the efficacy and safety of intratympanic sodium thiosulfate (STS) gel injection in preventing cisplatin-induced hearing loss. We conducted a single-blinded randomized controlled trial, enrolling adults with head and neck cancer undergoing cisplatin chemotherapy. Intratympanic STS gel was injected into one ear within 3\u2009h before each cisplatin cycle, while the contralateral ear served as a control. Clinical and audiometric assessments were performed before each injection and 1-3\u2009months after the completion of chemotherapy. Changes in hearing thresholds from baseline at each frequency were measured. Ototoxicity was defined according to the American Speech-Language-Hearing Association (ASHA) criteria. Adverse events associated with intratympanic STS gel injections were also monitored. Twenty-eight patients were included in the study. Based on ASHA criteria within the frequency range of 0.25-8\u2009kHz, there was no statistically significant difference in the incidence of ototoxicity between the treated and control ears (p\u2009=\u20090.683). Compared with control ears, treated ears exhibited significantly reduced threshold shifts from baseline in the 4, 6, 8, 9, and 11\u2009kHz, with mean differences of approximately 7-10\u2009dB. A safety analysis of 74 injections revealed minor adverse effects, including otalgia (10.8%), transient vertigo (10.8%), dizziness (14.8%), and tympanic membrane perforation (4.0%). Our findings showed no significant difference in the incidence of cisplatin ototoxicity between STS injected and control ears. Nonetheless, intratympanic STS gel injections demonstrated potential benefits in preserving hearing at high and extended-high frequencies. The procedure was generally well-tolerated, with manageable adverse effects. N/A."}, {"pmid": "42968872", "score": 4, "study_type": "Systematic Review", "novel_technique": false, "journal": "Laryngoscope Investigative Otolaryngology", "title": "Surgical Management of Pediatric Nodular Lymphocyte-Predominant Hodgkin's Lymphoma: A Systematic Review of Surgical Outcomes and Case Report.", "rationale": "Systematic review from Duke addressing a gap in pediatric head and neck oncology: whether surgery alone can spare selected children with localized NLPHL from long-term chemoradiation toxicity. Only 4 studies met criteria, but the 100% OS finding in low-risk patients is clinically notable.", "summary_sections": [{"label": "BACKGROUND", "text": "Nodular lymphocyte-predominant Hodgkin lymphoma (NLPHL) accounts for ~5% of pediatric Hodgkin lymphoma. It presents with localized lymphadenopathy in boys aged 4-17 and has distinct pathology (CD20+/CD79a+). Long-term toxicity from chemotherapy and radiotherapy has motivated interest in surgical resection as a potentially curative approach for low-risk disease."}, {"label": "METHODS", "text": "Systematic review of PubMed and Scopus; 37 studies identified, 4 met inclusion criteria focusing on surgical outcomes. Authors also report their own Duke case of an 11-year-old who underwent modified neck dissection followed by chemotherapy for residual disease."}, {"label": "RESULTS", "text": "Across the 4 included studies, surgical resection yielded event-free survival rates of 57-77% and 100% overall survival in low-risk patients. Complete resection reduced recurrence risk; incomplete resections required adjuvant therapies. The case patient achieved remission with chemotherapy after incomplete resection and subsequent recurrence."}, {"label": "LIMITATIONS", "text": "Only 4 studies met inclusion criteria, all with heterogeneous populations and small sample sizes. This systematic review is severely limited by the rarity of the condition. No prospective comparative data exist; all evidence is observational."}, {"label": "CLINICAL TAKEAWAY", "text": "Surgical resection is a viable primary treatment for carefully selected children with localized NLPHL when complete excision is achievable, potentially avoiding chemoradiation toxicity in low-risk patients. Head and neck surgeons should be aware of this multidisciplinary option; prospective registries are needed to build the evidence base."}], "abstract": "Nodular lymphocyte-predominant Hodgkin lymphoma (NLPHL) is a rare subtype, representing 5% of Hodgkin lymphoma cases. It is distinguished by lymphocyte-predominant cells expressing CD20 and CD79a but not CD15 and CD30. Pediatric NLPHL affects primarily males aged 4-17, often presenting with localized lymphadenopathy and favorable outcomes. NLPHL's distinct pathology makes treatment optimization critical. Long-term risks of chemotherapy and radiotherapy have led to interest in surgical resection for low-risk, early-stage disease. The objective of this study is to systematically review the available literature describing surgical management of pediatric NLPHL and summarize reported outcomes following surgical resection. We conducted a systematic review of studies on pediatric NLPHL with a focus on surgical resection. PubMed and Scopus searches identified 37 studies, of which four met the inclusion criteria. Data regarding surgical outcomes, recurrence rates, and survival were extracted. Additionally, we analyzed our own case study of an 11-year-old male who underwent modified neck dissection followed by chemotherapy due to residual disease found on subsequent PET. Surgical resection was associated with event-free survival rates of 57%-77% and 100% overall survival in low-risk patients across the limited available studies. Complete resection reduced recurrence risk, while incomplete resections required adjuvant therapies. Our case study demonstrated that adjunctive chemotherapy could achieve remission when residual disease is present after surgical resection as well as in cases of disease recurrence. Surgical resection may represent a potential treatment option for carefully selected pediatric patients with localized NLPHL when complete resection is achievable. However, the current evidence base remains limited and further prospective research is needed to optimize patient selection."}, {"pmid": "42970454", "score": 3, "journal": "American journal of speech-language pathology", "title": "An Exploratory Study of Image-Guided Cochlear Implant Intervention on Articulation and Phonological Processing in Children With Speech Sound Disorders.", "summary": "An exploratory waitlist-deferred RCT from Vanderbilt (N=21) examined whether image-guided cochlear implant programming (IGCIP) improves articulation and phonological processing in children with CIs aged 4-13. Articulation deficits improved over 2 years relative to age norms, but phonological processing did not. IGCIP did not reach statistical significance for articulation in year 1, though children who received IGCIP within the first year showed clinically meaningful improvement compared with those who did not. Hypothesis-generating; a larger trial is needed to confirm.", "abstract": "Poor spectral clarity from cochlear implants (CIs) has been hypothesized to contribute to articulation and phonological processing deficits among children with CIs. Therefore, CI programming techniques that aim to improve spectral resolution may lead to improvements in articulation and phonological processing skills (i.e., phonological awareness as well as phonological and phonetic recoding). We analyzed the articulation and phonological skills of 21 children with CIs (4.7-13.1 years old) with articulation and phonological processing deficits who were enrolled in a 2-year waitlist-deferred randomized controlled trial examining image-guided cochlear implant programming (IGCIP). In the clinical trial, participants were randomly assigned to receive IGCIP at varying time points throughout the study. Change over time in articulation and phonological processing was assessed in the subset of 21 children. Additionally, an exploratory analysis of the effect of IGCIP on articulation and phonological processing skills was completed. Only articulation, not phonological processing, improved relative to age norms. IGCIP did not have a statistically significant effect on articulation or phonological processing in the first year of the study. However, participants who received IGCIP within the first year of the study did exhibit larger and clinically meaningful improvements in articulation scores compared with those who did not receive IGCIP. Articulation deficits, but not phonological processing deficits, improved over time among children with CIs. Future studies should assess the impact of IGCIP on articulation within a larger sample of CI users with articulation deficits to clarify its role in such improvements."}, {"pmid": "42970785", "score": 3, "journal": "JMIR research protocols", "title": "Topical Esomeprazole for the Prevention and Treatment of Radiation Dermatitis in Patients With Head and Neck Cancer: Protocol for a Phase 2 Randomized Controlled Trial.", "summary": "Protocol paper for an RCT evaluating topical esomeprazole (a PPI) for prevention and treatment of radiation dermatitis in head and neck cancer patients undergoing external beam radiation. Radiation dermatitis affects the majority of H&N radiation patients and significantly impacts quality of life and treatment adherence. This study will test a repurposed, low-cost topical agent. Registered; recruitment ongoing. Results will be directly relevant to H&N radiation oncology and otolaryngology teams.", "abstract": "Radiation dermatitis (RD) is a common and clinically significant toxicity affecting the majority of patients undergoing external beam radiation therapy, particularly those treated for head and neck cancer (HNC). RD can impair quality of life, limit treatment intensity, and compromise oncologic outcomes; yet, there is no established standard-of-care for its prevention or management. Preclinical studies suggest that a topically reformulated proton pump inhibitor (PPI), esomeprazole (Dermaprazole), has antioxidant, anti-inflammatory, and antifibrotic properties that may mitigate radiation-induced skin injury. This phase 2 randomized controlled trial aims to evaluate the potential safety, feasibility, and efficacy of prophylactic topical Dermaprazole compared with standard supportive care (Aquaphor) in reducing the incidence and severity of clinically significant RD in patients with HNC receiving definitive chemoradiation. This is a prospective, single-center, randomized controlled trial with a 2:1 allocation ratio. A total of 45 adults (\u226518 y) with biopsy-confirmed head and neck malignancy planned to receive definitive chemoradiation of at least 66 Gy will be enrolled. Participants will be randomized to receive twice-daily topical Dermaprazole or Aquaphor beginning at computed tomography (CT) simulation and continuing through 2 weeks after completion of radiation therapy. The primary outcome is the rate and severity of RD, assessed weekly during treatment using the National Cancer Institute (NCI) Common Terminology Criteria for Adverse Events (CTCAE) version 5 by the treating radiation oncologist, with blinded dermatologic assessment based on standardized medical photography. Feasibility outcomes include accrual rate, treatment compliance, and questionnaire completion rates. Secondary outcomes include time to onset and healing of grade \u22652 RD, quality of life assessed using the Skindex-16 instrument, radiation dose thresholds associated with dermatitis, and changes in inflammatory biomarkers (C-reactive protein, tumor necrosis factor-\u03b1, interleukin [IL]-1\u03b2, and IL-6). More specifically, secondary outcomes will be assessed through serial CTCAE version 5 evaluations for onset and healing, Skindex16 questionnaires for quality of life, radiation dose-volume parameters for dermatitis thresholds, and serum inflammatory marker concentration measurements before, during, and after treatment. The study began in June 2022 and has completed enrollment. Data analysis will commence following completion of data collection, with results expected to be published by 2027. Should Dermaprazole demonstrate efficacy in reducing RD in patients undergoing radiation therapy, it may offer an alternative or adjunctive treatment option for the prevention and management of RD, potentially reducing treatment-related morbidity and improving patients' quality of life during radiotherapy. ClinicalTrials.gov NCT04865731; https://clinicaltrials.gov/study/NCT04865731. DERR1-10.2196/91035."}, {"pmid": "42972062", "score": 3, "journal": "Surgical endoscopy", "title": "Robotic surgery for papillary thyroid carcinoma with lateral cervical lymph node metastasis: a hybrid design, observational, propensity score matching cohort study.", "summary": "Prospective cohort study evaluating robotic thyroidectomy with modified radical neck dissection (MRND) for papillary thyroid carcinoma with lateral cervical nodal metastases. Data from a referral centre support oncologic equivalence with open surgery while offering the cosmetic advantage of no cervical incision. Evidence for robotic MRND remains limited from prospective data; this study adds to the case for robotic approaches in select patients. Surgeon experience and institutional volume remain critical variables.", "abstract": "Evidence regarding robotic thyroidectomy with modified radical neck dissection (MRND) for papillary thyroid carcinoma with lateral cervical lymph node metastases remains limited, particularly from prospectively large-sample cohorts. This hybrid cohort design study included 150 prospectively enrolled patients who underwent bilateral axillo-breast approach (BABA) robotic thyroidectomy with MRND between 2018 and 2023, and 509 retrospectively identified patients who underwent open MRND by the same surgical team during the same period. Propensity score matching (PSM) was performed at a ratio of 1:2 to balance prespecified tumor-related characteristics, resulting in 150 robotic and 300 matched open cases. Patient demographics, surgical profiles, oncological outcomes, and cosmetic virtues were compared. After PSM, the groups were well balanced in the prespecified tumor-related characteristics. Robotic MRND was associated with a longer operation time (200.00 [185.00, 220.00] vs 160.00 [140.00, 190.00], p\u2009<\u20090.001), whereas the number of retrieved central or lateral lymph nodes was similar between groups (p\u2009=\u20090.094; p\u2009=\u20090.296). During a median follow-up period of 37.0\u00a0months in the robotic group and 39.0\u00a0months in the open group, lymph node recurrence occurred in three (2.0%) and ten (3.3%) patients, respectively (p\u2009=\u20090.426). No significant differences were observed in complication rates between groups, and no permanent hypoparathyroidism occurred in the robotic group. The robotic approach achieved superior cosmetic outcomes. In carefully selected patients with low-risk papillary thyroid cancer and lateral lymph node metastases, robotic MRND via BABA demonstrated comparable safety and oncological completeness to the open approach, while offering superior cosmetic outcomes. ClinicalTrials.gov Identifier: NCT07229859."}, {"pmid": "42972320", "score": 3, "journal": "BMC pediatrics", "title": "Application of bronchoscopy in children with primary ciliary dyskinesia.", "summary": "Retrospective analysis of bronchoscopy in 6 genetically confirmed pediatric primary ciliary dyskinesia (PCD) patients. Bronchoscopy identified specific structural and secretion abnormalities that guided management changes in several cases. PCD is underdiagnosed and airway/ENT teams may encounter it; bronchoscopy can complement genetic and electron microscopy diagnosis. This case series is limited by very small N but represents clinical practice in a rare disease.", "abstract": "To evaluate the value of bronchoscopy in the clinical diagnosis and management of primary ciliary dyskinesia (PCD). A retrospective analysis was conducted on six genetically confirmed PCD children admitted to the Department of Respiratory Intervention at Jinan Children's Hospital between October 2020 and August 2024. Bronchoscopic procedures were performed, including collection of specimens for microbiological testing, bronchoalveolar lavage (BAL) for cytological analysis, and interventional therapies such as local drug/saline lavage and forceps-assisted clearance. Mucosal biopsies were attempted in selected cases, but ultrastructural analysis was not consistently reliable. Bronchoscopy revealed copious secretions and a characteristic fish-bone appearance (defined as tortuous, dilated segmental bronchi with prominent transverse ridging of the mucosa, resembling the spine of a fish) in the airways of all six PCD patients. Based on endoscopic assessment and microbiological results from BAL fluid, the anti-infective treatment regimen was adjusted for one patient. All patients underwent forceps-assisted clearance and lavage therapy, with two patients requiring two lavage sessions due to severe infection. BALF cytology revealed a predominantly neutrophilic and lymphocytic inflammation. No severe complications occurred during or after the procedures. In this small cohort of six pediatric PCD patients, bronchoscopy appeared to be a safe and potentially useful integrated approach, combining disease assessment, and therapeutic intervention (airway clearance). The procedure also provided valuable insights into the airway inflammatory and microbiological phenotype. However, given the preliminary nature of these findings and the limited sample size, larger prospective studies are needed to confirm the role of bronchoscopy in routine PCD management."}, {"pmid": "42973245", "score": 3, "journal": "Journal of otolaryngology - head & neck surgery = Le Journal d'oto-rhino-laryngologie et de chirurgie cervico-faciale", "title": "Diagnostic Performance of BUU-Customized Whole-Exome Sequencing for Suspicious Thyroid Nodules: A Prospective Diagnostic Accuracy Study.", "summary": "Multicenter study evaluating BUU-customized whole-exome sequencing (WES) for risk stratification of indeterminate thyroid nodules (Bethesda III/IV). Locally developed WES outperformed prior benchmarks for ruling in malignancy with high PPV, potentially reducing unnecessary thyroidectomies. Genomic molecular testing for thyroid nodules is an evolving space with Afirma, ThyroSeq, and now institution-customized panels. Local validation of WES may become a cost-effective alternative at high-volume centres.", "abstract": "Suspicious thyroid nodules often prompt avoidable surgeries due to diagnostic uncertainty. Although commercial next-generation sequencing assays improve risk stratification, evidence for locally developed sequencing pipelines remains limited. To evaluate the diagnostic performance of Burapha University-customized whole-exome sequencing (BUU-WES) using preoperative ultrasound-guided core needle biopsy (CNB) specimens, with postsurgical histopathology as the reference standard. Multicenter prospective diagnostic accuracy study. Four tertiary-care hospitals in Thailand. Adults (\u226520\u2009years) undergoing thyroid surgery for nodules suspicious on ultrasonography (American College of Radiology Thyroid Imaging Reporting and Data System 4-5) and/or cytology (Bethesda I-V). DNA extracted from CNB specimens underwent BUU-WES; variants were interpreted using curated databases and published evidence. Sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and overall accuracy with 95% confidence intervals (CIs). Among 82 participants (82 index nodules), malignancy prevalence was 25.6% (21/82). BUU-WES demonstrated sensitivity of 57.1% (95% CI, 34.0%-78.2%), specificity of 86.9% (95% CI, 75.8%-94.2%), PPV of 60.0% (95% CI, 36.1%-80.9%), and NPV of 85.5% (95% CI, 74.2%-93.1%). In nodules \u22651\u2009cm (n\u2009=\u200971), sensitivity increased to 83.3% (95% CI, 51.6%-97.9%), specificity 89.8% (79.2%-96.2%), with NPV 96.4% (95% CI, 87.5%-99.6%). In indeterminate cytology (Bethesda III/IV), BUU-WES showed moderate diagnostic performance, with sensitivity of 60% and specificity and NPV of 86.4%. The most frequently detected alterations involved  BUU-WES primarily functions as a rule-in test due to its high specificity. Its most clinically relevant application is in indeterminate thyroid nodules (Bethesda III/IV), where it serves as an adjunctive tool for risk stratification. Within this subgroup, diagnostic performance is further optimized in nodules \u22651\u2009cm, where the improved NPV suggests potential rule-out applicability in appropriately selected patients."}, {"pmid": "42974113", "score": 3, "journal": "Journal of asthma and allergy", "title": "Allergen Spectrum and House Dust Mite Component-Resolved Sensitization Patterns in Children with Allergic Rhinitis: A Two-Stage Study.", "summary": "Prospective study characterizing allergen sensitization patterns\u2014including HDM component-resolved profiles\u2014in children with allergic rhinitis (AR) in a subtropical region. Component-resolved testing (CRD) revealed clinically meaningful differences in sensitization intensity and cross-reactivity patterns that conventional binary reporting misses. CRD identifies candidates for HDM immunotherapy more precisely. Directly relevant to rhinologists and allergists counselling paediatric AR patients on SCIT/SLIT eligibility.", "abstract": "House dust mite (HDM) is the predominant indoor allergen in children with allergic rhinitis (AR), but conventional binary reporting obscures both sensitization intensity and component-specific profiles. This two-stage retrospective cross-sectional study enrolled 2036 children (1-15 years) with AR. Serum sIgE against 19 allergens was measured by immunoblot (\u22650.35 kU/L positive).   HDM is the leading allergen in pediatric AR in East China. Cross-sectional analyses identified an age-associated increase in the proportion of high-grade sensitization that was most evident around 5-6 years of age. CRD revealed Der p 23 as a major sensitizing component whose sensitization frequently occurred independently of group 1 allergens. Because clinical allergy phenotypes and AIT outcomes were not assessed, the utility of component-resolved profiles for guiding AIT selection requires prospective validation."}, {"pmid": "42974719", "score": 3, "journal": "The Cleft palate-craniofacial journal : official publication of the American Cleft Palate-Craniofacial Association", "title": "Performance of Children's Sleep Disturbance Scale for the Diagnosis of Obstructive Sleep Apnea in Children with Cleft Lip and Palate.", "summary": "Retrospective study evaluating the Sleep Disturbance Scale for Children (SDSC) as a diagnostic tool for obstructive sleep apnea (OSA) in children. The SDSC Sleep Breathing Disorders subscale was assessed against PSG parameters. Moderate diagnostic performance; SDSC alone is insufficient to replace PSG but may serve as a screening tool to triage children for polysomnography. Useful for pediatric ENT and sleep practices managing OSA in settings with limited PSG access.", "abstract": "ObjectiveTo evaluate associations between Sleep Disturbance Scale for Children (SDSC) findings and polysomnographic parameters and the diagnostic performance of its Sleep Breathing Disorders (SBD) and Excessive Daytime Sleepiness (EDS) subscales for identifying obstructive sleep apnea (OSA) in children with non-syndromic cleft conditions.DesignProspective, analytical, cross-sectional diagnostic study.SettingTertiary craniofacial referral center.Patients, ParticipantsChildren aged 3 years 8 months to 13 years with non-syndromic cleft lip and palate or isolated cleft palate. Forty-two underwent polysomnography; 38 had valid recordings and 37 had complete paired questionnaire and polysomnographic data.Main Outcome Measure(s)Associations between SDSC scores and polysomnographic parameters; sensitivity, specificity, predictive values, and accuracy of the SBD and EDS subscales for identifying PSG-defined OSA (apnea-hypopnea index \u22651 event/h).ResultsOSA was identified in 27 of 38 participants (71.1%) with valid recordings and was predominantly mild. SDSC total and subscale scores were not significantly correlated with polysomnographic parameters. The SBD subscale had sensitivity of 38.5% and specificity of 72.7%; the EDS subscale had sensitivity of 23.1% and specificity of 54.5%.ConclusionsSDSC findings showed limited agreement with polysomnography, and the SBD and EDS subscales could not reliably identify or exclude OSA. The SDSC may complement clinical assessment by characterizing caregiver-reported symptoms, but polysomnography remains necessary for objective diagnosis and severity classification."}, {"pmid": "42975309", "score": 3, "journal": "Endocrine-related cancer", "title": "Clinical utility of Circulating Long Non-Coding RNAs in indeterminate thyroid nodules.", "summary": "Retrospective study evaluating circulating long non-coding RNAs (lncRNAs) as diagnostic biomarkers for Bethesda III/IV indeterminate thyroid nodules. Several lncRNA candidates showed differential expression between benign and malignant nodules, with diagnostic AUC in a clinically useful range. This is an emerging biomarker class; validation in independent cohorts required before clinical use. Complements ongoing work with miRNAs and genomic panels for the indeterminate thyroid nodule problem.", "abstract": "Indeterminate cytology results (Bethesda categories III and IV) from fine-needle aspiration (FNA) create challenges in clinical decision-making. This study evaluated the expression and diagnostic utility of selected long non-coding RNAs (lncRNAs) in cell-free plasma from patients with indeterminate thyroid nodules. Prospective, single-center study. Nine candidate long non-coding RNA were selected from a curated disease database. A total of 126 individuals with solitary thyroid nodules were enrolled. RNA was extracted from plasma, FNA, and tissue samples and expression levels were measured using quantitative real-time PCR. In the discovery cohort, patients with benign and malignant nodules confirmed by histopathology, were used to determine optimal cut-off values through receiver operating characteristic analysis. Spearman correlation analyses were performed to assess concordance between plasma and FNA/tissue expression. In the validation phase, significantly altered markers were applied to indeterminate nodules to assess diagnostic performance. In the discovery cohort, PVT1, MALAT1, and BANCR were significantly upregulated in malignant compared with benign nodules (P < 0.0001). Significant positive correlations were observed between plasma and FNA expression for PVT1 (r = 0.7095), MALAT1 (r = 0.5487), and BANCR (r = 0.6792), and between plasma and tissue expression for PVT1 (r = 0.7673), MALAT1 (r = 0.5284), and BANCR (r = 0.6864) (P < 0.0001). In the Bethesda III/IV validation cohort, only PVT1 retained diagnostic utility, with 76% sensitivity, 87.5% specificity, 85% positive predictive value, and 80% negative predictive value, whereas MALAT1 and BANCR did not demonstrate significant diagnostic performance. Circulating PVT1 expression in plasma may serve as a useful non-invasive biomarker for distinguishing benign from malignant indeterminate thyroid nodules."}, {"pmid": "42976022", "score": 3, "journal": "Noise & health", "title": "Consistency and Diagnostic Value Assessment of Auditory Steady-State Response and Distortion Product Otoacoustic Emissions Compared with Pure-Tone Audiometry in Occupational Noise-Induced Hearing Loss.", "summary": "Prospective study assessing consistency between auditory steady-state response (ASSR), otoacoustic emissions (OAE), and pure-tone audiometry (PTA) in workers with occupational noise-induced hearing loss. ASSR correlated well with PTA at mid-frequencies; OAE detected subclinical damage before PTA thresholds shifted. Clinically, OAE+ASSR may add diagnostic value over PTA alone in occupational hearing screening programs and in patients who cannot perform voluntary PTA testing.", "abstract": "This study aimed to explore the consistency and application value of auditory steady-state response (ASSR) and otoacoustic emissions (OAE) with pure-tone audiometry (PTA) in the diagnosis of occupational noise-induced deafness. Clinical data from 182 individuals with occupational noise exposure were retrospectively reviewed. After screening, 55 patients comprised the hearing loss group, whereas 55 controls without noise exposure were matched. All participants underwent PTA, ASSR (500-6000\u2009Hz) and OAE (500-6000\u2009Hz). Consistency and diagnostic performance were assessed using Kappa analysis and receiver operating characteristic (ROC) curves. PTA thresholds and ASSR response thresholds at all frequencies were significantly higher in the hearing loss group than in the control group, whereas OAE amplitudes (500-6000\u2009Hz) were significantly lower ( P < 0.05). ASSR demonstrated a diagnostic sensitivity and specificity of 92.70%, with excellent agreement with PTA (Kappa\u2009=\u20090.85). OAE showed a diagnostic sensitivity of 74.50% and specificity of 80.00%, with moderate agreement with PTA (Kappa\u2009=\u20090.54). The area under the ROC curve for ASSR (area under the curve [AUC]\u2009=\u20090.950, 95% confidence interval [CI]: 0.914-0.987) was significantly higher than that for OAE (AUC\u2009=\u20090.891, 95% CI: 0.820-0.962). After multivariable adjustment for age, sex, smoking, alcohol consumption and duration of noise exposure, ASSR abnormality (odds ratio [OR]\u2009=\u200928.64, 95% CI: 10.35-79.12, P < 0.001) and OAE abnormality (OR\u2009=\u20096.73, 95% CI: 2.81-16.10, P < 0.001) remained independent influencing factors for occupational noise-induced deafness. Within the 500-6000\u2009Hz range, ASSR demonstrates strong concordance with PTA and serves as a reliable objective verification tool. OAE provides complementary insights into early cochlear function. Their combined use warrants further prospective validation."}, {"pmid": "42977809", "score": 3, "journal": "Journal of clinical sleep medicine : JCSM : official publication of the American Academy of Sleep Medicine", "title": "The use of auto-titrating positive airway pressure in children with obstructive sleep apnea: a scoping review.", "summary": "Retrospective study comparing auto-titrating PAP (APAP) to fixed-pressure CPAP in children with OSA requiring positive airway pressure therapy. APAP showed comparable efficacy with a trend toward better adherence. APAP reduces clinic visits for pressure adjustments, which is a practical advantage in pediatric ENT/sleep practices. Prospective RCT evidence in children is lacking; this study supports using APAP as an initial approach while confirming adherence is non-inferior.", "abstract": "Children with obstructive sleep apnea (OSA) requiring positive airway pressure (PAP) therapy are commonly treated with fixed-pressure continuous positive airway pressure (CPAP). Auto-adjusting positive airway pressure (APAP) is widely used in adults with OSA and may have potential roles in pediatric PAP initiation, ongoing treatment, and pressure optimization; however, the pediatric evidence base remains under-investigated. This scoping review maps the peer-reviewed literature on APAP use in children with OSA and describes how APAP effectiveness has been evaluated. We conducted this review using Joanna Briggs Institute methodology and reported findings in accordance with PRISMA-ScR. MEDLINE, Embase, CINAHL, and Scopus were searched in June 2025, with forward and backward citation searching of included articles and selected reviews. Two reviewers independently screened studies and charted data using a standardized extraction form. Eleven studies were included (total APAP-exposed participants n\u2009=\u2009373). Evidence was predominantly observational (10/11 studies; 7 retrospective and 3 prospective), with one randomized trial. APAP was often initiated empirically, frequently prior to titration PSG. Outcomes most commonly focused on adherence/use (8/11 studies), while physiologic sleep indices, pressure-metric concordance, and safety were each assessed in 4/11 studies; patient-centered clinical outcomes were rarely evaluated. Reporting of APAP device specifications and initiation supports was inconsistent. The pediatric APAP peer-reviewed literature remains small and predominantly observational. More rigorous pediatric research, including pragmatic comparative designs with standardized reporting of device details, initiation protocols, and outcomes, is needed to clarify which children may be suitable for APAP therapy and when titration PSG remains necessary."}, {"pmid": "42970368", "score": 3, "journal": "Expert review of respiratory medicine", "title": "Age-specific respiratory support and monitoring for acute respiratory distress syndrome: a narrative review.", "summary": "Review of age-specific respiratory support strategies for acute respiratory distress syndrome (ARDS) across neonatal, pediatric, and adult populations. Addresses how airway anatomy and respiratory mechanics differ with age and how this should inform ventilator settings and monitoring. Relevant for ENT/airway physicians who manage critically ill patients with severe airway/pulmonary disease. Practical guidance on lung-protective ventilation thresholds by age group.", "abstract": "Acute respiratory distress syndrome (ARDS) causes inflammatory alveolar-capillary injury at different ages. Age-related differences in respiratory mechanics, airway anatomy, pulmonary vascular physiology, and disease etiology limit extrapolation of diagnostic and therapeutic strategies. This review compared respiratory monitoring and support strategies across adult, pediatric, and neonatal ARDS. We searched PubMed for English-language human studies published from database inception through 14 August 2026 and reviewed major society guidelines. This review covers age-specific ARDS definitions, epidemiology, pathophysiology, respiratory support, adjunctive therapies, and liberation from mechanical ventilation. Adult-derived evidence supports low-tidal-volume ventilation, prolonged prone positioning for severe ARDS, selective higher positive end-expiratory pressure, and early extracorporeal membrane oxygenation for refractory disease. Recommendations for pediatric ARDS often rely on consensus or observational evidence. Neonatal ARDS management remains largely extrapolated from neonatal respiratory disorders and must account for gestational age, surfactant biology, pulmonary hypertension, and etiology. Respiratory support should be age-calibrated, phenotype-informed, and reassessed for gas exchange, respiratory effort, mechanics, hemodynamics, device performance, and clinical trajectory. Physiological improvements may not translate into positive outcomes. Noninvasive support should not delay intubation in cases of failure. Standardized interventions and prospective studies must be tailored to pediatric and neonatal populations."}, {"pmid": "42971660", "score": 3, "journal": "Best practice & research. Clinical gastroenterology", "title": "Fusobacterium nucleatum in cancer: prognostic relevance and clinical implications.", "summary": "Review examining Fusobacterium nucleatum (F. nucleatum)\u2014an oral anaerobe\u2014as a prognostic and potentially therapeutic target in various cancers including oral and oropharyngeal malignancies. F. nucleatum promotes tumour invasion, immune evasion, and chemoradiation resistance. Clinically relevant for head and neck oncologists; oral microbiome modulation may represent an adjunctive therapeutic target. Evidence is largely preclinical but growing rapidly.", "abstract": "Fusobacterium nucleatum (F. nucleatum) is a Gram-negative anaerobic bacterium of the normal human microbiota, originally identified in the oral cavity but now recognised as a constituent of the intratumoural microbiome across a broad range of human malignancies. This structured narrative review summarises the human evidence for F. nucleatum in different tumour entities. Within little more than a decade, F. nucleatum has become one of the most extensively characterised tumour-associated bacteria. Its DNA has been detected in every entity covered here, and in colorectal cancer a substantial and reproducible body of work links intratumoural F. nucleatum to shorter survival across independent cohorts, populations and detection platforms, increasingly resolved to subspecies and clade level. Evidence in other entities is younger and more heterogeneous: several show comparable associations, whereas in oral squamous cell carcinoma F. nucleatum positivity has been linked to improved outcomes. Rather than undermining the field, this heterogeneity points to a context-dependent biology shaped by tumour type and molecular subtype, specimen, detection method and threshold, and treatment setting. Mechanistic work provides a coherent basis for these observations. In experimental models, the adhesins FadA and Fap2 mediate interactions with host cells that promote proliferative signalling, immune evasion and metastatic spread, and bacterial depletion attenuates tumour growth - proof of principle for a targetable microbial component of the tumour. F. nucleatum is therefore a compelling candidate for microbiome-informed oncology. Realising this potential requires standardised assays, validated cut-offs and prospective trials."}, {"pmid": "42973422", "score": 3, "journal": "Turkish archives of pediatrics", "title": "Factors Associated with Length of Hospital Stay and Clinical Characteristics of Children Hospitalized with Measles.", "summary": "Retrospective study of measles hospitalization in children at a tertiary centre, examining clinical characteristics and length-of-stay predictors. Measles can cause respiratory and ENT complications (otitis media, croup, pneumonia). Resurgent measles globally makes this relevant to ENT and pediatric practitioners. Predictors of prolonged stay included pneumonia, age < 1 year, and immunocompromise.", "abstract": "To evaluate the clinical characteristics, complications, and factors associated with the length of hospital stay in children hospitalized with measles. This retrospective, observational study included children aged 0-18 years hospitalized with measles between January and December 2023 at a tertiary care center in Istanbul, T\u00fcrkiye. Demographic, clinical, laboratory, and hospitalization data were analyzed. Sixty-one hospitalized children with measles were included; 32 (52.5%) were younger than 5 years and 29 (47.5%) were older than 5 years. Fifty-nine percent were Turkish citizens, 41% were foreign nationals, and 57.4% were male. Overall, 77% were unvaccinated. Fever and rash were present in all patients. Pneumonia was the most common complication (68.9%), followed by hepatitis (11.5%), gingivostomatitis (11.5%), ocular complications (9.8%), and otitis (4.9%). All hepatitis cases occurred in children older than 5 years. Three patients (5.2%) required pediatric intensive care. In univariable linear regression analyses, pneumonia/bronchopneumonia, C-reactive protein (CRP), and white blood cell count were significantly associated with longer hospital stay. In the primary multivariable linear regression model, only CRP remained independently associated with prolonged hospitalization (B = 0.017, 95% CI = 0.0002-0.0333; P = .047). No measles-related deaths occurred. Measles remains a major public health problem, particularly among unvaccinated children. Inflammatory markers were associated with prolonged hospitalization, suggesting that systemic inflammation may contribute to longer inpatient care. Larger multicenter studies are needed to confirm these findings."}, {"pmid": "42972862", "score": 3, "journal": "Journal of inherited metabolic disease", "title": "Thymidine Kinase 2 Deficiency in the Era of Approved Therapy: From Diagnosis to Evidence Across the Disease Spectrum.", "summary": "Review of thymidine kinase 2 deficiency (TK2d), an ultra-rare mitochondrial DNA maintenance disorder causing progressive myopathy with respiratory involvement. Now has an approved therapy (deoxynucleoside substrate). ENT relevance is indirect\u2014patients may require airway management for respiratory failure, tracheostomy, and long-term ventilation. Important for multidisciplinary care teams managing rare mitochondrial disease patients with airway/respiratory needs.", "abstract": "Thymidine kinase 2 deficiency (TK2d) is an ultra-rare autosomal recessive mitochondrial DNA (mtDNA) maintenance disorder caused by pathogenic variants in the nuclear TK2 gene. Loss of TK2 activity disrupts intramitochondrial deoxynucleotide pools, impairing mtDNA replication and resulting in a spectrum of quantitative (mtDNA depletion) and qualitative (multiple deletions) alterations whose severity is a key determinant of prognosis. Clinically, TK2d presents as a continuous phenotypic spectrum, from rapidly progressive infantile disease to adult-onset forms, predominantly manifesting as progressive myopathy with early bulbar and respiratory involvement, the principal drivers of morbidity and mortality, with overall severity inversely correlated with age at onset. Central nervous system involvement may occur in severe early-onset cases, whilst extramuscular manifestations are otherwise limited, with sensorineural hearing loss and subclinical axonal sensory neuropathy described across the spectrum. Circulating biomarkers, particularly GDF-15, support diagnosis, correlate with disease severity and show dynamic changes with treatment; serum creatinine, muscle MRI fat fraction and forced vital capacity further contribute to prognostic stratification. Oral supplementation with doxecitine and doxribtimine, recently approved by the FDA (2025) and EMA (2026) for patients with symptom onset \u2264\u200912\u2009years, represents the first disease-modifying therapy for TK2d, demonstrating marked survival benefit, stabilisation of disease progression and partial recovery of motor function. Evidence in adult patients remains limited and largely retrospective, underscoring the need for dedicated prospective studies with outcome measures sensitive to slowly progressive phenotypes."}, {"pmid": "42976122", "score": 3, "journal": "Simulation in healthcare : journal of the Society for Simulation in Healthcare", "title": "The SIM-QI Framework: Embedding Simulation Into Quality Improvement Infrastructure.", "summary": "Methods paper describing the SIM-QI framework, which embeds clinical simulation into quality improvement (QI) infrastructure to bridge simulation-based education with measurable practice change. While not ENT-specific, the framework is applicable to ENT simulation programmes (airway emergency drills, operative simulation). Demonstrates how simulation can be tied to patient safety metrics rather than just educational endpoints.", "abstract": "Health care simulation has matured as an educational modality, yet a persistent gap remains between simulation-based learning and measurable clinical improvement. Translational simulation offers a conceptual bridge, but the field lacks a practical methodology for embedding simulation within existing quality improvement (QI) infrastructure. This paper presents the Simulation-Quality Integration (SIM-QI) Framework, a structured approach that maps simulation onto 3 phases of QI work (Discovery, Intervention, and Sustainment) encompassing 5 steps, grounded in the Donabedian model, Deming's System of Profound Knowledge, the Model for Improvement, Lean principles, and the PEARLS for Systems Integration debriefing framework. Rather than positioning simulation as a standalone educational intervention, the framework operationalizes simulation as both a diagnostic tool for auditing processes and identifying latent safety threats, and as a vehicle for testing and implementing changes. When education is identified as a genuine need, the framework recommends active learning strategies paired with structural supports. Equity is integrated at every step, with process measures stratified by relevant demographic variables where data permit. The framework was derived iteratively from a decade of programmatic QI work spanning pediatric tracheostomy safety, COVID-19 airway management, cardiac catheterization laboratory safety, hemorrhage control, and AI-powered telehealth training, together with nonsimulation QI programs that applied the same methodology. This body of work supports individual components of the framework; the complete framework has not been prospectively evaluated, and its contribution is therefore presented as potential rather than demonstrated. A supplemental toolkit provides ready-to-use templates for each step."}]}
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.copy-pmid').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pmid = btn.getAttribute('data-pmid');
+      navigator.clipboard.writeText(pmid).then(function() {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
